@@ -1,22 +1,13 @@
 [gd_scene format=3 uid="uid://ciq4ss7nyk45a"]
 
-[ext_resource type="PackedScene" uid="uid://dk01ohbsv8486" path="res://Items/item_base.tscn" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://Inventory/bag.tscn" id="2_6l7je"]
 
 [node name="MainScene" type="Node2D" unique_id=1110424414]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1800022684]
-layer = -1
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=285866639]
 
-[node name="Bag" parent="CanvasLayer" unique_id=229211553 instance=ExtResource("2_6l7je")]
+[node name="Bag" parent="CanvasLayer" unique_id=12638333 instance=ExtResource("2_6l7je")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.0
-offset_top = 119.0
-offset_right = 0.0
-offset_bottom = 119.0
-grow_vertical = 1
-
-[node name="ItemBase" parent="." unique_id=1671155843 instance=ExtResource("1_52fb6")]
-position = Vector2(570, 365)
+grow_horizontal = 2

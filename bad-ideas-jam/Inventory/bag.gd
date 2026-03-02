@@ -1,15 +1,22 @@
 extends Control
 class_name Bag
 
-@onready var inventory_slot_container: VBoxContainer = $InventorySlotContainer
+@export var inventory: Inv
+@export var slots_num: int = 1
 
-const INVENTORY_SLOT = preload("uid://crrd2wadq3nf4")
+@onready var grid_container: GridContainer = $GridContainer
+
+const INV_UI_SLOT = preload("uid://dijoj8qysu0hg")
+
+var slots: Array = []
 
 func _ready() -> void:
-	for n in range(3):
-		var h_box_containner = HBoxContainer.new()
-		inventory_slot_container.add_child(h_box_containner)
-		h_box_containner.add_theme_constant_override("separation", 40)
-		for i in range(5):
-			var slot = INVENTORY_SLOT.instantiate()
-			h_box_containner.add_child(slot)
+	for i in slots_num:
+		var slot = INV_UI_SLOT.instantiate()
+		grid_container.add_child(slot)
+		slots.append(slot)
+	update_slots()
+
+func update_slots():
+	for i in range(min(inventory.items.size(), slots.size())):
+		slots[i].update(inventory.items[i])

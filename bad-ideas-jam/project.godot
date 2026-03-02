@@ -23,6 +23,11 @@ Drag={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Slot"
+2d_physics/layer_2="Item"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
