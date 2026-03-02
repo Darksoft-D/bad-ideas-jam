@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://crrd2wadq3nf4"]
+
+[ext_resource type="Script" uid="uid://p7mq0gmyohfs" path="res://inventory_slot.gd" id="1_68pn2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpqwp"]
+bg_color = Color(0.003921569, 0.003921569, 0.003921569, 0.47058824)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ded5v"]
+size = Vector2(40, 40)
+
+[node name="InventorySlot" type="Control" unique_id=1056553382]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_68pn2")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1239025788]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gpqwp")
+
+[node name="Area" type="Area2D" parent="." unique_id=309117013]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=466353916]
+shape = SubResource("RectangleShape2D_ded5v")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="mouse_entered" from="Area" to="." method="_on_area_mouse_entered"]
