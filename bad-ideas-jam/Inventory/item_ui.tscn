@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dk3ifj8pbnten"]
+
+[ext_resource type="Script" uid="uid://cwd8c2sv0lcwq" path="res://Inventory/item_ui.gd" id="1_8ahpx"]
+
+[node name="ItemUI" type="TextureRect" unique_id=600560121]
+custom_minimum_size = Vector2(40, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+expand_mode = 2
+script = ExtResource("1_8ahpx")

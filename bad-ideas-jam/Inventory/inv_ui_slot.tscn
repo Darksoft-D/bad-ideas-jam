@@ -1,22 +1,24 @@
 [gd_scene format=3 uid="uid://dijoj8qysu0hg"]
 
 [ext_resource type="Script" uid="uid://knfl83dtbroo" path="res://Inventory/inv_ui_slot.gd" id="1_s06lr"]
+[ext_resource type="Texture2D" uid="uid://b1usdel85uamu" path="res://assets/backpack_gamejam.png" id="1_x8d8c"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivrj8"]
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+[sub_resource type="AtlasTexture" id="AtlasTexture_20w12"]
+atlas = ExtResource("1_x8d8c")
+region = Rect2(162, 72, 9, 9)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t7ayl"]
+texture = SubResource("AtlasTexture_20w12")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8d8c"]
+atlas = ExtResource("1_x8d8c")
+region = Rect2(234, 72, 9, 9)
 
 [node name="InvUISlot" type="Panel" unique_id=1023083226]
 custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ivrj8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_t7ayl")
 script = ExtResource("1_s06lr")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1807234616]
@@ -24,17 +26,14 @@ custom_minimum_size = Vector2(40, 40)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
-[node name="Panel" type="Panel" parent="CenterContainer" unique_id=1631239352]
+[node name="SelectTexture" type="TextureRect" parent="CenterContainer" unique_id=1927826622]
+visible = false
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_x8d8c")
 
-[node name="ItemDisplay" type="Sprite2D" parent="CenterContainer/Panel" unique_id=1433141431]
-position = Vector2(-20, -20)
-
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/Panel" unique_id=1796929190]
-layout_mode = 0
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-expand_mode = 2
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
