@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bn3d2cxwpibt1"]
+
+[ext_resource type="PackedScene" uid="uid://bq3iw0f5qhwsh" path="res://Enemies/entity.tscn" id="1_8xgo2"]
+[ext_resource type="Texture2D" uid="uid://cjg6fxhhsdb2q" path="res://icon.svg" id="2_7mise"]
+
+[node name="Slime" unique_id=673946979 instance=ExtResource("1_8xgo2")]
+max_health = 5
+
+[node name="Sprite2D" parent="." index="0" unique_id=1044903095]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7mise")
+
+[node name="HPBar" parent="." index="1" unique_id=93003711]
+offset_left = -12.0
+offset_top = -15.0
+offset_right = 12.0
+offset_bottom = -13.0

@@ -29,6 +29,8 @@ func _input(event: InputEvent) -> void:
 
 func update(get_item: InvItem):
 	if !get_item or item:
+		if item_ui:
+			item_ui.queue_free()
 		return
 	print("update")
 	item = get_item

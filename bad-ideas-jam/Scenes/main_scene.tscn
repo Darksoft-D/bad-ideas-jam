@@ -1,13 +1,186 @@
-[gd_scene format=3 uid="uid://ciq4ss7nyk45a"]
+[gd_scene format=4 uid="uid://ciq4ss7nyk45a"]
 
+[ext_resource type="Script" uid="uid://cl8bu5onv7pmx" path="res://Scenes/main_scene.gd" id="1_maf8m"]
+[ext_resource type="Script" uid="uid://cytj38mtg8ceg" path="res://Scenes/loot_manager.gd" id="1_x6ack"]
+[ext_resource type="Script" uid="uid://dah435we4cfau" path="res://Items/item.gd" id="2_6ev3c"]
 [ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://Inventory/bag.tscn" id="2_6l7je"]
+[ext_resource type="PackedScene" uid="uid://bn3d2cxwpibt1" path="res://Enemies/slime.tscn" id="2_huasi"]
+[ext_resource type="Texture2D" uid="uid://b1usdel85uamu" path="res://assets/backpack_gamejam.png" id="2_jv6wh"]
+[ext_resource type="Resource" uid="uid://ci4g6bucq3sqd" path="res://Inventory/loot_inv.tres" id="3_jv6wh"]
+[ext_resource type="Resource" uid="uid://c0h2s2m0sy2y3" path="res://Items/item.tres" id="3_maf8m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x6ack"]
+texture = ExtResource("2_jv6wh")
+6:0/0 = 0
+7:0/0 = 0
+12:0/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+1:9/0 = 0
+1:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_iacmt"]
+sources/0 = SubResource("TileSetAtlasSource_x6ack")
 
 [node name="MainScene" type="Node2D" unique_id=1110424414]
+script = ExtResource("1_maf8m")
+enemies = Array[PackedScene]([ExtResource("2_huasi")])
+
+[node name="LootManager" type="Node" parent="." unique_id=1730028833]
+script = ExtResource("1_x6ack")
+items = Array[ExtResource("2_6ev3c")]([ExtResource("3_maf8m")])
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1671503317]
+position = Vector2(-14, 0)
+scale = Vector2(0.9, 0.9)
+tile_map_data = PackedByteArray("AAD3//r/AAAEAAgAAAD3//v/AAAEAAkAAAD3//z/AAAEAAoAAAD3//3/AAAEAAsAAAD3//7/AAACAAsAAAD3////AAACAAsAAAD3/wAAAAACAAsAAAD3/wEAAAACAAsAAAD3/wIAAAACAAsAAAD3/wMAAAAEAAsAAAD4//r/AAAFAAgAAAD4//v/AAAFAAkAAAD4//z/AAAFAAoAAAD4//3/AAAFAAsAAAD4//7/AAADAAsAAAD4////AAADAAsAAAD4/wAAAAADAAsAAAD4/wEAAAADAAsAAAD4/wIAAAADAAsAAAD4/wMAAAAFAAsAAAD5//r/AAACAAgAAAD5//v/AAACAAsAAAD5//z/AAAGAAoAAAD5//3/AAAGAAsAAAD5//7/AAAGAAoAAAD5////AAAGAAsAAAD5/wAAAAAGAAoAAAD5/wEAAAAGAAsAAAD5/wIAAAAGAAoAAAD5/wMAAAAGAAsAAAD6//r/AAADAAgAAAD6//v/AAADAAsAAAD6//z/AAAHAAoAAAD6//3/AAAHAAsAAAD6//7/AAAHAAoAAAD6////AAAHAAsAAAD6/wAAAAAHAAoAAAD6/wEAAAAHAAsAAAD6/wIAAAAHAAoAAAD6/wMAAAAHAAsAAAD7//r/AAACAAgAAAD7//v/AAACAAsAAAD7//z/AAAGAAoAAAD7//3/AAAGAAsAAAD7//7/AAAGAAoAAAD7////AAAGAAsAAAD7/wAAAAAGAAoAAAD7/wEAAAAGAAsAAAD7/wIAAAAGAAoAAAD7/wMAAAAGAAsAAAD8//r/AAADAAgAAAD8//v/AAADAAsAAAD8//z/AAAHAAoAAAD8//3/AAAHAAsAAAD8//7/AAAHAAoAAAD8////AAAHAAsAAAD8/wAAAAAHAAoAAAD8/wEAAAAHAAsAAAD8/wIAAAAHAAoAAAD8/wMAAAAHAAsAAAD9//r/AAAEAAgAAAD9//v/AAAEAAkAAAD9//z/AAAEAAoAAAD9//3/AAAEAAsAAAD9//7/AAAEAAsAAAD9////AAAEAAsAAAD9/wAAAAAEAAsAAAD9/wEAAAAEAAsAAAD9/wIAAAAEAAsAAAD9/wMAAAAEAAsAAAD+//r/AAAFAAgAAAD+//v/AAAFAAkAAAD+//z/AAAFAAoAAAD+//3/AAAFAAsAAAD+//7/AAAFAAsAAAD+////AAAFAAsAAAD+/wAAAAAFAAsAAAD+/wEAAAAFAAsAAAD+/wIAAAAFAAsAAAD+/wMAAAAFAAsAAAD///r/AAACAAgAAAD///v/AAACAAsAAAD///z/AAAGAAoAAAD///3/AAAGAAsAAAD///7/AAAGAAoAAAD/////AAAGAAsAAAD//wAAAAAGAAoAAAD//wEAAAAGAAsAAAD//wIAAAAGAAoAAAD//wMAAAAGAAsAAAAAAPr/AAADAAgAAAAAAPv/AAADAAsAAAAAAPz/AAAHAAoAAAAAAP3/AAAHAAsAAAAAAP7/AAAHAAoAAAAAAP//AAAHAAsAAAAAAAAAAAAHAAoAAAAAAAEAAAAHAAsAAAAAAAIAAAAHAAoAAAAAAAMAAAAHAAsAAAABAPr/AAACAAgAAAABAPv/AAACAAsAAAABAPz/AAAGAAoAAAABAP3/AAAGAAsAAAABAP7/AAAGAAoAAAABAP//AAAGAAsAAAABAAAAAAAGAAoAAAABAAEAAAAGAAsAAAABAAIAAAAGAAoAAAABAAMAAAAGAAsAAAACAPr/AAADAAgAAAACAPv/AAADAAsAAAACAPz/AAAHAAoAAAACAP3/AAAHAAsAAAACAP7/AAAHAAoAAAACAP//AAAHAAsAAAACAAAAAAAHAAoAAAACAAEAAAAHAAsAAAACAAIAAAAHAAoAAAACAAMAAAAHAAsAAAADAPr/AAAEAAgAAAADAPv/AAAEAAkAAAADAPz/AAAEAAoAAAADAP3/AAAEAAsAAAADAP7/AAACAAsAAAADAP//AAACAAsAAAADAAAAAAACAAsAAAADAAEAAAACAAsAAAADAAIAAAACAAsAAAADAAMAAAAEAAsAAAAEAPr/AAAFAAgAAAAEAPv/AAAFAAkAAAAEAPz/AAAFAAoAAAAEAP3/AAAFAAsAAAAEAP7/AAADAAsAAAAEAP//AAADAAsAAAAEAAAAAAADAAsAAAAEAAEAAAADAAsAAAAEAAIAAAADAAsAAAAEAAMAAAAFAAsAAAAFAPr/AAACAAgAAAAFAPv/AAACAAsAAAAFAPz/AAAGAAoAAAAFAP3/AAAGAAsAAAAFAP7/AAAGAAoAAAAFAP//AAAGAAsAAAAFAAAAAAAGAAoAAAAFAAEAAAAGAAsAAAAFAAIAAAAGAAoAAAAFAAMAAAAGAAsAAAAGAPr/AAADAAgAAAAGAPv/AAADAAsAAAAGAPz/AAAHAAoAAAAGAP3/AAAHAAsAAAAGAP7/AAAHAAoAAAAGAP//AAAHAAsAAAAGAAAAAAAHAAoAAAAGAAEAAAAHAAsAAAAGAAIAAAAHAAoAAAAGAAMAAAAHAAsAAAAHAPr/AAACAAgAAAAHAPv/AAACAAsAAAAHAPz/AAAGAAoAAAAHAP3/AAAGAAsAAAAHAP7/AAAGAAoAAAAHAP//AAAGAAsAAAAHAAAAAAAGAAoAAAAHAAEAAAAGAAsAAAAHAAIAAAAGAAoAAAAHAAMAAAAGAAsAAAAIAPr/AAADAAgAAAAIAPv/AAADAAsAAAAIAPz/AAAHAAoAAAAIAP3/AAAHAAsAAAAIAP7/AAAHAAoAAAAIAP//AAAHAAsAAAAIAAAAAAAHAAoAAAAIAAEAAAAHAAsAAAAIAAIAAAAHAAoAAAAIAAMAAAAHAAsAAAAJAPr/AAAEAAgAAAAJAPv/AAAEAAkAAAAJAPz/AAAEAAoAAAAJAP3/AAAEAAsAAAAJAP7/AAAEAAsAAAAJAP//AAAEAAsAAAAJAAAAAAAEAAsAAAAJAAEAAAAEAAsAAAAJAAIAAAAEAAsAAAAJAAMAAAAEAAsAAAAKAPr/AAAFAAgAAAAKAPv/AAAFAAkAAAAKAPz/AAAFAAoAAAAKAP3/AAAFAAsAAAAKAP7/AAAFAAsAAAAKAP//AAAFAAsAAAAKAAAAAAAFAAsAAAAKAAEAAAAFAAsAAAAKAAIAAAAFAAsAAAAKAAMAAAAFAAsAAAA=")
+tile_set = SubResource("TileSet_iacmt")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2053579534]
+zoom = Vector2(4, 4)
+
+[node name="EnemyPos" type="Node2D" parent="." unique_id=280642396]
+position = Vector2(87, 56)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=285866639]
 
-[node name="Bag" parent="CanvasLayer" unique_id=12638333 instance=ExtResource("2_6l7je")]
+[node name="Bag" parent="CanvasLayer" unique_id=12638333 node_paths=PackedStringArray("loot_manager") instance=ExtResource("2_6l7je")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
+loot_manager = NodePath("../../LootManager")
+
+[node name="LootContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=459750805]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -208.0
+offset_right = 27.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/LootContainer" unique_id=1400129436]
+layout_mode = 2
+text = "Loot"
+
+[node name="LootBag" parent="CanvasLayer/LootContainer" unique_id=429804120 node_paths=PackedStringArray("loot_manager") instance=ExtResource("2_6l7je")]
+layout_mode = 2
+loot_manager = NodePath("../../../LootManager")
+inventory = ExtResource("3_jv6wh")
+
+[node name="ButtonContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1800156159]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -48.0
+offset_right = 57.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/ButtonContainer" unique_id=1518626008]
+layout_mode = 2
+text = "Continue"
+
+[connection signal="pressed" from="CanvasLayer/ButtonContainer/ContinueButton" to="LootManager" method="_on_continue_button_pressed"]
