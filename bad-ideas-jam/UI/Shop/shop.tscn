@@ -7,6 +7,10 @@
 [ext_resource type="Resource" uid="uid://3mu7mbehbkcr" path="res://Items/doppelganger.tres" id="5_pagdw"]
 [ext_resource type="Resource" uid="uid://c0h2s2m0sy2y3" path="res://Items/item.tres" id="6_eo7k6"]
 [ext_resource type="Resource" uid="uid://las7t8gp0wyb" path="res://Items/shield_item.tres" id="7_glx3d"]
+[ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://UI/Inventory/bag.tscn" id="8_sar1i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l4q0s"]
+font_size = 32
 
 [node name="Shop" type="Control" unique_id=1590509758]
 layout_mode = 3
@@ -38,3 +42,36 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 5
+
+[node name="Label" type="Label" parent="PanelContainer" unique_id=2115137630]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Shop!"
+label_settings = SubResource("LabelSettings_l4q0s")
+horizontal_alignment = 1
+
+[node name="Bag" parent="." unique_id=12638333 instance=ExtResource("8_sar1i")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -117.0
+offset_bottom = -117.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ProceedButton" type="Button" parent="." unique_id=1068832568]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Proceed"
