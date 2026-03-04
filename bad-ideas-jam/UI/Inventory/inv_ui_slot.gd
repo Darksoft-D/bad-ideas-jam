@@ -1,8 +1,10 @@
 extends Panel
 class_name InvSlot
 
-@onready var select_texture: TextureRect = $CenterContainer/SelectTexture
+@onready var sell_container: VBoxContainer = $SellContainer
+@onready var sell_button: Button = $SellContainer/SellButton
 @onready var center_container: CenterContainer = $CenterContainer
+@onready var select_texture: TextureRect = $CenterContainer/SelectTexture
 
 const ITEM_UI = preload("uid://dk3ifj8pbnten")
 
@@ -15,6 +17,7 @@ var item: InvItem
 var item_ui: ItemUI
 var is_selected = false
 var is_dragging = false
+var on_sell = false
 
 func _input(event: InputEvent) -> void:
 	if is_selected and event.is_action_pressed("Drag") and !is_dragging and item:
@@ -26,6 +29,13 @@ func _input(event: InputEvent) -> void:
 		print("Released")
 		is_dragging = false
 		released.emit(item_ui, self)
+	elif is_selected and event.is_action_pressed("RightClick")and item:
+		if !on_sell:
+			if Global.shown_sell_container:
+				Global.shown_sell_container.hide()
+			on_sell = true
+			sell_container.show()
+			Global.shown_sell_container = sell_container
 
 func update(get_item: InvItem):
 	if !get_item or item:

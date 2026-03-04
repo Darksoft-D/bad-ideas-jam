@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cws2fvq5c6tat"]
+
+[ext_resource type="Script" uid="uid://ijvy25erheha" path="res://UI/Shop/shop.gd" id="1_3weqf"]
+[ext_resource type="Script" uid="uid://dah435we4cfau" path="res://Items/item.gd" id="2_eeyqd"]
+[ext_resource type="Resource" uid="uid://0vs8i7x3jw17" path="res://Items/block/block.tres" id="3_sar1i"]
+[ext_resource type="Resource" uid="uid://mi5pgt1to8qa" path="res://Items/health_bag/health_bag.tres" id="4_l4q0s"]
+[ext_resource type="Resource" uid="uid://3mu7mbehbkcr" path="res://Items/doppelganger.tres" id="5_pagdw"]
+[ext_resource type="Resource" uid="uid://c0h2s2m0sy2y3" path="res://Items/item.tres" id="6_eo7k6"]
+[ext_resource type="Resource" uid="uid://las7t8gp0wyb" path="res://Items/shield_item.tres" id="7_glx3d"]
+
+[node name="Shop" type="Control" unique_id=1590509758]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3weqf")
+items_pool = Array[ExtResource("2_eeyqd")]([ExtResource("3_sar1i"), ExtResource("4_l4q0s"), ExtResource("5_pagdw"), ExtResource("6_eo7k6"), ExtResource("7_glx3d")])
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1789046689]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer" unique_id=1190422764]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 5

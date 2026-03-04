@@ -9,7 +9,7 @@ class_name Bag
 
 const INV_UI_SLOT = preload("uid://dijoj8qysu0hg")
 
-var slots: Array = []
+var slots: Array[InvSlot] = []
 var selected_slot: InvSlot = null
 
 func _ready() -> void:
@@ -25,6 +25,12 @@ func generate_grid():
 		slot.unselected.connect(Callable(loot_manager, "on_slot_unselected"))
 		slot.released.connect(Callable(loot_manager, "on_slot_item_released"))
 	update_slots()
+
+func get_empty_slot() -> InvSlot:
+	for slot in slots:
+		if !slot.item:
+			return slot
+	return 
 
 func update_slots():
 	for i in range(min(inventory.items.size(), slots.size())):

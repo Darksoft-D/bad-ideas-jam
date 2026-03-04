@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://0qiwd1hsqid0"]
+
+[ext_resource type="PackedScene" uid="uid://bq3iw0f5qhwsh" path="res://Enemies/entity.tscn" id="1_128un"]
+[ext_resource type="Script" uid="uid://d1rcwuxpgxvmi" path="res://Enemies/player.gd" id="2_4mgdt"]
+[ext_resource type="Texture2D" uid="uid://b1usdel85uamu" path="res://assets/backpack_gamejam.png" id="2_mynrr"]
+
+[node name="Player" unique_id=673946979 instance=ExtResource("1_128un")]
+script = ExtResource("2_4mgdt")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1044903095]
+texture = ExtResource("2_mynrr")
+region_enabled = true
+region_rect = Rect2(134, 100, 15, 26)
+
+[node name="HPBar" parent="." index="1" unique_id=93003711]
+visible = false

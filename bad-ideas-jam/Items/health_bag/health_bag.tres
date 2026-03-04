@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HealthBag" format=3 uid="uid://mi5pgt1to8qa"]
+
+[ext_resource type="Script" uid="uid://4cg17t547xbq" path="res://Items/health_bag/health_bag.gd" id="1_7atc6"]
+[ext_resource type="Texture2D" uid="uid://dtp3hbljcywdd" path="res://assets/HealthBag.png" id="2_pwur5"]
+
+[resource]
+script = ExtResource("1_7atc6")
+value = 5
+name = "Health Bag"
+texture = ExtResource("2_pwur5")
+metadata/_custom_type_script = "uid://4cg17t547xbq"

@@ -9,4 +9,5 @@ script = ExtResource("1_4wscx")
 name = "Item"
 texture = ExtResource("2_xfcbu")
 skill = ExtResource("2_30bxd")
+cost = 5
 metadata/_custom_type_script = "uid://dah435we4cfau"
