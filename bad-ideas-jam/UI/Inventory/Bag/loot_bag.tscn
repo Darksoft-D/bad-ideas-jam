@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bkb14j2jahlkb"]
+
+[ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://UI/Inventory/Bag/bag.tscn" id="1_sx3bi"]
+[ext_resource type="Script" uid="uid://c87xbl5up128l" path="res://loot_bag.gd" id="2_54gpq"]
+[ext_resource type="PackedScene" uid="uid://dijoj8qysu0hg" path="res://UI/Inventory/Bag/inv_ui_slot.tscn" id="3_mfp2m"]
+[ext_resource type="Texture2D" uid="uid://shxpkm7udcd4" path="res://assets/UI/ChestSlot.png" id="4_evtt3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ie4h2"]
+texture = ExtResource("4_evtt3")
+region_rect = Rect2(0, 0, 27, 27)
+
+[node name="LootBag" unique_id=12638333 instance=ExtResource("1_sx3bi")]
+script = ExtResource("2_54gpq")
+slots_num = 1
+
+[node name="TextureRect" parent="." index="0" unique_id=58257776]
+visible = false
+
+[node name="GridContainer" parent="." index="1" unique_id=1566016739]
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+
+[node name="InvUISlot" parent="GridContainer" index="0" unique_id=1023083226 instance=ExtResource("3_mfp2m")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ie4h2")
+
+[node name="InvUISlot2" parent="GridContainer" index="1" unique_id=1562211658 instance=ExtResource("3_mfp2m")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ie4h2")
+
+[node name="InvUISlot3" parent="GridContainer" index="2" unique_id=121421552 instance=ExtResource("3_mfp2m")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ie4h2")
+
+[node name="InvUISlot4" parent="GridContainer" index="3" unique_id=818127729 instance=ExtResource("3_mfp2m")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ie4h2")
+
+[node name="InvUISlot5" parent="GridContainer" index="4" unique_id=879482423 instance=ExtResource("3_mfp2m")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ie4h2")
+
+[node name="InvUISlot6" parent="GridContainer" index="5" unique_id=755547296 instance=ExtResource("3_mfp2m")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ie4h2")
+
+[node name="InvUISlot7" parent="GridContainer" index="6" unique_id=1854345741 instance=ExtResource("3_mfp2m")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ie4h2")
+
+[node name="InvUISlot8" parent="GridContainer" index="7" unique_id=1424054790 instance=ExtResource("3_mfp2m")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ie4h2")
+
+[node name="InvUISlot9" parent="GridContainer" index="8" unique_id=2926939 instance=ExtResource("3_mfp2m")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ie4h2")

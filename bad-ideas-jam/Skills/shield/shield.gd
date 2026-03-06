@@ -1,7 +1,6 @@
 extends Skill
 
-@export var block: InvItem
+@export var block: PackedScene
 
 func _use():
-	block.value = 5
 	scene.insert_item(block)

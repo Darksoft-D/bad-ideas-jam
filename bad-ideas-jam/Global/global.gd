@@ -1,7 +1,8 @@
 extends Node
 
-var gold_amount: int = 0
+var gold_amount: int = 20
 var last_used_item: InvItem
 var shown_sell_container: VBoxContainer
+var bring_items: Array[PackedScene]
 
 signal gold_changed

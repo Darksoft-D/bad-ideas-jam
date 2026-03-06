@@ -6,7 +6,8 @@
 [ext_resource type="Resource" uid="uid://211wmluaei8n" path="res://Skills/fireball_skill/fireball.tres" id="3_87lq7"]
 
 [node name="Slime" unique_id=673946979 instance=ExtResource("1_8xgo2")]
-max_health = 100
+z_index = 1
+max_health = 10
 skills = Array[ExtResource("2_00swj")]([ExtResource("3_87lq7")])
 
 [node name="Sprite2D" parent="." index="0" unique_id=1044903095]

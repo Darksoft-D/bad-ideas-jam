@@ -1,31 +1,70 @@
 extends Control
+class_name Shop
 
 @export var items_number: int = 5
-@export var items_pool: Array[InvItem]
+@export var items_pool: Array[PackedScene]
+@export var slots: Array[InvSlot]
+@export var labels: Array[Label]
 
 @onready var grid_container: GridContainer = $PanelContainer/GridContainer
+@onready var bag: Bag = $Bag
+@onready var gold_amount_label: Label = $HBoxContainer/GoldAmountLabel
 
 const INV_UI_SLOT = preload("uid://dijoj8qysu0hg")
 
-var slots: Array[InvSlot] = []
+var bought_items: Array[PackedScene] = []
+var selected_slot: InvSlot
+var is_dragging = false
 
 func _ready() -> void:
-	generate_grid()
-
-func generate_grid():
-	items_pool.shuffle()
-	for i in items_number:
-		var vbox_container = VBoxContainer.new()
-		grid_container.add_child(vbox_container)
-		var slot = INV_UI_SLOT.instantiate()
-		vbox_container.add_child(slot)
-		slots.append(slot)
-		var label = Label.new()
-		vbox_container.add_child(label)
-		label.text = str(items_pool[i].cost)
+	Global.gold_changed.connect(func():
+		gold_amount_label.text = str(Global.gold_amount))
+	for slot in slots:
+		slot.pressed.connect(Callable(self, "on_slot_pressed"))
 	update_slots()
 
+func on_slot_pressed(item_ui: ItemUI, slot: InvSlot):
+	if bag.get_empty_slot() and item_ui.item.cost <= Global.gold_amount:
+		Global.gold_amount -= item_ui.item.cost
+		Global.gold_changed.emit()
+		bag.get_empty_slot().update(load(item_ui.scene_file_path))
+		bought_items.append(load(item_ui.scene_file_path))
+		slot.center_container.remove_child(item_ui)
+		item_ui.queue_free()
+	else:
+		return
+
 func update_slots():
-	for i in range(min(items_pool.size(), slots.size())):
-		slots[i].update(items_pool[i])
-		slots[i].item_ui.scale = Vector2(0.9, 0.9)
+	for i in slots.size():
+		slots[i].update(items_pool.pick_random())
+		labels[i].text = str(slots[i].item_ui.item.cost)
+		slots[i].select_texture.size = Vector2(60, 60)
+
+func on_slot_clicked(item_ui: ItemUI, slot: InvSlot):
+	print("loot manager: clicked")
+	is_dragging = true
+	slot.center_container.remove_child(item_ui)
+	add_child(item_ui)
+	item_ui.is_dragging = true
+
+func on_slot_item_released(item_ui: ItemUI, slot: InvSlot):
+	is_dragging = false
+	if selected_slot and !selected_slot.item_ui:
+		item_ui.is_dragging = false
+		selected_slot.update(load(item_ui.scene_file_path))
+		item_ui.queue_free()
+	else:
+		item_ui.is_dragging = false
+		slot.update(load(item_ui.scene_file_path))
+		item_ui.queue_free()
+
+func on_slot_selected(slot: InvSlot):
+	selected_slot = slot
+
+func on_slot_unselected(slot: InvSlot):
+	if selected_slot == slot:
+		selected_slot = null
+
+func _on_proceed_button_pressed() -> void:
+	Global.bring_items = bought_items
+	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")

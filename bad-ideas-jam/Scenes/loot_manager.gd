@@ -1,7 +1,7 @@
 extends Node
 class_name LootManager
 
-@export var items: Array[InvItem]
+@export var items: Array[PackedScene]
 
 @onready var bag: Bag = $"../CanvasLayer/Bag"
 @onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
@@ -12,6 +12,7 @@ class_name LootManager
 @onready var sell_container: PanelContainer = $"../CanvasLayer/SellContainer"
 @onready var sell_label: Label = $"../CanvasLayer/SellContainer/SellLabel"
 @onready var combat_layer: CanvasLayer = $"../CombatLayer"
+@onready var chest: Chest = $"../Visuals/Chest"
 
 signal looting_finished
 
@@ -22,37 +23,44 @@ var item_used = false
 var on_sell = false
 var selected_slot: InvSlot
 
+func _ready() -> void:
+	chest.chest_opened.connect(func():
+		generate_loot())
+
 func generate_loot():
 	player_turn = true
 	is_loot_opened = true
 	var amount = randi_range(2, 5)
-	var loot: Array[InvItem] = []
+	var loot: Array[PackedScene] = []
 	for i in amount:
 		var item = items.pick_random()
 		loot.append(item)
 	loot_container.show()
 	button_container.show()
-	await loot_bag.inventory.generate_loot(loot)
+	await loot_bag.generate_loot(loot)
 	loot_bag.update_slots()
 	combat_layer.hide()
 
 func finish_looting():
 	loot_container.hide()
 	button_container.hide()
+	chest.hide()
 	is_loot_opened = false
 	looting_finished.emit()
 	combat_layer.show()
 	player.health_bags = []
 	player.blocks = []
 	for slot in bag.slots:
-		if slot.item is HealthBag:
-			player.health_bags.append(slot.item)
-			slot.item_ui.used.connect(Callable(self, "delete_item"))
-		elif slot.item is Block:
-			player.blocks.append(slot.item)
-			slot.item_ui.used.connect(Callable(self, "delete_item"))
+		if slot.item_ui:
+			if slot.item_ui.item is HealthBag:
+				player.health_bags.append(slot.item_ui.item)
+				slot.item_ui.used.connect(Callable(self, "delete_item"))
+			elif slot.item_ui.item is Block:
+				player.blocks.append(slot.item_ui.item)
+				slot.item_ui.used.connect(Callable(self, "delete_item"))
 
 func on_slot_clicked(item_ui: ItemUI, slot: InvSlot):
+	print("loot manager: clicked")
 	if !player_turn:
 		return
 	is_looting = true
@@ -67,19 +75,18 @@ func on_slot_item_released(item_ui: ItemUI, slot: InvSlot):
 	if !player_turn:
 		return
 	is_looting = false
-	if selected_slot and !selected_slot.item:
+	if selected_slot and !selected_slot.item_ui:
 		item_ui.is_dragging = false
-		selected_slot.update(item_ui.item)
+		selected_slot.update(load(item_ui.scene_file_path))
 		item_ui.queue_free()
 	elif on_sell:
 		Global.gold_amount += item_ui.item.cost
 		print(Global.gold_amount)
 		item_ui.queue_free()
-		slot.item = null
 		Global.gold_changed.emit()
 	elif is_loot_opened or !item_ui.item.skill or item_used:
 		item_ui.is_dragging = false
-		slot.update(item_ui.item)
+		slot.update(load(item_ui.scene_file_path))
 		item_ui.queue_free()
 	else:
 		item_ui.used.connect(Callable(self, "on_used"))

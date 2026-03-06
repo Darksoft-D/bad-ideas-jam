@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dlf2yju48mm4a"]
+
+[ext_resource type="Script" uid="uid://c8wyvies06d6x" path="res://UI/Inventory/Bag/bag.gd" id="1_i5r21"]
+[ext_resource type="Texture2D" uid="uid://b1usdel85uamu" path="res://assets/Tiles/backpack_gamejam.png" id="3_dvhsr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvhsr"]
+atlas = ExtResource("3_dvhsr")
+region = Rect2(64, 35, 32, 30)
+
+[node name="Bag" type="Control" unique_id=12638333]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_i5r21")
+slots_num = 6
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=58257776]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = -44.0
+offset_right = 100.0
+offset_bottom = 96.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_dvhsr")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1566016739]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_right = 60.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3

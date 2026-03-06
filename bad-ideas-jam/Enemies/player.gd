@@ -12,11 +12,15 @@ func take_damage(damage: int):
 	if blocks.size() > 0:
 		block_damage(damage)
 		return
+	if health_bags.is_empty():
+		died.emit()
+		return
 	min_bag = health_bags[0]
 	if health_bags.size() > 1:
 		for i in range(health_bags.size()):
 			if health_bags[i].value < min_bag.value:
 				min_bag = health_bags[i]
+	print(min_bag)
 	min_bag.destroyed.connect(Callable(self, "on_health_bag_destroyed"))
 	min_bag.take_damage(damage)
 

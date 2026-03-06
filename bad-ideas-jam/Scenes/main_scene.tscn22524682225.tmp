@@ -2,22 +2,18 @@
 
 [ext_resource type="Script" uid="uid://cl8bu5onv7pmx" path="res://Scenes/main_scene.gd" id="1_maf8m"]
 [ext_resource type="Script" uid="uid://cytj38mtg8ceg" path="res://Scenes/loot_manager.gd" id="1_x6ack"]
-[ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://UI/Inventory/Bag/bag.tscn" id="2_6l7je"]
+[ext_resource type="Script" uid="uid://dah435we4cfau" path="res://Items/item.gd" id="2_6ev3c"]
+[ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://UI/Inventory/bag.tscn" id="2_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bn3d2cxwpibt1" path="res://Enemies/slime.tscn" id="2_huasi"]
-[ext_resource type="Texture2D" uid="uid://b1usdel85uamu" path="res://assets/Tiles/backpack_gamejam.png" id="2_jv6wh"]
-[ext_resource type="Texture2D" uid="uid://d1sun0kuatkao" path="res://assets/Tiles/Bookshelf_tiles.png" id="7_76v2p"]
-[ext_resource type="PackedScene" uid="uid://cdt6j1h58kr12" path="res://UI/Inventory/Bag/chest.tscn" id="8_7ewk0"]
-[ext_resource type="Texture2D" uid="uid://exlg5xvvsvd4" path="res://assets/Tiles/Dungeon_tiles.png" id="8_drdnd"]
+[ext_resource type="Texture2D" uid="uid://b1usdel85uamu" path="res://assets/backpack_gamejam.png" id="2_jv6wh"]
+[ext_resource type="Resource" uid="uid://ci4g6bucq3sqd" path="res://UI/Inventory/loot_inv.tres" id="3_jv6wh"]
+[ext_resource type="Resource" uid="uid://c0h2s2m0sy2y3" path="res://Items/item.tres" id="3_maf8m"]
+[ext_resource type="Texture2D" uid="uid://d1sun0kuatkao" path="res://assets/Bookshelf_tiles.png" id="7_76v2p"]
+[ext_resource type="Texture2D" uid="uid://exlg5xvvsvd4" path="res://assets/Dungeon_tiles.png" id="8_drdnd"]
 [ext_resource type="PackedScene" uid="uid://0qiwd1hsqid0" path="res://Enemies/player.tscn" id="8_mai8y"]
-[ext_resource type="PackedScene" uid="uid://c3riub8h2oq7c" path="res://UI/Inventory/ItemsUI/health_bag_ui.tscn" id="10_76v2p"]
-[ext_resource type="Texture2D" uid="uid://can2q6siopolc" path="res://assets/ItemIcons/fc160.png" id="11_76v2p"]
-[ext_resource type="PackedScene" uid="uid://cyv1jibwlj42i" path="res://UI/Inventory/ItemsUI/fireball_ui.tscn" id="11_drdnd"]
-[ext_resource type="PackedScene" uid="uid://dsq74ta6tg5cn" path="res://UI/Inventory/ItemsUI/shield.tscn" id="11_ioaeq"]
-[ext_resource type="PackedScene" uid="uid://bkb14j2jahlkb" path="res://UI/Inventory/Bag/loot_bag.tscn" id="12_ioaeq"]
-[ext_resource type="Shader" uid="uid://c81rodqya1un7" path="res://assets/CRTVHSEffect.gdshader" id="15_gnsmo"]
-[ext_resource type="Shader" uid="uid://dq4ja4toyo7va" path="res://assets/vignette.gdshader" id="15_lhp3t"]
+[ext_resource type="Texture2D" uid="uid://can2q6siopolc" path="res://assets/fc160.png" id="11_76v2p"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gnsmo"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drdnd"]
 texture = ExtResource("7_76v2p")
 texture_region_size = Vector2i(32, 32)
 18:2/0 = 0
@@ -111,9 +107,9 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_iacmt"]
 tile_size = Vector2i(32, 32)
-sources/1 = SubResource("TileSetAtlasSource_gnsmo")
+sources/1 = SubResource("TileSetAtlasSource_drdnd")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_psl12"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ioaeq"]
 texture = ExtResource("2_jv6wh")
 6:0/0 = 0
 7:0/0 = 0
@@ -214,9 +210,9 @@ texture = ExtResource("2_jv6wh")
 13:11/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_7ewk0"]
-sources/0 = SubResource("TileSetAtlasSource_psl12")
+sources/0 = SubResource("TileSetAtlasSource_ioaeq")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ebs2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ewk0"]
 texture = ExtResource("8_drdnd")
 texture_region_size = Vector2i(32, 32)
 6:3/0 = 0
@@ -255,7 +251,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_lhp3t"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_2ebs2")
+sources/0 = SubResource("TileSetAtlasSource_7ewk0")
 
 [sub_resource type="Gradient" id="Gradient_drdnd"]
 offsets = PackedFloat32Array(0, 0.21875)
@@ -270,43 +266,13 @@ fill_to = Vector2(0.5, 1.5)
 [sub_resource type="LabelSettings" id="LabelSettings_drdnd"]
 font_size = 48
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_psl12"]
-shader = ExtResource("15_gnsmo")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.2000000095
-shader_parameter/scanlines_width = 0.2000000095
-shader_parameter/grille_opacity = 0.0
-shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/pixelate = false
-shader_parameter/roll = false
-shader_parameter/roll_speed = 8.0
-shader_parameter/roll_size = 0.0
-shader_parameter/roll_variation = 1.8
-shader_parameter/distort_intensity = 0.0
-shader_parameter/noise_opacity = 0.10000000475
-shader_parameter/noise_speed = 0.0
-shader_parameter/static_noise_intensity = 0.0
-shader_parameter/aberration = 4.7499999933364734e-08
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.0
-shader_parameter/vignette_opacity = 0.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oyb3p"]
-shader = ExtResource("15_lhp3t")
-shader_parameter/vignette_intensity = 0.2
-shader_parameter/vignette_opacity = 0.2000000095
-shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
-
 [node name="MainScene" type="Node2D" unique_id=1110424414]
 script = ExtResource("1_maf8m")
 enemies = Array[PackedScene]([ExtResource("2_huasi")])
 
 [node name="LootManager" type="Node" parent="." unique_id=1730028833]
 script = ExtResource("1_x6ack")
-items = Array[PackedScene]([ExtResource("11_drdnd")])
+items = Array[ExtResource("2_6ev3c")]([ExtResource("3_maf8m")])
 
 [node name="Visuals" type="Node" parent="." unique_id=1383002675]
 
@@ -334,12 +300,6 @@ position = Vector2(7.748604e-07, 7.999998)
 scale = Vector2(4.4999995, 2.5)
 texture = SubResource("GradientTexture2D_ioaeq")
 
-[node name="Chest" parent="Visuals" unique_id=1295485416 instance=ExtResource("8_7ewk0")]
-offset_left = 87.0
-offset_top = 54.0
-offset_right = 87.0
-offset_bottom = 54.0
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2053579534]
 position = Vector2(0, 7)
 zoom = Vector2(4, 4)
@@ -360,24 +320,21 @@ anchor_right = 0.5
 offset_top = 53.0
 offset_bottom = 53.0
 grow_horizontal = 2
-items_export = Array[PackedScene]([ExtResource("10_76v2p"), ExtResource("11_ioaeq")])
 loot_manager = NodePath("../../LootManager")
 
 [node name="LootContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=459750805]
-visible = false
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 offset_left = -27.0
-offset_top = 118.0
+offset_top = -168.0
 offset_right = 27.0
-offset_bottom = 158.0
+offset_bottom = -128.0
 grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+grow_vertical = 0
+size_flags_vertical = 8
 theme_override_constants/separation = 4
 
 [node name="Label" type="Label" parent="CanvasLayer/LootContainer" unique_id=1400129436]
@@ -385,13 +342,12 @@ z_index = 1
 layout_mode = 2
 text = "Loot"
 
-[node name="LootBag" parent="CanvasLayer/LootContainer" unique_id=1743470214 node_paths=PackedStringArray("loot_manager") instance=ExtResource("12_ioaeq")]
+[node name="LootBag" parent="CanvasLayer/LootContainer" unique_id=690280259 node_paths=PackedStringArray("loot_manager") instance=ExtResource("2_6l7je")]
 layout_mode = 2
-items_export = Array[PackedScene]([null, null, null, null, null, null, null, null, null])
+inventory = ExtResource("3_jv6wh")
 loot_manager = NodePath("../../../LootManager")
 
 [node name="ButtonContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1800156159]
-visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -488,20 +444,6 @@ horizontal_alignment = 1
 [node name="ProceedButton" type="Button" parent="GameOverScreen/PanelContainer/VBoxContainer" unique_id=759008220]
 layout_mode = 2
 text = "Return To The Surface"
-
-[node name="ShaderLayer" type="CanvasLayer" parent="." unique_id=1150912959]
-
-[node name="ColorRect2" type="ColorRect" parent="ShaderLayer" unique_id=1697844823]
-material = SubResource("ShaderMaterial_psl12")
-offset_right = 1149.0
-offset_bottom = 647.0
-mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="ShaderLayer" unique_id=1824698225]
-material = SubResource("ShaderMaterial_oyb3p")
-offset_right = 1151.0
-offset_bottom = 643.0
-mouse_filter = 2
 
 [connection signal="pressed" from="CanvasLayer/ButtonContainer/ContinueButton" to="LootManager" method="_on_continue_button_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/SellContainer" to="LootManager" method="_on_sell_container_mouse_entered"]

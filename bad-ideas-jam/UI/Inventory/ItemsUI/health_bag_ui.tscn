@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c3riub8h2oq7c"]
+
+[ext_resource type="Resource" uid="uid://mi5pgt1to8qa" path="res://UI/Inventory/Items/health_bag/health_bag.tres" id="1_ahxky"]
+[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://UI/Inventory/ItemsUI/item_ui.tscn" id="1_sk1fk"]
+[ext_resource type="Script" uid="uid://ctj1bj8cy32rt" path="res://UI/Inventory/ItemsUI/health_bag_ui.gd" id="2_sk1fk"]
+
+[node name="HealthBagUI" unique_id=600560121 instance=ExtResource("1_sk1fk")]
+script = ExtResource("2_sk1fk")
+health_value = 1
+item_export = ExtResource("1_ahxky")

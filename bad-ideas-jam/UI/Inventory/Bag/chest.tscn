@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://cdt6j1h58kr12"]
+
+[ext_resource type="Texture2D" uid="uid://bi4b71ajn6dc" path="res://assets/UI/chest_open.png" id="1_gsrl5"]
+[ext_resource type="Script" uid="uid://dbr538yew10eu" path="res://UI/Inventory/Bag/chest.gd" id="1_ldr5p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldr5p"]
+atlas = ExtResource("1_gsrl5")
+region = Rect2(4, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rq2h"]
+atlas = ExtResource("1_gsrl5")
+region = Rect2(4, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4vfb"]
+atlas = ExtResource("1_gsrl5")
+region = Rect2(44, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g27k5"]
+atlas = ExtResource("1_gsrl5")
+region = Rect2(84, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it765"]
+atlas = ExtResource("1_gsrl5")
+region = Rect2(124, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gn3d"]
+atlas = ExtResource("1_gsrl5")
+region = Rect2(164, 0, 40, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kvwy"]
+atlas = ExtResource("1_gsrl5")
+region = Rect2(204, 0, 40, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r6iiq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldr5p")
+}],
+"loop": false,
+"name": &"Default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rq2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4vfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g27k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it765")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gn3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kvwy")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_uujas"]
+offsets = PackedFloat32Array(0, 0.3533654)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tsldl"]
+gradient = SubResource("Gradient_uujas")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[node name="Chest" type="Control" unique_id=1295485416]
+layout_mode = 3
+anchors_preset = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("1_ldr5p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1512502724]
+sprite_frames = SubResource("SpriteFrames_r6iiq")
+animation = &"Default"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1969161627]
+position = Vector2(0, 3)
+texture = SubResource("GradientTexture2D_tsldl")
+
+[node name="Control" type="Control" parent="." unique_id=436416909]
+anchors_preset = 0
+offset_left = -16.0
+offset_top = -10.0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="." method="_on_control_mouse_exited"]
