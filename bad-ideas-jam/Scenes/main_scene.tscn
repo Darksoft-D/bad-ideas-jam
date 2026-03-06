@@ -273,8 +273,8 @@ font_size = 48
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_psl12"]
 shader = ExtResource("15_gnsmo")
 shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.2000000095
-shader_parameter/scanlines_width = 0.2000000095
+shader_parameter/scanlines_opacity = 0.50000002375
+shader_parameter/scanlines_width = 0.30000001425
 shader_parameter/grille_opacity = 0.0
 shader_parameter/resolution = Vector2(640, 480)
 shader_parameter/pixelate = false
@@ -296,8 +296,8 @@ shader_parameter/vignette_opacity = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oyb3p"]
 shader = ExtResource("15_lhp3t")
-shader_parameter/vignette_intensity = 0.2
-shader_parameter/vignette_opacity = 0.2000000095
+shader_parameter/vignette_intensity = 0.1
+shader_parameter/vignette_opacity = 1.0
 shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 
 [node name="MainScene" type="Node2D" unique_id=1110424414]
@@ -491,13 +491,14 @@ text = "Return To The Surface"
 
 [node name="ShaderLayer" type="CanvasLayer" parent="." unique_id=1150912959]
 
-[node name="ColorRect2" type="ColorRect" parent="ShaderLayer" unique_id=1697844823]
+[node name="Retro" type="ColorRect" parent="ShaderLayer" unique_id=1697844823]
+visible = false
 material = SubResource("ShaderMaterial_psl12")
 offset_right = 1149.0
 offset_bottom = 647.0
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="ShaderLayer" unique_id=1824698225]
+[node name="Vignette" type="ColorRect" parent="ShaderLayer" unique_id=1824698225]
 material = SubResource("ShaderMaterial_oyb3p")
 offset_right = 1151.0
 offset_bottom = 643.0

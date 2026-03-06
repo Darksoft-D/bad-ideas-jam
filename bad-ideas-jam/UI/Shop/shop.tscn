@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://exlg5xvvsvd4" path="res://assets/Tiles/Dungeon_tiles.png" id="4_l4q0s"]
 [ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://UI/Inventory/Bag/bag.tscn" id="8_sar1i"]
 [ext_resource type="Texture2D" uid="uid://can2q6siopolc" path="res://assets/ItemIcons/fc160.png" id="9_l4q0s"]
+[ext_resource type="Shader" uid="uid://c81rodqya1un7" path="res://assets/CRTVHSEffect.gdshader" id="9_pagdw"]
+[ext_resource type="Shader" uid="uid://dq4ja4toyo7va" path="res://assets/vignette.gdshader" id="10_eo7k6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pagdw"]
 texture = ExtResource("3_sar1i")
@@ -172,6 +174,36 @@ region_rect = Rect2(111, 18, 9, 9)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pagdw"]
 font_size = 48
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glx3d"]
+shader = ExtResource("9_pagdw")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.50000002375
+shader_parameter/scanlines_width = 0.30000001425
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.10000000475
+shader_parameter/noise_speed = 0.0
+shader_parameter/static_noise_intensity = 0.0
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.0
+shader_parameter/vignette_opacity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a3not"]
+shader = ExtResource("10_eo7k6")
+shader_parameter/vignette_intensity = 0.1
+shader_parameter/vignette_opacity = 1.0
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 
 [node name="Shop" type="Control" unique_id=1590509758 node_paths=PackedStringArray("slots", "labels")]
 layout_mode = 3
@@ -465,5 +497,20 @@ label_settings = SubResource("LabelSettings_pagdw")
 layout_mode = 2
 texture = ExtResource("9_l4q0s")
 expand_mode = 2
+
+[node name="ShaderLayer" type="CanvasLayer" parent="." unique_id=888954638]
+
+[node name="Retro" type="ColorRect" parent="ShaderLayer" unique_id=570860667]
+visible = false
+material = SubResource("ShaderMaterial_glx3d")
+offset_right = 1149.0
+offset_bottom = 647.0
+mouse_filter = 2
+
+[node name="Vignette" type="ColorRect" parent="ShaderLayer" unique_id=141230835]
+material = SubResource("ShaderMaterial_a3not")
+offset_right = 1151.0
+offset_bottom = 643.0
+mouse_filter = 2
 
 [connection signal="pressed" from="ProceedButton" to="." method="_on_proceed_button_pressed"]
