@@ -274,7 +274,7 @@ font_size = 48
 shader = ExtResource("15_gnsmo")
 shader_parameter/overlay = false
 shader_parameter/scanlines_opacity = 0.50000002375
-shader_parameter/scanlines_width = 0.30000001425
+shader_parameter/scanlines_width = 0.0
 shader_parameter/grille_opacity = 0.0
 shader_parameter/resolution = Vector2(640, 480)
 shader_parameter/pixelate = false
@@ -291,8 +291,8 @@ shader_parameter/brightness = 1.4
 shader_parameter/discolor = false
 shader_parameter/warp_amount = 0.0
 shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.0
-shader_parameter/vignette_opacity = 0.0
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/vignette_opacity = 0.30000001425
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oyb3p"]
 shader = ExtResource("15_lhp3t")
