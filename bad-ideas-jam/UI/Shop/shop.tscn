@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://exlg5xvvsvd4" path="res://assets/Tiles/Dungeon_tiles.png" id="4_l4q0s"]
 [ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://UI/Inventory/Bag/bag.tscn" id="8_sar1i"]
 [ext_resource type="Texture2D" uid="uid://can2q6siopolc" path="res://assets/ItemIcons/fc160.png" id="9_l4q0s"]
-[ext_resource type="Shader" uid="uid://c81rodqya1un7" path="res://assets/CRTVHSEffect.gdshader" id="9_pagdw"]
-[ext_resource type="Shader" uid="uid://dq4ja4toyo7va" path="res://assets/vignette.gdshader" id="10_eo7k6"]
+[ext_resource type="Shader" uid="uid://c81rodqya1un7" path="res://assets/Shaders/CRTVHSEffect.gdshader" id="9_pagdw"]
+[ext_resource type="Shader" uid="uid://dq4ja4toyo7va" path="res://assets/Shaders/vignette.gdshader" id="10_eo7k6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pagdw"]
 texture = ExtResource("3_sar1i")
