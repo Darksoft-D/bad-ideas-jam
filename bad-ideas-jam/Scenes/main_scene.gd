@@ -41,6 +41,7 @@ func player_turn():
 	print("Player turn")
 	loot_manager.player_turn = true
 	loot_manager.item_used = false
+	loot_manager.turns = 1
 	enemy.before_attack(self)
 
 func enemy_turn():

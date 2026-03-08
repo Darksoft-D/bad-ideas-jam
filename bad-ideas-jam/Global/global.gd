@@ -6,3 +6,4 @@ var shown_sell_container: VBoxContainer
 var bring_items: Array[PackedScene]
 
 signal gold_changed
+signal health_changed

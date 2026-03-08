@@ -11,6 +11,7 @@ const INV_UI_SLOT = preload("uid://dijoj8qysu0hg")
 
 var slots: Array[InvSlot] = []
 var selected_slot: InvSlot = null
+var is_loot_bag = false
 
 func _ready() -> void:
 	generate_grid()
@@ -43,3 +44,7 @@ func update_slots():
 			slot.item_ui.queue_free()
 	for i in range(items_export.size()):
 		slots[i].update(items_export[i])
+		if slots[i].item_ui:
+			slots[i].apply()
+	if !is_loot_bag:
+		slots[0].change_state(InvSlot.state.STRENGHT)

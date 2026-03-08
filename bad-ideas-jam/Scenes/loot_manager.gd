@@ -22,6 +22,7 @@ var player_turn = false
 var item_used = false
 var on_sell = false
 var selected_slot: InvSlot
+var turns: int = 1
 
 func _ready() -> void:
 	chest.chest_opened.connect(func():
@@ -97,7 +98,9 @@ func on_slot_item_released(item_ui: ItemUI, slot: InvSlot):
 func on_used(item_ui: ItemUI):
 	Global.last_used_item = item_ui.item
 	delete_item(item_ui)
-	item_used = true
+	turns -= 1
+	if turns <= 0:
+		item_used = true
 	
 func delete_item(item_ui: ItemUI):
 	item_ui.used.disconnect(on_used)

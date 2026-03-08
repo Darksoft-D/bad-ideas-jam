@@ -10,4 +10,6 @@ name = "Fireball"
 texture = ExtResource("3_5jcys")
 skill = ExtResource("2_6hykn")
 cost = 5
+damage = 4
+item_type = 1
 metadata/_custom_type_script = "uid://dah435we4cfau"

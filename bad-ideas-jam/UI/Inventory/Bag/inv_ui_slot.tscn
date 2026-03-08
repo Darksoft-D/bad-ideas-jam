@@ -45,5 +45,13 @@ layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_x8d8c")
 
+[node name="StrengthRect" type="ColorRect" parent="." unique_id=1927511450]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(1, 0, 0, 0.39215687)
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

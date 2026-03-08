@@ -1,6 +1,7 @@
 extends Bag
 
 func _ready() -> void:
+	is_loot_bag = true
 	for child in grid_container.get_children():
 		if child is InvSlot:
 			slots.append(child)

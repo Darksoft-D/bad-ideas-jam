@@ -3,6 +3,7 @@ class_name Skill
 
 @export var skill_name: String
 @export var description: String
+@export var damage: int
 
 var target: Entity
 var scene

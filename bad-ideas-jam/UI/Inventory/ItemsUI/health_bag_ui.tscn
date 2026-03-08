@@ -6,5 +6,5 @@
 
 [node name="HealthBagUI" unique_id=600560121 instance=ExtResource("1_sk1fk")]
 script = ExtResource("2_sk1fk")
-health_value = 1
+health_value = 20
 item_export = ExtResource("1_ahxky")

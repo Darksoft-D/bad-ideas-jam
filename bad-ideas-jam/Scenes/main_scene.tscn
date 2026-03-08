@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://c3riub8h2oq7c" path="res://UI/Inventory/ItemsUI/health_bag_ui.tscn" id="10_76v2p"]
 [ext_resource type="Texture2D" uid="uid://can2q6siopolc" path="res://assets/ItemIcons/fc160.png" id="11_76v2p"]
 [ext_resource type="PackedScene" uid="uid://cyv1jibwlj42i" path="res://UI/Inventory/ItemsUI/fireball_ui.tscn" id="11_drdnd"]
-[ext_resource type="PackedScene" uid="uid://dsq74ta6tg5cn" path="res://UI/Inventory/ItemsUI/shield.tscn" id="11_ioaeq"]
 [ext_resource type="PackedScene" uid="uid://bkb14j2jahlkb" path="res://UI/Inventory/Bag/loot_bag.tscn" id="12_ioaeq"]
 [ext_resource type="Shader" uid="uid://c81rodqya1un7" path="res://assets/Shaders/CRTVHSEffect.gdshader" id="15_gnsmo"]
 [ext_resource type="Shader" uid="uid://dq4ja4toyo7va" path="res://assets/Shaders/vignette.gdshader" id="15_lhp3t"]
@@ -360,7 +359,7 @@ anchor_right = 0.5
 offset_top = 53.0
 offset_bottom = 53.0
 grow_horizontal = 2
-items_export = Array[PackedScene]([ExtResource("10_76v2p"), ExtResource("11_ioaeq")])
+items_export = Array[PackedScene]([ExtResource("10_76v2p"), ExtResource("10_76v2p")])
 loot_manager = NodePath("../../LootManager")
 
 [node name="LootContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=459750805]
@@ -387,8 +386,9 @@ text = "Loot"
 
 [node name="LootBag" parent="CanvasLayer/LootContainer" unique_id=1743470214 node_paths=PackedStringArray("loot_manager") instance=ExtResource("12_ioaeq")]
 layout_mode = 2
-items_export = Array[PackedScene]([null, null, null, null, null, null, null, null, null])
+items_export = Array[PackedScene]([null, null, null, null, null, null])
 loot_manager = NodePath("../../../LootManager")
+slots_num = 6
 
 [node name="ButtonContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1800156159]
 visible = false
@@ -492,7 +492,6 @@ text = "Continue"
 [node name="ShaderLayer" type="CanvasLayer" parent="." unique_id=1150912959]
 
 [node name="Retro" type="ColorRect" parent="ShaderLayer" unique_id=1697844823]
-visible = false
 material = SubResource("ShaderMaterial_psl12")
 offset_right = 1149.0
 offset_bottom = 647.0

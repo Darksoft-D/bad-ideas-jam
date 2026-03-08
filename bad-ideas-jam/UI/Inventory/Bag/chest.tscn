@@ -85,7 +85,8 @@ script = ExtResource("1_ldr5p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1512502724]
 sprite_frames = SubResource("SpriteFrames_r6iiq")
-animation = &"Default"
+animation = &"Open"
+speed_scale = 2.0
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1969161627]
 position = Vector2(0, 3)
