@@ -77,19 +77,33 @@ func on_slot_item_released(item_ui: ItemUI, slot: InvSlot):
 		return
 	is_looting = false
 	if selected_slot and !selected_slot.item_ui:
+		print("Selected Slot")
 		item_ui.is_dragging = false
-		selected_slot.update(load(item_ui.scene_file_path))
-		item_ui.queue_free()
+		canvas_layer.remove_child(item_ui)
+		selected_slot.center_container.add_child(item_ui)
+		slot.item_ui = null
+		selected_slot.item_ui = item_ui
+		item_ui.global_position = selected_slot.sprite_pos.global_position
+		if item_ui.item is Block:
+			selected_slot.gain.emit(item_ui)
+		selected_slot.apply()
 	elif on_sell:
+		print("Sell")
 		Global.gold_amount += item_ui.item.cost
 		print(Global.gold_amount)
 		item_ui.queue_free()
 		Global.gold_changed.emit()
 	elif is_loot_opened or !item_ui.item.skill or item_used:
+		print("return")
 		item_ui.is_dragging = false
-		slot.update(load(item_ui.scene_file_path))
-		item_ui.queue_free()
+		canvas_layer.remove_child(item_ui)
+		slot.center_container.add_child(item_ui)
+		item_ui.global_position = slot.sprite_pos.global_position
+		if item_ui.item is Block:
+			slot.gain.emit(item_ui)
+		slot.apply()
 	else:
+		print("Use")
 		item_ui.used.connect(Callable(self, "on_used"))
 		if item_ui.item:
 			item_ui.item.use(get_parent().enemy, get_parent())

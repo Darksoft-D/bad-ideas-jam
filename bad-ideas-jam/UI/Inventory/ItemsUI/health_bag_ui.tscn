@@ -8,3 +8,12 @@
 script = ExtResource("2_sk1fk")
 health_value = 20
 item_export = ExtResource("1_ahxky")
+texture_scale = Vector2(2, 2)
+
+[node name="ValueLabel" parent="." index="0" unique_id=455979890]
+visible = true
+z_index = 5
+offset_left = -26.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 18.0

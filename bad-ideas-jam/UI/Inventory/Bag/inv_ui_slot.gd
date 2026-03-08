@@ -6,6 +6,7 @@ class_name InvSlot
 @onready var center_container: CenterContainer = $CenterContainer
 @onready var select_texture: TextureRect = $CenterContainer/SelectTexture
 @onready var strength_rect: ColorRect = $StrengthRect
+@onready var sprite_pos: Node2D = $SpritePos
 
 const ITEM_UI = preload("uid://dk3ifj8pbnten")
 
@@ -51,6 +52,7 @@ func update(item_scene: PackedScene):
 	print("update ", item_ui)
 	item_ui = item_scene.instantiate()
 	center_container.add_child(item_ui)
+	item_ui.global_position = sprite_pos.global_position
 	if item_ui.item is Block:
 		gain.emit(item_ui)
 	apply()

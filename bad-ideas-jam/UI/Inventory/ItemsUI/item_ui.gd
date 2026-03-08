@@ -1,7 +1,8 @@
-extends TextureRect
+extends Sprite2D
 class_name ItemUI
 
 @export var item_export: InvItem
+@export var texture_scale: Vector2 = Vector2(1, 1)
 
 @onready var value_label: Label = $ValueLabel
 
@@ -21,6 +22,7 @@ func assign_item(get_item: InvItem):
 	if get_item:
 		item = get_item.duplicate()
 		texture = get_item.texture
+		scale = texture_scale
 		item.used.connect(func():
 			used.emit(self))
 		_assign_item()
