@@ -5,3 +5,4 @@
 
 [node name="Doppelganger" unique_id=600560121 instance=ExtResource("1_hs0u6")]
 item_export = ExtResource("2_l6p6p")
+texture_scale = Vector2(0.25, 0.25)

@@ -77,6 +77,8 @@ func show_state():
 func apply():
 	print("apply ", current_state)
 	match current_state:
+		#state.DEFAULT:
+			#item_ui.strength_icon.hide()
 		state.STRENGHT:
 			if !item_ui:
 				return
@@ -84,6 +86,7 @@ func apply():
 			if item_ui.item.item_type == InvItem.type.ATTACK:
 				print(item_ui.item.damage)
 				item_ui.item.damage_multiplier = 2
+				item_ui.strength_icon.show()
 				change_state(state.DEFAULT)
 
 func change_state(new_state: state):

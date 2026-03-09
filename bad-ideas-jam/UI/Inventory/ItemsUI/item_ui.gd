@@ -5,6 +5,7 @@ class_name ItemUI
 @export var texture_scale: Vector2 = Vector2(1, 1)
 
 @onready var value_label: Label = $ValueLabel
+@onready var strength_icon: Sprite2D = $StrengthIcon
 
 signal used(item_ui: ItemUI)
 
@@ -23,6 +24,7 @@ func assign_item(get_item: InvItem):
 		item = get_item.duplicate()
 		texture = get_item.texture
 		scale = texture_scale
+		strength_icon.scale = Vector2(1, 1) / texture_scale
 		item.used.connect(func():
 			used.emit(self))
 		_assign_item()

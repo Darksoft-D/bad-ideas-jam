@@ -5,3 +5,4 @@
 
 [node name="Block" unique_id=600560121 instance=ExtResource("1_sl66l")]
 item_export = ExtResource("2_woana")
+texture_scale = Vector2(0.5, 0.5)

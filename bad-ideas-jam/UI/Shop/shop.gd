@@ -17,6 +17,13 @@ var selected_slot: InvSlot
 var is_dragging = false
 
 func _ready() -> void:
+	for slot in slots:
+		var label = Label.new()
+		slot.add_child(label)
+		label.position.y = 60
+		labels.append(label)
+	if bag.items_export[0]:
+		bought_items.append(bag.items_export[0])
 	Global.gold_changed.connect(func():
 		gold_amount_label.text = str(Global.gold_amount))
 	for slot in slots:

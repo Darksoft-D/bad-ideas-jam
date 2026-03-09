@@ -5,16 +5,97 @@
 [ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://UI/Inventory/Bag/bag.tscn" id="2_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bn3d2cxwpibt1" path="res://Enemies/slime.tscn" id="2_huasi"]
 [ext_resource type="Texture2D" uid="uid://b1usdel85uamu" path="res://assets/Tiles/backpack_gamejam.png" id="2_jv6wh"]
+[ext_resource type="PackedScene" uid="uid://dsq74ta6tg5cn" path="res://UI/Inventory/ItemsUI/shield.tscn" id="5_2ebs2"]
+[ext_resource type="PackedScene" uid="uid://bsyubarf0lohh" path="res://UI/Inventory/ItemsUI/small_health_bag_ui.tscn" id="6_oyb3p"]
 [ext_resource type="Texture2D" uid="uid://d1sun0kuatkao" path="res://assets/Tiles/Bookshelf_tiles.png" id="7_76v2p"]
+[ext_resource type="PackedScene" uid="uid://cp7723o8hbu73" path="res://UI/Inventory/ItemsUI/doppelganger.tscn" id="7_jvnna"]
 [ext_resource type="PackedScene" uid="uid://cdt6j1h58kr12" path="res://UI/Inventory/Bag/chest.tscn" id="8_7ewk0"]
 [ext_resource type="Texture2D" uid="uid://exlg5xvvsvd4" path="res://assets/Tiles/Dungeon_tiles.png" id="8_drdnd"]
 [ext_resource type="PackedScene" uid="uid://0qiwd1hsqid0" path="res://Enemies/player.tscn" id="8_mai8y"]
+[ext_resource type="Texture2D" uid="uid://dm6fuo1v7j1ee" path="res://assets/Tiles/taller_bookshelves_.png" id="9_jvnna"]
 [ext_resource type="PackedScene" uid="uid://c3riub8h2oq7c" path="res://UI/Inventory/ItemsUI/health_bag_ui.tscn" id="10_76v2p"]
 [ext_resource type="Texture2D" uid="uid://can2q6siopolc" path="res://assets/ItemIcons/fc160.png" id="11_76v2p"]
 [ext_resource type="PackedScene" uid="uid://cyv1jibwlj42i" path="res://UI/Inventory/ItemsUI/fireball_ui.tscn" id="11_drdnd"]
 [ext_resource type="PackedScene" uid="uid://bkb14j2jahlkb" path="res://UI/Inventory/Bag/loot_bag.tscn" id="12_ioaeq"]
 [ext_resource type="Shader" uid="uid://c81rodqya1un7" path="res://assets/Shaders/CRTVHSEffect.gdshader" id="15_gnsmo"]
 [ext_resource type="Shader" uid="uid://dq4ja4toyo7va" path="res://assets/Shaders/vignette.gdshader" id="15_lhp3t"]
+[ext_resource type="PackedScene" uid="uid://cew3wiu1mn1h0" path="res://UI/Inventory/ItemsUI/sword.tscn" id="15_oyb3p"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b48ew"]
+texture = ExtResource("9_jvnna")
+texture_region_size = Vector2i(32, 32)
+18:5/0 = 0
+20:5/0 = 0
+22:5/0 = 0
+24:5/0 = 0
+18:7/0 = 0
+20:7/0 = 0
+22:7/0 = 0
+24:7/0 = 0
+18:9/0 = 0
+20:9/0 = 0
+22:9/0 = 0
+24:9/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+5:11/0 = 0
+7:11/0 = 0
+9:11/0 = 0
+11:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+18:11/0 = 0
+20:11/0 = 0
+22:11/0 = 0
+24:11/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+5:13/0 = 0
+7:13/0 = 0
+9:13/0 = 0
+11:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+18:13/0 = 0
+20:13/0 = 0
+22:13/0 = 0
+24:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+5:15/0 = 0
+7:15/0 = 0
+9:15/0 = 0
+11:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+18:15/0 = 0
+20:15/0 = 0
+22:15/0 = 0
+24:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gnsmo"]
 texture = ExtResource("7_76v2p")
@@ -111,6 +192,7 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_iacmt"]
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_gnsmo")
+sources/0 = SubResource("TileSetAtlasSource_b48ew")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_psl12"]
 texture = ExtResource("2_jv6wh")
@@ -305,7 +387,7 @@ enemies = Array[PackedScene]([ExtResource("2_huasi")])
 
 [node name="LootManager" type="Node" parent="." unique_id=1730028833]
 script = ExtResource("1_x6ack")
-items = Array[PackedScene]([ExtResource("11_drdnd")])
+items = Array[PackedScene]([ExtResource("11_drdnd"), ExtResource("5_2ebs2"), ExtResource("6_oyb3p"), ExtResource("7_jvnna"), ExtResource("15_oyb3p")])
 
 [node name="Visuals" type="Node" parent="." unique_id=1383002675]
 
@@ -315,7 +397,7 @@ polygon = PackedVector2Array(150, 0, -150, 0, -150, -100, 150, -100)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Visuals" unique_id=1671503317]
 position = Vector2(-16, -16)
-tile_map_data = PackedByteArray("AAD9/wAAAQAAAAQAAAD+/wAAAQAJAAMAAAD//wAAAQACAAQAAAD9////AQAAAAQAAAD9//7/AQAAAAMAAAD///7/AQACAAMAAAD/////AQACAAQAAAD+//7/AQABAAMAAAD+////AQAJAAMAAAABAAAAAQAAAAQAAAACAAAAAQABAAQAAAADAAAAAQACAAQAAAABAP//AQAAAAQAAAACAP//AQABAAQAAAADAP//AQACAAQAAAABAP7/AQAAAAMAAAACAP7/AQABAAMAAAADAP7/AQACAAMAAAD9/wEAAQAAAAUAAAD+/wEAAQABAAUAAAD//wEAAQACAAUAAAABAAEAAQAAAAUAAAACAAEAAQABAAUAAAADAAEAAQACAAUAAAA=")
+tile_map_data = PackedByteArray("AAD9/wAAAAANAA4AAAD+/wAAAAAOAA4AAAD//wAAAAAPAA4AAAD9////AAANAA0AAAD9//7/AAANAAoAAAD///7/AAAPAAoAAAD/////AAAPAA0AAAD+//7/AAAOAAoAAAD+////AAAOAA0AAAABAAAAAAANAA4AAAACAAAAAAAOAA4AAAADAAAAAAAPAA4AAAABAP//AAANAA0AAAACAP//AAAOAA0AAAADAP//AAAPAA0AAAABAP7/AAANAAoAAAACAP7/AAAOAAoAAAADAP7/AAAPAAoAAAD9/wEAAQAAAAUAAAD+/wEAAQABAAUAAAD//wEAAQACAAUAAAABAAEAAAANAA8AAAACAAEAAAAOAA8AAAADAAEAAAAPAA8AAAA=")
 tile_set = SubResource("TileSet_iacmt")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="Visuals" unique_id=2007197646]
@@ -359,7 +441,7 @@ anchor_right = 0.5
 offset_top = 53.0
 offset_bottom = 53.0
 grow_horizontal = 2
-items_export = Array[PackedScene]([ExtResource("10_76v2p")])
+items_export = Array[PackedScene]([ExtResource("10_76v2p"), ExtResource("15_oyb3p")])
 loot_manager = NodePath("../../LootManager")
 
 [node name="LootContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=459750805]

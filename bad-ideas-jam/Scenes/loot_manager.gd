@@ -111,6 +111,7 @@ func on_slot_item_released(item_ui: ItemUI, slot: InvSlot):
 
 func on_used(item_ui: ItemUI):
 	Global.last_used_item = item_ui.item
+	Global.used_items.append(item_ui.item)
 	delete_item(item_ui)
 	turns -= 1
 	if turns <= 0:

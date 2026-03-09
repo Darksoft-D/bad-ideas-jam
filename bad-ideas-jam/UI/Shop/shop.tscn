@@ -3,13 +3,19 @@
 [ext_resource type="Script" uid="uid://ijvy25erheha" path="res://UI/Shop/shop.gd" id="1_3weqf"]
 [ext_resource type="PackedScene" uid="uid://cyv1jibwlj42i" path="res://UI/Inventory/ItemsUI/fireball_ui.tscn" id="2_l6lbb"]
 [ext_resource type="Texture2D" uid="uid://q5pm85o1ywjo" path="res://assets/UI/shopkeeper1_.png" id="3_4qhf5"]
+[ext_resource type="PackedScene" uid="uid://cew3wiu1mn1h0" path="res://UI/Inventory/ItemsUI/sword.tscn" id="3_a3not"]
 [ext_resource type="Texture2D" uid="uid://d1sun0kuatkao" path="res://assets/Tiles/Bookshelf_tiles.png" id="3_sar1i"]
+[ext_resource type="PackedScene" uid="uid://bsyubarf0lohh" path="res://UI/Inventory/ItemsUI/small_health_bag_ui.tscn" id="4_8pe2y"]
 [ext_resource type="PackedScene" uid="uid://dijoj8qysu0hg" path="res://UI/Inventory/Bag/inv_ui_slot.tscn" id="4_eeyqd"]
 [ext_resource type="Texture2D" uid="uid://exlg5xvvsvd4" path="res://assets/Tiles/Dungeon_tiles.png" id="4_l4q0s"]
+[ext_resource type="PackedScene" uid="uid://dsq74ta6tg5cn" path="res://UI/Inventory/ItemsUI/shield.tscn" id="5_ncxfr"]
+[ext_resource type="PackedScene" uid="uid://cp7723o8hbu73" path="res://UI/Inventory/ItemsUI/doppelganger.tscn" id="6_6h7q6"]
 [ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://UI/Inventory/Bag/bag.tscn" id="8_sar1i"]
+[ext_resource type="Texture2D" uid="uid://dm6fuo1v7j1ee" path="res://assets/Tiles/taller_bookshelves_.png" id="9_6h7q6"]
 [ext_resource type="Texture2D" uid="uid://can2q6siopolc" path="res://assets/ItemIcons/fc160.png" id="9_l4q0s"]
 [ext_resource type="Shader" uid="uid://c81rodqya1un7" path="res://assets/Shaders/CRTVHSEffect.gdshader" id="9_pagdw"]
 [ext_resource type="Shader" uid="uid://dq4ja4toyo7va" path="res://assets/Shaders/vignette.gdshader" id="10_eo7k6"]
+[ext_resource type="PackedScene" uid="uid://c3riub8h2oq7c" path="res://UI/Inventory/ItemsUI/health_bag_ui.tscn" id="11_ncxfr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pagdw"]
 texture = ExtResource("3_sar1i")
@@ -76,10 +82,87 @@ texture_region_size = Vector2i(32, 32)
 8:7/0 = 0
 10:7/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_khtvq"]
+texture = ExtResource("9_6h7q6")
+texture_region_size = Vector2i(32, 32)
+18:5/0 = 0
+20:5/0 = 0
+22:5/0 = 0
+24:5/0 = 0
+18:7/0 = 0
+20:7/0 = 0
+22:7/0 = 0
+24:7/0 = 0
+18:9/0 = 0
+20:9/0 = 0
+22:9/0 = 0
+24:9/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+5:11/0 = 0
+7:11/0 = 0
+9:11/0 = 0
+11:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+18:11/0 = 0
+20:11/0 = 0
+22:11/0 = 0
+24:11/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+5:13/0 = 0
+7:13/0 = 0
+9:13/0 = 0
+11:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+18:13/0 = 0
+20:13/0 = 0
+22:13/0 = 0
+24:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+5:15/0 = 0
+7:15/0 = 0
+9:15/0 = 0
+11:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+18:15/0 = 0
+20:15/0 = 0
+22:15/0 = 0
+24:15/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_glx3d"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_pagdw")
 sources/1 = SubResource("TileSetAtlasSource_eo7k6")
+sources/2 = SubResource("TileSetAtlasSource_khtvq")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a3not"]
 texture = ExtResource("4_l4q0s")
@@ -170,8 +253,6 @@ region_rect = Rect2(67, 31, 45, 27)
 texture = ExtResource("3_4qhf5")
 region_rect = Rect2(111, 18, 9, 9)
 
-[sub_resource type="LabelSettings" id="LabelSettings_4qhf5"]
-
 [sub_resource type="LabelSettings" id="LabelSettings_pagdw"]
 font_size = 48
 
@@ -205,7 +286,7 @@ shader_parameter/vignette_intensity = 0.1
 shader_parameter/vignette_opacity = 1.0
 shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 
-[node name="Shop" type="Control" unique_id=1590509758 node_paths=PackedStringArray("slots", "labels")]
+[node name="Shop" type="Control" unique_id=1590509758 node_paths=PackedStringArray("slots")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -213,16 +294,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3weqf")
-items_pool = Array[PackedScene]([ExtResource("2_l6lbb")])
+items_pool = Array[PackedScene]([ExtResource("2_l6lbb"), ExtResource("3_a3not"), ExtResource("4_8pe2y"), ExtResource("5_ncxfr"), ExtResource("6_6h7q6")])
 slots = [NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot2"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot3"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot4"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot5"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot6"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot7"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot8")]
-labels = [NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot/HBoxContainer/Label"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot2/HBoxContainer/Label"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot3/HBoxContainer/Label"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot4/HBoxContainer/Label"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot5/HBoxContainer/Label"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot6/HBoxContainer/Label"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot7/HBoxContainer/Label"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot8/HBoxContainer/Label")]
 
 [node name="TileMapLayers" type="Node" parent="." unique_id=192648214]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayers" unique_id=406651252]
 z_index = -1
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAABAAQAAAAAAAUAAAACAAQAAAABAAUAAAADAAQAAAABAAUAAAAEAAQAAAABAAUAAAAFAAQAAAABAAUAAAAGAAQAAAABAAUAAAAHAAQAAAACAAUAAAAIAAQAAQAAAAUAAAAIAAMAAQAAAAUAAAAIAAIAAQAAAAUAAAAIAAEAAQAAAAUAAAABAAMAAAAAAAQAAAABAAIAAAAAAAQAAAABAAEAAAAAAAQAAAAHAAMAAAACAAQAAAAHAAIAAAACAAQAAAAHAAEAAAACAAQAAAAHAAAAAAACAAMAAAABAAAAAAAAAAMAAAACAAAAAAABAAMAAAADAAAAAAABAAMAAAAEAAAAAAABAAMAAAAFAAAAAAABAAMAAAAGAAAAAAABAAMAAAACAAMAAAABAAQAAAACAAIAAAABAAQAAAACAAEAAAABAAQAAAADAAMAAAABAAQAAAADAAIAAAABAAQAAAADAAEAAAABAAQAAAAEAAMAAAABAAQAAAAEAAIAAAABAAQAAAAEAAEAAAABAAQAAAAFAAMAAAABAAQAAAAFAAEAAAABAAQAAAAFAAIAAAABAAQAAAAGAAEAAAABAAQAAAAGAAIAAAABAAQAAAAGAAMAAAABAAQAAAAAAAMAAQAGAAMAAAAAAAQAAQAAAAUAAAAAAAIAAQAGAAMAAAAAAAEAAQAGAAMAAAAAAAAAAQAAAAQAAAAIAAAAAQAAAAQAAAA=")
+tile_map_data = PackedByteArray("AAABAAQAAgANAA4AAAADAAQAAgAOAA4AAAAEAAQAAgAOAA4AAAAFAAQAAgAOAA4AAAAGAAQAAgAOAA4AAAAHAAQAAgAPAA4AAAAIAAQAAQAAAAUAAAAIAAMAAQAAAAUAAAAIAAIAAQAAAAUAAAAIAAEAAQAAAAUAAAABAAMAAgANAA0AAAABAAIAAgANAAwAAAABAAEAAgANAAsAAAAHAAMAAgAPAA0AAAAHAAIAAgAPAAwAAAAHAAEAAgAPAAsAAAAHAAAAAgAPAAoAAAABAAAAAgANAAoAAAACAAAAAgAOAAoAAAADAAAAAgAOAAoAAAAEAAAAAgAOAAoAAAAFAAAAAgAOAAoAAAAGAAAAAgAOAAoAAAACAAMAAgAOAA0AAAACAAIAAgAOAAwAAAACAAEAAgAOAAsAAAADAAMAAgAOAA0AAAADAAIAAgAOAAwAAAADAAEAAgAOAAsAAAAEAAMAAgAOAA0AAAAEAAIAAgAOAAwAAAAEAAEAAgAOAAsAAAAFAAMAAgAOAA0AAAAFAAEAAgAOAAsAAAAFAAIAAgAOAAwAAAAGAAEAAgAOAAsAAAAGAAIAAgAOAAwAAAAGAAMAAgAOAA0AAAAAAAMAAQAGAAMAAAAAAAQAAQAAAAUAAAAAAAIAAQAGAAMAAAAAAAEAAQAGAAMAAAAAAAAAAQAAAAQAAAAIAAAAAQAAAAQAAAACAAQAAgAOAA4AAAA=")
 tile_set = SubResource("TileSet_glx3d")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="TileMapLayers" unique_id=585875519]
@@ -281,176 +361,64 @@ custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot" unique_id=708473585]
-layout_mode = 0
-offset_top = 64.0
-offset_right = 60.0
-offset_bottom = 80.0
-alignment = 1
+[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot" index="2" unique_id=1925016092]
+position = Vector2(30, 30)
 
-[node name="Label" type="Label" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot/HBoxContainer" unique_id=2020089718]
-layout_mode = 2
-label_settings = SubResource("LabelSettings_4qhf5")
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot/HBoxContainer" unique_id=2032051172]
-layout_mode = 2
-texture = ExtResource("9_l4q0s")
-expand_mode = 2
-
-[node name="InvUISlot2" parent="PanelContainer/PanelContainer/GridContainer" unique_id=1105663935 instance=ExtResource("4_eeyqd")]
+[node name="InvUISlot2" parent="PanelContainer/PanelContainer/GridContainer" unique_id=1831034052 instance=ExtResource("4_eeyqd")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot2" unique_id=1757271399]
-layout_mode = 0
-offset_top = 64.0
-offset_right = 60.0
-offset_bottom = 80.0
-alignment = 1
+[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot2" index="2" unique_id=1925016092]
+position = Vector2(30, 30)
 
-[node name="Label" type="Label" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot2/HBoxContainer" unique_id=1944580924]
-layout_mode = 2
-label_settings = SubResource("LabelSettings_4qhf5")
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot2/HBoxContainer" unique_id=1826699272]
-layout_mode = 2
-texture = ExtResource("9_l4q0s")
-expand_mode = 2
-
-[node name="InvUISlot3" parent="PanelContainer/PanelContainer/GridContainer" unique_id=2094276494 instance=ExtResource("4_eeyqd")]
+[node name="InvUISlot3" parent="PanelContainer/PanelContainer/GridContainer" unique_id=2015604986 instance=ExtResource("4_eeyqd")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot3" unique_id=2077354777]
-layout_mode = 0
-offset_top = 64.0
-offset_right = 60.0
-offset_bottom = 80.0
-alignment = 1
+[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot3" index="2" unique_id=1925016092]
+position = Vector2(30, 30)
 
-[node name="Label" type="Label" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot3/HBoxContainer" unique_id=1634839155]
-layout_mode = 2
-label_settings = SubResource("LabelSettings_4qhf5")
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot3/HBoxContainer" unique_id=1374442231]
-layout_mode = 2
-texture = ExtResource("9_l4q0s")
-expand_mode = 2
-
-[node name="InvUISlot4" parent="PanelContainer/PanelContainer/GridContainer" unique_id=526679053 instance=ExtResource("4_eeyqd")]
+[node name="InvUISlot4" parent="PanelContainer/PanelContainer/GridContainer" unique_id=579917297 instance=ExtResource("4_eeyqd")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot4" unique_id=1841011175]
-layout_mode = 0
-offset_top = 64.0
-offset_right = 60.0
-offset_bottom = 80.0
-alignment = 1
+[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot4" index="2" unique_id=1925016092]
+position = Vector2(30, 30)
 
-[node name="Label" type="Label" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot4/HBoxContainer" unique_id=1053146374]
-layout_mode = 2
-label_settings = SubResource("LabelSettings_4qhf5")
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot4/HBoxContainer" unique_id=2100065487]
-layout_mode = 2
-texture = ExtResource("9_l4q0s")
-expand_mode = 2
-
-[node name="InvUISlot5" parent="PanelContainer/PanelContainer/GridContainer" unique_id=144421129 instance=ExtResource("4_eeyqd")]
+[node name="InvUISlot5" parent="PanelContainer/PanelContainer/GridContainer" unique_id=632363452 instance=ExtResource("4_eeyqd")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot5" unique_id=539567387]
-layout_mode = 0
-offset_top = 64.0
-offset_right = 60.0
-offset_bottom = 80.0
-alignment = 1
+[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot5" index="2" unique_id=1925016092]
+position = Vector2(30, 30)
 
-[node name="Label" type="Label" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot5/HBoxContainer" unique_id=75663148]
-layout_mode = 2
-label_settings = SubResource("LabelSettings_4qhf5")
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot5/HBoxContainer" unique_id=209741957]
-layout_mode = 2
-texture = ExtResource("9_l4q0s")
-expand_mode = 2
-
-[node name="InvUISlot6" parent="PanelContainer/PanelContainer/GridContainer" unique_id=1008745040 instance=ExtResource("4_eeyqd")]
+[node name="InvUISlot6" parent="PanelContainer/PanelContainer/GridContainer" unique_id=1980877058 instance=ExtResource("4_eeyqd")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot6" unique_id=920383107]
-layout_mode = 0
-offset_top = 64.0
-offset_right = 60.0
-offset_bottom = 80.0
-alignment = 1
+[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot6" index="2" unique_id=1925016092]
+position = Vector2(30, 30)
 
-[node name="Label" type="Label" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot6/HBoxContainer" unique_id=1593207672]
-layout_mode = 2
-label_settings = SubResource("LabelSettings_4qhf5")
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot6/HBoxContainer" unique_id=645047648]
-layout_mode = 2
-texture = ExtResource("9_l4q0s")
-expand_mode = 2
-
-[node name="InvUISlot7" parent="PanelContainer/PanelContainer/GridContainer" unique_id=1422398587 instance=ExtResource("4_eeyqd")]
+[node name="InvUISlot7" parent="PanelContainer/PanelContainer/GridContainer" unique_id=549113511 instance=ExtResource("4_eeyqd")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot7" unique_id=1919050033]
-layout_mode = 0
-offset_top = 64.0
-offset_right = 60.0
-offset_bottom = 80.0
-alignment = 1
+[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot7" index="2" unique_id=1925016092]
+position = Vector2(30, 30)
 
-[node name="Label" type="Label" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot7/HBoxContainer" unique_id=320126069]
-layout_mode = 2
-label_settings = SubResource("LabelSettings_4qhf5")
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot7/HBoxContainer" unique_id=359684600]
-layout_mode = 2
-texture = ExtResource("9_l4q0s")
-expand_mode = 2
-
-[node name="InvUISlot8" parent="PanelContainer/PanelContainer/GridContainer" unique_id=91316901 instance=ExtResource("4_eeyqd")]
+[node name="InvUISlot8" parent="PanelContainer/PanelContainer/GridContainer" unique_id=1527635495 instance=ExtResource("4_eeyqd")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot8" unique_id=26394247]
-layout_mode = 0
-offset_top = 64.0
-offset_right = 60.0
-offset_bottom = 80.0
-alignment = 1
-
-[node name="Label" type="Label" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot8/HBoxContainer" unique_id=1718041316]
-layout_mode = 2
-label_settings = SubResource("LabelSettings_4qhf5")
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot8/HBoxContainer" unique_id=348360562]
-layout_mode = 2
-texture = ExtResource("9_l4q0s")
-expand_mode = 2
+[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot8" index="2" unique_id=1925016092]
+position = Vector2(30, 30)
 
 [node name="Bag" parent="." unique_id=12638333 node_paths=PackedStringArray("loot_manager") instance=ExtResource("8_sar1i")]
 layout_mode = 1
@@ -463,6 +431,7 @@ offset_top = -576.0
 offset_bottom = -576.0
 grow_horizontal = 2
 grow_vertical = 0
+items_export = Array[PackedScene]([ExtResource("11_ncxfr")])
 loot_manager = NodePath("..")
 
 [node name="ProceedButton" type="Button" parent="." unique_id=1068832568]
@@ -514,3 +483,12 @@ offset_bottom = 643.0
 mouse_filter = 2
 
 [connection signal="pressed" from="ProceedButton" to="." method="_on_proceed_button_pressed"]
+
+[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot"]
+[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot2"]
+[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot3"]
+[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot4"]
+[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot5"]
+[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot6"]
+[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot7"]
+[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot8"]

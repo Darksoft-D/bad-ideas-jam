@@ -4,6 +4,5 @@
 [ext_resource type="Resource" uid="uid://las7t8gp0wyb" path="res://UI/Inventory/Items/shield_item.tres" id="2_il1lw"]
 
 [node name="Shield" unique_id=600560121 instance=ExtResource("1_ep47m")]
-offset_left = 1.0
-offset_right = 41.0
 item_export = ExtResource("2_il1lw")
+texture_scale = Vector2(0.5, 0.5)
