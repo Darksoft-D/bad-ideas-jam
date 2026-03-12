@@ -1,0 +1,8 @@
+[gd_resource type="Resource" format=3 uid="uid://2fok66uhuk3g"]
+
+[ext_resource type="Script" uid="uid://csgq12mb566nd" path="res://Skills/Mirror/mirror.gd" id="1_wv6o2"]
+
+[resource]
+script = ExtResource("1_wv6o2")
+skill_name = "Mirror"
+metadata/_custom_type_script = "uid://woge1rog8y1w"

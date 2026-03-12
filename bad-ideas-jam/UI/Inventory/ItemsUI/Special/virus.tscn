@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cvsd6dgqqm7un"]
+
+[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://UI/Inventory/ItemsUI/item_ui.tscn" id="1_p56ek"]
+[ext_resource type="Script" uid="uid://dah435we4cfau" path="res://UI/Inventory/Items/item.gd" id="2_np4ct"]
+[ext_resource type="Texture2D" uid="uid://jpawjktg81qc" path="res://assets/ItemIcons/virus.png" id="3_b8les"]
+
+[sub_resource type="GDScript" id="GDScript_on0eu"]
+script/source = "extends Skill
+
+const VIRUS = preload(\"uid://cvsd6dgqqm7un\")
+
+func _turn_end():
+	print(VIRUS)
+	scene.insert_item(VIRUS)
+"
+
+[sub_resource type="Resource" id="Resource_crs2w"]
+script = SubResource("GDScript_on0eu")
+skill_name = "Virus"
+metadata/_custom_type_script = "uid://woge1rog8y1w"
+
+[sub_resource type="Resource" id="Resource_t6xsw"]
+script = ExtResource("2_np4ct")
+name = "Virus"
+description = "Creates a copy of itself in the empty slot every turn"
+texture = ExtResource("3_b8les")
+texture_scale = Vector2(2, 2)
+skill = SubResource("Resource_crs2w")
+item_type = 2
+temporary = true
+metadata/_custom_type_script = "uid://dah435we4cfau"
+
+[node name="Virus" unique_id=1684591049 instance=ExtResource("1_p56ek")]
+item_export = SubResource("Resource_t6xsw")

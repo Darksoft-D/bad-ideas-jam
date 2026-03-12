@@ -2,14 +2,17 @@
 
 [ext_resource type="Script" uid="uid://dah435we4cfau" path="res://UI/Inventory/Items/item.gd" id="1_dsvbn"]
 [ext_resource type="Resource" uid="uid://bs6maaf8tny3u" path="res://Skills/sword/sword_attack.tres" id="2_v8b0m"]
-[ext_resource type="Texture2D" uid="uid://cpe6kpemsbmeo" path="res://assets/ItemIcons/fb4.png" id="3_25bia"]
+[ext_resource type="Texture2D" uid="uid://cd0iuad0wki76" path="res://assets/ItemIcons/sword.png" id="3_dsvbn"]
 
 [resource]
 script = ExtResource("1_dsvbn")
 name = "Sword"
-texture = ExtResource("3_25bia")
+description = "Deal 7 damage, create 1 strenght slot "
+texture = ExtResource("3_dsvbn")
+texture_scale = Vector2(2, 2)
 skill = ExtResource("2_v8b0m")
 cost = 15
 damage = 7
 item_type = 1
+strength_slot = true
 metadata/_custom_type_script = "uid://dah435we4cfau"

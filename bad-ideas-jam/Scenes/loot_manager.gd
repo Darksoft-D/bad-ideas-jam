@@ -13,8 +13,11 @@ class_name LootManager
 @onready var sell_label: Label = $"../CanvasLayer/SellContainer/SellLabel"
 @onready var combat_layer: CanvasLayer = $"../CombatLayer"
 @onready var chest: Chest = $"../Visuals/Chest"
+@onready var turns_num_label: Label = $"../CombatLayer/VBoxContainer/TurnsNumLabel"
 
 signal looting_finished
+
+const DAMAGE_LABEL = preload("uid://bofywx1j6fpv0")
 
 var is_looting = false
 var is_loot_opened = false
@@ -23,6 +26,7 @@ var item_used = false
 var on_sell = false
 var selected_slot: InvSlot
 var turns: int = 1
+var max_turns: int = 1
 
 func _ready() -> void:
 	chest.chest_opened.connect(func():
@@ -56,6 +60,7 @@ func finish_looting():
 			if slot.item_ui.item is HealthBag:
 				player.health_bags.append(slot.item_ui.item)
 				slot.item_ui.used.connect(Callable(self, "delete_item"))
+				player.update_health()
 			elif slot.item_ui.item is Block:
 				player.blocks.append(slot.item_ui.item)
 				slot.item_ui.used.connect(Callable(self, "delete_item"))
@@ -65,7 +70,7 @@ func on_slot_clicked(item_ui: ItemUI, slot: InvSlot):
 	if !player_turn:
 		return
 	is_looting = true
-	slot.center_container.remove_child(item_ui)
+	slot.sprite_pos.remove_child(item_ui)
 	canvas_layer.add_child(item_ui)
 	item_ui.is_dragging = true
 	if is_loot_opened:
@@ -80,42 +85,49 @@ func on_slot_item_released(item_ui: ItemUI, slot: InvSlot):
 		print("Selected Slot")
 		item_ui.is_dragging = false
 		canvas_layer.remove_child(item_ui)
-		selected_slot.center_container.add_child(item_ui)
+		selected_slot.sprite_pos.add_child(item_ui)
 		slot.item_ui = null
-		selected_slot.item_ui = item_ui
-		item_ui.global_position = selected_slot.sprite_pos.global_position
-		if item_ui.item is Block:
-			selected_slot.gain.emit(item_ui)
-		selected_slot.apply()
+		selected_slot.assign_item(item_ui)
 	elif on_sell:
 		print("Sell")
 		Global.gold_amount += item_ui.item.cost
 		print(Global.gold_amount)
 		item_ui.queue_free()
 		Global.gold_changed.emit()
-	elif is_loot_opened or !item_ui.item.skill or item_used:
+	elif is_loot_opened or !item_ui.item.skill:
 		print("return")
 		item_ui.is_dragging = false
 		canvas_layer.remove_child(item_ui)
-		slot.center_container.add_child(item_ui)
-		item_ui.global_position = slot.sprite_pos.global_position
-		if item_ui.item is Block:
-			slot.gain.emit(item_ui)
-		slot.apply()
+		slot.sprite_pos.add_child(item_ui)
+		slot.assign_item(item_ui)
+	elif item_used and !item_ui.item.free:
+		print("return")
+		item_ui.is_dragging = false
+		canvas_layer.remove_child(item_ui)
+		slot.sprite_pos.add_child(item_ui)
+		slot.assign_item(item_ui)
 	else:
 		print("Use")
 		item_ui.used.connect(Callable(self, "on_used"))
 		if item_ui.item:
-			item_ui.item.use(get_parent().enemy, get_parent())
+			slot.item_ui = null
+			item_ui.item.use(get_parent().enemy, get_parent(), get_parent().player)
 	sell_container.hide()
 
 func on_used(item_ui: ItemUI):
 	Global.last_used_item = item_ui.item
 	Global.used_items.append(item_ui.item)
+	if item_ui.item.item_type == InvItem.type.ATTACK:
+		var damage_label = DAMAGE_LABEL.instantiate()
+		canvas_layer.add_child(damage_label)
+		damage_label.global_position = item_ui.global_position
+		damage_label.text = str(item_ui.item.damage)
 	delete_item(item_ui)
-	turns -= 1
-	if turns <= 0:
-		item_used = true
+	if !item_ui.item.free:
+		turns -= 1
+		turns_num_label.text = str(turns) + "/" + str(max_turns)
+		if turns <= 0:
+			item_used = true
 	
 func delete_item(item_ui: ItemUI):
 	item_ui.used.disconnect(on_used)

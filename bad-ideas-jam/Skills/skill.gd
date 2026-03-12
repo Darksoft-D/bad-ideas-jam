@@ -6,11 +6,13 @@ class_name Skill
 @export var damage: int
 
 var target: Entity
+var sender: Entity
 var scene
 
-func use(get_target: Entity, get_scene: Node2D):
+func use(get_target: Entity, get_scene: Node2D, get_sender: Entity):
 	target = get_target
 	scene = get_scene
+	sender = get_sender
 	_use()
 
 func turn_end(get_target: Entity, get_scene: Node2D):

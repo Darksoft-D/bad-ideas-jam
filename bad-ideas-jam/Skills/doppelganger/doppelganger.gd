@@ -11,4 +11,4 @@ func _use():
 			id += 1
 			_use()
 		else:
-			item.use(target, scene)
+			item.use(target, scene, sender)

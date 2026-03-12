@@ -4,7 +4,7 @@ class_name Entity
 @export var max_health: int = 1
 @export var skills: Array[Skill]
 
-@onready var hp_bar: ProgressBar = $HPBar
+@onready var total_health_bags_label: Label = $HBoxContainer/TotalHealthBagsLabel
 
 signal died
 signal attacked
@@ -17,16 +17,18 @@ var scene: Node2D
 
 func _ready() -> void:
 	health = max_health
-	hp_bar.max_value = max_health
-	hp_bar.value = health
+	total_health_bags_label.text = str(max_health)
 
-func take_damage(damage: int):
+func update_health():
+	total_health_bags_label.text = str(health)
+
+func take_damage(damage: int, _attacker: Entity = null):
 	health -= damage
 	if health <= 0:
 		is_dead = true
 		health = 0
 		died.emit()
-	hp_bar.value = health
+	update_health()
 
 func before_attack(get_scene: Node2D):
 	next_skill = skills.pick_random()
@@ -34,5 +36,5 @@ func before_attack(get_scene: Node2D):
 
 func attack():
 	if !is_dead:
-		next_skill.use(player, scene)
+		next_skill.use(player, scene, self)
 	attacked.emit()

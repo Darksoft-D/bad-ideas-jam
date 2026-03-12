@@ -21,11 +21,16 @@ Global="*uid://cfb5a06cusnb8"
 
 [display]
 
-window/stretch/mode="viewport"
+window/size/mode=2
+window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/TweenAnimation/plugin.cfg")
 
 [gui]
 
-theme/custom_font="uid://brr57sfrbjymc"
+theme/custom_font="uid://biwyvdx4lt01t"
 
 [input]
 
@@ -53,3 +58,4 @@ RightClick={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+2d/snap/snap_2d_transforms_to_pixel=true

@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dah435we4cfau" path="res://UI/Inventory/Items/item.gd" id="1_bh4mx"]
 [ext_resource type="Resource" uid="uid://211wmluaei8n" path="res://Skills/fireball_skill/fireball.tres" id="2_6hykn"]
-[ext_resource type="Texture2D" uid="uid://c4bx2qq7je5ob" path="res://assets/ItemIcons/fc993.png" id="3_5jcys"]
+[ext_resource type="Texture2D" uid="uid://bhbprfudlxukx" path="res://assets/ItemIcons/fireball.png" id="3_bh4mx"]
 
 [resource]
 script = ExtResource("1_bh4mx")
 name = "Fireball"
-texture = ExtResource("3_5jcys")
+description = "Deals 4 damage"
+texture = ExtResource("3_bh4mx")
+texture_scale = Vector2(2, 2)
 skill = ExtResource("2_6hykn")
 cost = 5
 damage = 4

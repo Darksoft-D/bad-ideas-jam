@@ -7,5 +7,6 @@
 script = ExtResource("1_y2wnc")
 value = 5
 name = "Block"
+description = "Takes damage instead of your health bags"
 texture = ExtResource("2_6rwol")
 metadata/_custom_type_script = "uid://dcjjku4hyj6ih"

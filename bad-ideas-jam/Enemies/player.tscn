@@ -26,5 +26,8 @@ texture = ExtResource("2_mynrr")
 region_enabled = true
 region_rect = Rect2(134, 100, 15, 26)
 
-[node name="HPBar" parent="." index="2" unique_id=93003711]
-visible = false
+[node name="BagSprite" type="Sprite2D" parent="." index="3" unique_id=1204522355]
+position = Vector2(12, -5)
+texture = ExtResource("2_mynrr")
+region_enabled = true
+region_rect = Rect2(150, 106, 6, 6)

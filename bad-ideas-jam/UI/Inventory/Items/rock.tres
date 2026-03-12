@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://by161oo7e60m"]
+
+[ext_resource type="Script" uid="uid://dah435we4cfau" path="res://UI/Inventory/Items/item.gd" id="1_cpl0x"]
+[ext_resource type="Resource" uid="uid://211wmluaei8n" path="res://Skills/fireball_skill/fireball.tres" id="2_h0eh0"]
+[ext_resource type="Texture2D" uid="uid://bl5rry4jikj5f" path="res://assets/ItemIcons/rock.png" id="3_spmhm"]
+
+[resource]
+script = ExtResource("1_cpl0x")
+name = "Rock"
+description = "Deals 2 damage, doesn't end your turn"
+texture = ExtResource("3_spmhm")
+texture_scale = Vector2(2, 2)
+skill = ExtResource("2_h0eh0")
+damage = 2
+item_type = 1
+free = true
+metadata/_custom_type_script = "uid://dah435we4cfau"

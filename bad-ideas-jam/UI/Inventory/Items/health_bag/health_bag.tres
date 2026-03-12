@@ -7,6 +7,8 @@
 script = ExtResource("1_7atc6")
 value = 5
 name = "Health Bag"
+description = "Your Health"
 texture = ExtResource("2_7atc6")
+texture_scale = Vector2(2, 2)
 cost = 10
 metadata/_custom_type_script = "uid://4cg17t547xbq"

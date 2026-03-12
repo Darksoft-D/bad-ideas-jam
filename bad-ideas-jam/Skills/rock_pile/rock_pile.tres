@@ -1,0 +1,8 @@
+[gd_resource type="Resource" format=3 uid="uid://d1oleomf04ja8"]
+
+[ext_resource type="Script" uid="uid://dsrd63ecvb44c" path="res://Skills/rock_pile/rock_pile.gd" id="1_ipls6"]
+
+[resource]
+script = ExtResource("1_ipls6")
+skill_name = "Rock Pile"
+metadata/_custom_type_script = "uid://woge1rog8y1w"

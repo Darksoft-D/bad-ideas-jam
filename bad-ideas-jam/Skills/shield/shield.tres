@@ -1,6 +1,6 @@
 [gd_resource type="Resource" format=3 uid="uid://dvafvhm3qplns"]
 
-[ext_resource type="PackedScene" uid="uid://g1f6v5vcekht" path="res://UI/Inventory/ItemsUI/block.tscn" id="1_yu5ec"]
+[ext_resource type="PackedScene" uid="uid://g1f6v5vcekht" path="res://UI/Inventory/ItemsUI/Defense/block.tscn" id="1_yu5ec"]
 [ext_resource type="Script" uid="uid://cke35oji83c18" path="res://Skills/shield/shield.gd" id="2_w2yqu"]
 
 [resource]

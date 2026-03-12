@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://decvj86npahbe"]
+
+[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://UI/Inventory/ItemsUI/item_ui.tscn" id="1_wx31t"]
+[ext_resource type="Resource" uid="uid://cjwb8jbnghfe2" path="res://UI/Inventory/Items/poison.tres" id="2_ojt8x"]
+
+[node name="Poison" unique_id=1684591049 instance=ExtResource("1_wx31t")]
+item_export = ExtResource("2_ojt8x")

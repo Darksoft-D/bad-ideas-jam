@@ -7,7 +7,9 @@
 [resource]
 script = ExtResource("1_tmffj")
 name = "Shield"
+description = "Gain 5 Block"
 texture = ExtResource("3_5m3jo")
+texture_scale = Vector2(0.5, 0.5)
 skill = ExtResource("2_d25by")
 cost = 10
 metadata/_custom_type_script = "uid://dah435we4cfau"

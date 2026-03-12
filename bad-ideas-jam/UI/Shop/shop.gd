@@ -24,6 +24,7 @@ func _ready() -> void:
 		labels.append(label)
 	if bag.items_export[0]:
 		bought_items.append(bag.items_export[0])
+	gold_amount_label.text = str(Global.gold_amount)
 	Global.gold_changed.connect(func():
 		gold_amount_label.text = str(Global.gold_amount))
 	for slot in slots:
