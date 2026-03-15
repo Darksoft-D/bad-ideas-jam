@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://by7v6tl70vl1l"]
+
+[ext_resource type="Script" uid="uid://cb4r2b1o7352f" path="res://Items/Effects/Double/double_effect.gd" id="1_46dd7"]
+[ext_resource type="Texture2D" uid="uid://2fbw0ia0u2q7" path="res://assets/Textures/EffectTextures/Copy.png" id="2_v4s8h"]
+
+[resource]
+script = ExtResource("1_46dd7")
+texture = ExtResource("2_v4s8h")
+name = "Double"
+descripiption = "Apply items effect twice"
+metadata/_custom_type_script = "uid://4b454lsaltaf"

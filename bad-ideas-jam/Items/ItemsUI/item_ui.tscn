@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dk3ifj8pbnten"]
+
+[ext_resource type="Script" uid="uid://cwd8c2sv0lcwq" path="res://Items/ItemsUI/item_ui.gd" id="1_8ahpx"]
+[ext_resource type="Texture2D" uid="uid://cjg6fxhhsdb2q" path="res://icon.svg" id="1_f0rct"]
+[ext_resource type="Texture2D" uid="uid://devd8qplbh7lb" path="res://assets/Textures/EffectTextures/fa609.png" id="2_b0k1g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ahpx"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_8x28w"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_vu2hf"]
+
+[node name="ItemUI" type="Sprite2D" unique_id=1684591049]
+z_index = 5
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_f0rct")
+script = ExtResource("1_8ahpx")
+
+[node name="ValueLabel" type="Label" parent="." unique_id=455979890]
+visible = false
+z_index = 5
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 36.0
+scale = Vector2(0.25, 0.25)
+text = "20"
+label_settings = SubResource("LabelSettings_8ahpx")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="StrengthIcon" type="Sprite2D" parent="." unique_id=1998542528]
+visible = false
+position = Vector2(5, -9)
+texture = ExtResource("2_b0k1g")
+
+[node name="EffectsContainer" type="HBoxContainer" parent="." unique_id=1721432745]
+offset_left = -56.363636
+offset_top = -59.090908
+offset_right = -16.363636
+offset_bottom = -19.090908
+scale = Vector2(0.1, 0.1)
+mouse_filter = 2
+
+[node name="ItemDescription" type="VBoxContainer" parent="." unique_id=898581443]
+
+[node name="NameLabel" type="Label" parent="ItemDescription" unique_id=1038739576]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "Name"
+label_settings = SubResource("LabelSettings_8x28w")
+autowrap_mode = 2
+
+[node name="TypeLabel" type="Label" parent="ItemDescription" unique_id=1162054922]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "Type"
+label_settings = SubResource("LabelSettings_vu2hf")
+autowrap_mode = 2
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="ItemDescription" unique_id=63190657]
+custom_minimum_size = Vector2(160, 20)
+layout_mode = 2
+text = "Description"
+fit_content = true
+autowrap_mode = 2

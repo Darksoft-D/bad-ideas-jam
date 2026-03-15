@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://cjwb8jbnghfe2"]
+
+[ext_resource type="Script" uid="uid://dah435we4cfau" path="res://Items/Items/item.gd" id="1_03dse"]
+[ext_resource type="Resource" uid="uid://b0j6qryqvpmqs" path="res://Items/Skills/Negative/poison/poison_skill.tres" id="2_ljurl"]
+[ext_resource type="Texture2D" uid="uid://bx1pao70t2o8q" path="res://assets/Textures/ItemTextures/poison.png" id="3_kl37m"]
+
+[resource]
+script = ExtResource("1_03dse")
+name = "Poison"
+description = "Receive 2 damage on the end, can't be moved of your turn"
+texture = ExtResource("3_kl37m")
+texture_scale = Vector2(2, 2)
+skill = ExtResource("2_ljurl")
+damage = 2
+item_type = 1
+disabled = true
+temporary = true
+metadata/_custom_type_script = "uid://dah435we4cfau"

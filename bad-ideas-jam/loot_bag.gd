@@ -4,6 +4,7 @@ func _ready() -> void:
 	for child in grid_container.get_children():
 		if child is InvSlot:
 			slots.append(child)
+			child.loot_slot = true
 	connect_slots()
 
 func generate_loot(loot: Array[PackedScene]):

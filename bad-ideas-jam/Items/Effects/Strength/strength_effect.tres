@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://ctx3y68dk30rd"]
+
+[ext_resource type="Script" uid="uid://tepqq3itr2bl" path="res://Items/Effects/Strength/strength_effect.gd" id="1_1xpvw"]
+[ext_resource type="Texture2D" uid="uid://devd8qplbh7lb" path="res://assets/Textures/EffectTextures/fa609.png" id="2_lrx3i"]
+
+[resource]
+script = ExtResource("1_1xpvw")
+texture = ExtResource("2_lrx3i")
+name = "Strength"
+descripiption = "Item deals x2 damage"
+metadata/_custom_type_script = "uid://4b454lsaltaf"

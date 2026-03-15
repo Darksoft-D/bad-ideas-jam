@@ -8,6 +8,7 @@ class_name Bag
 @onready var grid_container: GridContainer = $GridContainer
 
 const INV_UI_SLOT = preload("uid://dijoj8qysu0hg")
+const ITEM_DELETE_ANIM = preload("uid://wjxuvesugdrd")
 
 var slots: Array[InvSlot] = []
 var selected_slot: InvSlot = null
@@ -35,6 +36,31 @@ func get_empty_slot() -> InvSlot:
 		if !slot.item_ui:
 			return slot
 	return 
+
+func get_items() -> Array:
+	var items = []
+	for slot in slots:
+		if slot.item_ui and !slot.item_ui.item is HealthBag:
+			items.append(slot.item_ui)
+	return items
+
+func get_attack_items() -> Array:
+	var item_uis = get_items()
+	var items = []
+	for item_ui in item_uis:
+		if item_ui.item.item_type == InvItem.type.ATTACK:
+			items.append(item_ui)
+	return items
+
+func remove_item(item_ui: ItemUI):
+	for slot in slots:
+		if slot.item_ui == item_ui:
+			var remove_anim = ITEM_DELETE_ANIM.instantiate()
+			add_child(remove_anim)
+			remove_anim.global_position = item_ui.global_position
+			slot.item_ui = null
+			item_ui.queue_free()
+			return
 
 func update_slots():
 	print("Item export ", items_export)

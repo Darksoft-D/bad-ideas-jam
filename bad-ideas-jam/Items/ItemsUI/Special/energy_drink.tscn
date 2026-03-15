@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bg3uqxlsnklik"]
+
+[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://Items/ItemsUI/item_ui.tscn" id="1_5lvpl"]
+[ext_resource type="Resource" uid="uid://bjl8q4qubwxiv" path="res://Items/Items/Special/energy_drink.tres" id="2_p13qj"]
+
+[node name="EnergyDrink" unique_id=1684591049 instance=ExtResource("1_5lvpl")]
+item_export = ExtResource("2_p13qj")

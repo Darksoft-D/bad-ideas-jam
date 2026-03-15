@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3 uid="uid://yhjcth0l786l"]
+
+[ext_resource type="Script" uid="uid://c1xfmpge56wb8" path="res://Items/Skills/Attack/rage_hammer/rage_hammer.gd" id="1_nibgl"]
+
+[resource]
+script = ExtResource("1_nibgl")
+skill_name = "Rage Hamer"
+damage = 10
+metadata/_custom_type_script = "uid://woge1rog8y1w"

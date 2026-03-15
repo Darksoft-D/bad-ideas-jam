@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bq3iw0f5qhwsh"]
+
+[ext_resource type="Script" uid="uid://cm535rqsyc6sn" path="res://Scenes/Enemies/entity.gd" id="1_wlht0"]
+[ext_resource type="Texture2D" uid="uid://da6yhap8pt13p" path="res://assets/Textures/ItemTextures/health_bag_transparent.png" id="2_lbim6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8kaoh"]
+font_size = 8
+
+[node name="Entity" type="Node2D" unique_id=673946979]
+script = ExtResource("1_wlht0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1044903095]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=555894329]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=25884619]
+offset_left = -6.0
+offset_top = -19.0
+offset_right = 11.0
+offset_bottom = -11.0
+theme_override_constants/separation = 0
+
+[node name="TotalHealthBagsLabel" type="Label" parent="CanvasLayer/HBoxContainer" unique_id=2082950616]
+layout_mode = 2
+text = "20"
+label_settings = SubResource("LabelSettings_8kaoh")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=938065137]
+layout_mode = 2
+texture = ExtResource("2_lbim6")
+expand_mode = 2

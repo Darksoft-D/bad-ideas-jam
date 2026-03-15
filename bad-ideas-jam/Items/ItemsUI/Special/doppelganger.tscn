@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cp7723o8hbu73"]
+
+[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://Items/ItemsUI/item_ui.tscn" id="1_hs0u6"]
+[ext_resource type="Resource" uid="uid://3mu7mbehbkcr" path="res://Items/Items/Special/doppelganger.tres" id="2_l6p6p"]
+
+[node name="Doppelganger" unique_id=600560121 instance=ExtResource("1_hs0u6")]
+item_export = ExtResource("2_l6p6p")
+texture_scale = Vector2(0.25, 0.25)

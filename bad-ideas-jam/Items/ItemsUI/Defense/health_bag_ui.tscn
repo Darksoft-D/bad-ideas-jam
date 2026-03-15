@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c3riub8h2oq7c"]
+
+[ext_resource type="Resource" uid="uid://mi5pgt1to8qa" path="res://Items/Items/Defense/health_bag/health_bag.tres" id="1_ahxky"]
+[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://Items/ItemsUI/item_ui.tscn" id="1_sk1fk"]
+[ext_resource type="Texture2D" uid="uid://da6yhap8pt13p" path="res://assets/Textures/ItemTextures/health_bag_transparent.png" id="2_nmu1q"]
+[ext_resource type="Script" uid="uid://ctj1bj8cy32rt" path="res://Items/ItemsUI/Defense/health_bag_ui.gd" id="2_sk1fk"]
+
+[node name="HealthBagUI" unique_id=600560121 instance=ExtResource("1_sk1fk")]
+texture = ExtResource("2_nmu1q")
+script = ExtResource("2_sk1fk")
+health_value = 20
+item_export = ExtResource("1_ahxky")
+
+[node name="ValueLabel" parent="." index="0" unique_id=455979890]
+offset_left = -2.727274
+offset_top = 3.6363635
+offset_right = 37.272728
+offset_bottom = 35.636364

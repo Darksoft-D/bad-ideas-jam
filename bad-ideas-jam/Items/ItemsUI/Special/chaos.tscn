@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dhgh3v5o8p51v"]
+
+[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://Items/ItemsUI/item_ui.tscn" id="1_70vdh"]
+[ext_resource type="Resource" uid="uid://dtye1odsx1ikm" path="res://Items/Items/Special/chaos.tres" id="2_ljdhv"]
+
+[node name="Chaos" unique_id=1684591049 instance=ExtResource("1_70vdh")]
+item_export = ExtResource("2_ljdhv")

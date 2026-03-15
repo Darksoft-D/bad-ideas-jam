@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://cew3wiu1mn1h0"]
-
-[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://UI/Inventory/ItemsUI/item_ui.tscn" id="1_kntkp"]
-[ext_resource type="Resource" uid="uid://cx2ohigpmagy1" path="res://UI/Inventory/Items/sword.tres" id="2_53w1d"]
-
-[node name="Sword" unique_id=1684591049 instance=ExtResource("1_kntkp")]
-item_export = ExtResource("2_53w1d")

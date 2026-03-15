@@ -1,0 +1,8 @@
+[gd_resource type="Resource" format=3 uid="uid://bqpgoo63yrbjq"]
+
+[ext_resource type="Script" uid="uid://crxwucbmxmexn" path="res://Items/Skills/Defense/armor/armor.gd" id="1_sodv2"]
+
+[resource]
+script = ExtResource("1_sodv2")
+skill_name = "Armor"
+metadata/_custom_type_script = "uid://woge1rog8y1w"

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bn3d2cxwpibt1"]
+
+[ext_resource type="PackedScene" uid="uid://bq3iw0f5qhwsh" path="res://Scenes/Enemies/entity.tscn" id="1_8xgo2"]
+[ext_resource type="Script" uid="uid://woge1rog8y1w" path="res://Items/Skills/skill.gd" id="2_00swj"]
+[ext_resource type="Texture2D" uid="uid://cjg6fxhhsdb2q" path="res://icon.svg" id="2_7mise"]
+[ext_resource type="Resource" uid="uid://211wmluaei8n" path="res://Items/Skills/Attack/fireball_skill/fireball.tres" id="3_87lq7"]
+
+[node name="Slime" unique_id=673946979 instance=ExtResource("1_8xgo2")]
+z_index = 1
+max_health = 10
+skills = Array[ExtResource("2_00swj")]([ExtResource("3_87lq7")])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1044903095]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7mise")
+
+[node name="HBoxContainer" parent="CanvasLayer" parent_id_path=PackedInt32Array(555894329) index="0" unique_id=25884619]
+offset_left = -7.0
+offset_top = -21.0
+offset_right = 10.0

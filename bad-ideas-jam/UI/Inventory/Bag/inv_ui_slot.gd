@@ -7,13 +7,8 @@ class_name InvSlot
 @onready var select_texture: TextureRect = $CenterContainer/SelectTexture
 @onready var strength_rect: ColorRect = $StrengthRect
 @onready var sprite_pos: Node2D = $SpritePos
-
 @onready var tooltip: PanelContainer = $Tooltip
-@onready var name_label: Label = $Tooltip/HBoxContainer/VBoxContainer/NameLabel
-@onready var type_label: Label = $Tooltip/HBoxContainer/VBoxContainer/TypeLabel
-@onready var description_label: Label = $Tooltip/HBoxContainer/VBoxContainer/DescriptionLabel
-@onready var h_box_container: HBoxContainer = $Tooltip/HBoxContainer
-@onready var strength_slot_description: VBoxContainer = $Tooltip/HBoxContainer/StrengthSlotDescription
+@onready var descriptions_container: HBoxContainer = $Tooltip/DescriptionsContainer
 
 const ITEM_UI = preload("uid://dk3ifj8pbnten")
 
@@ -27,9 +22,11 @@ var item_ui: ItemUI
 var is_selected = false
 var is_dragging = false
 var on_sell = false
+var loot_slot = false
 var current_state = state.DEFAULT
 var last_state
 var original_damage
+var descriptions: Array = []
 
 enum state {
 	DEFAULT,
@@ -42,7 +39,6 @@ func _input(event: InputEvent) -> void:
 		is_dragging = true
 		pressed.emit(item_ui, self)
 		tooltip.hide()
-		strength_slot_description.hide()
 	elif event.is_action_released("Drag") and is_dragging:
 		print("Released")
 		is_dragging = false
@@ -69,9 +65,17 @@ func update(item_scene: PackedScene):
 func assign_item(new_item: ItemUI):
 	item_ui = new_item
 	item_ui.global_position = sprite_pos.global_position
-	name_label.text = item_ui.item.name
-	type_label.text = InvItem.type.find_key(item_ui.item.item_type)
-	description_label.text = item_ui.item.description
+	var item_description = item_ui.item_description
+	print("Assigning item ", item_description)
+	for description in item_ui.descriptions:
+		item_ui.remove_child(description)
+		descriptions_container.add_child(description)
+		description.show()
+		descriptions.append(description)
+	if loot_slot:
+		for i in descriptions.size()/2:
+			descriptions[i].queue_free()
+			descriptions.remove_at(i)
 	if item_ui.item is Block:
 		gain.emit(item_ui)
 	apply()
@@ -87,8 +91,6 @@ func _on_mouse_entered() -> void:
 	is_selected = true
 	selected.emit(self)
 	if item_ui:
-		if item_ui.item.strength_slot:
-			strength_slot_description.show()
 		tooltip.show()
 
 func _on_mouse_exited() -> void:
@@ -96,7 +98,6 @@ func _on_mouse_exited() -> void:
 	is_selected = false
 	unselected.emit(self)
 	tooltip.hide()
-	strength_slot_description.hide()
 
 func show_state():
 	match current_state:

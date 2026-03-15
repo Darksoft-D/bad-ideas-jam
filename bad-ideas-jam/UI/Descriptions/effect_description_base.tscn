@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cffit6ssy7346"]
+
+[ext_resource type="Script" uid="uid://egawndolm4q" path="res://UI/Descriptions/effect_description_base.gd" id="1_6bp2n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8x28w"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_dc8rx"]
+font_size = 24
+
+[node name="EffectDescriptionBase" type="VBoxContainer" unique_id=1349725808]
+visible = false
+script = ExtResource("1_6bp2n")
+
+[node name="NameLabel" type="Label" parent="." unique_id=406386952]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "Name"
+label_settings = SubResource("LabelSettings_8x28w")
+autowrap_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="." unique_id=1467849173]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "Description"
+label_settings = SubResource("LabelSettings_dc8rx")
+autowrap_mode = 2

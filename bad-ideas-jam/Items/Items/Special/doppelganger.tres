@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://3mu7mbehbkcr"]
+
+[ext_resource type="Script" uid="uid://dah435we4cfau" path="res://Items/Items/item.gd" id="1_4aevh"]
+[ext_resource type="Resource" uid="uid://0wbxmjwqafyq" path="res://Items/Skills/Special/doppelganger/doppelganger.tres" id="2_xqjxf"]
+[ext_resource type="Texture2D" uid="uid://cjg6fxhhsdb2q" path="res://icon.svg" id="3_5pnxt"]
+
+[resource]
+script = ExtResource("1_4aevh")
+name = "Doppelganger"
+description = "Copies the ability of the last used item"
+texture = ExtResource("3_5pnxt")
+texture_scale = Vector2(0.25, 0.25)
+skill = ExtResource("2_xqjxf")
+cost = 20
+item_type = 2
+metadata/_custom_type_script = "uid://dah435we4cfau"

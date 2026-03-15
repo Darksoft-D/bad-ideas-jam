@@ -18,6 +18,7 @@ class_name LootManager
 signal looting_finished
 
 const DAMAGE_LABEL = preload("uid://bofywx1j6fpv0")
+const ITEM_DELETE_ANIM = preload("uid://wjxuvesugdrd")
 
 var is_looting = false
 var is_loot_opened = false
@@ -33,9 +34,12 @@ func _ready() -> void:
 		generate_loot())
 
 func generate_loot():
+	for slot in loot_bag.slots:
+		for description in slot.descriptions_container.get_children():
+			description.queue_free()
 	player_turn = true
 	is_loot_opened = true
-	var amount = randi_range(2, 5)
+	var amount = randi_range(5, 5)
 	var loot: Array[PackedScene] = []
 	for i in amount:
 		var item = items.pick_random()
@@ -60,15 +64,23 @@ func finish_looting():
 			if slot.item_ui.item is HealthBag:
 				player.health_bags.append(slot.item_ui.item)
 				slot.item_ui.used.connect(Callable(self, "delete_item"))
-				player.update_health()
-			elif slot.item_ui.item is Block:
+			if slot.item_ui.item is Block:
 				player.blocks.append(slot.item_ui.item)
 				slot.item_ui.used.connect(Callable(self, "delete_item"))
+	for slot in loot_bag.slots:
+		slot.descriptions.clear()
+	get_parent().update_health()
 
 func on_slot_clicked(item_ui: ItemUI, slot: InvSlot):
 	print("loot manager: clicked")
 	if !player_turn:
 		return
+	for description in slot.descriptions:
+		print(slot.descriptions)
+		slot.descriptions_container.remove_child(description)
+		item_ui.add_child(description)
+		item_ui.descriptions.append(description)
+		description.hide()
 	is_looting = true
 	slot.sprite_pos.remove_child(item_ui)
 	canvas_layer.add_child(item_ui)
@@ -94,7 +106,7 @@ func on_slot_item_released(item_ui: ItemUI, slot: InvSlot):
 		print(Global.gold_amount)
 		item_ui.queue_free()
 		Global.gold_changed.emit()
-	elif is_loot_opened or !item_ui.item.skill:
+	elif is_loot_opened or !item_ui.item.skill or !item_ui.item.skill.condition(get_parent()):
 		print("return")
 		item_ui.is_dragging = false
 		canvas_layer.remove_child(item_ui)
@@ -111,23 +123,29 @@ func on_slot_item_released(item_ui: ItemUI, slot: InvSlot):
 		item_ui.used.connect(Callable(self, "on_used"))
 		if item_ui.item:
 			slot.item_ui = null
+			slot.descriptions = []
 			item_ui.item.use(get_parent().enemy, get_parent(), get_parent().player)
 	sell_container.hide()
 
 func on_used(item_ui: ItemUI):
+	print("Used item")
+	if !item_ui.item.free:
+		turns -= 1
+		turns_num_label.text = str(turns) + "/" + str(max_turns)
+		if turns <= 0:
+			item_used = true
 	Global.last_used_item = item_ui.item
 	Global.used_items.append(item_ui.item)
+	var used_anim = ITEM_DELETE_ANIM.instantiate()
+	item_ui.get_parent().add_child(used_anim)
+	used_anim.global_position = item_ui.global_position
+	print(used_anim)
 	if item_ui.item.item_type == InvItem.type.ATTACK:
 		var damage_label = DAMAGE_LABEL.instantiate()
 		canvas_layer.add_child(damage_label)
 		damage_label.global_position = item_ui.global_position
 		damage_label.text = str(item_ui.item.damage)
 	delete_item(item_ui)
-	if !item_ui.item.free:
-		turns -= 1
-		turns_num_label.text = str(turns) + "/" + str(max_turns)
-		if turns <= 0:
-			item_used = true
 	
 func delete_item(item_ui: ItemUI):
 	item_ui.used.disconnect(on_used)

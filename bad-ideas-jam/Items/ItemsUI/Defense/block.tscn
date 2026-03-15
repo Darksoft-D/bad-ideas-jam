@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://g1f6v5vcekht"]
+
+[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://Items/ItemsUI/item_ui.tscn" id="1_sl66l"]
+[ext_resource type="Resource" uid="uid://0vs8i7x3jw17" path="res://Items/Items/Defense/block/block.tres" id="2_woana"]
+
+[node name="Block" unique_id=600560121 instance=ExtResource("1_sl66l")]
+item_export = ExtResource("2_woana")
+texture_scale = Vector2(0.5, 0.5)

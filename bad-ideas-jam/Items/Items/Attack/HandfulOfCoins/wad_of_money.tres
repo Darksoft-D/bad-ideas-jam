@@ -1,0 +1,14 @@
+[gd_resource type="Resource" format=3 uid="uid://b8s57k55jv3aa"]
+
+[ext_resource type="Script" uid="uid://dgl0u1o1hk11v" path="res://Items/Items/Attack/HandfulOfCoins/wad_of_money.gd" id="1_4oh2r"]
+[ext_resource type="Texture2D" uid="uid://btro20nbqkxcw" path="res://assets/Textures/ItemTextures/fb136.png" id="2_f8gmv"]
+[ext_resource type="Resource" uid="uid://ddemtiwxbkkda" path="res://Items/Skills/Attack/wad_of_money/wad_of_money.tres" id="2_ube01"]
+
+[resource]
+script = ExtResource("1_4oh2r")
+name = "A handful of coins"
+description = "Deal damage equal 1/4 of your money, lose these money"
+texture = ExtResource("2_f8gmv")
+skill = ExtResource("2_ube01")
+item_type = 1
+metadata/_custom_type_script = "uid://dah435we4cfau"

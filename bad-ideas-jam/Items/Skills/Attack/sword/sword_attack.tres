@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3 uid="uid://bs6maaf8tny3u"]
+
+[ext_resource type="Script" uid="uid://d2nxad2u8qkh2" path="res://Items/Skills/Attack/sword/sword.gd" id="1_3a2b4"]
+[ext_resource type="Resource" uid="uid://ctx3y68dk30rd" path="res://Items/Effects/Strength/strength_effect.tres" id="1_sgrh1"]
+
+[resource]
+script = ExtResource("1_3a2b4")
+effect = ExtResource("1_sgrh1")
+skill_name = "Sword Attack"
+description = "Deals 7 damage, creates 1 strength slot"
+damage = 7
+metadata/_custom_type_script = "uid://woge1rog8y1w"

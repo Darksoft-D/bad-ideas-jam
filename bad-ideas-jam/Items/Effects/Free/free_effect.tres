@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://pa01ljhy5el5"]
+
+[ext_resource type="Script" uid="uid://cwsn2w5ho532c" path="res://Items/Effects/Free/free_effect.gd" id="1_foboa"]
+[ext_resource type="Texture2D" uid="uid://b35iucksqd5o1" path="res://assets/Textures/EffectTextures/fa714.png" id="2_bsxa1"]
+
+[resource]
+script = ExtResource("1_foboa")
+texture = ExtResource("2_bsxa1")
+name = "Free"
+descripiption = "1 more item can be used after using this item"
+metadata/_custom_type_script = "uid://4b454lsaltaf"

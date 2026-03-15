@@ -3,26 +3,37 @@
 [ext_resource type="Script" uid="uid://cl8bu5onv7pmx" path="res://Scenes/main_scene.gd" id="1_maf8m"]
 [ext_resource type="Script" uid="uid://cytj38mtg8ceg" path="res://Scenes/loot_manager.gd" id="1_x6ack"]
 [ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://UI/Inventory/Bag/bag.tscn" id="2_6l7je"]
-[ext_resource type="PackedScene" uid="uid://bn3d2cxwpibt1" path="res://Enemies/slime.tscn" id="2_huasi"]
+[ext_resource type="PackedScene" uid="uid://bn3d2cxwpibt1" path="res://Scenes/Enemies/slime.tscn" id="2_huasi"]
 [ext_resource type="Texture2D" uid="uid://b1usdel85uamu" path="res://assets/Tiles/backpack_gamejam.png" id="2_jv6wh"]
-[ext_resource type="PackedScene" uid="uid://dsq74ta6tg5cn" path="res://UI/Inventory/ItemsUI/Defense/shield.tscn" id="5_2ebs2"]
-[ext_resource type="PackedScene" uid="uid://bsyubarf0lohh" path="res://UI/Inventory/ItemsUI/Defense/small_health_bag_ui.tscn" id="6_oyb3p"]
+[ext_resource type="PackedScene" uid="uid://cyv1jibwlj42i" path="res://Items/ItemsUI/Attack/fireball_ui.tscn" id="5_nt2eh"]
+[ext_resource type="PackedScene" uid="uid://4uivwpgputqq" path="res://Items/ItemsUI/Attack/rock.tscn" id="6_5cm5d"]
+[ext_resource type="PackedScene" uid="uid://cew3wiu1mn1h0" path="res://Items/ItemsUI/Attack/sword.tscn" id="7_5bov3"]
 [ext_resource type="Texture2D" uid="uid://d1sun0kuatkao" path="res://assets/Tiles/Bookshelf_tiles.png" id="7_76v2p"]
-[ext_resource type="PackedScene" uid="uid://cp7723o8hbu73" path="res://UI/Inventory/ItemsUI/Special/doppelganger.tscn" id="7_jvnna"]
+[ext_resource type="PackedScene" uid="uid://bg3uqxlsnklik" path="res://Items/ItemsUI/Special/energy_drink.tscn" id="7_yb0ja"]
 [ext_resource type="PackedScene" uid="uid://cdt6j1h58kr12" path="res://UI/Inventory/Bag/chest.tscn" id="8_7ewk0"]
+[ext_resource type="PackedScene" uid="uid://haajd3lqqqyg" path="res://Items/ItemsUI/Special/interest_rate.tscn" id="8_15kh8"]
 [ext_resource type="Texture2D" uid="uid://exlg5xvvsvd4" path="res://assets/Tiles/Dungeon_tiles.png" id="8_drdnd"]
-[ext_resource type="PackedScene" uid="uid://0qiwd1hsqid0" path="res://Enemies/player.tscn" id="8_mai8y"]
+[ext_resource type="PackedScene" uid="uid://0qiwd1hsqid0" path="res://Scenes/Enemies/player.tscn" id="8_mai8y"]
+[ext_resource type="PackedScene" uid="uid://dsq74ta6tg5cn" path="res://Items/ItemsUI/Defense/shield.tscn" id="8_xle81"]
 [ext_resource type="Texture2D" uid="uid://dm6fuo1v7j1ee" path="res://assets/Tiles/taller_bookshelves_.png" id="9_jvnna"]
-[ext_resource type="PackedScene" uid="uid://4uivwpgputqq" path="res://UI/Inventory/ItemsUI/Attack/rock.tscn" id="10_8edxt"]
-[ext_resource type="PackedScene" uid="uid://c3riub8h2oq7c" path="res://UI/Inventory/ItemsUI/Defense/health_bag_ui.tscn" id="10_76v2p"]
-[ext_resource type="PackedScene" uid="uid://bpcdjxf7rwkta" path="res://UI/Inventory/ItemsUI/Special/rock_pile.tscn" id="11_5oxhp"]
-[ext_resource type="Texture2D" uid="uid://can2q6siopolc" path="res://assets/ItemIcons/fc160.png" id="11_76v2p"]
-[ext_resource type="PackedScene" uid="uid://cyv1jibwlj42i" path="res://UI/Inventory/ItemsUI/Attack/fireball_ui.tscn" id="11_drdnd"]
+[ext_resource type="PackedScene" uid="uid://cp7723o8hbu73" path="res://Items/ItemsUI/Special/doppelganger.tscn" id="9_s8qe6"]
+[ext_resource type="PackedScene" uid="uid://c3riub8h2oq7c" path="res://Items/ItemsUI/Defense/health_bag_ui.tscn" id="10_76v2p"]
+[ext_resource type="PackedScene" uid="uid://defemwqxmq1my" path="res://Items/ItemsUI/Special/mirror.tscn" id="10_yb0ja"]
+[ext_resource type="PackedScene" uid="uid://bpcdjxf7rwkta" path="res://Items/ItemsUI/Special/rock_pile.tscn" id="11_15kh8"]
+[ext_resource type="PackedScene" uid="uid://d33kjfyie3lgt" path="res://Items/ItemsUI/Defense/armor.tscn" id="11_viu5a"]
 [ext_resource type="PackedScene" uid="uid://bkb14j2jahlkb" path="res://UI/Inventory/Bag/loot_bag.tscn" id="12_ioaeq"]
+[ext_resource type="PackedScene" uid="uid://d0pdq2m7bajwx" path="res://Items/ItemsUI/Defense/warm_up.tscn" id="13_b00ha"]
 [ext_resource type="Shader" uid="uid://c81rodqya1un7" path="res://assets/Shaders/CRTVHSEffect.gdshader" id="15_gnsmo"]
 [ext_resource type="Shader" uid="uid://dq4ja4toyo7va" path="res://assets/Shaders/vignette.gdshader" id="15_lhp3t"]
-[ext_resource type="PackedScene" uid="uid://cew3wiu1mn1h0" path="res://UI/Inventory/ItemsUI/Attack/sword.tscn" id="15_oyb3p"]
-[ext_resource type="PackedScene" uid="uid://d33kjfyie3lgt" path="res://UI/Inventory/ItemsUI/Defense/armor.tscn" id="17_b48ew"]
+[ext_resource type="PackedScene" uid="uid://dybir254aw8t0" path="res://Items/ItemsUI/Attack/echo_blade.tscn" id="17_15kh8"]
+[ext_resource type="PackedScene" uid="uid://dhgh3v5o8p51v" path="res://Items/ItemsUI/Special/chaos.tscn" id="20_5cm5d"]
+[ext_resource type="PackedScene" uid="uid://dwxs52roo5kbc" path="res://Items/ItemsUI/Special/ctrl_c_ctrl_v.tscn" id="21_5bov3"]
+[ext_resource type="Texture2D" uid="uid://k6qhckeaycwf" path="res://assets/Textures/UITextures/fc131.png" id="22_5cm5d"]
+[ext_resource type="Texture2D" uid="uid://da6yhap8pt13p" path="res://assets/Textures/ItemTextures/health_bag_transparent.png" id="22_nt2eh"]
+[ext_resource type="PackedScene" uid="uid://ddu4wop014o2m" path="res://Items/ItemsUI/Special/reinforcement.tscn" id="26_viu5a"]
+[ext_resource type="PackedScene" uid="uid://kc8bmxgpbnyi" path="res://Items/ItemsUI/Attack/rage_hammer.tscn" id="27_b00ha"]
+[ext_resource type="PackedScene" uid="uid://72pey354deea" path="res://Items/ItemsUI/Special/goldenbag.tscn" id="28_urcnp"]
+[ext_resource type="PackedScene" uid="uid://ccm7r6k2uxlxt" path="res://Items/ItemsUI/Attack/handfulof_coins.tscn" id="29_rpyod"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b48ew"]
 texture = ExtResource("9_jvnna")
@@ -360,6 +371,9 @@ font_size = 32
 [sub_resource type="LabelSettings" id="LabelSettings_b48ew"]
 font_size = 32
 
+[sub_resource type="LabelSettings" id="LabelSettings_5cm5d"]
+font_size = 32
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_psl12"]
 shader = ExtResource("15_gnsmo")
 shader_parameter/overlay = true
@@ -396,7 +410,7 @@ enemies = Array[PackedScene]([ExtResource("2_huasi")])
 
 [node name="LootManager" type="Node" parent="." unique_id=1730028833]
 script = ExtResource("1_x6ack")
-items = Array[PackedScene]([ExtResource("11_drdnd"), ExtResource("5_2ebs2"), ExtResource("6_oyb3p"), ExtResource("7_jvnna"), ExtResource("15_oyb3p"), ExtResource("17_b48ew"), ExtResource("10_8edxt"), ExtResource("11_5oxhp")])
+items = Array[PackedScene]([ExtResource("20_5cm5d"), ExtResource("21_5bov3"), ExtResource("9_s8qe6"), ExtResource("7_yb0ja"), ExtResource("8_15kh8"), ExtResource("10_yb0ja"), ExtResource("11_15kh8"), ExtResource("11_viu5a"), ExtResource("8_xle81"), ExtResource("13_b00ha"), ExtResource("5_nt2eh"), ExtResource("6_5cm5d"), ExtResource("7_5bov3"), ExtResource("17_15kh8"), ExtResource("26_viu5a"), ExtResource("28_urcnp"), ExtResource("27_b00ha"), ExtResource("29_rpyod")])
 
 [node name="Visuals" type="Node" parent="." unique_id=1383002675]
 
@@ -453,7 +467,7 @@ anchor_right = 0.5
 offset_top = 53.0
 offset_bottom = 53.0
 grow_horizontal = 2
-items_export = Array[PackedScene]([ExtResource("10_76v2p")])
+items_export = Array[PackedScene]([ExtResource("10_76v2p"), ExtResource("26_viu5a"), ExtResource("27_b00ha"), ExtResource("28_urcnp"), ExtResource("29_rpyod"), ExtResource("17_15kh8")])
 loot_manager = NodePath("../../LootManager")
 
 [node name="LootContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=459750805]
@@ -538,7 +552,7 @@ label_settings = SubResource("LabelSettings_drdnd")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1391980501]
 layout_mode = 2
-texture = ExtResource("11_76v2p")
+texture = ExtResource("22_5cm5d")
 expand_mode = 2
 
 [node name="CombatLayer" type="CanvasLayer" parent="." unique_id=403820658]
@@ -591,6 +605,40 @@ layout_mode = 2
 text = "1/1"
 label_settings = SubResource("LabelSettings_b48ew")
 horizontal_alignment = 1
+
+[node name="PlayerHealthContainer" type="HBoxContainer" parent="CombatLayer" unique_id=423920173]
+offset_left = 20.0
+offset_top = 292.0
+offset_right = 88.0
+offset_bottom = 324.0
+theme_override_constants/separation = 0
+
+[node name="TotalHealthBagsLabel" type="Label" parent="CombatLayer/PlayerHealthContainer" unique_id=864787412]
+layout_mode = 2
+text = "20"
+label_settings = SubResource("LabelSettings_5cm5d")
+
+[node name="TextureRect" type="TextureRect" parent="CombatLayer/PlayerHealthContainer" unique_id=1725191947]
+layout_mode = 2
+texture = ExtResource("22_nt2eh")
+expand_mode = 2
+
+[node name="EnemyHealthContainer" type="HBoxContainer" parent="CombatLayer" unique_id=431263242]
+offset_left = 20.0
+offset_top = 292.0
+offset_right = 88.0
+offset_bottom = 324.0
+theme_override_constants/separation = 0
+
+[node name="TotalHealthBagsLabel" type="Label" parent="CombatLayer/EnemyHealthContainer" unique_id=739452539]
+layout_mode = 2
+text = "20"
+label_settings = SubResource("LabelSettings_5cm5d")
+
+[node name="TextureRect" type="TextureRect" parent="CombatLayer/EnemyHealthContainer" unique_id=1209969548]
+layout_mode = 2
+texture = ExtResource("22_nt2eh")
+expand_mode = 2
 
 [node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=993173925]
 visible = false

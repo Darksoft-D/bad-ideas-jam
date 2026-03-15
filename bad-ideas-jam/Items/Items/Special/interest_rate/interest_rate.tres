@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://coh1aqr3mnpvg"]
+
+[ext_resource type="Script" uid="uid://dpuvkn6e46d7y" path="res://Items/Items/Special/interest_rate/interest_rate.gd" id="1_pbccu"]
+[ext_resource type="Texture2D" uid="uid://can2q6siopolc" path="res://assets/Textures/UITextures/fc160.png" id="2_jrywn"]
+
+[resource]
+script = ExtResource("1_pbccu")
+name = "Interest Rate"
+description = "Gain +1 to cost every turn"
+texture = ExtResource("2_jrywn")
+texture_scale = Vector2(0.5, 0.5)
+item_type = 2
+metadata/_custom_type_script = "uid://dah435we4cfau"

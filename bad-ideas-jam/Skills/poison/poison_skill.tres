@@ -1,9 +1,0 @@
-[gd_resource type="Resource" format=3 uid="uid://b0j6qryqvpmqs"]
-
-[ext_resource type="Script" uid="uid://bk77w3ptc242e" path="res://Skills/poison/poison.gd" id="1_n5ueq"]
-
-[resource]
-script = ExtResource("1_n5ueq")
-skill_name = "Poison"
-damage = 2
-metadata/_custom_type_script = "uid://woge1rog8y1w"

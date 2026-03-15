@@ -14,20 +14,6 @@ texture = SubResource("AtlasTexture_20w12")
 atlas = ExtResource("1_x8d8c")
 region = Rect2(234, 72, 9, 9)
 
-[sub_resource type="LabelSettings" id="LabelSettings_mfu1p"]
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_3g80p"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_n821w"]
-font_size = 24
-
-[sub_resource type="LabelSettings" id="LabelSettings_5iu6o"]
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_4yxt7"]
-font_size = 24
-
 [node name="InvUISlot" type="Panel" unique_id=1023083226]
 custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
@@ -79,49 +65,9 @@ offset_right = 208.0
 offset_bottom = 56.0
 scale = Vector2(0.5, 0.5)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Tooltip" unique_id=1510822421]
+[node name="DescriptionsContainer" type="HBoxContainer" parent="Tooltip" unique_id=1510822421]
 layout_mode = 2
 theme_override_constants/separation = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Tooltip/HBoxContainer" unique_id=99271449]
-layout_mode = 2
-
-[node name="NameLabel" type="Label" parent="Tooltip/HBoxContainer/VBoxContainer" unique_id=938252445]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-text = "Name"
-label_settings = SubResource("LabelSettings_mfu1p")
-autowrap_mode = 2
-
-[node name="TypeLabel" type="Label" parent="Tooltip/HBoxContainer/VBoxContainer" unique_id=712591068]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-text = "Type"
-label_settings = SubResource("LabelSettings_3g80p")
-autowrap_mode = 2
-
-[node name="DescriptionLabel" type="Label" parent="Tooltip/HBoxContainer/VBoxContainer" unique_id=1934086592]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-text = "Description"
-label_settings = SubResource("LabelSettings_n821w")
-autowrap_mode = 2
-
-[node name="StrengthSlotDescription" type="VBoxContainer" parent="Tooltip/HBoxContainer" unique_id=164615729]
-visible = false
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Tooltip/HBoxContainer/StrengthSlotDescription" unique_id=1778595742]
-layout_mode = 2
-text = "Strength Slot"
-label_settings = SubResource("LabelSettings_5iu6o")
-
-[node name="Label2" type="Label" parent="Tooltip/HBoxContainer/StrengthSlotDescription" unique_id=2061690451]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-text = "If assigned item is Attack item, apply strength to it - item will deal x2 damage"
-label_settings = SubResource("LabelSettings_4yxt7")
-autowrap_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

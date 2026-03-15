@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bsyubarf0lohh"]
+
+[ext_resource type="PackedScene" uid="uid://c3riub8h2oq7c" path="res://Items/ItemsUI/Defense/health_bag_ui.tscn" id="1_t3f8g"]
+
+[node name="SmallHealthBagUI" unique_id=600560121 instance=ExtResource("1_t3f8g")]
+z_index = 0
+health_value = 5
