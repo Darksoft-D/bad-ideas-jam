@@ -62,6 +62,7 @@ autowrap_mode = 2
 [node name="DescriptionLabel" type="RichTextLabel" parent="ItemDescription" unique_id=63190657]
 custom_minimum_size = Vector2(160, 20)
 layout_mode = 2
+bbcode_enabled = true
 text = "Description"
 fit_content = true
 autowrap_mode = 2

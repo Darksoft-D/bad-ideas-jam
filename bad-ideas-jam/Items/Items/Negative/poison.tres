@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_03dse")
 name = "Poison"
-description = "Receive 2 damage on the end, can't be moved of your turn"
+description = "Receive [color=red]2 damage[/color] on the end, can't be moved of your turn"
 texture = ExtResource("3_kl37m")
 texture_scale = Vector2(2, 2)
 skill = ExtResource("2_ljurl")

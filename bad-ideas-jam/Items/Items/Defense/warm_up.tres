@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_sl8s4")
 name = "Warm Up"
-description = "Apply strength to 3 random Attack items"
+description = "Apply [color=orange]strength[/color] to 3 random [color=lightred]Attack[/color] items"
 texture = ExtResource("3_ujfux")
 skill = ExtResource("2_3gt7u")
 metadata/_custom_type_script = "uid://dah435we4cfau"

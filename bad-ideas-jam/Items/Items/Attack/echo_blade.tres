@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_3cus7")
 name = "Echo Blade"
-description = "Deal 6 damage, create 1 random item"
+description = "Deal [color=red]6 damage[/color], create 1 random item"
 texture = ExtResource("3_hg21u")
 skill = ExtResource("2_a5i8p")
 damage = 6

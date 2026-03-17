@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_520ca")
 name = "Rage Hammer"
-description = "If every held item other than Helath Bag is Attack, deal 10 damage"
+description = "If every held item other than [color=lightgreen]Health Bag[/color] is [color=lightred]Attack[/color], deal [color=red]10 damage[/color]"
 texture = ExtResource("3_jpv8r")
 skill = ExtResource("2_810a5")
 damage = 10

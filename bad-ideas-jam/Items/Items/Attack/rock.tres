@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_cpl0x")
 name = "Rock"
-description = "Deals 2 damage, doesn't end your turn"
+description = "Deals [color=red]2 damage[/color], doesn't end your turn"
 texture = ExtResource("3_spmhm")
 texture_scale = Vector2(2, 2)
 skill = ExtResource("2_h0eh0")

@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_4oh2r")
 name = "A handful of coins"
-description = "Deal damage equal 1/4 of your money, lose these money"
+description = "Deal damage equal [color=yellow]1/4 of your money[/color], lose these money"
 texture = ExtResource("2_f8gmv")
 skill = ExtResource("2_ube01")
 item_type = 1

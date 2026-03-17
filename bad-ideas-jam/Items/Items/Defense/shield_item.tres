@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_tmffj")
 name = "Shield"
-description = "Gain 5 Block"
+description = "Gain [color=blue]5 Block[/color]"
 texture = ExtResource("3_5m3jo")
 texture_scale = Vector2(0.5, 0.5)
 skill = ExtResource("2_d25by")

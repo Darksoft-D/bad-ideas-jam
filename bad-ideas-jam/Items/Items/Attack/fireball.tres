@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_bh4mx")
 name = "Fireball"
-description = "Deals 4 damage"
+description = "Deals [color=red]4 damage[/color]"
 texture = ExtResource("3_bh4mx")
 texture_scale = Vector2(2, 2)
 skill = ExtResource("2_6hykn")

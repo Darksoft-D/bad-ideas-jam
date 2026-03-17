@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_dsvbn")
 name = "Sword"
-description = "Deal 7 damage, apply strength to random attack item"
+description = "Deal [color=red]7 damage[/color], apply [color=orange]strength[/color] to random attack item"
 texture = ExtResource("3_dsvbn")
 texture_scale = Vector2(2, 2)
 skill = ExtResource("2_v8b0m")

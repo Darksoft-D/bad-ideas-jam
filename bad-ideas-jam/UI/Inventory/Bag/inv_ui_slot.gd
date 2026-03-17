@@ -23,6 +23,7 @@ var is_selected = false
 var is_dragging = false
 var on_sell = false
 var loot_slot = false
+var generated = false
 var current_state = state.DEFAULT
 var last_state
 var original_damage
@@ -73,9 +74,11 @@ func assign_item(new_item: ItemUI):
 		description.show()
 		descriptions.append(description)
 	if loot_slot:
-		for i in descriptions.size()/2:
-			descriptions[i].queue_free()
-			descriptions.remove_at(i)
+		if !generated:
+			for i in descriptions.size()/2:
+				descriptions[i].queue_free()
+				descriptions.remove_at(i)
+	generated = false
 	if item_ui.item is Block:
 		gain.emit(item_ui)
 	apply()

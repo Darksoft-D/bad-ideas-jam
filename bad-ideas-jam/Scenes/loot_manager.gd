@@ -99,6 +99,7 @@ func on_slot_item_released(item_ui: ItemUI, slot: InvSlot):
 		canvas_layer.remove_child(item_ui)
 		selected_slot.sprite_pos.add_child(item_ui)
 		slot.item_ui = null
+		selected_slot.generated = true
 		selected_slot.assign_item(item_ui)
 	elif on_sell:
 		print("Sell")

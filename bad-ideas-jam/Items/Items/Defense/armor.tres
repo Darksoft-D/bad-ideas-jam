@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_niarr")
 name = "Armor"
-description = "Gain Resistance - you receive 25% less damage"
+description = "Gain Resistance - you receive [color=blue]25% less damage[/color]"
 texture = ExtResource("3_plgeg")
 texture_scale = Vector2(2, 2)
 skill = ExtResource("2_plgeg")
