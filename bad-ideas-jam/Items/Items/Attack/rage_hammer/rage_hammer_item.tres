@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://d2qc5egqivb1b"]
+
+[ext_resource type="Script" uid="uid://5t8bim8s1ch0" path="res://Items/Items/Attack/rage_hammer/rage_hammer.gd" id="1_17w6d"]
+[ext_resource type="Texture2D" uid="uid://cxqey7wo84s4j" path="res://assets/Textures/ItemTextures/fb1749.png" id="2_d2cfa"]
+
+[resource]
+script = ExtResource("1_17w6d")
+name = "Rage Hammer"
+description = "Deal {damage} if every other item in the bag except Health Bag is Attack"
+texture = ExtResource("2_d2cfa")
+damage = 10
+item_type = 1
+metadata/_custom_type_script = "uid://dah435we4cfau"

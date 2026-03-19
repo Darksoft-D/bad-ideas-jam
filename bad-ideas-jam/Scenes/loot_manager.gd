@@ -1,7 +1,7 @@
 extends Node
 class_name LootManager
 
-@export var items: Array[PackedScene]
+@export var items: Array[InvItem]
 
 @onready var bag: Bag = $"../CanvasLayer/Bag"
 @onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
@@ -12,8 +12,8 @@ class_name LootManager
 @onready var sell_container: PanelContainer = $"../CanvasLayer/SellContainer"
 @onready var sell_label: Label = $"../CanvasLayer/SellContainer/SellLabel"
 @onready var combat_layer: CanvasLayer = $"../CombatLayer"
-@onready var chest: Chest = $"../Visuals/Chest"
 @onready var turns_num_label: Label = $"../CombatLayer/VBoxContainer/TurnsNumLabel"
+@onready var chest_2: Chest = $"../Visuals/Chest2"
 
 signal looting_finished
 
@@ -29,10 +29,6 @@ var selected_slot: InvSlot
 var turns: int = 1
 var max_turns: int = 1
 
-func _ready() -> void:
-	chest.chest_opened.connect(func():
-		generate_loot())
-
 func generate_loot():
 	for slot in loot_bag.slots:
 		for description in slot.descriptions_container.get_children():
@@ -40,7 +36,7 @@ func generate_loot():
 	player_turn = true
 	is_loot_opened = true
 	var amount = randi_range(5, 5)
-	var loot: Array[PackedScene] = []
+	var loot: Array[InvItem] = []
 	for i in amount:
 		var item = items.pick_random()
 		loot.append(item)
@@ -53,7 +49,7 @@ func generate_loot():
 func finish_looting():
 	loot_container.hide()
 	button_container.hide()
-	chest.hide()
+	chest_2.hide()
 	is_loot_opened = false
 	looting_finished.emit()
 	combat_layer.show()
@@ -67,6 +63,7 @@ func finish_looting():
 			if slot.item_ui.item is Block:
 				player.blocks.append(slot.item_ui.item)
 				slot.item_ui.used.connect(Callable(self, "delete_item"))
+			slot.item_ui.item.apply(player, get_parent())
 	for slot in loot_bag.slots:
 		slot.descriptions.clear()
 	get_parent().update_health()
@@ -85,6 +82,7 @@ func on_slot_clicked(item_ui: ItemUI, slot: InvSlot):
 	slot.sprite_pos.remove_child(item_ui)
 	canvas_layer.add_child(item_ui)
 	item_ui.is_dragging = true
+	item_ui.item.unapply(player, get_parent())
 	if is_loot_opened:
 		sell_container.show()
 		sell_label.text = "Sell for " + str(item_ui.item.cost)
@@ -107,7 +105,7 @@ func on_slot_item_released(item_ui: ItemUI, slot: InvSlot):
 		print(Global.gold_amount)
 		item_ui.queue_free()
 		Global.gold_changed.emit()
-	elif is_loot_opened or !item_ui.item.skill or !item_ui.item.skill.condition(get_parent()):
+	elif is_loot_opened or !item_ui.item.condition(get_parent()):
 		print("return")
 		item_ui.is_dragging = false
 		canvas_layer.remove_child(item_ui)

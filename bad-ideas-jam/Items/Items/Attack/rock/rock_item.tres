@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3 uid="uid://dntbxdd28d8do"]
+
+[ext_resource type="Script" uid="uid://d2n08ytwjmfjm" path="res://Items/Items/Attack/rock/rock.gd" id="1_f2xqd"]
+
+[resource]
+script = ExtResource("1_f2xqd")
+name = "Rock"
+description = "Deals {damage}, doesn't end your turn"
+damage = 2
+item_type = 1
+free = true
+metadata/_custom_type_script = "uid://dah435we4cfau"

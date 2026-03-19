@@ -5,37 +5,21 @@
 [ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://UI/Inventory/Bag/bag.tscn" id="2_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bn3d2cxwpibt1" path="res://Scenes/Enemies/slime.tscn" id="2_huasi"]
 [ext_resource type="Texture2D" uid="uid://b1usdel85uamu" path="res://assets/Tiles/backpack_gamejam.png" id="2_jv6wh"]
-[ext_resource type="PackedScene" uid="uid://cyv1jibwlj42i" path="res://Items/ItemsUI/Attack/fireball_ui.tscn" id="5_nt2eh"]
-[ext_resource type="PackedScene" uid="uid://4uivwpgputqq" path="res://Items/ItemsUI/Attack/rock.tscn" id="6_5cm5d"]
-[ext_resource type="PackedScene" uid="uid://cew3wiu1mn1h0" path="res://Items/ItemsUI/Attack/sword.tscn" id="7_5bov3"]
+[ext_resource type="Resource" uid="uid://b6rt8pgvnr5wm" path="res://Items/Items/Defense/armor/armor_item.tres" id="5_oyb3p"]
 [ext_resource type="Texture2D" uid="uid://d1sun0kuatkao" path="res://assets/Tiles/Bookshelf_tiles.png" id="7_76v2p"]
-[ext_resource type="PackedScene" uid="uid://bg3uqxlsnklik" path="res://Items/ItemsUI/Special/energy_drink.tscn" id="7_yb0ja"]
 [ext_resource type="PackedScene" uid="uid://cdt6j1h58kr12" path="res://UI/Inventory/Bag/chest.tscn" id="8_7ewk0"]
-[ext_resource type="PackedScene" uid="uid://haajd3lqqqyg" path="res://Items/ItemsUI/Special/interest_rate.tscn" id="8_15kh8"]
 [ext_resource type="Texture2D" uid="uid://exlg5xvvsvd4" path="res://assets/Tiles/Dungeon_tiles.png" id="8_drdnd"]
 [ext_resource type="PackedScene" uid="uid://0qiwd1hsqid0" path="res://Scenes/Enemies/player.tscn" id="8_mai8y"]
-[ext_resource type="PackedScene" uid="uid://dsq74ta6tg5cn" path="res://Items/ItemsUI/Defense/shield.tscn" id="8_xle81"]
 [ext_resource type="Texture2D" uid="uid://dm6fuo1v7j1ee" path="res://assets/Tiles/taller_bookshelves_.png" id="9_jvnna"]
-[ext_resource type="PackedScene" uid="uid://cp7723o8hbu73" path="res://Items/ItemsUI/Special/doppelganger.tscn" id="9_s8qe6"]
-[ext_resource type="PackedScene" uid="uid://c3riub8h2oq7c" path="res://Items/ItemsUI/Defense/health_bag_ui.tscn" id="10_76v2p"]
-[ext_resource type="PackedScene" uid="uid://defemwqxmq1my" path="res://Items/ItemsUI/Special/mirror.tscn" id="10_yb0ja"]
-[ext_resource type="PackedScene" uid="uid://bpcdjxf7rwkta" path="res://Items/ItemsUI/Special/rock_pile.tscn" id="11_15kh8"]
-[ext_resource type="PackedScene" uid="uid://d33kjfyie3lgt" path="res://Items/ItemsUI/Defense/armor.tscn" id="11_viu5a"]
 [ext_resource type="PackedScene" uid="uid://bkb14j2jahlkb" path="res://UI/Inventory/Bag/loot_bag.tscn" id="12_ioaeq"]
-[ext_resource type="PackedScene" uid="uid://d0pdq2m7bajwx" path="res://Items/ItemsUI/Defense/warm_up.tscn" id="13_b00ha"]
+[ext_resource type="Script" uid="uid://dah435we4cfau" path="res://Items/Items/item.gd" id="13_oyb3p"]
+[ext_resource type="Resource" uid="uid://mi5pgt1to8qa" path="res://Items/Items/Defense/health_bag/health_bag.tres" id="14_jvnna"]
 [ext_resource type="Shader" uid="uid://c81rodqya1un7" path="res://assets/Shaders/CRTVHSEffect.gdshader" id="15_gnsmo"]
+[ext_resource type="Resource" uid="uid://bw36x6e2lde7m" path="res://Items/Items/Defense/shield/shield_item.tres" id="15_jvnna"]
 [ext_resource type="Shader" uid="uid://dq4ja4toyo7va" path="res://assets/Shaders/vignette.gdshader" id="15_lhp3t"]
-[ext_resource type="PackedScene" uid="uid://dybir254aw8t0" path="res://Items/ItemsUI/Attack/echo_blade.tscn" id="17_15kh8"]
-[ext_resource type="PackedScene" uid="uid://dhgh3v5o8p51v" path="res://Items/ItemsUI/Special/chaos.tscn" id="20_5cm5d"]
-[ext_resource type="PackedScene" uid="uid://dwxs52roo5kbc" path="res://Items/ItemsUI/Special/ctrl_c_ctrl_v.tscn" id="21_5bov3"]
 [ext_resource type="Texture2D" uid="uid://k6qhckeaycwf" path="res://assets/Textures/UITextures/fc131.png" id="22_5cm5d"]
 [ext_resource type="Texture2D" uid="uid://da6yhap8pt13p" path="res://assets/Textures/ItemTextures/health_bag_transparent.png" id="22_nt2eh"]
-[ext_resource type="PackedScene" uid="uid://ddu4wop014o2m" path="res://Items/ItemsUI/Special/reinforcement.tscn" id="26_viu5a"]
-[ext_resource type="PackedScene" uid="uid://kc8bmxgpbnyi" path="res://Items/ItemsUI/Attack/rage_hammer.tscn" id="27_b00ha"]
 [ext_resource type="Shader" uid="uid://bwgukq4nue5fi" path="res://assets/Shaders/ray.gdshader" id="27_vggli"]
-[ext_resource type="PackedScene" uid="uid://72pey354deea" path="res://Items/ItemsUI/Special/goldenbag.tscn" id="28_urcnp"]
-[ext_resource type="PackedScene" uid="uid://ccm7r6k2uxlxt" path="res://Items/ItemsUI/Attack/handfulof_coins.tscn" id="29_rpyod"]
-[ext_resource type="PackedScene" uid="uid://crjdmpkou0cjf" path="res://Items/ItemsUI/Attack/tween_item.tscn" id="30_mplvr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b48ew"]
 texture = ExtResource("9_jvnna")
@@ -450,7 +434,7 @@ enemies = Array[PackedScene]([ExtResource("2_huasi")])
 
 [node name="LootManager" type="Node" parent="." unique_id=1730028833]
 script = ExtResource("1_x6ack")
-items = Array[PackedScene]([ExtResource("20_5cm5d"), ExtResource("21_5bov3"), ExtResource("9_s8qe6"), ExtResource("7_yb0ja"), ExtResource("8_15kh8"), ExtResource("10_yb0ja"), ExtResource("11_15kh8"), ExtResource("11_viu5a"), ExtResource("8_xle81"), ExtResource("13_b00ha"), ExtResource("5_nt2eh"), ExtResource("6_5cm5d"), ExtResource("7_5bov3"), ExtResource("17_15kh8"), ExtResource("26_viu5a"), ExtResource("28_urcnp"), ExtResource("27_b00ha"), ExtResource("29_rpyod")])
+items = Array[ExtResource("13_oyb3p")]([ExtResource("5_oyb3p")])
 
 [node name="Visuals" type="Node" parent="." unique_id=1383002675]
 
@@ -478,12 +462,6 @@ position = Vector2(7.748604e-07, 7.999998)
 scale = Vector2(4.4999995, 2.5)
 texture = SubResource("GradientTexture2D_ioaeq")
 
-[node name="Chest" parent="Visuals" unique_id=1295485416 instance=ExtResource("8_7ewk0")]
-offset_left = 87.0
-offset_top = 54.0
-offset_right = 87.0
-offset_bottom = 54.0
-
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Visuals" unique_id=473120085]
 amount = 100
 lifetime = 8.0
@@ -491,6 +469,7 @@ collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_r0xgx")
 
 [node name="Ray" type="ColorRect" parent="Visuals" unique_id=478208391]
+visible = false
 material = SubResource("ShaderMaterial_r0xgx")
 custom_minimum_size = Vector2(100, 160)
 offset_left = 3.0
@@ -498,6 +477,12 @@ offset_top = -70.0
 offset_right = 153.0
 offset_bottom = 90.0
 mouse_filter = 2
+
+[node name="Chest2" parent="Visuals" unique_id=1295485416 instance=ExtResource("8_7ewk0")]
+offset_left = 87.0
+offset_top = 53.0
+offset_right = 87.0
+offset_bottom = 53.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2053579534]
 position = Vector2(0, 7)
@@ -522,7 +507,7 @@ anchor_right = 0.5
 offset_top = 53.0
 offset_bottom = 53.0
 grow_horizontal = 2
-items_export = Array[PackedScene]([ExtResource("10_76v2p"), ExtResource("30_mplvr"), ExtResource("30_mplvr")])
+items_resource = Array[ExtResource("13_oyb3p")]([ExtResource("14_jvnna"), ExtResource("15_jvnna")])
 loot_manager = NodePath("../../LootManager")
 
 [node name="LootContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=459750805]
@@ -550,7 +535,7 @@ horizontal_alignment = 1
 
 [node name="LootBag" parent="CanvasLayer/LootContainer" unique_id=1743470214 node_paths=PackedStringArray("loot_manager") instance=ExtResource("12_ioaeq")]
 layout_mode = 2
-items_export = Array[PackedScene]([null, null, null, null, null, null])
+items_resource = Array[ExtResource("13_oyb3p")]([null, null, null, null, null, null])
 loot_manager = NodePath("../../../LootManager")
 slots_num = 6
 
@@ -611,6 +596,7 @@ texture = ExtResource("22_5cm5d")
 expand_mode = 2
 
 [node name="CombatLayer" type="CanvasLayer" parent="." unique_id=403820658]
+visible = false
 
 [node name="EndTurnButton" type="Button" parent="CombatLayer" unique_id=1516016144]
 anchors_preset = 3
@@ -696,6 +682,7 @@ texture = ExtResource("22_nt2eh")
 expand_mode = 2
 
 [node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=993173925]
+visible = false
 
 [node name="PanelContainer" type="PanelContainer" parent="GameOverScreen" unique_id=1079061393]
 custom_minimum_size = Vector2(280, 300)

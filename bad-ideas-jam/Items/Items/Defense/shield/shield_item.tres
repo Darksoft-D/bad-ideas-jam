@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://bw36x6e2lde7m"]
+
+[ext_resource type="Resource" uid="uid://0vs8i7x3jw17" path="res://Items/Items/Defense/block/block.tres" id="1_7ro7k"]
+[ext_resource type="Script" uid="uid://dug46dtbi8q06" path="res://Items/Items/Defense/shield/shield.gd" id="1_jhper"]
+[ext_resource type="Texture2D" uid="uid://bmwggs3btgj8l" path="res://assets/Textures/ItemTextures/fc856.png" id="3_cb0dq"]
+
+[resource]
+script = ExtResource("1_jhper")
+block = ExtResource("1_7ro7k")
+name = "Shield"
+description = "Gain 5 block"
+texture = ExtResource("3_cb0dq")
+metadata/_custom_type_script = "uid://dah435we4cfau"

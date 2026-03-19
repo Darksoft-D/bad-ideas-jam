@@ -1,7 +1,7 @@
 extends Sprite2D
 class_name ItemUI
 
-@export var item_export: InvItem
+@export var export_item: Resource
 
 @onready var value_label: Label = $ValueLabel
 @onready var strength_icon: Sprite2D = $StrengthIcon
@@ -22,46 +22,52 @@ var is_dragging = false
 var item: InvItem
 var original_scale
 
-func _ready() -> void:
-	assign_item(item_export)
+func on_ready():
+	assign_item(export_item)
 	var center_pos = Vector2(0, 0)
-	effects_container.position = center_pos - texture.get_size() / 2
+	if texture:
+		effects_container.position = center_pos - texture.get_size() / 2
 
 func _process(delta: float) -> void:
 	if is_dragging:
 		global_position = get_global_mouse_position()
 
 func assign_item(get_item: InvItem):
-	if get_item:
-		item = get_item.duplicate()
-		texture = get_item.texture
-		scale = item.texture_scale
-		original_scale = scale
-		strength_icon.scale = Vector2(1, 1) / item.texture_scale
-		item.used.connect(func():
-			used.emit(self))
-		_assign_item()
-		assign_descriptions()
-		if item is HealthBag or item is Block:
+	if !get_item:
+		return
+	print("assign")
+	item = get_item.duplicate()
+	texture = item.texture
+	var target_size = Vector2(32, 32)
+	var texture_size = texture.get_size()
+	scale = target_size / texture_size
+	original_scale = scale
+	var icon_target_size = Vector2(8, 8)
+	strength_icon.scale = icon_target_size / texture_size
+	item.used.connect(func():
+		used.emit(self))
+	_assign_item()
+	assign_descriptions()
+	if item is HealthBag or item is Block:
+		value_label.text = str(item.value)
+		value_label.show()
+		item.took_damage.connect(func():
+			await scale_up()
 			value_label.text = str(item.value)
-			value_label.show()
-			item.took_damage.connect(func():
-				await scale_up()
-				value_label.text = str(item.value)
-				scale_down())
-			item.destroyed.connect(func():
-				used.emit(self))
+			scale_down())
+		item.destroyed.connect(func():
+			used.emit(self))
 
 func assign_descriptions():
 	name_label.text = item.name
 	type_label.text = InvItem.type.find_key(item.item_type)
-	description_label.text = item.description
+	description_label.text = item.get_description(item.description)
 	descriptions.append(item_description)
-	if item.skill and item.skill.effect:
+	if item.effect:
 		var effect_description: EffectDescription = EFFECT_DESCRIPTION_BASE.instantiate()
 		add_child(effect_description)
 		descriptions.append(effect_description)
-		effect_description.assign_effect(item.skill.effect)
+		effect_description.assign_effect(item.effect)
 		effect_description.hide()
 
 func assign_effect(effect: Effect):

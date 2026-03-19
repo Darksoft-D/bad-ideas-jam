@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://c1ig3b4bgpcp"]
-
-[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://Items/ItemsUI/item_ui.tscn" id="1_7wlma"]
-[ext_resource type="Resource" uid="uid://c3a37btabq28o" path="res://Items/Items/Special/garbage.tres" id="2_74uuh"]
-
-[node name="Garbage" unique_id=1684591049 instance=ExtResource("1_7wlma")]
-item_export = ExtResource("2_74uuh")

@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://d0pdq2m7bajwx"]
-
-[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://Items/ItemsUI/item_ui.tscn" id="1_vwxta"]
-[ext_resource type="Resource" uid="uid://w164jlkfyich" path="res://Items/Items/Defense/warm_up.tres" id="2_1x5bk"]
-
-[node name="WarmUp" unique_id=1684591049 instance=ExtResource("1_vwxta")]
-item_export = ExtResource("2_1x5bk")

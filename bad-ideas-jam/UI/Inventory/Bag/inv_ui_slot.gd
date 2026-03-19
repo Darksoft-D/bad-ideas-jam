@@ -11,6 +11,8 @@ class_name InvSlot
 @onready var descriptions_container: HBoxContainer = $Tooltip/DescriptionsContainer
 
 const ITEM_UI = preload("uid://dk3ifj8pbnten")
+const HEALTH_BAG_UI = preload("uid://c3riub8h2oq7c")
+const BLOCK = preload("uid://g1f6v5vcekht")
 
 signal selected(slot: InvSlot)
 signal unselected(slot: InvSlot)
@@ -52,15 +54,17 @@ func _input(event: InputEvent) -> void:
 			sell_container.show()
 			Global.shown_sell_container = sell_container
 
-func update(item_scene: PackedScene):
-	if !item_scene:
+func update(item_resource: InvItem):
+	if !item_resource:
 		return
-	print("update ", item_scene)
-	var scene := item_scene.instantiate() as ItemUI
-	item_ui = scene
+	if item_resource is HealthBag:
+		item_ui = HEALTH_BAG_UI.instantiate()
+	else:
+		item_ui = ITEM_UI.instantiate()
+		item_ui.export_item = item_resource.duplicate()
 	item_ui.global_position = sprite_pos.global_position
 	sprite_pos.add_child(item_ui)
-	print(item_ui, item_scene)
+	item_ui.on_ready()
 	assign_item(item_ui)
 
 func assign_item(new_item: ItemUI):

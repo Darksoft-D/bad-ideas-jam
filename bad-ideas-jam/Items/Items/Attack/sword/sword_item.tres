@@ -1,0 +1,14 @@
+[gd_resource type="Resource" format=3 uid="uid://cgpwtg77wrtvg"]
+
+[ext_resource type="Resource" uid="uid://ctx3y68dk30rd" path="res://Items/Effects/Strength/strength_effect.tres" id="1_3avia"]
+[ext_resource type="Script" uid="uid://ilhludxahe26" path="res://Items/Items/Attack/sword/sword.gd" id="1_unq6c"]
+[ext_resource type="Texture2D" uid="uid://cd0iuad0wki76" path="res://assets/Textures/ItemTextures/sword.png" id="2_1vxis"]
+
+[resource]
+script = ExtResource("1_unq6c")
+name = "Sword"
+description = "Deal {damage}, apply {strength} to random Attack item"
+texture = ExtResource("2_1vxis")
+effect = ExtResource("1_3avia")
+damage = 6
+metadata/_custom_type_script = "uid://dah435we4cfau"

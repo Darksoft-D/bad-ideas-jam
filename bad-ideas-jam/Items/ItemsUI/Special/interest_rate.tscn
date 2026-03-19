@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://haajd3lqqqyg"]
-
-[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://Items/ItemsUI/item_ui.tscn" id="1_prmwl"]
-[ext_resource type="Resource" uid="uid://coh1aqr3mnpvg" path="res://Items/Items/Special/interest_rate/interest_rate.tres" id="2_7k77x"]
-
-[node name="InterestRate" unique_id=1684591049 instance=ExtResource("1_prmwl")]
-item_export = ExtResource("2_7k77x")

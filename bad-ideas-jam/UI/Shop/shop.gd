@@ -2,7 +2,7 @@ extends Control
 class_name Shop
 
 @export var items_number: int = 5
-@export var items_pool: Array[PackedScene]
+@export var items_pool: Array[InvItem]
 @export var slots: Array[InvSlot]
 @export var labels: Array[Label]
 

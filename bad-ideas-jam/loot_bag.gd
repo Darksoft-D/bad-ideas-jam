@@ -7,14 +7,14 @@ func _ready() -> void:
 			child.loot_slot = true
 	connect_slots()
 
-func generate_loot(loot: Array[PackedScene]):
-	for item in items_export:
+func generate_loot(loot: Array[InvItem]):
+	for item in items_resource:
 		item = null
 	var slots_number: Array[int] = []
-	for i in range(items_export.size()):
+	for i in range(items_resource.size()):
 		slots_number.append(i)
 	for i in range(loot.size()):
 		var id = slots_number.pick_random()
 		slots_number.erase(id)
-		items_export[id] = loot[i]
+		items_resource[id] = loot[i]
 	update_slots()

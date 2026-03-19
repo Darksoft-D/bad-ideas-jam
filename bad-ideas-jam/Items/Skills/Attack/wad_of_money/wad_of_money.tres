@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://ddemtiwxbkkda"]
-
-[ext_resource type="Script" uid="uid://woge1rog8y1w" path="res://Items/Skills/skill.gd" id="1_55yu5"]
-
-[resource]
-script = ExtResource("1_55yu5")
-skill_name = "Wad Of Money"
-description = "Deal damage equal 1/4 of your money"
-metadata/_custom_type_script = "uid://woge1rog8y1w"

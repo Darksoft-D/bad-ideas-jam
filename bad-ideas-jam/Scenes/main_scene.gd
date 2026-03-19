@@ -8,7 +8,6 @@ extends Node2D
 @onready var gold_amount_label: Label = $CanvasLayer/HBoxContainer/GoldAmountLabel
 @onready var game_over_screen: CanvasLayer = $GameOverScreen
 @onready var combat_layer: CanvasLayer = $CombatLayer
-@onready var chest: Chest = $Visuals/Chest
 @onready var enemy_attack_pos: Node2D = $EnemyAttackPos
 @onready var turn_label: Label = $CombatLayer/TurnLabel
 @onready var turns_num_label: Label = $CombatLayer/VBoxContainer/TurnsNumLabel
@@ -17,6 +16,7 @@ extends Node2D
 @onready var enemy_health_container: HBoxContainer = $CombatLayer/EnemyHealthContainer
 @onready var health_label_player: Label = $CombatLayer/PlayerHealthContainer/TotalHealthBagsLabel
 @onready var health_label_enemy: Label = $CombatLayer/EnemyHealthContainer/TotalHealthBagsLabel
+@onready var chest_2: Chest = $Visuals/Chest2
 
 var enemy: Entity
 var enemies_defeated: int = 0
@@ -32,7 +32,6 @@ func _ready() -> void:
 	player.health_bags.append(loot_manager.bag.slots[0].item_ui)
 	enemy_health_container.hide()
 	loot_manager.looting_finished.connect(Callable(self, "spawn_enemy"))
-	loot()
 	gold_amount = Global.gold_amount
 	gold_amount_label.text = str(Global.gold_amount)
 	Global.gold_changed.connect(func():
@@ -47,6 +46,9 @@ func _ready() -> void:
 	for slot in loot_manager.bag.slots:
 		slot.gain.connect(Callable(self, "on_gain"))
 	player.took_damage.connect(Callable(self, "update_health"))
+	chest_2.chest_opened.connect(func():
+		loot_manager.generate_loot())
+	loot()
 
 func _process(delta: float) -> void:
 	if is_enemy_moving:
@@ -66,9 +68,9 @@ func on_gain(item_ui: ItemUI):
 
 func loot():
 	combat_layer.hide()
-	chest.show()
-	chest.disabled = false
-	chest.animated_sprite_2d.play("default")
+	chest_2.show()
+	chest_2.disabled = false
+	chest_2.animated_sprite_2d.play("default")
 
 func player_turn():
 	print("Player turn")
@@ -79,7 +81,8 @@ func player_turn():
 	loot_manager.item_used = false
 	loot_manager.turns = loot_manager.max_turns
 	turns_num_label.text = str(loot_manager.turns) + "/" + str(loot_manager.max_turns)
-	enemy.before_attack(self)
+	if enemy:
+		enemy.before_attack(self)
 
 func enemy_turn():
 	print("Enemy Turn")
@@ -91,11 +94,10 @@ func enemy_turn():
 	enemy.attack()
 	await return_anim()
 
-func insert_item(item_scene: PackedScene):
+func insert_item(item_resource: InvItem):
 	var empty_slot = loot_manager.bag.get_empty_slot()
 	if empty_slot:
-		print(item_scene)
-		empty_slot.update(item_scene)
+		empty_slot.update(item_resource)
 
 func spawn_enemy():
 	enemy = enemies.pick_random().instantiate()

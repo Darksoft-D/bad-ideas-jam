@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3 uid="uid://cspmf0cu2kedb"]
+
+[ext_resource type="Script" uid="uid://dgl0u1o1hk11v" path="res://Items/Items/Attack/HandfulOfCoins/wad_of_money.gd" id="1_hw5ue"]
+[ext_resource type="Texture2D" uid="uid://btro20nbqkxcw" path="res://assets/Textures/ItemTextures/fb136.png" id="2_scrx7"]
+
+[resource]
+script = ExtResource("1_hw5ue")
+name = "Handful of Coins"
+description = "Deal damage equal 1/4 of your coins"
+texture = ExtResource("2_scrx7")
+item_type = 1
+metadata/_custom_type_script = "uid://dah435we4cfau"

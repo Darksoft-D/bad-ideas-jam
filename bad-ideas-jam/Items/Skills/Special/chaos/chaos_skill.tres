@@ -1,8 +1,0 @@
-[gd_resource type="Resource" format=3 uid="uid://c3t7v65fhv8kp"]
-
-[ext_resource type="Script" uid="uid://bxugnrmtmalgc" path="res://Items/Skills/Special/chaos/chaos.gd" id="1_j6e51"]
-
-[resource]
-script = ExtResource("1_j6e51")
-skill_name = "Chaos"
-metadata/_custom_type_script = "uid://woge1rog8y1w"

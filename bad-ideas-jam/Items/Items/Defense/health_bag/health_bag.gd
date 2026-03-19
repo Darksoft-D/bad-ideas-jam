@@ -6,8 +6,11 @@ class_name HealthBag
 signal destroyed
 signal took_damage
 
-func take_damage(damage: int):
-	value -= damage
+func _condition() -> bool:
+	return false
+
+func take_damage(taken_damage: int):
+	value -= taken_damage
 	if value <= 0:
 		value = 0
 		destroyed.emit()

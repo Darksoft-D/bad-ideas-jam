@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://5t3oy62yh1bv"]
+
+[ext_resource type="Script" uid="uid://c5t83c6yltfb" path="res://Items/Items/Attack/fireball/fireball.gd" id="1_6iyfi"]
+[ext_resource type="Texture2D" uid="uid://bhbprfudlxukx" path="res://assets/Textures/ItemTextures/fireball.png" id="2_r46o4"]
+
+[resource]
+script = ExtResource("1_6iyfi")
+name = "Fireball"
+description = "Deal {damage}"
+texture = ExtResource("2_r46o4")
+damage = 4
+item_type = 1
+metadata/_custom_type_script = "uid://dah435we4cfau"

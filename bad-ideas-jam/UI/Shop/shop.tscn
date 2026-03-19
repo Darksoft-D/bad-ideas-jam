@@ -1,21 +1,15 @@
 [gd_scene format=4 uid="uid://cws2fvq5c6tat"]
 
 [ext_resource type="Script" uid="uid://ijvy25erheha" path="res://UI/Shop/shop.gd" id="1_3weqf"]
-[ext_resource type="PackedScene" uid="uid://cyv1jibwlj42i" path="res://Items/ItemsUI/Attack/fireball_ui.tscn" id="2_l6lbb"]
 [ext_resource type="Texture2D" uid="uid://q5pm85o1ywjo" path="res://assets/UI/shopkeeper1_.png" id="3_4qhf5"]
-[ext_resource type="PackedScene" uid="uid://cew3wiu1mn1h0" path="res://Items/ItemsUI/Attack/sword.tscn" id="3_a3not"]
 [ext_resource type="Texture2D" uid="uid://d1sun0kuatkao" path="res://assets/Tiles/Bookshelf_tiles.png" id="3_sar1i"]
-[ext_resource type="PackedScene" uid="uid://bsyubarf0lohh" path="res://Items/ItemsUI/Defense/small_health_bag_ui.tscn" id="4_8pe2y"]
 [ext_resource type="PackedScene" uid="uid://dijoj8qysu0hg" path="res://UI/Inventory/Bag/inv_ui_slot.tscn" id="4_eeyqd"]
 [ext_resource type="Texture2D" uid="uid://exlg5xvvsvd4" path="res://assets/Tiles/Dungeon_tiles.png" id="4_l4q0s"]
-[ext_resource type="PackedScene" uid="uid://dsq74ta6tg5cn" path="res://Items/ItemsUI/Defense/shield.tscn" id="5_ncxfr"]
-[ext_resource type="PackedScene" uid="uid://cp7723o8hbu73" path="res://Items/ItemsUI/Special/doppelganger.tscn" id="6_6h7q6"]
 [ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://UI/Inventory/Bag/bag.tscn" id="8_sar1i"]
 [ext_resource type="Texture2D" uid="uid://dm6fuo1v7j1ee" path="res://assets/Tiles/taller_bookshelves_.png" id="9_6h7q6"]
 [ext_resource type="Texture2D" uid="uid://can2q6siopolc" path="res://assets/Textures/UITextures/fc160.png" id="9_l4q0s"]
 [ext_resource type="Shader" uid="uid://c81rodqya1un7" path="res://assets/Shaders/CRTVHSEffect.gdshader" id="9_pagdw"]
 [ext_resource type="Shader" uid="uid://dq4ja4toyo7va" path="res://assets/Shaders/vignette.gdshader" id="10_eo7k6"]
-[ext_resource type="PackedScene" uid="uid://c3riub8h2oq7c" path="res://Items/ItemsUI/Defense/health_bag_ui.tscn" id="11_ncxfr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pagdw"]
 texture = ExtResource("3_sar1i")
@@ -324,7 +318,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3weqf")
-items_pool = Array[PackedScene]([ExtResource("2_l6lbb"), ExtResource("3_a3not"), ExtResource("4_8pe2y"), ExtResource("5_ncxfr"), ExtResource("6_6h7q6")])
 slots = [NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot2"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot3"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot4"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot5"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot6"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot7"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot8")]
 
 [node name="TileMapLayers" type="Node" parent="." unique_id=192648214]
@@ -461,7 +454,6 @@ offset_top = -576.0
 offset_bottom = -576.0
 grow_horizontal = 2
 grow_vertical = 0
-items_export = Array[PackedScene]([ExtResource("11_ncxfr")])
 loot_manager = NodePath("..")
 
 [node name="ProceedButton" type="Button" parent="." unique_id=1068832568]

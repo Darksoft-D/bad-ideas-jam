@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://cyv1jibwlj42i"]
-
-[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://Items/ItemsUI/item_ui.tscn" id="1_gkhdo"]
-[ext_resource type="Resource" uid="uid://c0h2s2m0sy2y3" path="res://Items/Items/Attack/fireball.tres" id="2_sbeon"]
-
-[node name="FireballUI" unique_id=600560121 instance=ExtResource("1_gkhdo")]
-texture = null
-item_export = ExtResource("2_sbeon")

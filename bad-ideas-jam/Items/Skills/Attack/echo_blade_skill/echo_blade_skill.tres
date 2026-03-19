@@ -1,9 +1,0 @@
-[gd_resource type="Resource" format=3 uid="uid://ce42iw5todhh"]
-
-[ext_resource type="Script" uid="uid://bbffajeoxssko" path="res://Items/Skills/Attack/echo_blade_skill/echo_blade_skill.gd" id="1_om3pk"]
-
-[resource]
-script = ExtResource("1_om3pk")
-skill_name = "Echo Blade"
-damage = 6
-metadata/_custom_type_script = "uid://woge1rog8y1w"

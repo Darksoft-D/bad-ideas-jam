@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://72pey354deea"]
-
-[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://Items/ItemsUI/item_ui.tscn" id="1_1l1yp"]
-[ext_resource type="Resource" uid="uid://wuxkd8fxx15n" path="res://Items/Items/Special/golden_bag.tres" id="2_r2os5"]
-
-[node name="Goldenbag" unique_id=1684591049 instance=ExtResource("1_1l1yp")]
-item_export = ExtResource("2_r2os5")

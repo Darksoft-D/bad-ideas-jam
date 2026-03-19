@@ -1,8 +1,0 @@
-[gd_resource type="Resource" format=3 uid="uid://brvwd544axcvg"]
-
-[ext_resource type="Script" uid="uid://f8ttb1j4rw5t" path="res://Items/Skills/Special/golden_bag/golden_bag_skill.gd" id="1_ocxtx"]
-
-[resource]
-script = ExtResource("1_ocxtx")
-skill_name = "Golden Bag"
-metadata/_custom_type_script = "uid://woge1rog8y1w"

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_7atc6")
-value = 5
+value = 20
 name = "Health Bag"
 description = "Your Health"
 texture = ExtResource("2_7atc6")

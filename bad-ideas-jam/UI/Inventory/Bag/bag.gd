@@ -1,7 +1,7 @@
 extends Control
 class_name Bag
 
-@export var items_export: Array[PackedScene]
+@export var items_resource: Array[InvItem]
 @export var loot_manager: Node
 @export var slots_num: int = 1
 
@@ -63,11 +63,10 @@ func remove_item(item_ui: ItemUI):
 			return
 
 func update_slots():
-	print("Item export ", items_export)
 	for slot in slots:
 		if slot.item_ui:
 			slot.item_ui.queue_free()
-	for i in range(items_export.size()):
-		slots[i].update(items_export[i])
+	for i in range(items_resource.size()):
+		slots[i].update(items_resource[i])
 		if slots[i].item_ui:
 			slots[i].apply()

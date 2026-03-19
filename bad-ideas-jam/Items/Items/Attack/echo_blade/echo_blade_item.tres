@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://cud4jm7c08ywd"]
+
+[ext_resource type="Script" uid="uid://c72i7846ab31b" path="res://Items/Items/Attack/echo_blade/echo_blade.gd" id="1_enudt"]
+[ext_resource type="Texture2D" uid="uid://cehnv26qbbkqw" path="res://assets/Textures/ItemTextures/fb1744.png" id="2_660l6"]
+
+[resource]
+script = ExtResource("1_enudt")
+name = "Echo Blade"
+description = "Deal {damage}, create 1 random item"
+texture = ExtResource("2_660l6")
+damage = 6
+item_type = 1
+metadata/_custom_type_script = "uid://dah435we4cfau"

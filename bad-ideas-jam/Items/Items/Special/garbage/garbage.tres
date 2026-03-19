@@ -1,0 +1,14 @@
+[gd_resource type="Resource" format=3 uid="uid://c3a37btabq28o"]
+
+[ext_resource type="Script" uid="uid://tjvq1ei5sofa" path="res://Items/Items/Special/garbage/garbage.gd" id="1_vfyda"]
+[ext_resource type="Texture2D" uid="uid://c7pe54u8bg0i3" path="res://assets/Textures/ItemTextures/garbage.png" id="2_6ue4c"]
+
+[resource]
+script = ExtResource("1_vfyda")
+name = "Garbage"
+description = "Can't be used. Self destroys at the end of the combat"
+texture = ExtResource("2_6ue4c")
+texture_scale = Vector2(2, 2)
+item_type = 2
+temporary = true
+metadata/_custom_type_script = "uid://dah435we4cfau"

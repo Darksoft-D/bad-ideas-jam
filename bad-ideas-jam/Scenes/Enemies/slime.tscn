@@ -2,12 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://bq3iw0f5qhwsh" path="res://Scenes/Enemies/entity.tscn" id="1_8xgo2"]
 [ext_resource type="Script" uid="uid://bls4hsa2afvc6" path="res://Scenes/Enemies/living_book.gd" id="2_4lx4x"]
+[ext_resource type="Script" uid="uid://woge1rog8y1w" path="res://Items/Skills/skill.gd" id="3_hm6tv"]
 [ext_resource type="Texture2D" uid="uid://but3mkegpudwx" path="res://assets/Textures/EnemyTextures/enemies.png" id="4_6kvin"]
+[ext_resource type="Resource" uid="uid://dw2l3s2hnwf6e" path="res://Items/Skills/EnemySkill/attack.tres" id="4_larvs"]
 
 [node name="LivingBook" unique_id=673946979 instance=ExtResource("1_8xgo2")]
 z_index = 1
 script = ExtResource("2_4lx4x")
 max_health = 10
+skills = Array[ExtResource("3_hm6tv")]([ExtResource("4_larvs")])
 
 [node name="Sprite2D" parent="." index="0" unique_id=1044903095]
 texture = ExtResource("4_6kvin")

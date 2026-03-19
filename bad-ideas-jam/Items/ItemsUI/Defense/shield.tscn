@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://dsq74ta6tg5cn"]
-
-[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://Items/ItemsUI/item_ui.tscn" id="1_ep47m"]
-[ext_resource type="Resource" uid="uid://las7t8gp0wyb" path="res://Items/Items/Defense/shield_item.tres" id="2_il1lw"]
-
-[node name="Shield" unique_id=600560121 instance=ExtResource("1_ep47m")]
-item_export = ExtResource("2_il1lw")
-texture_scale = Vector2(0.5, 0.5)

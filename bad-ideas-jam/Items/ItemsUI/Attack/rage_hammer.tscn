@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://kc8bmxgpbnyi"]
-
-[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://Items/ItemsUI/item_ui.tscn" id="1_q4tua"]
-[ext_resource type="Resource" uid="uid://b3csa5enb3vo3" path="res://Items/Items/Attack/rage_hammer.tres" id="2_r72d5"]
-
-[node name="RageHammer" unique_id=1684591049 instance=ExtResource("1_q4tua")]
-item_export = ExtResource("2_r72d5")

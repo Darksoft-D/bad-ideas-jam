@@ -28,6 +28,16 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/TweenAnimation/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://Global/": "gray",
+"res://Items/": "teal",
+"res://Scenes/": "blue",
+"res://UI/": "green",
+"res://assets/": "red"
+}
+
 [gui]
 
 theme/custom_font="uid://biwyvdx4lt01t"

@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://defemwqxmq1my"]
-
-[ext_resource type="PackedScene" uid="uid://dk3ifj8pbnten" path="res://Items/ItemsUI/item_ui.tscn" id="1_4e1l2"]
-[ext_resource type="Resource" uid="uid://0bcyebfebcqi" path="res://Items/Items/Special/mirror.tres" id="2_3nlje"]
-
-[node name="Mirror" unique_id=1684591049 instance=ExtResource("1_4e1l2")]
-item_export = ExtResource("2_3nlje")

@@ -1,0 +1,751 @@
+[gd_scene format=4 uid="uid://ciq4ss7nyk45a"]
+
+[ext_resource type="Script" uid="uid://cl8bu5onv7pmx" path="res://Scenes/main_scene.gd" id="1_maf8m"]
+[ext_resource type="Script" uid="uid://cytj38mtg8ceg" path="res://Scenes/loot_manager.gd" id="1_x6ack"]
+[ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://UI/Inventory/Bag/bag.tscn" id="2_6l7je"]
+[ext_resource type="PackedScene" uid="uid://bn3d2cxwpibt1" path="res://Scenes/Enemies/slime.tscn" id="2_huasi"]
+[ext_resource type="Texture2D" uid="uid://b1usdel85uamu" path="res://assets/Tiles/backpack_gamejam.png" id="2_jv6wh"]
+[ext_resource type="PackedScene" uid="uid://cyv1jibwlj42i" path="res://Items/ItemsUI/Attack/fireball_ui.tscn" id="5_nt2eh"]
+[ext_resource type="PackedScene" uid="uid://4uivwpgputqq" path="res://Items/ItemsUI/Attack/rock.tscn" id="6_5cm5d"]
+[ext_resource type="PackedScene" uid="uid://cew3wiu1mn1h0" path="res://Items/ItemsUI/Attack/sword.tscn" id="7_5bov3"]
+[ext_resource type="Texture2D" uid="uid://d1sun0kuatkao" path="res://assets/Tiles/Bookshelf_tiles.png" id="7_76v2p"]
+[ext_resource type="PackedScene" uid="uid://bg3uqxlsnklik" path="res://Items/ItemsUI/Special/energy_drink.tscn" id="7_yb0ja"]
+[ext_resource type="PackedScene" uid="uid://cdt6j1h58kr12" path="res://UI/Inventory/Bag/chest.tscn" id="8_7ewk0"]
+[ext_resource type="PackedScene" uid="uid://haajd3lqqqyg" path="res://Items/ItemsUI/Special/interest_rate.tscn" id="8_15kh8"]
+[ext_resource type="Texture2D" uid="uid://exlg5xvvsvd4" path="res://assets/Tiles/Dungeon_tiles.png" id="8_drdnd"]
+[ext_resource type="PackedScene" uid="uid://0qiwd1hsqid0" path="res://Scenes/Enemies/player.tscn" id="8_mai8y"]
+[ext_resource type="PackedScene" uid="uid://dsq74ta6tg5cn" path="res://Items/ItemsUI/Defense/shield.tscn" id="8_xle81"]
+[ext_resource type="Texture2D" uid="uid://dm6fuo1v7j1ee" path="res://assets/Tiles/taller_bookshelves_.png" id="9_jvnna"]
+[ext_resource type="PackedScene" uid="uid://cp7723o8hbu73" path="res://Items/ItemsUI/Special/doppelganger.tscn" id="9_s8qe6"]
+[ext_resource type="PackedScene" uid="uid://c3riub8h2oq7c" path="res://Items/ItemsUI/Defense/health_bag_ui.tscn" id="10_76v2p"]
+[ext_resource type="PackedScene" uid="uid://defemwqxmq1my" path="res://Items/ItemsUI/Special/mirror.tscn" id="10_yb0ja"]
+[ext_resource type="PackedScene" uid="uid://bpcdjxf7rwkta" path="res://Items/ItemsUI/Special/rock_pile.tscn" id="11_15kh8"]
+[ext_resource type="PackedScene" uid="uid://d33kjfyie3lgt" path="res://Items/ItemsUI/Defense/armor.tscn" id="11_viu5a"]
+[ext_resource type="PackedScene" uid="uid://bkb14j2jahlkb" path="res://UI/Inventory/Bag/loot_bag.tscn" id="12_ioaeq"]
+[ext_resource type="PackedScene" uid="uid://d0pdq2m7bajwx" path="res://Items/ItemsUI/Defense/warm_up.tscn" id="13_b00ha"]
+[ext_resource type="Shader" uid="uid://c81rodqya1un7" path="res://assets/Shaders/CRTVHSEffect.gdshader" id="15_gnsmo"]
+[ext_resource type="Shader" uid="uid://dq4ja4toyo7va" path="res://assets/Shaders/vignette.gdshader" id="15_lhp3t"]
+[ext_resource type="PackedScene" uid="uid://dybir254aw8t0" path="res://Items/ItemsUI/Attack/echo_blade.tscn" id="17_15kh8"]
+[ext_resource type="PackedScene" uid="uid://dhgh3v5o8p51v" path="res://Items/ItemsUI/Special/chaos.tscn" id="20_5cm5d"]
+[ext_resource type="PackedScene" uid="uid://dwxs52roo5kbc" path="res://Items/ItemsUI/Special/ctrl_c_ctrl_v.tscn" id="21_5bov3"]
+[ext_resource type="Texture2D" uid="uid://k6qhckeaycwf" path="res://assets/Textures/UITextures/fc131.png" id="22_5cm5d"]
+[ext_resource type="Texture2D" uid="uid://da6yhap8pt13p" path="res://assets/Textures/ItemTextures/health_bag_transparent.png" id="22_nt2eh"]
+[ext_resource type="PackedScene" uid="uid://ddu4wop014o2m" path="res://Items/ItemsUI/Special/reinforcement.tscn" id="26_viu5a"]
+[ext_resource type="PackedScene" uid="uid://kc8bmxgpbnyi" path="res://Items/ItemsUI/Attack/rage_hammer.tscn" id="27_b00ha"]
+[ext_resource type="Shader" uid="uid://bwgukq4nue5fi" path="res://assets/Shaders/ray.gdshader" id="27_vggli"]
+[ext_resource type="PackedScene" uid="uid://72pey354deea" path="res://Items/ItemsUI/Special/goldenbag.tscn" id="28_urcnp"]
+[ext_resource type="PackedScene" uid="uid://ccm7r6k2uxlxt" path="res://Items/ItemsUI/Attack/handfulof_coins.tscn" id="29_rpyod"]
+[ext_resource type="PackedScene" uid="uid://crjdmpkou0cjf" path="res://Items/ItemsUI/Attack/tween_item.tscn" id="30_mplvr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b48ew"]
+texture = ExtResource("9_jvnna")
+texture_region_size = Vector2i(32, 32)
+18:5/0 = 0
+20:5/0 = 0
+22:5/0 = 0
+24:5/0 = 0
+18:7/0 = 0
+20:7/0 = 0
+22:7/0 = 0
+24:7/0 = 0
+18:9/0 = 0
+20:9/0 = 0
+22:9/0 = 0
+24:9/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+5:11/0 = 0
+7:11/0 = 0
+9:11/0 = 0
+11:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+18:11/0 = 0
+20:11/0 = 0
+22:11/0 = 0
+24:11/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+5:13/0 = 0
+7:13/0 = 0
+9:13/0 = 0
+11:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+18:13/0 = 0
+20:13/0 = 0
+22:13/0 = 0
+24:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+5:15/0 = 0
+7:15/0 = 0
+9:15/0 = 0
+11:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+18:15/0 = 0
+20:15/0 = 0
+22:15/0 = 0
+24:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gnsmo"]
+texture = ExtResource("7_76v2p")
+texture_region_size = Vector2i(32, 32)
+18:2/0 = 0
+19:2/0 = 0
+22:2/0 = 0
+23:2/0 = 0
+11:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+22:3/0 = 0
+23:3/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+22:6/0 = 0
+23:6/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+22:7/0 = 0
+23:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+18:10/0 = 0
+19:10/0 = 0
+22:10/0 = 0
+23:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+18:11/0 = 0
+19:11/0 = 0
+22:11/0 = 0
+23:11/0 = 0
+3:5/0 = 0
+3:4/0 = 0
+3:3/0 = 0
+2:5/0 = 0
+2:4/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+1:4/0 = 0
+1:5/0 = 0
+0:5/0 = 0
+0:4/0 = 0
+0:3/0 = 0
+5:5/0 = 0
+7:5/0 = 0
+9:5/0 = 0
+11:5/0 = 0
+9:3/0 = 0
+7:3/0 = 0
+5:3/0 = 0
+5:1/0 = 0
+7:1/0 = 0
+9:1/0 = 0
+11:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_iacmt"]
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetAtlasSource_gnsmo")
+sources/0 = SubResource("TileSetAtlasSource_b48ew")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_psl12"]
+texture = ExtResource("2_jv6wh")
+6:0/0 = 0
+7:0/0 = 0
+12:0/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7ewk0"]
+sources/0 = SubResource("TileSetAtlasSource_psl12")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ebs2"]
+texture = ExtResource("8_drdnd")
+texture_region_size = Vector2i(32, 32)
+6:3/0 = 0
+8:3/0 = 0
+10:3/0 = 0
+6:7/0 = 0
+8:7/0 = 0
+10:7/0 = 0
+6:1/0 = 0
+8:1/0 = 0
+10:1/0 = 0
+9:2/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+6:5/0 = 0
+8:5/0 = 0
+10:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lhp3t"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_2ebs2")
+
+[sub_resource type="Gradient" id="Gradient_drdnd"]
+offsets = PackedFloat32Array(0, 0.21875)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ioaeq"]
+gradient = SubResource("Gradient_drdnd")
+fill = 1
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1.5)
+
+[sub_resource type="Gradient" id="Gradient_mplvr"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vggli"]
+gradient = SubResource("Gradient_mplvr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r0xgx"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(140, 100, 100)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+angular_velocity_min = 0.0999839
+angular_velocity_max = 0.4999839
+gravity = Vector3(0, 0, 0)
+damping_min = 0.1
+damping_max = 0.3
+scale_min = 0.29999998
+scale_max = 0.7
+color_ramp = SubResource("GradientTexture1D_vggli")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0xgx"]
+shader = ExtResource("27_vggli")
+shader_parameter/angle = -0.2
+shader_parameter/position = 0.0
+shader_parameter/spread = 0.10000000475
+shader_parameter/cutoff = 0.200000057
+shader_parameter/falloff = 0.30000001425
+shader_parameter/edge_fade = 0.2000000095
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.8570000407075
+shader_parameter/color = Vector4(1, 0.9, 0.65, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_drdnd"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_jvnna"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_b48ew"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_5cm5d"]
+font_size = 32
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_psl12"]
+shader = ExtResource("15_gnsmo")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.10000000475
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 2.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 5.0
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.10000000475
+shader_parameter/noise_speed = 0.0
+shader_parameter/static_noise_intensity = 0.0
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.0
+shader_parameter/vignette_opacity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oyb3p"]
+shader = ExtResource("15_lhp3t")
+shader_parameter/vignette_intensity = 0.5
+shader_parameter/vignette_opacity = 1.0
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
+
+[node name="MainScene" type="Node2D" unique_id=1110424414]
+script = ExtResource("1_maf8m")
+enemies = Array[PackedScene]([ExtResource("2_huasi")])
+
+[node name="LootManager" type="Node" parent="." unique_id=1730028833]
+script = ExtResource("1_x6ack")
+items = Array[PackedScene]([ExtResource("20_5cm5d"), ExtResource("21_5bov3"), ExtResource("9_s8qe6"), ExtResource("7_yb0ja"), ExtResource("8_15kh8"), ExtResource("10_yb0ja"), ExtResource("11_15kh8"), ExtResource("11_viu5a"), ExtResource("8_xle81"), ExtResource("13_b00ha"), ExtResource("5_nt2eh"), ExtResource("6_5cm5d"), ExtResource("7_5bov3"), ExtResource("17_15kh8"), ExtResource("26_viu5a"), ExtResource("28_urcnp"), ExtResource("27_b00ha"), ExtResource("29_rpyod")])
+
+[node name="Visuals" type="Node" parent="." unique_id=1383002675]
+
+[node name="Polygon2D" type="Polygon2D" parent="Visuals" unique_id=753865126]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(150, 0, -150, 0, -150, -100, 150, -100)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Visuals" unique_id=1671503317]
+position = Vector2(-16, -16)
+tile_map_data = PackedByteArray("AAD9/wAAAAANAA4AAAD+/wAAAAAOAA4AAAD//wAAAAAPAA4AAAD9////AAANAA0AAAD9//7/AAANAAoAAAD///7/AAAPAAoAAAD/////AAAPAA0AAAD+//7/AAAOAAoAAAD+////AAAOAA0AAAABAAAAAAANAA4AAAACAAAAAAAOAA4AAAADAAAAAAAPAA4AAAABAP//AAANAA0AAAACAP//AAAOAA0AAAADAP//AAAPAA0AAAABAP7/AAANAAoAAAACAP7/AAAOAAoAAAADAP7/AAAPAAoAAAD9/wEAAQAAAAUAAAD+/wEAAQABAAUAAAD//wEAAQACAAUAAAABAAEAAAANAA8AAAACAAEAAAAOAA8AAAADAAEAAAAPAA8AAAA=")
+tile_set = SubResource("TileSet_iacmt")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Visuals" unique_id=2007197646]
+tile_map_data = PackedByteArray("AAD3/wAAAAACAAsAAAD4/wAAAAADAAsAAAD3////AAACAAsAAAD4////AAADAAsAAAD3//7/AAACAAsAAAD4//7/AAADAAsAAAD3//v/AAACAAgAAAD3//z/AAACAAkAAAD3//3/AAACAAoAAAD4//v/AAADAAgAAAD4//z/AAADAAkAAAD4//3/AAADAAoAAAD//wAAAAACAAsAAAAAAAAAAAADAAsAAAD/////AAACAAsAAAAAAP//AAADAAsAAAD///7/AAACAAsAAAAAAP7/AAADAAsAAAAHAAAAAAACAAsAAAAIAAAAAAADAAsAAAAHAP//AAACAAsAAAAIAP//AAADAAsAAAAHAP7/AAACAAsAAAAIAP7/AAADAAsAAAD///v/AAACAAgAAAD///z/AAACAAkAAAD///3/AAACAAoAAAAAAPv/AAADAAgAAAAAAPz/AAADAAkAAAAAAP3/AAADAAoAAAAHAPv/AAACAAgAAAAHAPz/AAACAAkAAAAHAP3/AAACAAoAAAAIAPv/AAADAAgAAAAIAPz/AAADAAkAAAAIAP3/AAADAAoAAAD3/wEAAAACAAsAAAD4/wEAAAADAAsAAAD//wEAAAACAAsAAAAAAAEAAAADAAsAAAAHAAEAAAACAAsAAAAIAAEAAAADAAsAAAAHAAIAAAACAAsAAAAIAAIAAAADAAsAAAD//wIAAAACAAsAAAAAAAIAAAADAAsAAAD3/wIAAAACAAsAAAD4/wIAAAADAAsAAAA=")
+tile_set = SubResource("TileSet_7ewk0")
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="Visuals" unique_id=706830102]
+z_index = -1
+position = Vector2(16, 16)
+tile_map_data = PackedByteArray("AAD//wEAAAACAAYAAAD+/wEAAAAGAAUAAAD9/wEAAAAGAAUAAAD8/wEAAAAGAAUAAAAAAAEAAAAKAAUAAAABAAEAAAADAAYAAAACAAEAAAADAAYAAAADAAEAAAAEAAYAAAD7/wEAAAAGAAUAAAD9/wIAAAABAAcAAAD+/wIAAAABAAcAAAD//wIAAAACAAcAAAAAAAIAAAADAAcAAAABAAIAAAADAAcAAAD7/wIAAAAAAAcAAAD8/wIAAAABAAcAAAACAAIAAAADAAcAAAADAAIAAAAEAAcAAAA=")
+tile_set = SubResource("TileSet_lhp3t")
+
+[node name="PointLight2D" type="PointLight2D" parent="Visuals" unique_id=803777707]
+position = Vector2(7.748604e-07, 7.999998)
+scale = Vector2(4.4999995, 2.5)
+texture = SubResource("GradientTexture2D_ioaeq")
+
+[node name="Chest" parent="Visuals" unique_id=1295485416 instance=ExtResource("8_7ewk0")]
+offset_left = 87.0
+offset_top = 54.0
+offset_right = 87.0
+offset_bottom = 54.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Visuals" unique_id=473120085]
+amount = 100
+lifetime = 8.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_r0xgx")
+
+[node name="Ray" type="ColorRect" parent="Visuals" unique_id=478208391]
+visible = false
+material = SubResource("ShaderMaterial_r0xgx")
+custom_minimum_size = Vector2(100, 160)
+offset_left = 3.0
+offset_top = -70.0
+offset_right = 153.0
+offset_bottom = 90.0
+mouse_filter = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2053579534]
+position = Vector2(0, 7)
+zoom = Vector2(4, 4)
+
+[node name="EnemyPos" type="Node2D" parent="." unique_id=280642396]
+position = Vector2(87, 56)
+
+[node name="EnemyAttackPos" type="Node2D" parent="." unique_id=362210778]
+position = Vector2(64, 56)
+
+[node name="Player" parent="." unique_id=673946979 instance=ExtResource("8_mai8y")]
+z_index = 1
+position = Vector2(-87, 55)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=285866639]
+
+[node name="Bag" parent="CanvasLayer" unique_id=12638333 node_paths=PackedStringArray("loot_manager") instance=ExtResource("2_6l7je")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 53.0
+offset_bottom = 53.0
+grow_horizontal = 2
+items_export = Array[PackedScene]([ExtResource("10_76v2p"), ExtResource("30_mplvr"), ExtResource("30_mplvr")])
+loot_manager = NodePath("../../LootManager")
+
+[node name="LootContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=459750805]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = 118.0
+offset_right = 27.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/LootContainer" unique_id=1400129436]
+z_index = 1
+layout_mode = 2
+text = "Loot"
+horizontal_alignment = 1
+
+[node name="LootBag" parent="CanvasLayer/LootContainer" unique_id=1743470214 node_paths=PackedStringArray("loot_manager") instance=ExtResource("12_ioaeq")]
+layout_mode = 2
+items_export = Array[PackedScene]([null, null, null, null, null, null])
+loot_manager = NodePath("../../../LootManager")
+slots_num = 6
+
+[node name="ButtonContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1800156159]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -48.0
+offset_right = 57.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/ButtonContainer" unique_id=1518626008]
+layout_mode = 2
+text = "Continue"
+
+[node name="SellContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1002278993]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -350.0
+offset_bottom = 350.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="SellLabel" type="Label" parent="CanvasLayer/SellContainer" unique_id=2132205523]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Sell for"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1441617828]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -76.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="GoldAmountLabel" type="Label" parent="CanvasLayer/HBoxContainer" unique_id=300375811]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_drdnd")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1391980501]
+layout_mode = 2
+texture = ExtResource("22_5cm5d")
+expand_mode = 2
+
+[node name="CombatLayer" type="CanvasLayer" parent="." unique_id=403820658]
+visible = false
+
+[node name="EndTurnButton" type="Button" parent="CombatLayer" unique_id=1516016144]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "End Turn "
+
+[node name="TurnLabel" type="Label" parent="CombatLayer" unique_id=1598955776]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -16.0
+offset_right = 108.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "Player Turn"
+label_settings = SubResource("LabelSettings_jvnna")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CombatLayer" unique_id=1158507913]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 45.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="CombatLayer/VBoxContainer" unique_id=317386609]
+layout_mode = 2
+text = "Turns"
+label_settings = SubResource("LabelSettings_b48ew")
+horizontal_alignment = 1
+
+[node name="TurnsNumLabel" type="Label" parent="CombatLayer/VBoxContainer" unique_id=1135563542]
+layout_mode = 2
+text = "1/1"
+label_settings = SubResource("LabelSettings_b48ew")
+horizontal_alignment = 1
+
+[node name="PlayerHealthContainer" type="HBoxContainer" parent="CombatLayer" unique_id=423920173]
+offset_left = 20.0
+offset_top = 292.0
+offset_right = 88.0
+offset_bottom = 324.0
+theme_override_constants/separation = 0
+
+[node name="TotalHealthBagsLabel" type="Label" parent="CombatLayer/PlayerHealthContainer" unique_id=864787412]
+layout_mode = 2
+text = "20"
+label_settings = SubResource("LabelSettings_5cm5d")
+
+[node name="TextureRect" type="TextureRect" parent="CombatLayer/PlayerHealthContainer" unique_id=1725191947]
+layout_mode = 2
+texture = ExtResource("22_nt2eh")
+expand_mode = 2
+
+[node name="EnemyHealthContainer" type="HBoxContainer" parent="CombatLayer" unique_id=431263242]
+offset_left = 20.0
+offset_top = 292.0
+offset_right = 88.0
+offset_bottom = 324.0
+theme_override_constants/separation = 0
+
+[node name="TotalHealthBagsLabel" type="Label" parent="CombatLayer/EnemyHealthContainer" unique_id=739452539]
+layout_mode = 2
+text = "20"
+label_settings = SubResource("LabelSettings_5cm5d")
+
+[node name="TextureRect" type="TextureRect" parent="CombatLayer/EnemyHealthContainer" unique_id=1209969548]
+layout_mode = 2
+texture = ExtResource("22_nt2eh")
+expand_mode = 2
+
+[node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=993173925]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="GameOverScreen" unique_id=1079061393]
+custom_minimum_size = Vector2(280, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverScreen/PanelContainer" unique_id=2086142884]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="GameOverScreen/PanelContainer/VBoxContainer" unique_id=1382821997]
+layout_mode = 2
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="ProceedButton" type="Button" parent="GameOverScreen/PanelContainer/VBoxContainer" unique_id=759008220]
+layout_mode = 2
+text = "Continue"
+
+[node name="ShaderLayer" type="CanvasLayer" parent="." unique_id=1150912959]
+
+[node name="Retro" type="ColorRect" parent="ShaderLayer" unique_id=1697844823]
+visible = false
+material = SubResource("ShaderMaterial_psl12")
+offset_right = 1149.0
+offset_bottom = 647.0
+mouse_filter = 2
+
+[node name="Vignette" type="ColorRect" parent="ShaderLayer" unique_id=1824698225]
+material = SubResource("ShaderMaterial_oyb3p")
+offset_right = 1152.0
+offset_bottom = 643.0
+mouse_filter = 2
+
+[connection signal="pressed" from="CanvasLayer/ButtonContainer/ContinueButton" to="LootManager" method="_on_continue_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/SellContainer" to="LootManager" method="_on_sell_container_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/SellContainer" to="LootManager" method="_on_sell_container_mouse_exited"]
+[connection signal="pressed" from="CombatLayer/EndTurnButton" to="." method="_on_end_turn_button_pressed"]
+[connection signal="pressed" from="GameOverScreen/PanelContainer/VBoxContainer/ProceedButton" to="." method="_on_proceed_button_pressed"]
