@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_enudt")
 name = "Echo Blade"
-description = "Deal {damage}, create 1 random item"
+description = "Deal {damage}, add 1 random item to the bag"
 texture = ExtResource("2_660l6")
 damage = 6
 item_type = 1

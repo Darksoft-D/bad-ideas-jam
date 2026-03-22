@@ -1,0 +1,15 @@
+[gd_resource type="Resource" format=3 uid="uid://c553fbap6ee32"]
+
+[ext_resource type="Resource" uid="uid://pa01ljhy5el5" path="res://Items/Effects/Free/free_effect.tres" id="1_kxmsd"]
+[ext_resource type="Script" uid="uid://cnq140g050gn3" path="res://Items/Items/Special/energy_drink/energy_drink.gd" id="2_c3don"]
+[ext_resource type="Texture2D" uid="uid://cjgtgurt7msbi" path="res://assets/Textures/ItemTextures/fb286.png" id="3_y61dd"]
+
+[resource]
+script = ExtResource("2_c3don")
+name = "Energy Drink"
+description = "Apply {free} to 2 random items"
+texture = ExtResource("3_y61dd")
+effect = ExtResource("1_kxmsd")
+item_type = 2
+item_rarity = 1
+metadata/_custom_type_script = "uid://dah435we4cfau"

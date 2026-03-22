@@ -1,7 +1,7 @@
 extends InvItem
 
-const ROCK = preload("uid://4uivwpgputqq")
+@export var rock: InvItem
 
 func _use():
 	for i in 3:
-		scene.insert_item(ROCK)
+		scene.insert_item(rock)

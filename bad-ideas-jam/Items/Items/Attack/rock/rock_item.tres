@@ -1,11 +1,13 @@
 [gd_resource type="Resource" format=3 uid="uid://dntbxdd28d8do"]
 
 [ext_resource type="Script" uid="uid://d2n08ytwjmfjm" path="res://Items/Items/Attack/rock/rock.gd" id="1_f2xqd"]
+[ext_resource type="Texture2D" uid="uid://bl5rry4jikj5f" path="res://assets/Textures/ItemTextures/rock.png" id="2_15fem"]
 
 [resource]
 script = ExtResource("1_f2xqd")
 name = "Rock"
 description = "Deals {damage}, doesn't end your turn"
+texture = ExtResource("2_15fem")
 damage = 2
 item_type = 1
 free = true

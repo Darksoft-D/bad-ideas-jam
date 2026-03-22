@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3 uid="uid://co77xslb1x57c"]
+
+[ext_resource type="Script" uid="uid://bf6hulm1n57ji" path="res://Items/Items/Defense/cure/cure.gd" id="1_ll44a"]
+[ext_resource type="Texture2D" uid="uid://bpdal8wp7nxb6" path="res://assets/Textures/ItemTextures/cure.png" id="2_t7hgk"]
+
+[resource]
+script = ExtResource("1_ll44a")
+name = "Cure"
+description = "Increase the biggest {health_bag} value by 5"
+texture = ExtResource("2_t7hgk")
+item_rarity = 1
+metadata/_custom_type_script = "uid://dah435we4cfau"

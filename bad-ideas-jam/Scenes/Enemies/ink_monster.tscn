@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cjwc7b1t24edw"]
+
+[ext_resource type="PackedScene" uid="uid://bn3d2cxwpibt1" path="res://Scenes/Enemies/slime.tscn" id="1_bmeqf"]
+[ext_resource type="Script" uid="uid://woge1rog8y1w" path="res://Items/Skills/skill.gd" id="2_uudhu"]
+[ext_resource type="Resource" uid="uid://dw2l3s2hnwf6e" path="res://Items/Skills/EnemySkill/attack.tres" id="3_a3b80"]
+[ext_resource type="Resource" uid="uid://cn44ammlts4ad" path="res://Items/Skills/EnemySkill/weakening_strike.tres" id="4_wdpfj"]
+[ext_resource type="Resource" uid="uid://bnsve1c1ctol3" path="res://Items/Skills/EnemySkill/garbage_attack.tres" id="5_my8uh"]
+
+[node name="InkMonster" unique_id=673946979 instance=ExtResource("1_bmeqf")]
+max_health = 20
+attack_skills = Array[ExtResource("2_uudhu")]([ExtResource("3_a3b80"), ExtResource("4_wdpfj"), ExtResource("5_my8uh")])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1044903095]
+region_rect = Rect2(36, 2, 31, 29)

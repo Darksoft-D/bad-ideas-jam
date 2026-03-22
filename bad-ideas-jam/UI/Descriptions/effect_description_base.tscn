@@ -5,23 +5,37 @@
 [sub_resource type="LabelSettings" id="LabelSettings_8x28w"]
 font_size = 32
 
-[sub_resource type="LabelSettings" id="LabelSettings_dc8rx"]
-font_size = 24
+[sub_resource type="LabelSettings" id="LabelSettings_6bp2n"]
+font_size = 28
 
 [node name="EffectDescriptionBase" type="VBoxContainer" unique_id=1349725808]
 visible = false
 script = ExtResource("1_6bp2n")
 
-[node name="NameLabel" type="Label" parent="." unique_id=406386952]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=91669939]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="HBoxContainer" unique_id=406386952]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Name"
 label_settings = SubResource("LabelSettings_8x28w")
 autowrap_mode = 2
 
-[node name="DescriptionLabel" type="Label" parent="." unique_id=1467849173]
+[node name="EffectIcon" type="TextureRect" parent="HBoxContainer" unique_id=1491212278]
+layout_mode = 2
+expand_mode = 2
+
+[node name="EffectLabel" type="Label" parent="." unique_id=1697771116]
+layout_mode = 2
+text = "Effect"
+label_settings = SubResource("LabelSettings_6bp2n")
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="." unique_id=1940481587]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
 text = "Description"
-label_settings = SubResource("LabelSettings_dc8rx")
+fit_content = true
 autowrap_mode = 2

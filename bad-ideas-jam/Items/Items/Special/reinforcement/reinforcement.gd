@@ -1,6 +1,6 @@
 extends InvItem
 
-@export var attack_items: Array[PackedScene]
+@export var attack_items: Array[InvItem]
 
 func _use():
 	for i in 3:

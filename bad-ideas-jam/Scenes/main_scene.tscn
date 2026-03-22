@@ -5,21 +5,51 @@
 [ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://UI/Inventory/Bag/bag.tscn" id="2_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bn3d2cxwpibt1" path="res://Scenes/Enemies/slime.tscn" id="2_huasi"]
 [ext_resource type="Texture2D" uid="uid://b1usdel85uamu" path="res://assets/Tiles/backpack_gamejam.png" id="2_jv6wh"]
+[ext_resource type="PackedScene" uid="uid://ckvxrqowr3u4y" path="res://Scenes/Enemies/book_plant.tscn" id="2_kbbok"]
+[ext_resource type="PackedScene" uid="uid://cjwc7b1t24edw" path="res://Scenes/Enemies/ink_monster.tscn" id="4_2h5y0"]
 [ext_resource type="Resource" uid="uid://b6rt8pgvnr5wm" path="res://Items/Items/Defense/armor/armor_item.tres" id="5_oyb3p"]
+[ext_resource type="PackedScene" uid="uid://bmqmim1lfiefw" path="res://Scenes/Enemies/book_wyrm.tscn" id="5_y0lwx"]
+[ext_resource type="Script" uid="uid://jhey672pi0cc" path="res://Items/Relics/relic.gd" id="6_stxua"]
+[ext_resource type="Resource" uid="uid://bcm1m38drucdh" path="res://Items/Relics/creation_necklace/creation_necklace.tres" id="7_37jd4"]
 [ext_resource type="Texture2D" uid="uid://d1sun0kuatkao" path="res://assets/Tiles/Bookshelf_tiles.png" id="7_76v2p"]
+[ext_resource type="Resource" uid="uid://5t3oy62yh1bv" path="res://Items/Items/Attack/fireball/fireball_item.tres" id="7_kbbok"]
 [ext_resource type="PackedScene" uid="uid://cdt6j1h58kr12" path="res://UI/Inventory/Bag/chest.tscn" id="8_7ewk0"]
+[ext_resource type="Resource" uid="uid://bbu87igdx5oiv" path="res://Items/Relics/medal_of_power/medal_of_power.tres" id="8_37jd4"]
 [ext_resource type="Texture2D" uid="uid://exlg5xvvsvd4" path="res://assets/Tiles/Dungeon_tiles.png" id="8_drdnd"]
+[ext_resource type="Resource" uid="uid://cspmf0cu2kedb" path="res://Items/Items/Attack/HandfulOfCoins/handful_of_coins.tres" id="8_m0uwk"]
 [ext_resource type="PackedScene" uid="uid://0qiwd1hsqid0" path="res://Scenes/Enemies/player.tscn" id="8_mai8y"]
+[ext_resource type="Resource" uid="uid://cuqfhanhjg15k" path="res://Items/Relics/expansion/expansion.tres" id="9_gfj8f"]
 [ext_resource type="Texture2D" uid="uid://dm6fuo1v7j1ee" path="res://assets/Tiles/taller_bookshelves_.png" id="9_jvnna"]
+[ext_resource type="Resource" uid="uid://cgpwtg77wrtvg" path="res://Items/Items/Attack/sword/sword_item.tres" id="10_mffef"]
+[ext_resource type="Resource" uid="uid://ufav7akgnowk" path="res://Items/Items/Attack/tween/tween_item.tres" id="11_2h5y0"]
 [ext_resource type="PackedScene" uid="uid://bkb14j2jahlkb" path="res://UI/Inventory/Bag/loot_bag.tscn" id="12_ioaeq"]
+[ext_resource type="Resource" uid="uid://co77xslb1x57c" path="res://Items/Items/Defense/cure/cure_item.tres" id="12_y0lwx"]
 [ext_resource type="Script" uid="uid://dah435we4cfau" path="res://Items/Items/item.gd" id="13_oyb3p"]
+[ext_resource type="Resource" uid="uid://cnais6handuu0" path="res://Items/Items/Defense/health_bag/health_bag_small.tres" id="14_igw8g"]
 [ext_resource type="Resource" uid="uid://mi5pgt1to8qa" path="res://Items/Items/Defense/health_bag/health_bag.tres" id="14_jvnna"]
+[ext_resource type="Resource" uid="uid://cud4jm7c08ywd" path="res://Items/Items/Attack/echo_blade/echo_blade_item.tres" id="15_b48ew"]
 [ext_resource type="Shader" uid="uid://c81rodqya1un7" path="res://assets/Shaders/CRTVHSEffect.gdshader" id="15_gnsmo"]
-[ext_resource type="Resource" uid="uid://bw36x6e2lde7m" path="res://Items/Items/Defense/shield/shield_item.tres" id="15_jvnna"]
+[ext_resource type="Resource" uid="uid://c0t46x4fjnewk" path="res://Items/Items/Defense/first_aid_kit/first_aid_kit_item.tres" id="15_jvnna"]
 [ext_resource type="Shader" uid="uid://dq4ja4toyo7va" path="res://assets/Shaders/vignette.gdshader" id="15_lhp3t"]
+[ext_resource type="Resource" uid="uid://c8v4m8143mhju" path="res://Items/Items/Defense/health_bag/health_bag_medium.tres" id="15_rlvbq"]
+[ext_resource type="Resource" uid="uid://cgpy2qtd5jdwu" path="res://Items/Items/Defense/warm_up/warm_up_item.tres" id="16_2v2b7"]
+[ext_resource type="Resource" uid="uid://d2qc5egqivb1b" path="res://Items/Items/Attack/rage_hammer/rage_hammer_item.tres" id="16_8edxt"]
+[ext_resource type="Resource" uid="uid://dca2kg26qhrt4" path="res://Items/Items/Attack/chaos/chaos_item.tres" id="17_p35vf"]
+[ext_resource type="Resource" uid="uid://b8facth1luuiq" path="res://Items/Items/Special/ctrlc_ctrlv/ctrlc_ctrlv_item.tres" id="18_stxua"]
+[ext_resource type="Resource" uid="uid://bw1p8hjtgb10j" path="res://Items/Items/Special/doppelganger/doppelganger_item.tres" id="19_37jd4"]
+[ext_resource type="Resource" uid="uid://c553fbap6ee32" path="res://Items/Items/Special/energy_drink/energy_drink_item.tres" id="20_gfj8f"]
+[ext_resource type="Resource" uid="uid://cru21ttiunma0" path="res://Items/Items/Special/golden_bag/golden_bag_item.tres" id="21_so8ax"]
 [ext_resource type="Texture2D" uid="uid://k6qhckeaycwf" path="res://assets/Textures/UITextures/fc131.png" id="22_5cm5d"]
 [ext_resource type="Texture2D" uid="uid://da6yhap8pt13p" path="res://assets/Textures/ItemTextures/health_bag_transparent.png" id="22_nt2eh"]
+[ext_resource type="Resource" uid="uid://coh1aqr3mnpvg" path="res://Items/Items/Special/interest_rate/interest_rate.tres" id="22_yu1ej"]
+[ext_resource type="Resource" uid="uid://drtcvx0oqq5yd" path="res://Items/Items/Special/mirror/mirror_item.tres" id="23_5w0f0"]
+[ext_resource type="Resource" uid="uid://qnrwqokgyamf" path="res://Items/Items/Special/rock_pile/rock_pile_item.tres" id="24_v1fg3"]
+[ext_resource type="Resource" uid="uid://cv7bs33kmj7ms" path="res://Items/Items/Special/reinforcement/reinforcement_item.tres" id="25_wrtin"]
 [ext_resource type="Shader" uid="uid://bwgukq4nue5fi" path="res://assets/Shaders/ray.gdshader" id="27_vggli"]
+[ext_resource type="Resource" uid="uid://c3mmylt4vpp8b" path="res://Items/Items/Defense/speed_boots/speed_boots.tres" id="29_rlvbq"]
+[ext_resource type="Shader" uid="uid://d11rkrd665e1p" path="res://assets/Shaders/wind.gdshader" id="35_igw8g"]
+[ext_resource type="Texture2D" uid="uid://dj713yd0e5stp" path="res://assets/Tiles/48x48 trees.png" id="36_rlvbq"]
+[ext_resource type="Shader" uid="uid://uub6php4bhp4" path="res://assets/Shaders/fog.gdshader" id="44_2v2b7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b48ew"]
 texture = ExtResource("9_jvnna")
@@ -376,7 +406,7 @@ shader_parameter/angle = -0.2
 shader_parameter/position = 0.0
 shader_parameter/spread = 0.10000000475
 shader_parameter/cutoff = 0.200000057
-shader_parameter/falloff = 0.30000001425
+shader_parameter/falloff = 0.50000002375
 shader_parameter/edge_fade = 0.2000000095
 shader_parameter/speed = 1.0
 shader_parameter/ray1_density = 8.0
@@ -385,6 +415,18 @@ shader_parameter/ray2_intensity = 0.8570000407075
 shader_parameter/color = Vector4(1, 0.9, 0.65, 0.8)
 shader_parameter/hdr = false
 shader_parameter/seed = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2v2b7"]
+shader = ExtResource("35_igw8g")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_drdnd"]
 font_size = 48
@@ -398,10 +440,15 @@ font_size = 32
 [sub_resource type="LabelSettings" id="LabelSettings_5cm5d"]
 font_size = 32
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p35vf"]
+shader = ExtResource("44_2v2b7")
+shader_parameter/density = 0.050000002375
+shader_parameter/speed = Vector2(1, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_psl12"]
 shader = ExtResource("15_gnsmo")
 shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.10000000475
+shader_parameter/scanlines_opacity = 0.50000002375
 shader_parameter/scanlines_width = 0.0
 shader_parameter/grille_opacity = 0.0
 shader_parameter/resolution = Vector2(640, 480)
@@ -424,17 +471,18 @@ shader_parameter/vignette_opacity = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oyb3p"]
 shader = ExtResource("15_lhp3t")
-shader_parameter/vignette_intensity = 0.5
+shader_parameter/vignette_intensity = 0.75
 shader_parameter/vignette_opacity = 1.0
 shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 
 [node name="MainScene" type="Node2D" unique_id=1110424414]
 script = ExtResource("1_maf8m")
-enemies = Array[PackedScene]([ExtResource("2_huasi")])
+enemies = Array[PackedScene]([ExtResource("2_huasi"), ExtResource("2_kbbok"), ExtResource("4_2h5y0"), ExtResource("5_y0lwx")])
+relics = Array[ExtResource("6_stxua")]([ExtResource("7_37jd4"), ExtResource("8_37jd4"), ExtResource("9_gfj8f")])
 
 [node name="LootManager" type="Node" parent="." unique_id=1730028833]
 script = ExtResource("1_x6ack")
-items = Array[ExtResource("13_oyb3p")]([ExtResource("5_oyb3p")])
+items = Array[ExtResource("13_oyb3p")]([ExtResource("5_oyb3p"), ExtResource("15_b48ew"), ExtResource("7_kbbok"), ExtResource("8_m0uwk"), ExtResource("16_8edxt"), ExtResource("10_mffef"), ExtResource("11_2h5y0"), ExtResource("12_y0lwx"), ExtResource("15_jvnna"), ExtResource("14_igw8g"), ExtResource("15_rlvbq"), ExtResource("16_2v2b7"), ExtResource("17_p35vf"), ExtResource("18_stxua"), ExtResource("19_37jd4"), ExtResource("20_gfj8f"), ExtResource("21_so8ax"), ExtResource("22_yu1ej"), ExtResource("23_5w0f0"), ExtResource("24_v1fg3"), ExtResource("25_wrtin"), ExtResource("29_rlvbq")])
 
 [node name="Visuals" type="Node" parent="." unique_id=1383002675]
 
@@ -468,8 +516,13 @@ lifetime = 8.0
 collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_r0xgx")
 
+[node name="Chest2" parent="Visuals" unique_id=1295485416 instance=ExtResource("8_7ewk0")]
+offset_left = 87.0
+offset_top = 53.0
+offset_right = 87.0
+offset_bottom = 53.0
+
 [node name="Ray" type="ColorRect" parent="Visuals" unique_id=478208391]
-visible = false
 material = SubResource("ShaderMaterial_r0xgx")
 custom_minimum_size = Vector2(100, 160)
 offset_left = 3.0
@@ -478,11 +531,45 @@ offset_right = 153.0
 offset_bottom = 90.0
 mouse_filter = 2
 
-[node name="Chest2" parent="Visuals" unique_id=1295485416 instance=ExtResource("8_7ewk0")]
-offset_left = 87.0
-offset_top = 53.0
-offset_right = 87.0
-offset_bottom = 53.0
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=2019352848]
+z_index = 20
+material = SubResource("ShaderMaterial_2v2b7")
+position = Vector2(-126.00001, 79)
+rotation = 0.15463316
+scale = Vector2(2, 2)
+texture = ExtResource("36_rlvbq")
+region_enabled = true
+region_rect = Rect2(-0.5852947, 0, 48.226616, 19.552086)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Visuals" unique_id=1771418588]
+z_index = 20
+material = SubResource("ShaderMaterial_2v2b7")
+position = Vector2(123.00001, 77)
+rotation = -0.15707964
+scale = Vector2(2, 2)
+texture = ExtResource("36_rlvbq")
+region_enabled = true
+region_rect = Rect2(48, 0, 48, 20)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Visuals" unique_id=1056590637]
+z_index = 20
+material = SubResource("ShaderMaterial_2v2b7")
+position = Vector2(125.00001, -70)
+rotation = -2.984513
+scale = Vector2(2, 2)
+texture = ExtResource("36_rlvbq")
+region_enabled = true
+region_rect = Rect2(96, 0, 48, 20)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Visuals" unique_id=783027912]
+z_index = 20
+material = SubResource("ShaderMaterial_2v2b7")
+position = Vector2(-135, -68.00001)
+rotation = -3.3335788
+scale = Vector2(2, 2)
+texture = ExtResource("36_rlvbq")
+region_enabled = true
+region_rect = Rect2(144, 0, 48, 16)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2053579534]
 position = Vector2(0, 7)
@@ -497,6 +584,9 @@ position = Vector2(64, 56)
 [node name="Player" parent="." unique_id=673946979 instance=ExtResource("8_mai8y")]
 z_index = 1
 position = Vector2(-87, 55)
+max_health = null
+attack_skills = null
+debuffs = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=285866639]
 
@@ -507,7 +597,7 @@ anchor_right = 0.5
 offset_top = 53.0
 offset_bottom = 53.0
 grow_horizontal = 2
-items_resource = Array[ExtResource("13_oyb3p")]([ExtResource("14_jvnna"), ExtResource("15_jvnna")])
+items_resource = Array[ExtResource("13_oyb3p")]([ExtResource("14_jvnna"), ExtResource("24_v1fg3")])
 loot_manager = NodePath("../../LootManager")
 
 [node name="LootContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=459750805]
@@ -518,9 +608,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -27.0
-offset_top = 118.0
+offset_top = 106.0
 offset_right = 27.0
-offset_bottom = 158.0
+offset_bottom = 146.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -535,7 +625,7 @@ horizontal_alignment = 1
 
 [node name="LootBag" parent="CanvasLayer/LootContainer" unique_id=1743470214 node_paths=PackedStringArray("loot_manager") instance=ExtResource("12_ioaeq")]
 layout_mode = 2
-items_resource = Array[ExtResource("13_oyb3p")]([null, null, null, null, null, null])
+items_resource = Array[ExtResource("13_oyb3p")]([null, null, null, null, null, null, null, null, null])
 loot_manager = NodePath("../../../LootManager")
 slots_num = 6
 
@@ -547,9 +637,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -57.0
-offset_top = -48.0
+offset_top = -68.0
 offset_right = 57.0
-offset_bottom = -24.0
+offset_bottom = -44.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
@@ -581,8 +671,10 @@ horizontal_alignment = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -76.0
-offset_bottom = 40.0
+offset_left = -132.0
+offset_top = 40.0
+offset_right = -53.0
+offset_bottom = 88.0
 grow_horizontal = 0
 
 [node name="GoldAmountLabel" type="Label" parent="CanvasLayer/HBoxContainer" unique_id=300375811]
@@ -595,6 +687,12 @@ layout_mode = 2
 texture = ExtResource("22_5cm5d")
 expand_mode = 2
 
+[node name="RelicsContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1654389419]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 80.0
+offset_bottom = 80.0
+
 [node name="CombatLayer" type="CanvasLayer" parent="." unique_id=403820658]
 visible = false
 
@@ -604,8 +702,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -170.0
-offset_top = -40.0
+offset_left = -212.0
+offset_top = -78.0
+offset_right = -42.0
+offset_bottom = -38.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
@@ -631,8 +731,10 @@ label_settings = SubResource("LabelSettings_jvnna")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 45.0
+offset_left = 40.0
+offset_top = -108.0
+offset_right = 130.0
+offset_bottom = -40.0
 grow_vertical = 0
 
 [node name="Label" type="Label" parent="CombatLayer/VBoxContainer" unique_id=317386609]
@@ -715,18 +817,29 @@ text = "Continue"
 
 [node name="ShaderLayer" type="CanvasLayer" parent="." unique_id=1150912959]
 
+[node name="Fog" type="ColorRect" parent="ShaderLayer" unique_id=926152969]
+material = SubResource("ShaderMaterial_p35vf")
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+
 [node name="Retro" type="ColorRect" parent="ShaderLayer" unique_id=1697844823]
-visible = false
 material = SubResource("ShaderMaterial_psl12")
-offset_right = 1149.0
-offset_bottom = 647.0
+offset_right = 1152.0
+offset_bottom = 648.0
 mouse_filter = 2
 
 [node name="Vignette" type="ColorRect" parent="ShaderLayer" unique_id=1824698225]
 material = SubResource("ShaderMaterial_oyb3p")
 offset_right = 1152.0
-offset_bottom = 643.0
+offset_bottom = 648.0
 mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="ShaderLayer" unique_id=2121999065]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
 
 [connection signal="pressed" from="CanvasLayer/ButtonContainer/ContinueButton" to="LootManager" method="_on_continue_button_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/SellContainer" to="LootManager" method="_on_sell_container_mouse_entered"]

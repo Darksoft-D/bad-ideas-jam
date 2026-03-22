@@ -1,0 +1,22 @@
+[gd_resource type="Resource" format=3 uid="uid://cv7bs33kmj7ms"]
+
+[ext_resource type="Script" uid="uid://cbo2ldqicilfe" path="res://Items/Items/Special/reinforcement/reinforcement.gd" id="1_gykew"]
+[ext_resource type="Script" uid="uid://dah435we4cfau" path="res://Items/Items/item.gd" id="1_v00h7"]
+[ext_resource type="Texture2D" uid="uid://da0ripowp805l" path="res://assets/Textures/ItemTextures/fb663.png" id="2_p618x"]
+[ext_resource type="Resource" uid="uid://cud4jm7c08ywd" path="res://Items/Items/Attack/echo_blade/echo_blade_item.tres" id="2_rmppg"]
+[ext_resource type="Resource" uid="uid://5t3oy62yh1bv" path="res://Items/Items/Attack/fireball/fireball_item.tres" id="3_ybwik"]
+[ext_resource type="Resource" uid="uid://cspmf0cu2kedb" path="res://Items/Items/Attack/HandfulOfCoins/handful_of_coins.tres" id="4_3jqcm"]
+[ext_resource type="Resource" uid="uid://d2qc5egqivb1b" path="res://Items/Items/Attack/rage_hammer/rage_hammer_item.tres" id="5_e44fw"]
+[ext_resource type="Resource" uid="uid://dntbxdd28d8do" path="res://Items/Items/Attack/rock/rock_item.tres" id="6_slfyg"]
+[ext_resource type="Resource" uid="uid://cgpwtg77wrtvg" path="res://Items/Items/Attack/sword/sword_item.tres" id="7_ie7kv"]
+[ext_resource type="Resource" uid="uid://ufav7akgnowk" path="res://Items/Items/Attack/tween/tween_item.tres" id="8_mmbds"]
+
+[resource]
+script = ExtResource("1_gykew")
+attack_items = Array[ExtResource("1_v00h7")]([ExtResource("2_rmppg"), ExtResource("3_ybwik"), ExtResource("4_3jqcm"), ExtResource("5_e44fw"), ExtResource("6_slfyg"), ExtResource("7_ie7kv"), ExtResource("8_mmbds")])
+name = "Reinforcement"
+description = "Create 3 random {attack} items"
+texture = ExtResource("2_p618x")
+item_type = 2
+item_rarity = 2
+metadata/_custom_type_script = "uid://dah435we4cfau"

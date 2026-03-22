@@ -12,18 +12,19 @@ class_name Shop
 
 const INV_UI_SLOT = preload("uid://dijoj8qysu0hg")
 
-var bought_items: Array[PackedScene] = []
+var bought_items: Array[InvItem] = []
 var selected_slot: InvSlot
 var is_dragging = false
 
 func _ready() -> void:
+	bag.generate_grid()
 	for slot in slots:
 		var label = Label.new()
 		slot.add_child(label)
 		label.position.y = 60
 		labels.append(label)
-	if bag.items_export[0]:
-		bought_items.append(bag.items_export[0])
+	if bag.items_resource[0]:
+		bought_items.append(bag.items_resource[0])
 	gold_amount_label.text = str(Global.gold_amount)
 	Global.gold_changed.connect(func():
 		gold_amount_label.text = str(Global.gold_amount))
@@ -35,8 +36,8 @@ func on_slot_pressed(item_ui: ItemUI, slot: InvSlot):
 	if bag.get_empty_slot() and item_ui.item.cost <= Global.gold_amount:
 		Global.gold_amount -= item_ui.item.cost
 		Global.gold_changed.emit()
-		bag.get_empty_slot().update(load(item_ui.scene_file_path))
-		bought_items.append(load(item_ui.scene_file_path))
+		bag.get_empty_slot().update(item_ui.item)
+		bought_items.append(item_ui.item)
 		slot.center_container.remove_child(item_ui)
 		item_ui.queue_free()
 	else:

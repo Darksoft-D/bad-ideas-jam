@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://dfn7ockw5kj0g"]
+
+[ext_resource type="Script" uid="uid://cmihi1m0b4i6w" path="res://Items/Effects/Weak/weak.gd" id="1_x7h5m"]
+[ext_resource type="Texture2D" uid="uid://0udksf17whj3" path="res://assets/Textures/EffectTextures/fa626.png" id="2_wmvkn"]
+
+[resource]
+script = ExtResource("1_x7h5m")
+texture = ExtResource("2_wmvkn")
+name = "Weak"
+description = "Item deals 2 times less damage"
+metadata/_custom_type_script = "uid://4b454lsaltaf"

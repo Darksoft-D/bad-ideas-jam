@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bmqmim1lfiefw"]
+
+[ext_resource type="PackedScene" uid="uid://bq3iw0f5qhwsh" path="res://Scenes/Enemies/entity.tscn" id="1_pwaqc"]
+[ext_resource type="Texture2D" uid="uid://du0o4yl3om3vd" path="res://assets/Textures/EnemyTextures/Bookwrym.png" id="2_br1ek"]
+[ext_resource type="Script" uid="uid://woge1rog8y1w" path="res://Items/Skills/skill.gd" id="2_y7fir"]
+[ext_resource type="Resource" uid="uid://e5yxt75xj6q7" path="res://Items/Skills/EnemySkill/defense_up.tres" id="3_t1rq0"]
+[ext_resource type="Resource" uid="uid://dw2l3s2hnwf6e" path="res://Items/Skills/EnemySkill/attack.tres" id="4_t1rq0"]
+[ext_resource type="Resource" uid="uid://b01dh78fd4e24" path="res://Items/Skills/EnemySkill/attack_up.tres" id="5_mrjc2"]
+
+[node name="BookWyrm" unique_id=673946979 instance=ExtResource("1_pwaqc")]
+max_health = 50
+attack_skills = Array[ExtResource("2_y7fir")]([ExtResource("3_t1rq0"), ExtResource("4_t1rq0"), ExtResource("4_t1rq0"), ExtResource("5_mrjc2")])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1044903095]
+texture = ExtResource("2_br1ek")

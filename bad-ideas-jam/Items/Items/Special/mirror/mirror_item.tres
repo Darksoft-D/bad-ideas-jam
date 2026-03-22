@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://drtcvx0oqq5yd"]
+
+[ext_resource type="Script" uid="uid://cpj76dupupfyy" path="res://Items/Items/Special/mirror/mirror.gd" id="1_tx6y1"]
+[ext_resource type="Texture2D" uid="uid://di0tp3oouw5ao" path="res://assets/Textures/ItemTextures/mirror.png" id="2_1j1ns"]
+
+[resource]
+script = ExtResource("1_tx6y1")
+name = "Mirror"
+description = "Reflect next enemy attack"
+texture = ExtResource("2_1j1ns")
+item_type = 2
+item_rarity = 2
+metadata/_custom_type_script = "uid://dah435we4cfau"

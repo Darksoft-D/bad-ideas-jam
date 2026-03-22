@@ -1,1 +1,0 @@
-extends InvItem

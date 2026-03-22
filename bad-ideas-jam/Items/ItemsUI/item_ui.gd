@@ -4,13 +4,12 @@ class_name ItemUI
 @export var export_item: Resource
 
 @onready var value_label: Label = $ValueLabel
-@onready var strength_icon: Sprite2D = $StrengthIcon
 @onready var tween_property: TweenProperty = $TweenAnimation/TweenProperty
 @onready var tween_property_2: TweenProperty = $TweenAnimation/TweenProperty2
 @onready var effects_container: HBoxContainer = $EffectsContainer
 @onready var item_description: VBoxContainer = $ItemDescription
 @onready var name_label: Label = $ItemDescription/NameLabel
-@onready var type_label: Label = $ItemDescription/TypeLabel
+@onready var type_label: RichTextLabel = $ItemDescription/TypeLabel
 @onready var description_label: RichTextLabel = $ItemDescription/DescriptionLabel
 
 signal used(item_ui: ItemUI)
@@ -41,14 +40,13 @@ func assign_item(get_item: InvItem):
 	var target_size = Vector2(32, 32)
 	var texture_size = texture.get_size()
 	scale = target_size / texture_size
+	effects_container.size = Vector2(96, 96) / scale
 	original_scale = scale
-	var icon_target_size = Vector2(8, 8)
-	strength_icon.scale = icon_target_size / texture_size
 	item.used.connect(func():
 		used.emit(self))
 	_assign_item()
 	assign_descriptions()
-	if item is HealthBag or item is Block:
+	if item is HealthBag:
 		value_label.text = str(item.value)
 		value_label.show()
 		item.took_damage.connect(func():
@@ -57,10 +55,12 @@ func assign_item(get_item: InvItem):
 			scale_down())
 		item.destroyed.connect(func():
 			used.emit(self))
+	if item.start_effect:
+		assign_effect(item.start_effect)
 
 func assign_descriptions():
 	name_label.text = item.name
-	type_label.text = InvItem.type.find_key(item.item_type)
+	type_label.text = item.get_type_text()
 	description_label.text = item.get_description(item.description)
 	descriptions.append(item_description)
 	if item.effect:
@@ -77,6 +77,8 @@ func assign_effect(effect: Effect):
 	texture_rect.texture = effect.texture
 	texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	texture_rect.expand_mode = TextureRect.EXPAND_FIT_WIDTH
+	texture_rect.stretch_mode = TextureRect.STRETCH_SCALE
+	assign_descriptions()
 
 func scale_up():
 	var new_scale = scale * 1.2

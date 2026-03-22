@@ -1,0 +1,15 @@
+[gd_resource type="Resource" format=3 uid="uid://qnrwqokgyamf"]
+
+[ext_resource type="Resource" uid="uid://dntbxdd28d8do" path="res://Items/Items/Attack/rock/rock_item.tres" id="1_je76j"]
+[ext_resource type="Script" uid="uid://bac6ry41lcsx5" path="res://Items/Items/Special/rock_pile/rock_pile.gd" id="2_svgiy"]
+[ext_resource type="Texture2D" uid="uid://bv0uk17ahhx1g" path="res://assets/Textures/ItemTextures/fb653.png" id="3_kt7jw"]
+
+[resource]
+script = ExtResource("2_svgiy")
+rock = ExtResource("1_je76j")
+name = "Rock Pile"
+description = "Add 3 Rocks to the bag"
+texture = ExtResource("3_kt7jw")
+item_type = 2
+item_rarity = 1
+metadata/_custom_type_script = "uid://dah435we4cfau"

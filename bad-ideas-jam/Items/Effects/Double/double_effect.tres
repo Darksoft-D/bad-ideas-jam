@@ -7,5 +7,5 @@
 script = ExtResource("1_46dd7")
 texture = ExtResource("2_v4s8h")
 name = "Double"
-descripiption = "Apply items effect twice"
+description = "Apply items ability twice"
 metadata/_custom_type_script = "uid://4b454lsaltaf"

@@ -7,5 +7,5 @@
 script = ExtResource("1_1xpvw")
 texture = ExtResource("2_lrx3i")
 name = "Strength"
-descripiption = "Item deals x2 damage"
+description = "Item deals 2 times more damage"
 metadata/_custom_type_script = "uid://4b454lsaltaf"

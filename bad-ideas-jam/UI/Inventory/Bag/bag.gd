@@ -6,6 +6,8 @@ class_name Bag
 @export var slots_num: int = 1
 
 @onready var grid_container: GridContainer = $GridContainer
+@onready var bag_size_1: TextureRect = $BagSize1
+@onready var bag_size_2: TextureRect = $BagSize2
 
 const INV_UI_SLOT = preload("uid://dijoj8qysu0hg")
 const ITEM_DELETE_ANIM = preload("uid://wjxuvesugdrd")
@@ -13,14 +15,14 @@ const ITEM_DELETE_ANIM = preload("uid://wjxuvesugdrd")
 var slots: Array[InvSlot] = []
 var selected_slot: InvSlot = null
 
-func _ready() -> void:
-	generate_grid()
-
 func generate_grid():
 	for i in slots_num:
 		var slot = INV_UI_SLOT.instantiate()
 		grid_container.add_child(slot)
 		slots.append(slot)
+	if slots_num == 9:
+		bag_size_1.hide()
+		bag_size_2.show()
 	connect_slots()
 	update_slots()
 

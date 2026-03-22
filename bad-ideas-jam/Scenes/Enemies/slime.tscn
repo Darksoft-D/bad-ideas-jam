@@ -10,7 +10,7 @@
 z_index = 1
 script = ExtResource("2_4lx4x")
 max_health = 10
-skills = Array[ExtResource("3_hm6tv")]([ExtResource("4_larvs")])
+attack_skills = Array[ExtResource("3_hm6tv")]([ExtResource("4_larvs")])
 
 [node name="Sprite2D" parent="." index="0" unique_id=1044903095]
 texture = ExtResource("4_6kvin")

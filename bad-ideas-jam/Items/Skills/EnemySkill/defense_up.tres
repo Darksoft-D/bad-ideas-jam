@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://e5yxt75xj6q7"]
+
+[ext_resource type="Script" uid="uid://dpjdyivl48w56" path="res://Items/Skills/EnemySkill/defense_up.gd" id="1_j8ypu"]
+
+[resource]
+script = ExtResource("1_j8ypu")
+metadata/_custom_type_script = "uid://woge1rog8y1w"

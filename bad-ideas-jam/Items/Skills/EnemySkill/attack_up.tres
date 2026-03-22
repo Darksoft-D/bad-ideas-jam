@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3 uid="uid://b01dh78fd4e24"]
+
+[ext_resource type="Script" uid="uid://cg4sp1fa2l60k" path="res://Items/Skills/EnemySkill/attack_up.gd" id="1_7aiyt"]
+[ext_resource type="Texture2D" uid="uid://bjnkwhv781kx5" path="res://assets/Textures/EffectTextures/fc641.png" id="2_tmvjc"]
+
+[resource]
+script = ExtResource("1_7aiyt")
+texture = ExtResource("2_tmvjc")
+metadata/_custom_type_script = "uid://woge1rog8y1w"

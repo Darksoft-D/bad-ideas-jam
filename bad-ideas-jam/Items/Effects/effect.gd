@@ -3,7 +3,7 @@ class_name Effect
 
 @export var texture: Texture2D
 @export var name: String = ""
-@export var descripiption: String = ""
+@export var description: String = ""
 
 var item: InvItem
 

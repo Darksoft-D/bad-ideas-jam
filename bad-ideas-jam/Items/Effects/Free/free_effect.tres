@@ -7,5 +7,5 @@
 script = ExtResource("1_foboa")
 texture = ExtResource("2_bsxa1")
 name = "Free"
-descripiption = "1 more item can be used after using this item"
+description = "Item won't spend your turn"
 metadata/_custom_type_script = "uid://4b454lsaltaf"

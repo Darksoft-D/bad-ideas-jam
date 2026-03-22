@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_pvy03")
 name = "Armor"
-description = "While this item is in your bag, receive 25% less damage"
+description = "While this item is in your bag, receive [color=lightblue]25% less damage[/color]"
 texture = ExtResource("2_vefds")
 metadata/_custom_type_script = "uid://dah435we4cfau"

@@ -2,14 +2,27 @@
 
 [ext_resource type="Script" uid="uid://ijvy25erheha" path="res://UI/Shop/shop.gd" id="1_3weqf"]
 [ext_resource type="Texture2D" uid="uid://q5pm85o1ywjo" path="res://assets/UI/shopkeeper1_.png" id="3_4qhf5"]
+[ext_resource type="Resource" uid="uid://qnrwqokgyamf" path="res://Items/Items/Special/rock_pile/rock_pile_item.tres" id="3_qwxuk"]
 [ext_resource type="Texture2D" uid="uid://d1sun0kuatkao" path="res://assets/Tiles/Bookshelf_tiles.png" id="3_sar1i"]
 [ext_resource type="PackedScene" uid="uid://dijoj8qysu0hg" path="res://UI/Inventory/Bag/inv_ui_slot.tscn" id="4_eeyqd"]
+[ext_resource type="Resource" uid="uid://cv7bs33kmj7ms" path="res://Items/Items/Special/reinforcement/reinforcement_item.tres" id="4_kqm3c"]
 [ext_resource type="Texture2D" uid="uid://exlg5xvvsvd4" path="res://assets/Tiles/Dungeon_tiles.png" id="4_l4q0s"]
+[ext_resource type="Resource" uid="uid://drtcvx0oqq5yd" path="res://Items/Items/Special/mirror/mirror_item.tres" id="5_rmf61"]
+[ext_resource type="Resource" uid="uid://c553fbap6ee32" path="res://Items/Items/Special/energy_drink/energy_drink_item.tres" id="6_pmir3"]
+[ext_resource type="Resource" uid="uid://bw1p8hjtgb10j" path="res://Items/Items/Special/doppelganger/doppelganger_item.tres" id="7_jiwcq"]
+[ext_resource type="Resource" uid="uid://b8facth1luuiq" path="res://Items/Items/Special/ctrlc_ctrlv/ctrlc_ctrlv_item.tres" id="8_1s8vh"]
+[ext_resource type="Script" uid="uid://dah435we4cfau" path="res://Items/Items/item.gd" id="8_glx3d"]
 [ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://UI/Inventory/Bag/bag.tscn" id="8_sar1i"]
 [ext_resource type="Texture2D" uid="uid://dm6fuo1v7j1ee" path="res://assets/Tiles/taller_bookshelves_.png" id="9_6h7q6"]
+[ext_resource type="Resource" uid="uid://mi5pgt1to8qa" path="res://Items/Items/Defense/health_bag/health_bag.tres" id="9_a3not"]
 [ext_resource type="Texture2D" uid="uid://can2q6siopolc" path="res://assets/Textures/UITextures/fc160.png" id="9_l4q0s"]
 [ext_resource type="Shader" uid="uid://c81rodqya1un7" path="res://assets/Shaders/CRTVHSEffect.gdshader" id="9_pagdw"]
+[ext_resource type="Resource" uid="uid://b6rt8pgvnr5wm" path="res://Items/Items/Defense/armor/armor_item.tres" id="9_vls7s"]
 [ext_resource type="Shader" uid="uid://dq4ja4toyo7va" path="res://assets/Shaders/vignette.gdshader" id="10_eo7k6"]
+[ext_resource type="Resource" uid="uid://co77xslb1x57c" path="res://Items/Items/Defense/cure/cure_item.tres" id="10_iwioc"]
+[ext_resource type="Resource" uid="uid://c0t46x4fjnewk" path="res://Items/Items/Defense/first_aid_kit/first_aid_kit_item.tres" id="11_nrsue"]
+[ext_resource type="Resource" uid="uid://cgpy2qtd5jdwu" path="res://Items/Items/Defense/warm_up/warm_up_item.tres" id="12_uxp67"]
+[ext_resource type="Shader" uid="uid://uub6php4bhp4" path="res://assets/Shaders/fog.gdshader" id="21_kqm3c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pagdw"]
 texture = ExtResource("3_sar1i")
@@ -250,18 +263,23 @@ region_rect = Rect2(111, 18, 9, 9)
 [sub_resource type="LabelSettings" id="LabelSettings_pagdw"]
 font_size = 48
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_glx3d"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rmf61"]
+shader = ExtResource("21_kqm3c")
+shader_parameter/density = 0.050000002375
+shader_parameter/speed = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pmir3"]
 shader = ExtResource("9_pagdw")
-shader_parameter/overlay = false
+shader_parameter/overlay = true
 shader_parameter/scanlines_opacity = 0.50000002375
-shader_parameter/scanlines_width = 0.30000001425
+shader_parameter/scanlines_width = 0.0
 shader_parameter/grille_opacity = 0.0
 shader_parameter/resolution = Vector2(640, 480)
 shader_parameter/pixelate = false
 shader_parameter/roll = false
-shader_parameter/roll_speed = 8.0
+shader_parameter/roll_speed = 2.0
 shader_parameter/roll_size = 0.0
-shader_parameter/roll_variation = 1.8
+shader_parameter/roll_variation = 5.0
 shader_parameter/distort_intensity = 0.0
 shader_parameter/noise_opacity = 0.10000000475
 shader_parameter/noise_speed = 0.0
@@ -274,39 +292,9 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.0
 shader_parameter/vignette_opacity = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_a3not"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jiwcq"]
 shader = ExtResource("10_eo7k6")
-shader_parameter/vignette_intensity = 0.1
-shader_parameter/vignette_opacity = 1.0
-shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6h7q6"]
-shader = ExtResource("9_pagdw")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.30000001425
-shader_parameter/scanlines_width = 0.0
-shader_parameter/grille_opacity = 0.0
-shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/pixelate = false
-shader_parameter/roll = false
-shader_parameter/roll_speed = 8.0
-shader_parameter/roll_size = 0.0
-shader_parameter/roll_variation = 1.8
-shader_parameter/distort_intensity = 0.0
-shader_parameter/noise_opacity = 0.10000000475
-shader_parameter/noise_speed = 0.0
-shader_parameter/static_noise_intensity = 0.0
-shader_parameter/aberration = 4.7499999933364734e-08
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.3
-shader_parameter/vignette_opacity = 0.30000001425
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_khtvq"]
-shader = ExtResource("10_eo7k6")
-shader_parameter/vignette_intensity = 0.1
+shader_parameter/vignette_intensity = 0.75
 shader_parameter/vignette_opacity = 1.0
 shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 
@@ -318,6 +306,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3weqf")
+items_pool = Array[ExtResource("8_glx3d")]([ExtResource("3_qwxuk"), ExtResource("4_kqm3c"), ExtResource("5_rmf61"), ExtResource("6_pmir3"), ExtResource("7_jiwcq"), ExtResource("8_1s8vh"), ExtResource("9_vls7s"), ExtResource("10_iwioc"), ExtResource("11_nrsue"), ExtResource("12_uxp67")])
 slots = [NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot2"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot3"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot4"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot5"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot6"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot7"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot8")]
 
 [node name="TileMapLayers" type="Node" parent="." unique_id=192648214]
@@ -454,6 +443,7 @@ offset_top = -576.0
 offset_bottom = -576.0
 grow_horizontal = 2
 grow_vertical = 0
+items_resource = Array[ExtResource("8_glx3d")]([ExtResource("9_a3not"), null, null, null, null, null])
 loot_manager = NodePath("..")
 
 [node name="ProceedButton" type="Button" parent="." unique_id=1068832568]
@@ -463,8 +453,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = -8.0
+offset_left = -203.0
+offset_top = -86.0
+offset_right = -69.0
+offset_bottom = -46.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
@@ -489,34 +481,31 @@ layout_mode = 2
 texture = ExtResource("9_l4q0s")
 expand_mode = 2
 
-[node name="ShaderLayer" type="CanvasLayer" parent="." unique_id=888954638]
+[node name="ShaderLayer" type="CanvasLayer" parent="." unique_id=333964108]
 
-[node name="Retro" type="ColorRect" parent="ShaderLayer" unique_id=570860667]
-visible = false
-material = SubResource("ShaderMaterial_glx3d")
-offset_right = 1149.0
-offset_bottom = 647.0
+[node name="Fog" type="ColorRect" parent="ShaderLayer" unique_id=1917130483]
+material = SubResource("ShaderMaterial_rmf61")
+offset_right = 1152.0
+offset_bottom = 648.0
 mouse_filter = 2
 
-[node name="Vignette" type="ColorRect" parent="ShaderLayer" unique_id=141230835]
-material = SubResource("ShaderMaterial_a3not")
-offset_right = 1151.0
-offset_bottom = 643.0
+[node name="Retro" type="ColorRect" parent="ShaderLayer" unique_id=218510597]
+material = SubResource("ShaderMaterial_pmir3")
+offset_right = 1152.0
+offset_bottom = 648.0
 mouse_filter = 2
 
-[node name="ShaderLayer2" type="CanvasLayer" parent="." unique_id=202368754]
-
-[node name="Retro" type="ColorRect" parent="ShaderLayer2" unique_id=387367801]
-material = SubResource("ShaderMaterial_6h7q6")
-offset_right = 1149.0
-offset_bottom = 647.0
+[node name="Vignette" type="ColorRect" parent="ShaderLayer" unique_id=260744669]
+material = SubResource("ShaderMaterial_jiwcq")
+offset_right = 1152.0
+offset_bottom = 648.0
 mouse_filter = 2
 
-[node name="Vignette" type="ColorRect" parent="ShaderLayer2" unique_id=1968582310]
-material = SubResource("ShaderMaterial_khtvq")
-offset_right = 1151.0
-offset_bottom = 643.0
+[node name="ColorRect" type="ColorRect" parent="ShaderLayer" unique_id=999635684]
+offset_right = 1152.0
+offset_bottom = 648.0
 mouse_filter = 2
+color = Color(0, 0, 0, 0)
 
 [connection signal="pressed" from="ProceedButton" to="." method="_on_proceed_button_pressed"]
 

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://d3g2oexu73d2s"]
+
+[ext_resource type="Script" uid="uid://xhhrirwmtbyq" path="res://Items/Relics/relic_base.gd" id="1_q1xum"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dc35l"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1xum"]
+font_size = 24
+
+[node name="RelicBase" type="TextureRect" unique_id=444137630]
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 2
+script = ExtResource("1_q1xum")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=474052315]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+
+[node name="TextContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1829713942]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="PanelContainer/TextContainer" unique_id=2030293521]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_dc35l")
+autowrap_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="PanelContainer/TextContainer" unique_id=1686857198]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_q1xum")
+autowrap_mode = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

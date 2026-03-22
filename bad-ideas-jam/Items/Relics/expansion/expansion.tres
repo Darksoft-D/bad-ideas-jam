@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://cuqfhanhjg15k"]
+
+[ext_resource type="Script" uid="uid://dx5tbpr0xmoew" path="res://Items/Relics/expansion/expansion.gd" id="1_3eyil"]
+[ext_resource type="Texture2D" uid="uid://clw3c7uusfi4s" path="res://assets/Textures/RelicTextures/fc2183.png" id="2_3eyil"]
+
+[resource]
+script = ExtResource("1_3eyil")
+name = "Expansion"
+description = "The bag has 3 more slots"
+texture = ExtResource("2_3eyil")
+metadata/_custom_type_script = "uid://jhey672pi0cc"

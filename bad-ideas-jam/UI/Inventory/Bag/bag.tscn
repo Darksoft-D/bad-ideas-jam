@@ -13,7 +13,7 @@ anchors_preset = 0
 script = ExtResource("1_i5r21")
 slots_num = 6
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=58257776]
+[node name="BagSize1" type="TextureRect" parent="." unique_id=58257776]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -23,6 +23,20 @@ offset_top = -44.0
 offset_right = 100.0
 offset_bottom = 96.0
 grow_horizontal = 2
+texture = SubResource("AtlasTexture_dvhsr")
+
+[node name="BagSize2" type="TextureRect" parent="." unique_id=2073894510]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -129.0
+offset_top = -44.0
+offset_right = 71.0
+offset_bottom = 96.0
+grow_horizontal = 2
+scale = Vector2(1.3, 1.3)
 texture = SubResource("AtlasTexture_dvhsr")
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=1566016739]

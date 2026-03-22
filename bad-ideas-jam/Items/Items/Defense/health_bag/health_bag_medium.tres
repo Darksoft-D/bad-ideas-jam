@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="HealthBag" format=3 uid="uid://c8v4m8143mhju"]
+
+[ext_resource type="Script" uid="uid://4cg17t547xbq" path="res://Items/Items/Defense/health_bag/health_bag.gd" id="1_w4ji6"]
+[ext_resource type="Texture2D" uid="uid://da6yhap8pt13p" path="res://assets/Textures/ItemTextures/health_bag_transparent.png" id="2_s3qhv"]
+
+[resource]
+script = ExtResource("1_w4ji6")
+value = 10
+name = "Health Bag"
+description = "Your Health"
+texture = ExtResource("2_s3qhv")
+cost = 10
+metadata/_custom_type_script = "uid://4cg17t547xbq"

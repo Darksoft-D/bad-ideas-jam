@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://bnsve1c1ctol3"]
+
+[ext_resource type="Resource" uid="uid://ct1j0jqnvfbce" path="res://Items/Items/Negative/garbage/garbage_item.tres" id="1_78buc"]
+[ext_resource type="Script" uid="uid://r1fpribxq7vw" path="res://Items/Skills/EnemySkill/garbage_attack.gd" id="2_3voo4"]
+
+[resource]
+script = ExtResource("2_3voo4")
+garbage = ExtResource("1_78buc")
+damage = 2
+metadata/_custom_type_script = "uid://woge1rog8y1w"

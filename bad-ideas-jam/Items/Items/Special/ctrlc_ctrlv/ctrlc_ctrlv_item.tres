@@ -1,0 +1,14 @@
+[gd_resource type="Resource" format=3 uid="uid://b8facth1luuiq"]
+
+[ext_resource type="Script" uid="uid://dopcvf7iifmo5" path="res://Items/Items/Special/ctrlc_ctrlv/ctrlc_ctrlv.gd" id="1_543m5"]
+[ext_resource type="Resource" uid="uid://by7v6tl70vl1l" path="res://Items/Effects/Double/double_effect.tres" id="1_b5n48"]
+[ext_resource type="Texture2D" uid="uid://cjg6fxhhsdb2q" path="res://icon.svg" id="2_b5n48"]
+
+[resource]
+script = ExtResource("1_543m5")
+name = "Ctrl C Ctrl V"
+description = "Apply {double} to random item"
+texture = ExtResource("2_b5n48")
+effect = ExtResource("1_b5n48")
+item_type = 2
+metadata/_custom_type_script = "uid://dah435we4cfau"

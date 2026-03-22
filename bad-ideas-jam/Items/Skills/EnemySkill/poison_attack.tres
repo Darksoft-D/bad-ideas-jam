@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://delcwawqco54u"]
+
+[ext_resource type="Resource" uid="uid://cjwb8jbnghfe2" path="res://Items/Items/Negative/poison/poison.tres" id="1_rnkd2"]
+[ext_resource type="Script" uid="uid://cj5wr325ylxb2" path="res://Items/Skills/EnemySkill/poison_attack.gd" id="2_qunyq"]
+
+[resource]
+script = ExtResource("2_qunyq")
+poison = ExtResource("1_rnkd2")
+damage = 3
+metadata/_custom_type_script = "uid://woge1rog8y1w"

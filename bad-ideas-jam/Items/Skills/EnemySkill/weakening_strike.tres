@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://cn44ammlts4ad"]
+
+[ext_resource type="Resource" uid="uid://dfn7ockw5kj0g" path="res://Items/Effects/Weak/weak.tres" id="1_osqf7"]
+[ext_resource type="Script" uid="uid://bgu7nm3qisvyi" path="res://Items/Skills/EnemySkill/weakening_strike.gd" id="2_jtuae"]
+
+[resource]
+script = ExtResource("2_jtuae")
+damage = 2
+effect = ExtResource("1_osqf7")
+metadata/_custom_type_script = "uid://woge1rog8y1w"

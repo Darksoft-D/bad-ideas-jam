@@ -1,6 +1,8 @@
 extends Node2D
+class_name Stage
 
 @export var enemies: Array[PackedScene]
+@export var relics: Array[Relic]
 
 @onready var loot_manager: LootManager = $LootManager
 @onready var enemy_pos: Node2D = $EnemyPos
@@ -17,19 +19,32 @@ extends Node2D
 @onready var health_label_player: Label = $CombatLayer/PlayerHealthContainer/TotalHealthBagsLabel
 @onready var health_label_enemy: Label = $CombatLayer/EnemyHealthContainer/TotalHealthBagsLabel
 @onready var chest_2: Chest = $Visuals/Chest2
+@onready var bag: Bag = $CanvasLayer/Bag
+@onready var ray: ColorRect = $Visuals/Ray
+@onready var color_rect: ColorRect = $ShaderLayer/ColorRect
+@onready var relics_container: HBoxContainer = $CanvasLayer/RelicsContainer
+
+const RELIC_BASE = preload("uid://d3g2oexu73d2s")
+const STRENGTH_EFFECT = preload("uid://ctx3y68dk30rd")
+
+signal item_created
 
 var enemy: Entity
 var enemies_defeated: int = 0
 var is_player_turn = false
 var is_enemy_moving = false
+var medal_of_power = false
 var gold_amount: int = 0
 
 func _ready() -> void:
+	await assign_relics()
+	bag.generate_grid()
+	for slot in bag.slots:
+		slot.gain_health.connect(Callable(self, "gain_health"))
 	var canvas_pos = player.get_global_transform_with_canvas().origin
 	player_health_container.position = canvas_pos + Vector2(-30, -80)
 	var canvas_pos2 = enemy_pos.get_global_transform_with_canvas().origin
 	enemy_health_container.position = canvas_pos2 + Vector2(-30, -80)
-	player.health_bags.append(loot_manager.bag.slots[0].item_ui)
 	enemy_health_container.hide()
 	loot_manager.looting_finished.connect(Callable(self, "spawn_enemy"))
 	gold_amount = Global.gold_amount
@@ -40,8 +55,8 @@ func _ready() -> void:
 	player.died.connect(Callable(self, "on_player_died"))
 	if !Global.bring_items.is_empty():
 		print("Bring items", Global.bring_items)
-		loot_manager.bag.items_export = []
-		loot_manager.bag.items_export = Global.bring_items
+		loot_manager.bag.items_resource = []
+		loot_manager.bag.items_resource = Global.bring_items
 		loot_manager.bag.update_slots()
 	for slot in loot_manager.bag.slots:
 		slot.gain.connect(Callable(self, "on_gain"))
@@ -55,6 +70,17 @@ func _process(delta: float) -> void:
 		var canvas_pos = enemy_pos.get_global_transform_with_canvas().origin
 		enemy_health_container.global_position = canvas_pos + Vector2(-30, -80)
 
+func assign_relics():
+	for relic in relics:
+		var relic_base = RELIC_BASE.instantiate()
+		relics_container.add_child(relic_base)
+		relic_base.assign_relic(relic)
+		await relic.assign(self)
+
+func gain_health(health_ui: ItemUI):
+	player.health_bags.append(health_ui.item)
+	update_health()
+
 func update_health():
 	health_label_player.text = str(player.get_total_health())
 
@@ -62,12 +88,9 @@ func update_enemy_health():
 	if enemy:
 		health_label_enemy.text = str(enemy.health)
 
-func on_gain(item_ui: ItemUI):
-	if item_ui.item is Block:
-		player.blocks.append(item_ui.item)
-
 func loot():
 	combat_layer.hide()
+	ray.show()
 	chest_2.show()
 	chest_2.disabled = false
 	chest_2.animated_sprite_2d.play("default")
@@ -87,8 +110,12 @@ func player_turn():
 func enemy_turn():
 	print("Enemy Turn")
 	update_enemy_health()
+	for relic in relics:
+		print(relic)
+		relic.apply()
 	loot_manager.player_turn = false
 	is_player_turn = false
+	enemy.block = false
 	await show_turn("Enemy Turn")
 	await attack_anim()
 	enemy.attack()
@@ -97,10 +124,14 @@ func enemy_turn():
 func insert_item(item_resource: InvItem):
 	var empty_slot = loot_manager.bag.get_empty_slot()
 	if empty_slot:
-		empty_slot.update(item_resource)
+		var resource = item_resource.duplicate()
+		if medal_of_power and item_resource.item_type == InvItem.type.ATTACK:
+			resource.start_effect = STRENGTH_EFFECT
+		empty_slot.update(resource)
 
 func spawn_enemy():
-	enemy = enemies.pick_random().instantiate()
+	ray.hide()
+	enemy = enemies[enemies_defeated].instantiate()
 	add_child(enemy)
 	enemy.global_position = enemy_pos.global_position
 	enemy.player = player
@@ -109,6 +140,7 @@ func spawn_enemy():
 	enemy.took_damage.connect(Callable(self, "update_enemy_health"))
 	enemy_health_container.show()
 	update_enemy_health()
+	fade_from_black()
 	player_turn()
 
 func on_enemy_died():
@@ -156,6 +188,15 @@ func show_turn(text: String):
 	tween.tween_interval(1.0)
 	tween.tween_property(turn_label, "modulate:a", 0.0, 0.3)
 	await tween.finished
+
+func fade_to_black():
+	var tween = create_tween()
+	tween.tween_property($ShaderLayer/Vignette, "material:shader_parameter/vignette_intensity", 50.0, 0.5)
+	await tween.finished
+
+func fade_from_black():
+	var tween = get_tree().create_tween()
+	tween.tween_property($ShaderLayer/Vignette, "material:shader_parameter/vignette_intensity", 0.5, 0.5)
 
 func _on_end_turn_button_pressed() -> void:
 	if !is_player_turn:

@@ -11,14 +11,13 @@ class_name InvSlot
 @onready var descriptions_container: HBoxContainer = $Tooltip/DescriptionsContainer
 
 const ITEM_UI = preload("uid://dk3ifj8pbnten")
-const HEALTH_BAG_UI = preload("uid://c3riub8h2oq7c")
-const BLOCK = preload("uid://g1f6v5vcekht")
 
 signal selected(slot: InvSlot)
 signal unselected(slot: InvSlot)
 signal pressed(item_ui: ItemUI, slot: InvSlot)
 signal released(item_ui: ItemUI, slot: InvSlot)
 signal gain(item_ui: ItemUI)
+signal gain_health(item_ui: ItemUI)
 
 var item_ui: ItemUI
 var is_selected = false
@@ -57,21 +56,18 @@ func _input(event: InputEvent) -> void:
 func update(item_resource: InvItem):
 	if !item_resource:
 		return
-	if item_resource is HealthBag:
-		item_ui = HEALTH_BAG_UI.instantiate()
-	else:
-		item_ui = ITEM_UI.instantiate()
-		item_ui.export_item = item_resource.duplicate()
+	item_ui = ITEM_UI.instantiate()
+	item_ui.export_item = item_resource.duplicate()
 	item_ui.global_position = sprite_pos.global_position
 	sprite_pos.add_child(item_ui)
 	item_ui.on_ready()
+	if item_ui.item is HealthBag and !loot_slot:
+		gain_health.emit(item_ui)
 	assign_item(item_ui)
 
 func assign_item(new_item: ItemUI):
 	item_ui = new_item
 	item_ui.global_position = sprite_pos.global_position
-	var item_description = item_ui.item_description
-	print("Assigning item ", item_description)
 	for description in item_ui.descriptions:
 		item_ui.remove_child(description)
 		descriptions_container.add_child(description)
@@ -83,8 +79,6 @@ func assign_item(new_item: ItemUI):
 				descriptions[i].queue_free()
 				descriptions.remove_at(i)
 	generated = false
-	if item_ui.item is Block:
-		gain.emit(item_ui)
 	apply()
 
 func unassign_item():

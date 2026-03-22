@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://bcm1m38drucdh"]
+
+[ext_resource type="Script" uid="uid://blmv2tmwx1esh" path="res://Items/Relics/creation_necklace/creation_necklace.gd" id="1_nwhob"]
+[ext_resource type="Texture2D" uid="uid://ckvfihnd4xd0v" path="res://assets/Textures/RelicTextures/fc2178.png" id="2_nwhob"]
+
+[resource]
+script = ExtResource("1_nwhob")
+name = "Creation Necklace"
+description = "Add random item to the bag on every 3rd turn"
+texture = ExtResource("2_nwhob")
+metadata/_custom_type_script = "uid://jhey672pi0cc"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3 uid="uid://c3mmylt4vpp8b"]
+
+[ext_resource type="Script" uid="uid://c5jc3w1u6g44g" path="res://Items/Items/Defense/speed_boots/speed_boots.gd" id="1_sknf1"]
+[ext_resource type="Texture2D" uid="uid://dwseb3fb1ktr4" path="res://assets/Textures/ItemTextures/fb615.png" id="2_lbfpp"]
+
+[resource]
+script = ExtResource("1_sknf1")
+name = "Speed Boots"
+description = "While this item is in your bag, you have 1 more turn"
+texture = ExtResource("2_lbfpp")
+item_rarity = 3
+metadata/_custom_type_script = "uid://dah435we4cfau"

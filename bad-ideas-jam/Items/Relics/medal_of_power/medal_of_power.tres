@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://bbu87igdx5oiv"]
+
+[ext_resource type="Script" uid="uid://bmp06mirs3823" path="res://Items/Relics/medal_of_power/medal_of_power.gd" id="1_brvo8"]
+[ext_resource type="Texture2D" uid="uid://wcftoyxbtbx" path="res://assets/Textures/RelicTextures/fc2182.png" id="2_025hj"]
+
+[resource]
+script = ExtResource("1_brvo8")
+name = "Medal of Power"
+description = "If Attack item is created during combat, apply strength to it"
+texture = ExtResource("2_025hj")
+metadata/_custom_type_script = "uid://jhey672pi0cc"

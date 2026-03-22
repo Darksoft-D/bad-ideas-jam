@@ -1,8 +1,5 @@
 extends Label
 
-@onready var tween_property: TweenProperty = $TweenProperty
-@onready var tween_property_2: TweenProperty = $TweenProperty2
-
 func _ready() -> void:
 	var down_scale = scale * 0.5
 	var up_scale = scale * 1.2

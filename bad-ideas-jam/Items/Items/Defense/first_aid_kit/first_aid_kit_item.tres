@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://c0t46x4fjnewk"]
+
+[ext_resource type="Resource" uid="uid://mi5pgt1to8qa" path="res://Items/Items/Defense/health_bag/health_bag.tres" id="1_3ut15"]
+[ext_resource type="Script" uid="uid://dfehi3qojb8hp" path="res://Items/Items/Defense/first_aid_kit/first_aid_kit.gd" id="1_htekk"]
+[ext_resource type="Texture2D" uid="uid://bpdal8wp7nxb6" path="res://assets/Textures/ItemTextures/cure.png" id="2_3ut15"]
+
+[resource]
+script = ExtResource("1_htekk")
+health_bag = ExtResource("1_3ut15")
+name = "First Aid Kit"
+description = "Add {health_bag} with random value from 5 to 15 to the bag"
+texture = ExtResource("2_3ut15")
+metadata/_custom_type_script = "uid://dah435we4cfau"

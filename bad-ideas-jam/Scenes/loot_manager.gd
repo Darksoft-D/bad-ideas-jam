@@ -20,6 +20,10 @@ signal looting_finished
 const DAMAGE_LABEL = preload("uid://bofywx1j6fpv0")
 const ITEM_DELETE_ANIM = preload("uid://wjxuvesugdrd")
 
+var common_items: Array[InvItem]
+var uncommon_items: Array[InvItem]
+var rare_items: Array[InvItem]
+var legendary_items: Array[InvItem]
 var is_looting = false
 var is_loot_opened = false
 var player_turn = false
@@ -29,16 +33,29 @@ var selected_slot: InvSlot
 var turns: int = 1
 var max_turns: int = 1
 
+func _ready() -> void:
+	for item in items:
+		match item.item_rarity:
+			InvItem.rarity.Common: common_items.append(item)
+			InvItem.rarity.Uncommon: uncommon_items.append(item)
+			InvItem.rarity.Rare: rare_items.append(item)
+			InvItem.rarity.Legendary: legendary_items.append(item)
+
 func generate_loot():
 	for slot in loot_bag.slots:
 		for description in slot.descriptions_container.get_children():
 			description.queue_free()
 	player_turn = true
 	is_loot_opened = true
-	var amount = randi_range(5, 5)
+	var amount = randi_range(5, 7)
 	var loot: Array[InvItem] = []
 	for i in amount:
-		var item = items.pick_random()
+		var num = randi_range(0, 100)
+		var item: InvItem
+		if num <= Global.common_chance: item = common_items.pick_random().duplicate()
+		elif num <= Global.uncommon_chance: item = uncommon_items.pick_random().duplicate()
+		elif num <= Global.rare_chance: item = rare_items.pick_random().duplicate()
+		else: item = legendary_items.pick_random().duplicate()
 		loot.append(item)
 	loot_container.show()
 	button_container.show()
@@ -49,19 +66,16 @@ func generate_loot():
 func finish_looting():
 	loot_container.hide()
 	button_container.hide()
+	await get_parent().fade_to_black()
 	chest_2.hide()
 	is_loot_opened = false
 	looting_finished.emit()
 	combat_layer.show()
 	player.health_bags = []
-	player.blocks = []
 	for slot in bag.slots:
 		if slot.item_ui:
 			if slot.item_ui.item is HealthBag:
 				player.health_bags.append(slot.item_ui.item)
-				slot.item_ui.used.connect(Callable(self, "delete_item"))
-			if slot.item_ui.item is Block:
-				player.blocks.append(slot.item_ui.item)
 				slot.item_ui.used.connect(Callable(self, "delete_item"))
 			slot.item_ui.item.apply(player, get_parent())
 	for slot in loot_bag.slots:

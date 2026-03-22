@@ -7,7 +7,7 @@ func _use():
 	if Global.last_used_item:
 		print("Using Doppelganger, last used item: ", Global.last_used_item)
 		var item = Global.used_items[Global.used_items.size() - id]
-		if item.skill is Doppelganger:
+		if item is Doppelganger:
 			id += 1
 			_use()
 		else:
