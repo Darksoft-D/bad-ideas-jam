@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3 uid="uid://btgthlgaijuhb"]
+
+[ext_resource type="Script" uid="uid://d0r27vr2a84vl" path="res://Items/Relics/death_ring/death_ring.gd" id="1_m8wa6"]
+[ext_resource type="Texture2D" uid="uid://c4ojw8ongal3n" path="res://assets/Textures/RelicTextures/fc2190.png" id="2_m8wa6"]
+
+[resource]
+script = ExtResource("1_m8wa6")
+name = "Death Ring"
+description = "Instead of dying gain health bag with a value of 5 once"
+texture = ExtResource("2_m8wa6")
+cost = 30
+metadata/_custom_type_script = "uid://jhey672pi0cc"

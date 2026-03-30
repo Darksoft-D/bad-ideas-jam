@@ -10,6 +10,7 @@ name = "Sword"
 description = "Deal {damage}, apply {strength} to random {attack} item"
 texture = ExtResource("2_1vxis")
 effect = ExtResource("1_3avia")
+cost = 6
 damage = 6
 item_type = 1
 item_rarity = 1

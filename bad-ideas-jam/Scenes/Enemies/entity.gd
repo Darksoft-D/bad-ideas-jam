@@ -34,6 +34,7 @@ func take_damage(damage: int, _attacker: Entity = null):
 		damage_label.add_theme_color_override("font_color", Color.WHITE)
 		block = false
 		return
+	SoundManager.hit.play()
 	health -= damage
 	if health <= 0:
 		is_dead = true

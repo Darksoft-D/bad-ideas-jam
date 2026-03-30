@@ -28,6 +28,7 @@ enum type {
 	DEFENSE,
 	ATTACK,
 	SPECIAL,
+	NEGATIVE,
 }
 
 enum rarity {
@@ -43,6 +44,7 @@ func get_type_text() -> String:
 		type.ATTACK: desc += "[color=red]%s[/color]"
 		type.DEFENSE: desc += "[color=#5FA8FF]%s[/color]"
 		type.SPECIAL: desc += "[color=green]%s[/color]"
+		type.NEGATIVE: desc += "[color=violet]%s[/color]"
 	desc += ", "
 	match item_rarity:
 		rarity.Common: desc += "[color=white]%s[/color]"
@@ -61,6 +63,7 @@ func get_description(desc: String) -> String:
 		"{double}": "[color=orange]Double[/color]",
 		"{free}": "[color=orange]Free[/color]",
 		"{attack}": "[color=lightgreen]Attack[/color]",
+		"{negative}": "[color=violet]Negative[/color]",
 		"{health_bag}": "[color=green]Health Bag[/color]",
 		"{gold}": "[color=yellow]Gold[/color]",
 	}

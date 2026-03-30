@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3 uid="uid://ce0pcvorx0e2o"]
+
+[ext_resource type="Script" uid="uid://dubxagb02yeum" path="res://Items/Relics/helmet_of_hatred/helmet_of_hatred.gd" id="1_7qmer"]
+[ext_resource type="Texture2D" uid="uid://cu1m0o727t0jb" path="res://assets/Textures/RelicTextures/fc2078.png" id="2_85rmy"]
+
+[resource]
+script = ExtResource("1_7qmer")
+name = "Helmet of Hatred"
+description = "Only attack items appear in the chest"
+texture = ExtResource("2_85rmy")
+cost = 30
+metadata/_custom_type_script = "uid://jhey672pi0cc"

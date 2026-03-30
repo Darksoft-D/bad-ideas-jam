@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3 uid="uid://b72ekwa6i1q7s"]
+
+[ext_resource type="Script" uid="uid://cyox30jgrqvdc" path="res://Items/Skills/EnemySkill/attack.gd" id="1_0mwkw"]
+
+[resource]
+script = ExtResource("1_0mwkw")
+min_damage = 5
+max_damage = 8
+metadata/_custom_type_script = "uid://woge1rog8y1w"

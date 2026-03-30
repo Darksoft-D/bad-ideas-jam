@@ -1,7 +1,7 @@
 extends Skill
 
 func _use():
-	target.take_damage(damage)
+	target.take_damage(damage, sender)
 	var items = scene.loot_manager.bag.get_attack_items()
 	if items.is_empty():
 		return

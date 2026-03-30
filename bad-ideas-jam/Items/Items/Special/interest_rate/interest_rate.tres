@@ -6,8 +6,7 @@
 [resource]
 script = ExtResource("1_pbccu")
 name = "Interest Rate"
-description = "Gain +1 to cost every turn"
+description = "Gain +2 to sell value every turn"
 texture = ExtResource("2_jrywn")
-texture_scale = Vector2(0.5, 0.5)
 item_type = 2
 metadata/_custom_type_script = "uid://dah435we4cfau"

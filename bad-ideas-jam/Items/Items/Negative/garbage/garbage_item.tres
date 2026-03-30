@@ -8,5 +8,6 @@ script = ExtResource("1_cpa4a")
 name = "Garbage"
 description = "Can't be used, self-destroys after the combat"
 texture = ExtResource("2_h5gxx")
+item_type = 3
 temporary = true
 metadata/_custom_type_script = "uid://dah435we4cfau"

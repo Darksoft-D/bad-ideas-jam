@@ -12,7 +12,7 @@ class_name Bag
 const INV_UI_SLOT = preload("uid://dijoj8qysu0hg")
 const ITEM_DELETE_ANIM = preload("uid://wjxuvesugdrd")
 
-var slots: Array[InvSlot] = []
+@export var slots: Array[InvSlot] = []
 var selected_slot: InvSlot = null
 
 func generate_grid():
@@ -26,7 +26,24 @@ func generate_grid():
 	connect_slots()
 	update_slots()
 
+func increase():
+	slots_num += 3
+	for i in 3:
+		var slot = INV_UI_SLOT.instantiate()
+		grid_container.add_child(slot)
+		slots.append(slot)
+		slot.pressed.connect(Callable(loot_manager, "on_slot_clicked"))
+		slot.selected.connect(Callable(loot_manager, "on_slot_selected"))
+		slot.unselected.connect(Callable(loot_manager, "on_slot_unselected"))
+		slot.released.connect(Callable(loot_manager, "on_slot_item_released"))
+	if slots_num == 9:
+		bag_size_1.hide()
+		bag_size_2.show()
+
 func connect_slots():
+	print("Connect slots: ", slots)
+	if slots.is_empty():
+		return
 	for slot in slots:
 		slot.pressed.connect(Callable(loot_manager, "on_slot_clicked"))
 		slot.selected.connect(Callable(loot_manager, "on_slot_selected"))
@@ -54,6 +71,23 @@ func get_attack_items() -> Array:
 			items.append(item_ui)
 	return items
 
+func get_max_health_bag() -> ItemUI:
+	var max_item = null
+	for slot in slots:
+		if slot.item_ui and slot.item_ui.item is HealthBag:
+			if max_item == null:
+				max_item = slot.item_ui
+			elif slot.item_ui.item.value > max_item.item.value:
+				max_item = slot.item_ui
+	return max_item
+
+func get_health_bags() -> Array:
+	var items = []
+	for slot in slots:
+		if slot.item_ui and slot.item_ui.item is HealthBag:
+			items.append(slot.item_ui)
+	return items
+
 func remove_item(item_ui: ItemUI):
 	for slot in slots:
 		if slot.item_ui == item_ui:
@@ -65,10 +99,9 @@ func remove_item(item_ui: ItemUI):
 			return
 
 func update_slots():
+	print("Updating slots")
 	for slot in slots:
 		if slot.item_ui:
 			slot.item_ui.queue_free()
 	for i in range(items_resource.size()):
 		slots[i].update(items_resource[i])
-		if slots[i].item_ui:
-			slots[i].apply()

@@ -1,0 +1,33 @@
+[gd_resource type="Theme" format=3 uid="uid://k8guhunfqs27"]
+
+[ext_resource type="Texture2D" uid="uid://c8w2v5cigr4o2" path="res://assets/UI/Sprite sheets/UI Big Play Button.png" id="1_u03bp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2jej"]
+atlas = ExtResource("1_u03bp")
+region = Rect2(3, 2, 90, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_beesa"]
+texture = SubResource("AtlasTexture_v2jej")
+modulate_color = Color(1.0627335, 1.0627335, 1.0627335, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db7xr"]
+atlas = ExtResource("1_u03bp")
+region = Rect2(3, 2, 90, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jrv33"]
+texture = SubResource("AtlasTexture_db7xr")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beesa"]
+atlas = ExtResource("1_u03bp")
+region = Rect2(99, 4, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_77mjg"]
+texture = SubResource("AtlasTexture_beesa")
+
+[resource]
+Button/colors/font_color = Color(0.30839956, 0.3084001, 0.30839965, 1)
+Button/colors/font_hover_color = Color(0.30980393, 0.30980393, 0.30980393, 1)
+Button/colors/font_pressed_color = Color(0.30980393, 0.30980393, 0.30980393, 1)
+Button/styles/hover = SubResource("StyleBoxTexture_beesa")
+Button/styles/normal = SubResource("StyleBoxTexture_jrv33")
+Button/styles/pressed = SubResource("StyleBoxTexture_77mjg")

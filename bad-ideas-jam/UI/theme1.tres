@@ -1,0 +1,40 @@
+[gd_resource type="Theme" format=3 uid="uid://cqjw7hl6mi5ks"]
+
+[ext_resource type="Texture2D" uid="uid://dup4aomi5vn2t" path="res://assets/UI/Sprite sheets/buttons/Square Buttons 26x19.png" id="1_ak26g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mv2k"]
+atlas = ExtResource("1_ak26g")
+region = Rect2(11, 70, 26, 19)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ak26g"]
+texture = SubResource("AtlasTexture_8mv2k")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov5ro"]
+atlas = ExtResource("1_ak26g")
+region = Rect2(59, 71, 26, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i11wv"]
+texture = SubResource("AtlasTexture_ov5ro")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh5yj"]
+atlas = ExtResource("1_ak26g")
+region = Rect2(11, 102, 26, 19)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pfbql"]
+texture = SubResource("AtlasTexture_oh5yj")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ak26g"]
+atlas = ExtResource("1_ak26g")
+region = Rect2(59, 71, 26, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8mv2k"]
+texture = SubResource("AtlasTexture_ak26g")
+
+[resource]
+Button/colors/font_color = Color(0.21518183, 0.21518236, 0.21518198, 1)
+Button/colors/font_hover_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
+Button/colors/font_pressed_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
+Button/styles/hover = SubResource("StyleBoxTexture_ak26g")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_i11wv")
+Button/styles/normal = SubResource("StyleBoxTexture_pfbql")
+Button/styles/pressed = SubResource("StyleBoxTexture_8mv2k")

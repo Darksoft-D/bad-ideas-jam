@@ -2,6 +2,7 @@ extends Control
 class_name Chest
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var control: Control = $Control
 
 signal chest_opened
 
@@ -13,6 +14,7 @@ func _process(_delta: float) -> void:
 		open()
 
 func open():
+	SoundManager.open_chest.play()
 	animated_sprite_2d.play("Open")
 	await animated_sprite_2d.animation_finished
 	chest_opened.emit()

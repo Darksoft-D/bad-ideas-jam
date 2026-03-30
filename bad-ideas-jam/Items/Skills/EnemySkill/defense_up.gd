@@ -1,4 +1,5 @@
 extends Skill
+class_name DefenseUp
 
 const DEFENSE_UP_ANIM = preload("uid://cm1fdy3uag5o3")
 

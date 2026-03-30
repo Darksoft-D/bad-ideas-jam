@@ -9,7 +9,7 @@ func _turn_end():
 		return
 	var item = items.pick_random()
 	scene.loot_manager.bag.remove_item(item)
-	damage += 4
+	damage += 8
 
 func _use():
 	target.take_damage(damage, sender)

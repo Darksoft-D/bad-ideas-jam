@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3 uid="uid://dgp7icdt4u65k"]
+
+[ext_resource type="Script" uid="uid://baikyljg7w5s7" path="res://Items/Relics/cursed_shield/cursed_shield.gd" id="1_2wj8l"]
+[ext_resource type="Texture2D" uid="uid://bnmkf0d7gvpt0" path="res://assets/Textures/RelicTextures/fc2142.png" id="2_caa8y"]
+
+[resource]
+script = ExtResource("1_2wj8l")
+name = "Cursed Shield"
+description = "Every time you take damage, apply strength to random attack item"
+texture = ExtResource("2_caa8y")
+cost = 30
+metadata/_custom_type_script = "uid://jhey672pi0cc"

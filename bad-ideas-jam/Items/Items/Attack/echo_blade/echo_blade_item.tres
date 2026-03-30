@@ -8,6 +8,7 @@ script = ExtResource("1_enudt")
 name = "Echo Blade"
 description = "Deal {damage}, add 1 random item to the bag"
 texture = ExtResource("2_660l6")
+cost = 8
 damage = 6
 item_type = 1
 metadata/_custom_type_script = "uid://dah435we4cfau"

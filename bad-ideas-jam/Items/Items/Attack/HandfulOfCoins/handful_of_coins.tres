@@ -8,5 +8,6 @@ script = ExtResource("1_hw5ue")
 name = "Handful of Coins"
 description = "Deal damage equal 1/4 of your {gold}"
 texture = ExtResource("2_scrx7")
+cost = 8
 item_type = 1
 metadata/_custom_type_script = "uid://dah435we4cfau"

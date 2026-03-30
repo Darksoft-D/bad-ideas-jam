@@ -8,4 +8,5 @@ script = ExtResource("1_3eyil")
 name = "Expansion"
 description = "The bag has 3 more slots"
 texture = ExtResource("2_3eyil")
+cost = 40
 metadata/_custom_type_script = "uid://jhey672pi0cc"

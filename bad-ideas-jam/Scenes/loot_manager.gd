@@ -7,7 +7,6 @@ class_name LootManager
 @onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 @onready var loot_container: VBoxContainer = $"../CanvasLayer/LootContainer"
 @onready var button_container: HBoxContainer = $"../CanvasLayer/ButtonContainer"
-@onready var loot_bag: Bag = $"../CanvasLayer/LootContainer/LootBag"
 @onready var player: Player = $"../Player"
 @onready var sell_container: PanelContainer = $"../CanvasLayer/SellContainer"
 @onready var sell_label: Label = $"../CanvasLayer/SellContainer/SellLabel"
@@ -19,6 +18,7 @@ signal looting_finished
 
 const DAMAGE_LABEL = preload("uid://bofywx1j6fpv0")
 const ITEM_DELETE_ANIM = preload("uid://wjxuvesugdrd")
+const LOOT_BAG = preload("uid://bkb14j2jahlkb")
 
 var common_items: Array[InvItem]
 var uncommon_items: Array[InvItem]
@@ -32,6 +32,9 @@ var on_sell = false
 var selected_slot: InvSlot
 var turns: int = 1
 var max_turns: int = 1
+var loot_bag: Bag
+
+var helmet_of_hatred = false
 
 func _ready() -> void:
 	for item in items:
@@ -42,25 +45,37 @@ func _ready() -> void:
 			InvItem.rarity.Legendary: legendary_items.append(item)
 
 func generate_loot():
-	for slot in loot_bag.slots:
-		for description in slot.descriptions_container.get_children():
-			description.queue_free()
+	SoundManager.play_calm()
 	player_turn = true
 	is_loot_opened = true
-	var amount = randi_range(5, 7)
+	var amount = randi_range(5, 9)
 	var loot: Array[InvItem] = []
-	for i in amount:
-		var num = randi_range(0, 100)
-		var item: InvItem
-		if num <= Global.common_chance: item = common_items.pick_random().duplicate()
-		elif num <= Global.uncommon_chance: item = uncommon_items.pick_random().duplicate()
-		elif num <= Global.rare_chance: item = rare_items.pick_random().duplicate()
-		else: item = legendary_items.pick_random().duplicate()
-		loot.append(item)
+	if helmet_of_hatred:
+		var attack_items = []
+		for item in items:
+			if item.item_type == InvItem.type.ATTACK:
+				attack_items.append(item)
+		for i in amount:
+			var item = attack_items.pick_random().duplicate()
+			loot.append(item)
+	else:
+		for i in amount:
+			var num = randi_range(0, 100)
+			var item: InvItem
+			if num <= Global.common_chance: item = common_items.pick_random().duplicate()
+			elif num <= Global.uncommon_chance: item = uncommon_items.pick_random().duplicate()
+			elif num <= Global.rare_chance: item = rare_items.pick_random().duplicate()
+			else: item = legendary_items.pick_random().duplicate()
+			loot.append(item)
 	loot_container.show()
 	button_container.show()
+	print("Loot: ", loot)
+	loot_bag = LOOT_BAG.instantiate()
+	loot_bag.items_resource.resize(9)
+	loot_bag.items_resource.fill(null)
+	loot_bag.loot_manager = self
+	loot_container.add_child(loot_bag)
 	await loot_bag.generate_loot(loot)
-	loot_bag.update_slots()
 	combat_layer.hide()
 
 func finish_looting():
@@ -78,20 +93,23 @@ func finish_looting():
 				player.health_bags.append(slot.item_ui.item)
 				slot.item_ui.used.connect(Callable(self, "delete_item"))
 			slot.item_ui.item.apply(player, get_parent())
-	for slot in loot_bag.slots:
-		slot.descriptions.clear()
+	loot_bag.queue_free()
 	get_parent().update_health()
 
 func on_slot_clicked(item_ui: ItemUI, slot: InvSlot):
-	print("loot manager: clicked")
+	print("On slot clicked")
+	SoundManager.item_pick_up.play()
 	if !player_turn:
 		return
 	for description in slot.descriptions:
-		print(slot.descriptions)
-		slot.descriptions_container.remove_child(description)
-		item_ui.add_child(description)
-		item_ui.descriptions.append(description)
-		description.hide()
+		if !description:
+			slot.descriptions.erase(description)
+		else:
+			print(slot.descriptions)
+			slot.descriptions_container.remove_child(description)
+			item_ui.add_child(description)
+			item_ui.descriptions.append(description)
+			description.hide()
 	is_looting = true
 	slot.sprite_pos.remove_child(item_ui)
 	canvas_layer.add_child(item_ui)
@@ -99,7 +117,7 @@ func on_slot_clicked(item_ui: ItemUI, slot: InvSlot):
 	item_ui.item.unapply(player, get_parent())
 	if is_loot_opened:
 		sell_container.show()
-		sell_label.text = "Sell for " + str(item_ui.item.cost)
+		sell_label.text = "Sell for " + str(item_ui.item.cost*2/3)
 
 func on_slot_item_released(item_ui: ItemUI, slot: InvSlot):
 	if !player_turn:
@@ -107,15 +125,15 @@ func on_slot_item_released(item_ui: ItemUI, slot: InvSlot):
 	is_looting = false
 	if selected_slot and !selected_slot.item_ui:
 		print("Selected Slot")
+		SoundManager.item_equip.play()
 		item_ui.is_dragging = false
 		canvas_layer.remove_child(item_ui)
 		selected_slot.sprite_pos.add_child(item_ui)
 		slot.item_ui = null
-		selected_slot.generated = true
 		selected_slot.assign_item(item_ui)
 	elif on_sell:
 		print("Sell")
-		Global.gold_amount += item_ui.item.cost
+		Global.gold_amount += item_ui.item.cost/1.5
 		print(Global.gold_amount)
 		item_ui.queue_free()
 		Global.gold_changed.emit()
@@ -136,12 +154,14 @@ func on_slot_item_released(item_ui: ItemUI, slot: InvSlot):
 		item_ui.used.connect(Callable(self, "on_used"))
 		if item_ui.item:
 			slot.item_ui = null
-			slot.descriptions = []
+			for description in slot.descriptions:
+				slot.descriptions.erase(description)
+				description.queue_free()
 			item_ui.item.use(get_parent().enemy, get_parent(), get_parent().player)
 	sell_container.hide()
 
 func on_used(item_ui: ItemUI):
-	print("Used item")
+	SoundManager.item_used.play()
 	if !item_ui.item.free:
 		turns -= 1
 		turns_num_label.text = str(turns) + "/" + str(max_turns)

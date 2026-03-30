@@ -1,15 +1,72 @@
 [gd_scene format=3 uid="uid://bmqmim1lfiefw"]
 
 [ext_resource type="PackedScene" uid="uid://bq3iw0f5qhwsh" path="res://Scenes/Enemies/entity.tscn" id="1_pwaqc"]
+[ext_resource type="Script" uid="uid://durvjhgwlyx53" path="res://Scenes/Enemies/book_wyrm.gd" id="2_24dp8"]
 [ext_resource type="Texture2D" uid="uid://du0o4yl3om3vd" path="res://assets/Textures/EnemyTextures/Bookwrym.png" id="2_br1ek"]
 [ext_resource type="Script" uid="uid://woge1rog8y1w" path="res://Items/Skills/skill.gd" id="2_y7fir"]
 [ext_resource type="Resource" uid="uid://e5yxt75xj6q7" path="res://Items/Skills/EnemySkill/defense_up.tres" id="3_t1rq0"]
 [ext_resource type="Resource" uid="uid://dw2l3s2hnwf6e" path="res://Items/Skills/EnemySkill/attack.tres" id="4_t1rq0"]
 [ext_resource type="Resource" uid="uid://b01dh78fd4e24" path="res://Items/Skills/EnemySkill/attack_up.tres" id="5_mrjc2"]
+[ext_resource type="Resource" uid="uid://bjgt5cieym3q3" path="res://Items/Skills/EnemySkill/attack_medium.tres" id="7_bewmn"]
+[ext_resource type="Texture2D" uid="uid://bjnkwhv781kx5" path="res://assets/Textures/EffectTextures/fc641.png" id="7_pseqn"]
+[ext_resource type="Texture2D" uid="uid://bmwggs3btgj8l" path="res://assets/Textures/ItemTextures/fc856.png" id="8_24dp8"]
+[ext_resource type="Resource" uid="uid://b72ekwa6i1q7s" path="res://Items/Skills/EnemySkill/attack_strong.tres" id="8_csykk"]
 
 [node name="BookWyrm" unique_id=673946979 instance=ExtResource("1_pwaqc")]
+script = ExtResource("2_24dp8")
 max_health = 50
-attack_skills = Array[ExtResource("2_y7fir")]([ExtResource("3_t1rq0"), ExtResource("4_t1rq0"), ExtResource("4_t1rq0"), ExtResource("5_mrjc2")])
+attack_skills = Array[ExtResource("2_y7fir")]([ExtResource("3_t1rq0"), ExtResource("5_mrjc2"), ExtResource("4_t1rq0"), ExtResource("4_t1rq0"), ExtResource("7_bewmn"), ExtResource("8_csykk")])
 
 [node name="Sprite2D" parent="." index="0" unique_id=1044903095]
 texture = ExtResource("2_br1ek")
+
+[node name="AttackUpTexture" type="TextureRect" parent="." index="2" unique_id=1752251193]
+visible = false
+z_index = 1
+offset_left = -5.9999995
+offset_top = -31.0
+offset_right = 58.0
+offset_bottom = 33.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_pseqn")
+
+[node name="AttackUpContainer" type="PanelContainer" parent="AttackUpTexture" index="0" unique_id=1347958063]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="AttackUpTexture/AttackUpContainer" index="0" unique_id=975089109]
+layout_mode = 2
+text = "Next Attack will 
+deal more damage"
+
+[node name="DefenseUpTexture" type="TextureRect" parent="." index="3" unique_id=957154757]
+visible = false
+z_index = 1
+offset_left = -5.9999995
+offset_top = -31.0
+offset_right = 58.0
+offset_bottom = 33.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_24dp8")
+
+[node name="DefenseUpContainer" type="PanelContainer" parent="DefenseUpTexture" index="0" unique_id=531898222]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="DefenseUpTexture/DefenseUpContainer" index="0" unique_id=747193660]
+layout_mode = 2
+text = "Next damage will
+be blocked"
+
+[connection signal="mouse_entered" from="AttackUpTexture" to="." method="_on_attack_up_texture_mouse_entered"]
+[connection signal="mouse_exited" from="AttackUpTexture" to="." method="_on_attack_up_texture_mouse_exited"]
+[connection signal="mouse_entered" from="DefenseUpTexture" to="." method="_on_defense_up_texture_mouse_entered"]
+[connection signal="mouse_exited" from="DefenseUpTexture" to="." method="_on_defense_up_texture_mouse_exited"]

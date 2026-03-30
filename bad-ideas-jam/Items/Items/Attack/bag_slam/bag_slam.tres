@@ -1,0 +1,15 @@
+[gd_resource type="Resource" format=3 uid="uid://bbiu46tn8rxgu"]
+
+[ext_resource type="Script" uid="uid://u0cvvpdgn36" path="res://Items/Items/Attack/bag_slam/bag_slam.gd" id="1_u8rmp"]
+[ext_resource type="Texture2D" uid="uid://dpnyxjqpml62g" path="res://assets/Textures/ItemTextures/fb158.png" id="2_plqid"]
+
+[resource]
+script = ExtResource("1_u8rmp")
+name = "Bag Slam"
+description = "Deal {damage} for every item in the bag"
+texture = ExtResource("2_plqid")
+cost = 10
+damage = 3
+item_type = 1
+item_rarity = 1
+metadata/_custom_type_script = "uid://dah435we4cfau"

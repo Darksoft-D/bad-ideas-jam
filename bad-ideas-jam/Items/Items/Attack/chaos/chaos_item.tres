@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://dca2kg26qhrt4"]
+[gd_resource type="Resource" format=3 uid="uid://dca2kg26qhrt4"]
 
-[ext_resource type="Script" uid="uid://dah435we4cfau" path="res://Items/Items/item.gd" id="1_xlt0o"]
-[ext_resource type="Texture2D" uid="uid://cjg6fxhhsdb2q" path="res://icon.svg" id="2_t187s"]
+[ext_resource type="Script" uid="uid://cur2wp1ff7ajq" path="res://Items/Items/Attack/chaos/chaos.gd" id="1_xlt0o"]
+[ext_resource type="Texture2D" uid="uid://ba4oyra8f3uob" path="res://assets/Textures/ItemTextures/fb1743.png" id="2_xlt0o"]
 
 [resource]
 script = ExtResource("1_xlt0o")
-name = "Chaos"
-description = "Destroy random item every turn, deal [color=red]4 damage[/color] for every destroyed item"
-texture = ExtResource("2_t187s")
-damage = 4
+name = "Blood Dagger"
+description = "Destroy random item every turn, deal [color=red]8 damage[/color] for every destroyed item"
+texture = ExtResource("2_xlt0o")
+cost = 15
+damage = 8
 item_type = 1
 item_rarity = 2
 metadata/_custom_type_script = "uid://dah435we4cfau"

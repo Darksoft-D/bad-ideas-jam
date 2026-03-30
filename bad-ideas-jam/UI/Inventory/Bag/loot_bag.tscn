@@ -9,14 +9,15 @@
 texture = ExtResource("4_evtt3")
 region_rect = Rect2(0, 0, 27, 27)
 
-[node name="LootBag" unique_id=12638333 instance=ExtResource("1_sx3bi")]
+[node name="LootBag" unique_id=12638333 node_paths=PackedStringArray("slots") instance=ExtResource("1_sx3bi")]
 script = ExtResource("2_54gpq")
-slots_num = 1
+slots_num = 9
+slots = [NodePath("GridContainer/InvUISlot"), NodePath("GridContainer/InvUISlot2"), NodePath("GridContainer/InvUISlot3"), NodePath("GridContainer/InvUISlot4"), NodePath("GridContainer/InvUISlot5"), NodePath("GridContainer/InvUISlot6"), NodePath("GridContainer/InvUISlot7"), NodePath("GridContainer/InvUISlot8"), NodePath("GridContainer/InvUISlot9")]
 
-[node name="TextureRect" parent="." index="0" unique_id=58257776]
+[node name="BagSize1" parent="." index="0" unique_id=58257776]
 visible = false
 
-[node name="GridContainer" parent="." index="1" unique_id=1566016739]
+[node name="GridContainer" parent="." index="2" unique_id=1566016739]
 theme_override_constants/h_separation = 1
 theme_override_constants/v_separation = 1
 

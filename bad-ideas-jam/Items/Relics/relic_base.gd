@@ -6,7 +6,10 @@ class_name RelicUI
 @onready var name_label: Label = $PanelContainer/TextContainer/NameLabel
 @onready var description_label: Label = $PanelContainer/TextContainer/DescriptionLabel
 
+signal chosen(relic: Relic)
+
 var text_show = false
+var taken = false
 var relic: Relic
 
 func _process(delta: float) -> void:
@@ -29,3 +32,7 @@ func _on_mouse_exited() -> void:
 	modulate = Color(1, 1, 1)
 	text_show = false
 	panel_container.hide()
+
+func _on_gui_input(event: InputEvent) -> void:
+	if text_show and event.is_action_pressed("Drag") and !taken:
+		chosen.emit(relic)

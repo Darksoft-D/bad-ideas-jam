@@ -10,4 +10,6 @@ health_bag = ExtResource("1_3ut15")
 name = "First Aid Kit"
 description = "Add {health_bag} with random value from 5 to 15 to the bag"
 texture = ExtResource("2_3ut15")
+cost = 8
+item_rarity = 1
 metadata/_custom_type_script = "uid://dah435we4cfau"

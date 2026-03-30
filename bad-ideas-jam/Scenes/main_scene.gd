@@ -2,7 +2,7 @@ extends Node2D
 class_name Stage
 
 @export var enemies: Array[PackedScene]
-@export var relics: Array[Relic]
+@export var export_relics: Array[Relic]
 
 @onready var loot_manager: LootManager = $LootManager
 @onready var enemy_pos: Node2D = $EnemyPos
@@ -23,24 +23,31 @@ class_name Stage
 @onready var ray: ColorRect = $Visuals/Ray
 @onready var color_rect: ColorRect = $ShaderLayer/ColorRect
 @onready var relics_container: HBoxContainer = $CanvasLayer/RelicsContainer
+@onready var choose_relic_label: RichTextLabel = $CanvasLayer/VBoxContainer/ChooseRelicLabel
+@onready var relics_choice: HBoxContainer = $CanvasLayer/VBoxContainer/RelicsContainerChoice
+@onready var win_screen: CanvasLayer = $WinScreen
 
 const RELIC_BASE = preload("uid://d3g2oexu73d2s")
 const STRENGTH_EFFECT = preload("uid://ctx3y68dk30rd")
 
-signal item_created
+signal enemy_died()
 
 var enemy: Entity
 var enemies_defeated: int = 0
+var is_choosing = false
 var is_player_turn = false
 var is_enemy_moving = false
 var medal_of_power = false
 var gold_amount: int = 0
+var relics: Array[Relic] = []
 
 func _ready() -> void:
-	await assign_relics()
-	bag.generate_grid()
+	SoundManager.play_calm()
 	for slot in bag.slots:
 		slot.gain_health.connect(Callable(self, "gain_health"))
+		slot.scene = self
+	await assign_relics()
+	bag.generate_grid()
 	var canvas_pos = player.get_global_transform_with_canvas().origin
 	player_health_container.position = canvas_pos + Vector2(-30, -80)
 	var canvas_pos2 = enemy_pos.get_global_transform_with_canvas().origin
@@ -58,9 +65,8 @@ func _ready() -> void:
 		loot_manager.bag.items_resource = []
 		loot_manager.bag.items_resource = Global.bring_items
 		loot_manager.bag.update_slots()
-	for slot in loot_manager.bag.slots:
-		slot.gain.connect(Callable(self, "on_gain"))
 	player.took_damage.connect(Callable(self, "update_health"))
+	player.scene = self
 	chest_2.chest_opened.connect(func():
 		loot_manager.generate_loot())
 	loot()
@@ -71,11 +77,25 @@ func _process(delta: float) -> void:
 		enemy_health_container.global_position = canvas_pos + Vector2(-30, -80)
 
 func assign_relics():
-	for relic in relics:
+	for relic in Global.owned_relics:
+		export_relics.append(relic)
+	chest_2.control.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for relic_scene in export_relics:
 		var relic_base = RELIC_BASE.instantiate()
-		relics_container.add_child(relic_base)
-		relic_base.assign_relic(relic)
-		await relic.assign(self)
+		relics_choice.add_child(relic_base)
+		relic_base.assign_relic(relic_scene)
+		relic_base.chosen.connect(Callable(self, "assign_relic"))
+
+func assign_relic(relic: Relic):
+	print("Relic Chosen")
+	chest_2.control.mouse_filter = Control.MOUSE_FILTER_STOP
+	relics_choice.queue_free()
+	choose_relic_label.queue_free()
+	var relic_base = RELIC_BASE.instantiate()
+	relics_container.add_child(relic_base)
+	relic_base.assign_relic(relic)
+	relics.append(relic)
+	await relic.assign(self)
 
 func gain_health(health_ui: ItemUI):
 	player.health_bags.append(health_ui.item)
@@ -89,6 +109,7 @@ func update_enemy_health():
 		health_label_enemy.text = str(enemy.health)
 
 func loot():
+	SoundManager.play_calm()
 	combat_layer.hide()
 	ray.show()
 	chest_2.show()
@@ -111,7 +132,6 @@ func enemy_turn():
 	print("Enemy Turn")
 	update_enemy_health()
 	for relic in relics:
-		print(relic)
 		relic.apply()
 	loot_manager.player_turn = false
 	is_player_turn = false
@@ -124,12 +144,14 @@ func enemy_turn():
 func insert_item(item_resource: InvItem):
 	var empty_slot = loot_manager.bag.get_empty_slot()
 	if empty_slot:
+		SoundManager.item_equip.play()
 		var resource = item_resource.duplicate()
 		if medal_of_power and item_resource.item_type == InvItem.type.ATTACK:
 			resource.start_effect = STRENGTH_EFFECT
 		empty_slot.update(resource)
 
 func spawn_enemy():
+	SoundManager.play_full()
 	ray.hide()
 	enemy = enemies[enemies_defeated].instantiate()
 	add_child(enemy)
@@ -141,24 +163,35 @@ func spawn_enemy():
 	enemy_health_container.show()
 	update_enemy_health()
 	fade_from_black()
+	for relic in relics:
+		relic.combat_start()
 	player_turn()
 
 func on_enemy_died():
+	enemy_died.emit()
 	enemy.attacked.disconnect(player_turn)
 	enemy.died.disconnect(on_enemy_died)
 	enemy.queue_free()
+	enemy_health_container.hide()
 	enemies_defeated += 1
+	if enemies_defeated >= enemies.size():
+		win_screen.show()
+		chest_2.queue_free()
+		ray.queue_free()
+		return
 	loot_manager.generate_loot()
 	for slot in loot_manager.bag.slots:
 		if slot.item_ui and slot.item_ui.item.temporary:
 			slot.unassign_item()
-	enemy_health_container.hide()
 
 func on_player_died():
 	combat_layer.hide()
 	loot_manager.loot_container.hide()
 	loot_manager.bag.hide()
 	game_over_screen.show()
+	SoundManager.battle_theme_2_calm.stop()
+	SoundManager.battle_theme_2_full.stop()
+	SoundManager.game_over.play()
 
 func attack_anim():
 	var tween = get_tree().create_tween()
@@ -191,12 +224,12 @@ func show_turn(text: String):
 
 func fade_to_black():
 	var tween = create_tween()
-	tween.tween_property($ShaderLayer/Vignette, "material:shader_parameter/vignette_intensity", 50.0, 0.5)
+	tween.tween_property($ShaderLayer/Vignette, "material:shader_parameter/vignette_intensity", 50.0, 0.5).set_ease(Tween.EASE_IN)
 	await tween.finished
 
 func fade_from_black():
 	var tween = get_tree().create_tween()
-	tween.tween_property($ShaderLayer/Vignette, "material:shader_parameter/vignette_intensity", 0.5, 0.5)
+	tween.tween_property($ShaderLayer/Vignette, "material:shader_parameter/vignette_intensity", 0.5, 0.5).set_ease(Tween.EASE_IN)
 
 func _on_end_turn_button_pressed() -> void:
 	if !is_player_turn:

@@ -1,13 +1,14 @@
 extends Bag
 
 func _ready() -> void:
-	for child in grid_container.get_children():
-		if child is InvSlot:
-			slots.append(child)
-			child.loot_slot = true
 	connect_slots()
+	#for child in grid_container.get_children():
+		#if child is InvSlot:
+			#slots.append(child)
+			#child.loot_slot = true
 
 func generate_loot(loot: Array[InvItem]):
+	print("Generating loot")
 	for item in items_resource:
 		item = null
 	var slots_number: Array[int] = []

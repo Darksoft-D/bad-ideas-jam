@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://bbko68jbl6dn4"]
+
+[ext_resource type="Script" uid="uid://dtqcxyyssqi63" path="res://Items/Items/Defense/sandwich/sandwich.gd" id="1_y07t1"]
+[ext_resource type="Texture2D" uid="uid://pfk8gsnvmeo3" path="res://assets/Textures/ItemTextures/fb539.png" id="2_wofxk"]
+
+[resource]
+script = ExtResource("1_y07t1")
+name = "Sandwich"
+description = "Delete all {negative} items from the bag"
+texture = ExtResource("2_wofxk")
+cost = 8
+item_rarity = 1
+metadata/_custom_type_script = "uid://dah435we4cfau"

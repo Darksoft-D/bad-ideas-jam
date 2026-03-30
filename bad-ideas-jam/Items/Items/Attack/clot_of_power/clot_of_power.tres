@@ -1,0 +1,15 @@
+[gd_resource type="Resource" format=3 uid="uid://dgixsxxychiu0"]
+
+[ext_resource type="Script" uid="uid://ces3vb25a4f1a" path="res://Items/Items/Attack/clot_of_power/clot_of_power.gd" id="1_bk7ly"]
+[ext_resource type="Texture2D" uid="uid://bdog5271jw0qg" path="res://assets/Textures/ItemTextures/fb293.png" id="2_y5c6y"]
+
+[resource]
+script = ExtResource("1_bk7ly")
+name = "Clot of Power"
+description = "Deal {damage} on the end of your turn"
+texture = ExtResource("2_y5c6y")
+cost = 30
+damage = 3
+item_type = 1
+item_rarity = 3
+metadata/_custom_type_script = "uid://dah435we4cfau"

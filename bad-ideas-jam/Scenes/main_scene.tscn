@@ -12,17 +12,16 @@
 [ext_resource type="Script" uid="uid://jhey672pi0cc" path="res://Items/Relics/relic.gd" id="6_stxua"]
 [ext_resource type="Resource" uid="uid://bcm1m38drucdh" path="res://Items/Relics/creation_necklace/creation_necklace.tres" id="7_37jd4"]
 [ext_resource type="Texture2D" uid="uid://d1sun0kuatkao" path="res://assets/Tiles/Bookshelf_tiles.png" id="7_76v2p"]
+[ext_resource type="Resource" uid="uid://bx06rdwgyr6a3" path="res://Items/Relics/magic_hat/magic_hat.tres" id="7_gfj8f"]
 [ext_resource type="Resource" uid="uid://5t3oy62yh1bv" path="res://Items/Items/Attack/fireball/fireball_item.tres" id="7_kbbok"]
 [ext_resource type="PackedScene" uid="uid://cdt6j1h58kr12" path="res://UI/Inventory/Bag/chest.tscn" id="8_7ewk0"]
-[ext_resource type="Resource" uid="uid://bbu87igdx5oiv" path="res://Items/Relics/medal_of_power/medal_of_power.tres" id="8_37jd4"]
 [ext_resource type="Texture2D" uid="uid://exlg5xvvsvd4" path="res://assets/Tiles/Dungeon_tiles.png" id="8_drdnd"]
 [ext_resource type="Resource" uid="uid://cspmf0cu2kedb" path="res://Items/Items/Attack/HandfulOfCoins/handful_of_coins.tres" id="8_m0uwk"]
 [ext_resource type="PackedScene" uid="uid://0qiwd1hsqid0" path="res://Scenes/Enemies/player.tscn" id="8_mai8y"]
-[ext_resource type="Resource" uid="uid://cuqfhanhjg15k" path="res://Items/Relics/expansion/expansion.tres" id="9_gfj8f"]
+[ext_resource type="Resource" uid="uid://dq8aisicrm126" path="res://Items/Relics/life_steal/life_steal.tres" id="8_so8ax"]
 [ext_resource type="Texture2D" uid="uid://dm6fuo1v7j1ee" path="res://assets/Tiles/taller_bookshelves_.png" id="9_jvnna"]
 [ext_resource type="Resource" uid="uid://cgpwtg77wrtvg" path="res://Items/Items/Attack/sword/sword_item.tres" id="10_mffef"]
 [ext_resource type="Resource" uid="uid://ufav7akgnowk" path="res://Items/Items/Attack/tween/tween_item.tres" id="11_2h5y0"]
-[ext_resource type="PackedScene" uid="uid://bkb14j2jahlkb" path="res://UI/Inventory/Bag/loot_bag.tscn" id="12_ioaeq"]
 [ext_resource type="Resource" uid="uid://co77xslb1x57c" path="res://Items/Items/Defense/cure/cure_item.tres" id="12_y0lwx"]
 [ext_resource type="Script" uid="uid://dah435we4cfau" path="res://Items/Items/item.gd" id="13_oyb3p"]
 [ext_resource type="Resource" uid="uid://cnais6handuu0" path="res://Items/Items/Defense/health_bag/health_bag_small.tres" id="14_igw8g"]
@@ -50,6 +49,15 @@
 [ext_resource type="Shader" uid="uid://d11rkrd665e1p" path="res://assets/Shaders/wind.gdshader" id="35_igw8g"]
 [ext_resource type="Texture2D" uid="uid://dj713yd0e5stp" path="res://assets/Tiles/48x48 trees.png" id="36_rlvbq"]
 [ext_resource type="Shader" uid="uid://uub6php4bhp4" path="res://assets/Shaders/fog.gdshader" id="44_2v2b7"]
+[ext_resource type="Resource" uid="uid://bbiu46tn8rxgu" path="res://Items/Items/Attack/bag_slam/bag_slam.tres" id="45_tscpr"]
+[ext_resource type="Script" uid="uid://cqv4cj104npbn" path="res://Scenes/choose_relic_label.gd" id="46_gfj8f"]
+[ext_resource type="Resource" uid="uid://dgixsxxychiu0" path="res://Items/Items/Attack/clot_of_power/clot_of_power.tres" id="46_n1krg"]
+[ext_resource type="Resource" uid="uid://bbko68jbl6dn4" path="res://Items/Items/Defense/sandwich/sandwich.tres" id="47_8qtx6"]
+[ext_resource type="Theme" uid="uid://k8guhunfqs27" path="res://UI/theme2.tres" id="47_yu1ej"]
+[ext_resource type="Resource" uid="uid://dp283ip1bdc4b" path="res://Items/Items/Special/clot_of_energy/clot_of_energy.tres" id="48_0c7y5"]
+[ext_resource type="Texture2D" uid="uid://cmr0bqhtyctuf" path="res://assets/UI/Sprite sheets/Setting menu.png" id="49_5w0f0"]
+[ext_resource type="Texture2D" uid="uid://u6r21iktl162" path="res://assets/Textures/UITextures/exitLeft.png" id="49_v1fg3"]
+[ext_resource type="Script" uid="uid://bc3ed55asfpyk" path="res://Scenes/give_up_button.gd" id="50_wrtin"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b48ew"]
 texture = ExtResource("9_jvnna")
@@ -428,8 +436,26 @@ shader_parameter/distortion = 0.0
 shader_parameter/heightOffset = 0.0
 shader_parameter/offset = 0.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tscpr"]
+bg_color = Color(0, 0, 0, 0.5)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_gfj8f"]
+font_size = 48
+font_color = Color(1, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_drdnd"]
 font_size = 48
+font_color = Color(1, 0.58383155, 0, 1)
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_so8ax"]
+script = ExtResource("46_gfj8f")
+metadata/_custom_type_script = "uid://cqv4cj104npbn"
 
 [sub_resource type="LabelSettings" id="LabelSettings_jvnna"]
 font_size = 32
@@ -439,6 +465,37 @@ font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_5cm5d"]
 font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1fg3"]
+bg_color = Color(0, 0, 0, 0.5)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrtin"]
+bg_color = Color(0.5006195, 0.5006196, 0.5006196, 0.5019608)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1fg3"]
+atlas = ExtResource("49_5w0f0")
+region = Rect2(139, 12, 106, 121)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wrtin"]
+texture = SubResource("AtlasTexture_v1fg3")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p35vf"]
 shader = ExtResource("44_2v2b7")
@@ -462,7 +519,7 @@ shader_parameter/noise_opacity = 0.10000000475
 shader_parameter/noise_speed = 0.0
 shader_parameter/static_noise_intensity = 0.0
 shader_parameter/aberration = 4.7499999933364734e-08
-shader_parameter/brightness = 1.4
+shader_parameter/brightness = 1.1
 shader_parameter/discolor = false
 shader_parameter/warp_amount = 0.0
 shader_parameter/clip_warp = false
@@ -471,18 +528,18 @@ shader_parameter/vignette_opacity = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oyb3p"]
 shader = ExtResource("15_lhp3t")
-shader_parameter/vignette_intensity = 0.75
+shader_parameter/vignette_intensity = 0.5
 shader_parameter/vignette_opacity = 1.0
 shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 
 [node name="MainScene" type="Node2D" unique_id=1110424414]
 script = ExtResource("1_maf8m")
 enemies = Array[PackedScene]([ExtResource("2_huasi"), ExtResource("2_kbbok"), ExtResource("4_2h5y0"), ExtResource("5_y0lwx")])
-relics = Array[ExtResource("6_stxua")]([ExtResource("7_37jd4"), ExtResource("8_37jd4"), ExtResource("9_gfj8f")])
+export_relics = Array[ExtResource("6_stxua")]([ExtResource("7_gfj8f"), ExtResource("8_so8ax"), ExtResource("7_37jd4")])
 
 [node name="LootManager" type="Node" parent="." unique_id=1730028833]
 script = ExtResource("1_x6ack")
-items = Array[ExtResource("13_oyb3p")]([ExtResource("5_oyb3p"), ExtResource("15_b48ew"), ExtResource("7_kbbok"), ExtResource("8_m0uwk"), ExtResource("16_8edxt"), ExtResource("10_mffef"), ExtResource("11_2h5y0"), ExtResource("12_y0lwx"), ExtResource("15_jvnna"), ExtResource("14_igw8g"), ExtResource("15_rlvbq"), ExtResource("16_2v2b7"), ExtResource("17_p35vf"), ExtResource("18_stxua"), ExtResource("19_37jd4"), ExtResource("20_gfj8f"), ExtResource("21_so8ax"), ExtResource("22_yu1ej"), ExtResource("23_5w0f0"), ExtResource("24_v1fg3"), ExtResource("25_wrtin"), ExtResource("29_rlvbq")])
+items = Array[ExtResource("13_oyb3p")]([ExtResource("5_oyb3p"), ExtResource("15_b48ew"), ExtResource("7_kbbok"), ExtResource("8_m0uwk"), ExtResource("16_8edxt"), ExtResource("10_mffef"), ExtResource("11_2h5y0"), ExtResource("12_y0lwx"), ExtResource("15_jvnna"), ExtResource("14_igw8g"), ExtResource("15_rlvbq"), ExtResource("16_2v2b7"), ExtResource("17_p35vf"), ExtResource("18_stxua"), ExtResource("19_37jd4"), ExtResource("20_gfj8f"), ExtResource("21_so8ax"), ExtResource("22_yu1ej"), ExtResource("23_5w0f0"), ExtResource("24_v1fg3"), ExtResource("25_wrtin"), ExtResource("29_rlvbq"), ExtResource("45_tscpr"), ExtResource("46_n1krg"), ExtResource("47_8qtx6"), ExtResource("48_0c7y5")])
 
 [node name="Visuals" type="Node" parent="." unique_id=1383002675]
 
@@ -517,12 +574,14 @@ collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_r0xgx")
 
 [node name="Chest2" parent="Visuals" unique_id=1295485416 instance=ExtResource("8_7ewk0")]
+visible = false
 offset_left = 87.0
 offset_top = 53.0
 offset_right = 87.0
 offset_bottom = 53.0
 
 [node name="Ray" type="ColorRect" parent="Visuals" unique_id=478208391]
+visible = false
 material = SubResource("ShaderMaterial_r0xgx")
 custom_minimum_size = Vector2(100, 160)
 offset_left = 3.0
@@ -584,9 +643,6 @@ position = Vector2(64, 56)
 [node name="Player" parent="." unique_id=673946979 instance=ExtResource("8_mai8y")]
 z_index = 1
 position = Vector2(-87, 55)
-max_health = null
-attack_skills = null
-debuffs = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=285866639]
 
@@ -594,10 +650,10 @@ debuffs = null
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_top = 53.0
-offset_bottom = 53.0
+offset_top = 131.0
+offset_bottom = 131.0
 grow_horizontal = 2
-items_resource = Array[ExtResource("13_oyb3p")]([ExtResource("14_jvnna"), ExtResource("24_v1fg3")])
+items_resource = Array[ExtResource("13_oyb3p")]([ExtResource("14_jvnna")])
 loot_manager = NodePath("../../LootManager")
 
 [node name="LootContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=459750805]
@@ -622,12 +678,6 @@ z_index = 1
 layout_mode = 2
 text = "Loot"
 horizontal_alignment = 1
-
-[node name="LootBag" parent="CanvasLayer/LootContainer" unique_id=1743470214 node_paths=PackedStringArray("loot_manager") instance=ExtResource("12_ioaeq")]
-layout_mode = 2
-items_resource = Array[ExtResource("13_oyb3p")]([null, null, null, null, null, null, null, null, null])
-loot_manager = NodePath("../../../LootManager")
-slots_num = 6
 
 [node name="ButtonContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1800156159]
 visible = false
@@ -656,15 +706,17 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -400.0
-offset_top = -350.0
-offset_bottom = 350.0
+offset_top = -324.0
+offset_bottom = 324.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tscpr")
 
 [node name="SellLabel" type="Label" parent="CanvasLayer/SellContainer" unique_id=2132205523]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Sell for"
+label_settings = SubResource("LabelSettings_gfj8f")
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1441617828]
@@ -688,13 +740,45 @@ texture = ExtResource("22_5cm5d")
 expand_mode = 2
 
 [node name="RelicsContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1654389419]
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 80.0
-offset_bottom = 80.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 48.0
+offset_right = 20.0
+offset_bottom = 88.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1418107363]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -42.0
+offset_right = 20.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChooseRelicLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer" unique_id=855091229]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[shake]Choose 1 Relic[/shake]"
+fit_content = true
+horizontal_alignment = 1
+custom_effects = [SubResource("RichTextEffect_so8ax")]
+
+[node name="RelicsContainerChoice" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=1350002453]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="CombatLayer" type="CanvasLayer" parent="." unique_id=403820658]
-visible = false
 
 [node name="EndTurnButton" type="Button" parent="CombatLayer" unique_id=1516016144]
 anchors_preset = 3
@@ -702,14 +786,15 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -212.0
-offset_top = -78.0
-offset_right = -42.0
-offset_bottom = -38.0
+offset_left = -232.0
+offset_top = -108.0
+offset_right = -62.0
+offset_bottom = -68.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("47_yu1ej")
 theme_override_font_sizes/font_size = 32
-text = "End Turn "
+text = "End Turn"
 
 [node name="TurnLabel" type="Label" parent="CombatLayer" unique_id=1598955776]
 anchors_preset = 8
@@ -731,10 +816,10 @@ label_settings = SubResource("LabelSettings_jvnna")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = -108.0
-offset_right = 130.0
-offset_bottom = -40.0
+offset_left = 60.0
+offset_top = -128.0
+offset_right = 150.0
+offset_bottom = -60.0
 grow_vertical = 0
 
 [node name="Label" type="Label" parent="CombatLayer/VBoxContainer" unique_id=317386609]
@@ -783,6 +868,31 @@ layout_mode = 2
 texture = ExtResource("22_nt2eh")
 expand_mode = 2
 
+[node name="GiveUpButton" type="Button" parent="CombatLayer" unique_id=2085810224 node_paths=PackedStringArray("player")]
+offset_left = 60.0
+offset_top = 50.0
+offset_right = 118.0
+offset_bottom = 108.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_v1fg3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wrtin")
+icon = ExtResource("49_v1fg3")
+script = ExtResource("50_wrtin")
+player = NodePath("../../Player")
+
+[node name="GiveUpDescription" type="PanelContainer" parent="CombatLayer/GiveUpButton" unique_id=1046584804]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CombatLayer/GiveUpButton/GiveUpDescription" unique_id=1900979214]
+layout_mode = 2
+text = "Give Up?
+(You'll keep
+earned gold)"
+horizontal_alignment = 1
+
 [node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=993173925]
 visible = false
 
@@ -799,6 +909,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wrtin")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameOverScreen/PanelContainer" unique_id=2086142884]
 layout_mode = 2
@@ -813,7 +924,43 @@ horizontal_alignment = 1
 
 [node name="ProceedButton" type="Button" parent="GameOverScreen/PanelContainer/VBoxContainer" unique_id=759008220]
 layout_mode = 2
+theme = ExtResource("47_yu1ej")
 text = "Continue"
+
+[node name="WinScreen" type="CanvasLayer" parent="." unique_id=494697852]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="WinScreen" unique_id=1636401406]
+custom_minimum_size = Vector2(280, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wrtin")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinScreen/PanelContainer" unique_id=2067556762]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="WinScreen/PanelContainer/VBoxContainer" unique_id=406113799]
+layout_mode = 2
+text = "
+YOU WON"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="WinScreen/PanelContainer" unique_id=1415577628]
+layout_mode = 2
+text = "Thank You For Playing!"
+horizontal_alignment = 1
 
 [node name="ShaderLayer" type="CanvasLayer" parent="." unique_id=1150912959]
 
@@ -845,4 +992,7 @@ color = Color(0, 0, 0, 0)
 [connection signal="mouse_entered" from="CanvasLayer/SellContainer" to="LootManager" method="_on_sell_container_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/SellContainer" to="LootManager" method="_on_sell_container_mouse_exited"]
 [connection signal="pressed" from="CombatLayer/EndTurnButton" to="." method="_on_end_turn_button_pressed"]
+[connection signal="mouse_entered" from="CombatLayer/GiveUpButton" to="CombatLayer/GiveUpButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CombatLayer/GiveUpButton" to="CombatLayer/GiveUpButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="CombatLayer/GiveUpButton" to="CombatLayer/GiveUpButton" method="_on_pressed"]
 [connection signal="pressed" from="GameOverScreen/PanelContainer/VBoxContainer/ProceedButton" to="." method="_on_proceed_button_pressed"]

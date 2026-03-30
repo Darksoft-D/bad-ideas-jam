@@ -2,27 +2,39 @@
 
 [ext_resource type="Script" uid="uid://ijvy25erheha" path="res://UI/Shop/shop.gd" id="1_3weqf"]
 [ext_resource type="Texture2D" uid="uid://q5pm85o1ywjo" path="res://assets/UI/shopkeeper1_.png" id="3_4qhf5"]
+[ext_resource type="Resource" uid="uid://dca2kg26qhrt4" path="res://Items/Items/Attack/chaos/chaos_item.tres" id="3_nrsue"]
 [ext_resource type="Resource" uid="uid://qnrwqokgyamf" path="res://Items/Items/Special/rock_pile/rock_pile_item.tres" id="3_qwxuk"]
 [ext_resource type="Texture2D" uid="uid://d1sun0kuatkao" path="res://assets/Tiles/Bookshelf_tiles.png" id="3_sar1i"]
 [ext_resource type="PackedScene" uid="uid://dijoj8qysu0hg" path="res://UI/Inventory/Bag/inv_ui_slot.tscn" id="4_eeyqd"]
 [ext_resource type="Resource" uid="uid://cv7bs33kmj7ms" path="res://Items/Items/Special/reinforcement/reinforcement_item.tres" id="4_kqm3c"]
 [ext_resource type="Texture2D" uid="uid://exlg5xvvsvd4" path="res://assets/Tiles/Dungeon_tiles.png" id="4_l4q0s"]
+[ext_resource type="Resource" uid="uid://cud4jm7c08ywd" path="res://Items/Items/Attack/echo_blade/echo_blade_item.tres" id="4_uxp67"]
 [ext_resource type="Resource" uid="uid://drtcvx0oqq5yd" path="res://Items/Items/Special/mirror/mirror_item.tres" id="5_rmf61"]
+[ext_resource type="Resource" uid="uid://5t3oy62yh1bv" path="res://Items/Items/Attack/fireball/fireball_item.tres" id="5_v2jej"]
+[ext_resource type="Resource" uid="uid://cspmf0cu2kedb" path="res://Items/Items/Attack/HandfulOfCoins/handful_of_coins.tres" id="6_beesa"]
 [ext_resource type="Resource" uid="uid://c553fbap6ee32" path="res://Items/Items/Special/energy_drink/energy_drink_item.tres" id="6_pmir3"]
+[ext_resource type="Resource" uid="uid://d2qc5egqivb1b" path="res://Items/Items/Attack/rage_hammer/rage_hammer_item.tres" id="7_66llt"]
 [ext_resource type="Resource" uid="uid://bw1p8hjtgb10j" path="res://Items/Items/Special/doppelganger/doppelganger_item.tres" id="7_jiwcq"]
 [ext_resource type="Resource" uid="uid://b8facth1luuiq" path="res://Items/Items/Special/ctrlc_ctrlv/ctrlc_ctrlv_item.tres" id="8_1s8vh"]
+[ext_resource type="Resource" uid="uid://cgpwtg77wrtvg" path="res://Items/Items/Attack/sword/sword_item.tres" id="8_db7xr"]
 [ext_resource type="Script" uid="uid://dah435we4cfau" path="res://Items/Items/item.gd" id="8_glx3d"]
 [ext_resource type="PackedScene" uid="uid://dlf2yju48mm4a" path="res://UI/Inventory/Bag/bag.tscn" id="8_sar1i"]
 [ext_resource type="Texture2D" uid="uid://dm6fuo1v7j1ee" path="res://assets/Tiles/taller_bookshelves_.png" id="9_6h7q6"]
 [ext_resource type="Resource" uid="uid://mi5pgt1to8qa" path="res://Items/Items/Defense/health_bag/health_bag.tres" id="9_a3not"]
-[ext_resource type="Texture2D" uid="uid://can2q6siopolc" path="res://assets/Textures/UITextures/fc160.png" id="9_l4q0s"]
+[ext_resource type="Resource" uid="uid://ufav7akgnowk" path="res://Items/Items/Attack/tween/tween_item.tres" id="9_jrv33"]
 [ext_resource type="Shader" uid="uid://c81rodqya1un7" path="res://assets/Shaders/CRTVHSEffect.gdshader" id="9_pagdw"]
 [ext_resource type="Resource" uid="uid://b6rt8pgvnr5wm" path="res://Items/Items/Defense/armor/armor_item.tres" id="9_vls7s"]
 [ext_resource type="Shader" uid="uid://dq4ja4toyo7va" path="res://assets/Shaders/vignette.gdshader" id="10_eo7k6"]
 [ext_resource type="Resource" uid="uid://co77xslb1x57c" path="res://Items/Items/Defense/cure/cure_item.tres" id="10_iwioc"]
 [ext_resource type="Resource" uid="uid://c0t46x4fjnewk" path="res://Items/Items/Defense/first_aid_kit/first_aid_kit_item.tres" id="11_nrsue"]
 [ext_resource type="Resource" uid="uid://cgpy2qtd5jdwu" path="res://Items/Items/Defense/warm_up/warm_up_item.tres" id="12_uxp67"]
+[ext_resource type="Resource" uid="uid://dp283ip1bdc4b" path="res://Items/Items/Special/clot_of_energy/clot_of_energy.tres" id="20_db7xr"]
+[ext_resource type="Resource" uid="uid://bbko68jbl6dn4" path="res://Items/Items/Defense/sandwich/sandwich.tres" id="21_jrv33"]
 [ext_resource type="Shader" uid="uid://uub6php4bhp4" path="res://assets/Shaders/fog.gdshader" id="21_kqm3c"]
+[ext_resource type="Resource" uid="uid://bbiu46tn8rxgu" path="res://Items/Items/Attack/bag_slam/bag_slam.tres" id="22_77mjg"]
+[ext_resource type="Texture2D" uid="uid://c8w2v5cigr4o2" path="res://assets/UI/Sprite sheets/UI Big Play Button.png" id="27_v2jej"]
+[ext_resource type="Theme" uid="uid://cqjw7hl6mi5ks" path="res://UI/theme1.tres" id="28_uxp67"]
+[ext_resource type="Texture2D" uid="uid://k6qhckeaycwf" path="res://assets/Textures/UITextures/fc131.png" id="28_v2jej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pagdw"]
 texture = ExtResource("3_sar1i")
@@ -260,6 +272,36 @@ region_rect = Rect2(67, 31, 45, 27)
 texture = ExtResource("3_4qhf5")
 region_rect = Rect2(111, 18, 9, 9)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2jej"]
+atlas = ExtResource("27_v2jej")
+region = Rect2(3, 2, 90, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_beesa"]
+texture = SubResource("AtlasTexture_v2jej")
+modulate_color = Color(1.0627335, 1.0627335, 1.0627335, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db7xr"]
+atlas = ExtResource("27_v2jej")
+region = Rect2(3, 2, 90, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jrv33"]
+texture = SubResource("AtlasTexture_db7xr")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beesa"]
+atlas = ExtResource("27_v2jej")
+region = Rect2(99, 4, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_77mjg"]
+texture = SubResource("AtlasTexture_beesa")
+
+[sub_resource type="Theme" id="Theme_yf13k"]
+Button/colors/font_color = Color(0.30839956, 0.3084001, 0.30839965, 1)
+Button/colors/font_hover_color = Color(0.30980393, 0.30980393, 0.30980393, 1)
+Button/colors/font_pressed_color = Color(0.30980393, 0.30980393, 0.30980393, 1)
+Button/styles/hover = SubResource("StyleBoxTexture_beesa")
+Button/styles/normal = SubResource("StyleBoxTexture_jrv33")
+Button/styles/pressed = SubResource("StyleBoxTexture_77mjg")
+
 [sub_resource type="LabelSettings" id="LabelSettings_pagdw"]
 font_size = 48
 
@@ -285,7 +327,7 @@ shader_parameter/noise_opacity = 0.10000000475
 shader_parameter/noise_speed = 0.0
 shader_parameter/static_noise_intensity = 0.0
 shader_parameter/aberration = 4.7499999933364734e-08
-shader_parameter/brightness = 1.4
+shader_parameter/brightness = 1.1
 shader_parameter/discolor = false
 shader_parameter/warp_amount = 0.0
 shader_parameter/clip_warp = false
@@ -294,7 +336,7 @@ shader_parameter/vignette_opacity = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jiwcq"]
 shader = ExtResource("10_eo7k6")
-shader_parameter/vignette_intensity = 0.75
+shader_parameter/vignette_intensity = 0.5
 shader_parameter/vignette_opacity = 1.0
 shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 
@@ -306,8 +348,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3weqf")
-items_pool = Array[ExtResource("8_glx3d")]([ExtResource("3_qwxuk"), ExtResource("4_kqm3c"), ExtResource("5_rmf61"), ExtResource("6_pmir3"), ExtResource("7_jiwcq"), ExtResource("8_1s8vh"), ExtResource("9_vls7s"), ExtResource("10_iwioc"), ExtResource("11_nrsue"), ExtResource("12_uxp67")])
-slots = [NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot2"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot3"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot4"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot5"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot6"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot7"), NodePath("PanelContainer/PanelContainer/GridContainer/InvUISlot8")]
+items_pool = Array[ExtResource("8_glx3d")]([ExtResource("3_nrsue"), ExtResource("4_uxp67"), ExtResource("5_v2jej"), ExtResource("6_beesa"), ExtResource("7_66llt"), ExtResource("8_db7xr"), ExtResource("9_jrv33"), ExtResource("9_vls7s"), ExtResource("10_iwioc"), ExtResource("11_nrsue"), ExtResource("12_uxp67"), ExtResource("8_1s8vh"), ExtResource("7_jiwcq"), ExtResource("6_pmir3"), ExtResource("5_rmf61"), ExtResource("4_kqm3c"), ExtResource("3_qwxuk"), ExtResource("20_db7xr"), ExtResource("21_jrv33"), ExtResource("22_77mjg")])
+slots = [NodePath("ItemContainer/PanelContainer/GridContainer/InvUISlot"), NodePath("ItemContainer/PanelContainer/GridContainer/InvUISlot2"), NodePath("ItemContainer/PanelContainer/GridContainer/InvUISlot3"), NodePath("ItemContainer/PanelContainer/GridContainer/InvUISlot4"), NodePath("ItemContainer/PanelContainer/GridContainer/InvUISlot5"), NodePath("ItemContainer/PanelContainer/GridContainer/InvUISlot6"), NodePath("ItemContainer/PanelContainer/GridContainer/InvUISlot7"), NodePath("ItemContainer/PanelContainer/GridContainer/InvUISlot8")]
 
 [node name="TileMapLayers" type="Node" parent="." unique_id=192648214]
 
@@ -340,7 +382,7 @@ offset_right = 613.0
 offset_bottom = 330.0
 texture = SubResource("AtlasTexture_l4q0s")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1789046689]
+[node name="ItemContainer" type="PanelContainer" parent="." unique_id=1789046689]
 custom_minimum_size = Vector2(480, 240)
 layout_mode = 1
 anchors_preset = 8
@@ -356,11 +398,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_pagdw")
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer" unique_id=85703882]
+[node name="PanelContainer" type="PanelContainer" parent="ItemContainer" unique_id=85703882]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_eo7k6")
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/PanelContainer" unique_id=1190422764]
+[node name="GridContainer" type="GridContainer" parent="ItemContainer/PanelContainer" unique_id=1190422764]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -368,69 +410,78 @@ theme_override_constants/h_separation = 36
 theme_override_constants/v_separation = 20
 columns = 4
 
-[node name="InvUISlot" parent="PanelContainer/PanelContainer/GridContainer" unique_id=1023083226 instance=ExtResource("4_eeyqd")]
+[node name="InvUISlot" parent="ItemContainer/PanelContainer/GridContainer" unique_id=1023083226 instance=ExtResource("4_eeyqd")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot" index="2" unique_id=1925016092]
+[node name="SpritePos" parent="ItemContainer/PanelContainer/GridContainer/InvUISlot" index="2" unique_id=1925016092]
 position = Vector2(30, 30)
 
-[node name="InvUISlot2" parent="PanelContainer/PanelContainer/GridContainer" unique_id=1831034052 instance=ExtResource("4_eeyqd")]
+[node name="InvUISlot2" parent="ItemContainer/PanelContainer/GridContainer" unique_id=1831034052 instance=ExtResource("4_eeyqd")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot2" index="2" unique_id=1925016092]
+[node name="SpritePos" parent="ItemContainer/PanelContainer/GridContainer/InvUISlot2" index="2" unique_id=1925016092]
 position = Vector2(30, 30)
 
-[node name="InvUISlot3" parent="PanelContainer/PanelContainer/GridContainer" unique_id=2015604986 instance=ExtResource("4_eeyqd")]
+[node name="InvUISlot3" parent="ItemContainer/PanelContainer/GridContainer" unique_id=2015604986 instance=ExtResource("4_eeyqd")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot3" index="2" unique_id=1925016092]
+[node name="SpritePos" parent="ItemContainer/PanelContainer/GridContainer/InvUISlot3" index="2" unique_id=1925016092]
 position = Vector2(30, 30)
 
-[node name="InvUISlot4" parent="PanelContainer/PanelContainer/GridContainer" unique_id=579917297 instance=ExtResource("4_eeyqd")]
+[node name="InvUISlot4" parent="ItemContainer/PanelContainer/GridContainer" unique_id=579917297 instance=ExtResource("4_eeyqd")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot4" index="2" unique_id=1925016092]
+[node name="SpritePos" parent="ItemContainer/PanelContainer/GridContainer/InvUISlot4" index="2" unique_id=1925016092]
 position = Vector2(30, 30)
 
-[node name="InvUISlot5" parent="PanelContainer/PanelContainer/GridContainer" unique_id=632363452 instance=ExtResource("4_eeyqd")]
+[node name="InvUISlot5" parent="ItemContainer/PanelContainer/GridContainer" unique_id=632363452 instance=ExtResource("4_eeyqd")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot5" index="2" unique_id=1925016092]
+[node name="SpritePos" parent="ItemContainer/PanelContainer/GridContainer/InvUISlot5" index="2" unique_id=1925016092]
 position = Vector2(30, 30)
 
-[node name="InvUISlot6" parent="PanelContainer/PanelContainer/GridContainer" unique_id=1980877058 instance=ExtResource("4_eeyqd")]
+[node name="InvUISlot6" parent="ItemContainer/PanelContainer/GridContainer" unique_id=1980877058 instance=ExtResource("4_eeyqd")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot6" index="2" unique_id=1925016092]
+[node name="SpritePos" parent="ItemContainer/PanelContainer/GridContainer/InvUISlot6" index="2" unique_id=1925016092]
 position = Vector2(30, 30)
 
-[node name="InvUISlot7" parent="PanelContainer/PanelContainer/GridContainer" unique_id=549113511 instance=ExtResource("4_eeyqd")]
+[node name="InvUISlot7" parent="ItemContainer/PanelContainer/GridContainer" unique_id=549113511 instance=ExtResource("4_eeyqd")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot7" index="2" unique_id=1925016092]
+[node name="SpritePos" parent="ItemContainer/PanelContainer/GridContainer/InvUISlot7" index="2" unique_id=1925016092]
 position = Vector2(30, 30)
 
-[node name="InvUISlot8" parent="PanelContainer/PanelContainer/GridContainer" unique_id=1527635495 instance=ExtResource("4_eeyqd")]
+[node name="InvUISlot8" parent="ItemContainer/PanelContainer/GridContainer" unique_id=1527635495 instance=ExtResource("4_eeyqd")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
 
-[node name="SpritePos" parent="PanelContainer/PanelContainer/GridContainer/InvUISlot8" index="2" unique_id=1925016092]
+[node name="SpritePos" parent="ItemContainer/PanelContainer/GridContainer/InvUISlot8" index="2" unique_id=1925016092]
 position = Vector2(30, 30)
+
+[node name="RelicsGridContainer" type="GridContainer" parent="ItemContainer/PanelContainer" unique_id=391434600]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 36
+theme_override_constants/v_separation = 20
+columns = 3
 
 [node name="Bag" parent="." unique_id=12638333 node_paths=PackedStringArray("loot_manager") instance=ExtResource("8_sar1i")]
 layout_mode = 1
@@ -459,6 +510,7 @@ offset_right = -69.0
 offset_bottom = -46.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = SubResource("Theme_yf13k")
 theme_override_font_sizes/font_size = 32
 text = "Proceed"
 
@@ -467,8 +519,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -76.0
-offset_bottom = 40.0
+offset_left = -132.0
+offset_top = 40.0
+offset_right = -53.0
+offset_bottom = 88.0
 grow_horizontal = 0
 
 [node name="GoldAmountLabel" type="Label" parent="HBoxContainer" unique_id=516385340]
@@ -478,8 +532,27 @@ label_settings = SubResource("LabelSettings_pagdw")
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1618581351]
 layout_mode = 2
-texture = ExtResource("9_l4q0s")
+texture = ExtResource("28_v2jej")
 expand_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="." unique_id=99150310]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 325.0
+offset_right = 361.0
+offset_bottom = 365.0
+
+[node name="ItemsButton" type="Button" parent="ButtonContainer" unique_id=1406835246]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme = ExtResource("28_uxp67")
+text = "Items"
+
+[node name="RelicsButton" type="Button" parent="ButtonContainer" unique_id=1829050020]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("28_uxp67")
+text = "Relics"
 
 [node name="ShaderLayer" type="CanvasLayer" parent="." unique_id=333964108]
 
@@ -508,12 +581,14 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [connection signal="pressed" from="ProceedButton" to="." method="_on_proceed_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/ItemsButton" to="." method="_on_items_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/RelicsButton" to="." method="_on_relics_button_pressed"]
 
-[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot"]
-[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot2"]
-[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot3"]
-[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot4"]
-[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot5"]
-[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot6"]
-[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot7"]
-[editable path="PanelContainer/PanelContainer/GridContainer/InvUISlot8"]
+[editable path="ItemContainer/PanelContainer/GridContainer/InvUISlot"]
+[editable path="ItemContainer/PanelContainer/GridContainer/InvUISlot2"]
+[editable path="ItemContainer/PanelContainer/GridContainer/InvUISlot3"]
+[editable path="ItemContainer/PanelContainer/GridContainer/InvUISlot4"]
+[editable path="ItemContainer/PanelContainer/GridContainer/InvUISlot5"]
+[editable path="ItemContainer/PanelContainer/GridContainer/InvUISlot6"]
+[editable path="ItemContainer/PanelContainer/GridContainer/InvUISlot7"]
+[editable path="ItemContainer/PanelContainer/GridContainer/InvUISlot8"]

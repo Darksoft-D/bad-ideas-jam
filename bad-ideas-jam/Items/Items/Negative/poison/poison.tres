@@ -9,5 +9,6 @@ name = "Poison"
 description = "Receive {damage} on the end of the turn, use it to discard"
 texture = ExtResource("3_kl37m")
 damage = 3
+item_type = 3
 temporary = true
 metadata/_custom_type_script = "uid://dah435we4cfau"

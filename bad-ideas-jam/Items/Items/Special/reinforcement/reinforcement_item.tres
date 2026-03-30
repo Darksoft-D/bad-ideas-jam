@@ -17,6 +17,7 @@ attack_items = Array[ExtResource("1_v00h7")]([ExtResource("2_rmppg"), ExtResourc
 name = "Reinforcement"
 description = "Create 3 random {attack} items"
 texture = ExtResource("2_p618x")
+cost = 15
 item_type = 2
 item_rarity = 2
 metadata/_custom_type_script = "uid://dah435we4cfau"

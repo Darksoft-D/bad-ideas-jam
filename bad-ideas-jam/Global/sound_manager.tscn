@@ -1,3 +1,75 @@
 [gd_scene format=3 uid="uid://cq7gc2ogllvhx"]
 
+[ext_resource type="Script" uid="uid://dhfivv0bnl24l" path="res://Global/sound_manager.gd" id="1_1dbh0"]
+[ext_resource type="AudioStream" uid="uid://d3si8iolsvv85" path="res://assets/Music/battle_theme_2_full_out.mp3" id="1_hecj6"]
+[ext_resource type="AudioStream" uid="uid://bxx5bbw3yxhcg" path="res://assets/Music/battle_theme_2_chill_version.mp3" id="2_h8vxm"]
+[ext_resource type="AudioStream" uid="uid://db13hol0ch5kk" path="res://assets/Music/shop_theme_ver3.mp3" id="4_rffuy"]
+[ext_resource type="AudioStream" uid="uid://bq4ty7xtjwhm3" path="res://assets/SFX/spinopel-break-the-glass-456388.mp3" id="5_0a3ih"]
+[ext_resource type="AudioStream" uid="uid://b68nmoimggun2" path="res://assets/SFX/universfield-punch-03-352040.mp3" id="6_bqi5o"]
+[ext_resource type="AudioStream" uid="uid://b4xwbpwg8xv3h" path="res://assets/SFX/universfield-creaking-door-03-487855.mp3" id="7_m5la2"]
+[ext_resource type="AudioStream" uid="uid://b3fo4gnfed2in" path="res://assets/SFX/freesound_community-item-equip-6904.mp3" id="8_m5la2"]
+[ext_resource type="AudioStream" uid="uid://bj5ms4fujymf" path="res://assets/SFX/freesound_community-item-pickup-37089.mp3" id="9_rffuy"]
+[ext_resource type="AudioStream" uid="uid://b5oqgysr6mlos" path="res://assets/SFX/lesiakower-minimalist-button-hover-sound-effect-399749.mp3" id="10_rffuy"]
+[ext_resource type="AudioStream" uid="uid://djs255wlapvnx" path="res://assets/SFX/miraclei-sample_deny_error04_kofi_by_miraclei-360158.mp3" id="11_awnhx"]
+[ext_resource type="AudioStream" uid="uid://iylgcckt3jc8" path="res://assets/SFX/freesound_community-game-over-arcade-6435.mp3" id="12_hjffp"]
+
 [node name="SoundManager" type="Node" unique_id=75524676]
+script = ExtResource("1_1dbh0")
+
+[node name="BattleTheme2Full" type="AudioStreamPlayer" parent="." unique_id=12895128]
+stream = ExtResource("1_hecj6")
+volume_db = -25.0
+bus = &"Music"
+parameters/looping = true
+
+[node name="BattleTheme2Calm" type="AudioStreamPlayer" parent="." unique_id=1540614962]
+stream = ExtResource("2_h8vxm")
+volume_db = -20.0
+bus = &"Music"
+parameters/looping = true
+
+[node name="ShopTheme" type="AudioStreamPlayer" parent="." unique_id=416793848]
+stream = ExtResource("4_rffuy")
+volume_db = -20.0
+bus = &"Music"
+parameters/looping = true
+
+[node name="ItemUsed" type="AudioStreamPlayer" parent="." unique_id=287538593]
+stream = ExtResource("5_0a3ih")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="Hit" type="AudioStreamPlayer" parent="." unique_id=2099357938]
+stream = ExtResource("6_bqi5o")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="OpenChest" type="AudioStreamPlayer" parent="." unique_id=1518579436]
+stream = ExtResource("7_m5la2")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="ItemEquip" type="AudioStreamPlayer" parent="." unique_id=59719750]
+stream = ExtResource("8_m5la2")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="ItemPickUp" type="AudioStreamPlayer" parent="." unique_id=1116012160]
+stream = ExtResource("9_rffuy")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=926920018]
+stream = ExtResource("10_rffuy")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Deny" type="AudioStreamPlayer" parent="." unique_id=1202322063]
+stream = ExtResource("11_awnhx")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="GameOver" type="AudioStreamPlayer" parent="." unique_id=1557815005]
+stream = ExtResource("12_hjffp")
+volume_db = -10.0
+bus = &"SFX"

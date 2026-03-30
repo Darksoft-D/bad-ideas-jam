@@ -9,13 +9,24 @@ font_size = 32
 font_size = 24
 
 [node name="RelicBase" type="TextureRect" unique_id=444137630]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 expand_mode = 2
 script = ExtResource("1_q1xum")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=474052315]
 visible = false
+z_index = 10
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -37,5 +48,6 @@ layout_mode = 2
 label_settings = SubResource("LabelSettings_q1xum")
 autowrap_mode = 2
 
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

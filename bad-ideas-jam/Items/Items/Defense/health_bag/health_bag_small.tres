@@ -9,5 +9,5 @@ value = 5
 name = "Health Bag"
 description = "Your Health"
 texture = ExtResource("2_1wsea")
-cost = 10
+cost = 6
 metadata/_custom_type_script = "uid://4cg17t547xbq"

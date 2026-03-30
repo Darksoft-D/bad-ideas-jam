@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3 uid="uid://clyb3jibfixti"]
+
+[ext_resource type="Script" uid="uid://bm165yk30cn3s" path="res://Items/Relics/cloak_of_life/cloak_of_life.gd" id="1_av4fy"]
+[ext_resource type="Texture2D" uid="uid://bu73txdm1e3s5" path="res://assets/Textures/RelicTextures/fc2109.png" id="2_4133a"]
+
+[resource]
+script = ExtResource("1_av4fy")
+name = "Cloak of Life"
+description = "Max health bags value is increased by 10"
+texture = ExtResource("2_4133a")
+cost = 20
+metadata/_custom_type_script = "uid://jhey672pi0cc"

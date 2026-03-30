@@ -1,13 +1,14 @@
 [gd_resource type="Resource" script_class="TweenItem" format=3 uid="uid://ufav7akgnowk"]
 
 [ext_resource type="Script" uid="uid://5mu4f31o1gig" path="res://Items/Items/Attack/tween/tween.gd" id="1_ittgl"]
-[ext_resource type="Texture2D" uid="uid://cjg6fxhhsdb2q" path="res://icon.svg" id="2_yqqcq"]
+[ext_resource type="Texture2D" uid="uid://dd6jlblknsg57" path="res://assets/Textures/ItemTextures/fb2119.png" id="2_ittgl"]
 
 [resource]
 script = ExtResource("1_ittgl")
 name = "Tween"
 description = "Deal {damage} for every tween in your bag"
-texture = ExtResource("2_yqqcq")
+texture = ExtResource("2_ittgl")
+cost = 6
 damage = 4
 item_type = 1
 metadata/_custom_type_script = "uid://dah435we4cfau"

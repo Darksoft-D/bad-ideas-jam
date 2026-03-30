@@ -1,0 +1,6 @@
+[gd_resource type="RichTextEffect" format=3 uid="uid://vxusb4tad34h"]
+
+[ext_resource type="Script" uid="uid://cqv4cj104npbn" path="res://Scenes/choose_relic_label.gd" id="1_8lk00"]
+
+[resource]
+script = ExtResource("1_8lk00")

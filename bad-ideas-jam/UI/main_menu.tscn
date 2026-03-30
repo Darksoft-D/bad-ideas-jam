@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dv4fnnxi8l2mt"]
+
+[ext_resource type="Script" uid="uid://chqafw8awo67h" path="res://UI/main_menu.gd" id="1_4cwpn"]
+[ext_resource type="Texture2D" uid="uid://bbixfxe5hfup6" path="res://assets/Tiles/orig_big.png" id="1_d8nwk"]
+[ext_resource type="Theme" uid="uid://k8guhunfqs27" path="res://UI/theme2.tres" id="2_4cwpn"]
+[ext_resource type="FontFile" uid="uid://bs84fu6fpsg42" path="res://assets/Fonts/KiwiSoda.ttf" id="3_f40uw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ctay"]
+font_size = 64
+
+[node name="MainMenu" type="Control" unique_id=1374213355]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4cwpn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1508919650]
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_d8nwk")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1040516664]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.5)
+
+[node name="Label" type="Label" parent="." unique_id=1962143246]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 189.0
+offset_right = 796.0
+offset_bottom = 253.0
+theme_override_fonts/font = ExtResource("3_f40uw")
+text = "Outside The Bag"
+label_settings = SubResource("LabelSettings_8ctay")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1749101443]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -26.0
+offset_right = 220.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=1711370238]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+theme = ExtResource("2_4cwpn")
+theme_override_font_sizes/font_size = 48
+text = "Start"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=527408954]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+theme = ExtResource("2_4cwpn")
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[connection signal="mouse_entered" from="VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/StartButton" to="." method="_on_start_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

@@ -3,10 +3,13 @@ class_name Player
 
 @onready var bag_sprite: Sprite2D = $BagSprite
 
+const HEALTH_BAG = preload("uid://mi5pgt1to8qa")
+
 var health_bags: Array[HealthBag]
 var min_bag: HealthBag
 var resistance: float = 1.0
 var reflect = false
+var death_ring = false
 var sender
 var total_health = 0
 
@@ -32,10 +35,10 @@ func get_total_health() -> int:
 func take_damage(damage: int, attacker: Entity = null):
 	sender = attacker
 	if sender and reflect:
-		print("Reflect")
 		sender.take_damage(damage, self)
 		reflect = false
 		return
+	SoundManager.hit.play()
 	damage *= resistance
 	if health_bags.is_empty():
 		died.emit()
@@ -44,7 +47,7 @@ func take_damage(damage: int, attacker: Entity = null):
 	if health_bags.size() > 1:
 		for i in range(health_bags.size()):
 			if health_bags[i].value < min_bag.value:
-				min_bag = health_bags[i]
+				min_bag = health_bags[i] 
 	print(min_bag)
 	min_bag.destroyed.connect(Callable(self, "on_health_bag_destroyed"))
 	min_bag.take_damage(damage)
@@ -56,6 +59,14 @@ func take_damage(damage: int, attacker: Entity = null):
 	took_damage.emit()
 
 func on_health_bag_destroyed():
+	print("Health bags size ", health_bags.size())
+	if health_bags.size() == 1 and death_ring:
+		print("Death Ring")
+		var health_bag = HEALTH_BAG.duplicate()
+		health_bag.value = 5
+		scene.insert_item(health_bag)
+		death_ring = false
+		return
 	health_bags.erase(min_bag)
 	min_bag.destroyed.disconnect(on_health_bag_destroyed)
 	if health_bags.size() <= 0:

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3 uid="uid://dq8aisicrm126"]
+
+[ext_resource type="Script" uid="uid://cuhm337v88h5x" path="res://Items/Relics/life_steal/life_steal.gd" id="1_o08wj"]
+[ext_resource type="Texture2D" uid="uid://b2i3lk8xje135" path="res://assets/Textures/RelicTextures/fc2171.png" id="2_s87lt"]
+
+[resource]
+script = ExtResource("1_o08wj")
+name = "Life Steal"
+description = "When enemy is defeated, increase max health bags value by 5"
+texture = ExtResource("2_s87lt")
+cost = 20
+metadata/_custom_type_script = "uid://jhey672pi0cc"

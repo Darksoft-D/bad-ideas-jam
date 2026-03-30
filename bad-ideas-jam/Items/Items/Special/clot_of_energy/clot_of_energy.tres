@@ -1,0 +1,16 @@
+[gd_resource type="Resource" format=3 uid="uid://dp283ip1bdc4b"]
+
+[ext_resource type="Script" uid="uid://cx2uc1qatplbc" path="res://Items/Items/Special/clot_of_energy/clot_of_energy.gd" id="1_yu7u8"]
+[ext_resource type="Resource" uid="uid://pa01ljhy5el5" path="res://Items/Effects/Free/free_effect.tres" id="2_bd7fa"]
+[ext_resource type="Texture2D" uid="uid://cnj8gqoouofm7" path="res://assets/Textures/ItemTextures/fb596.png" id="3_vxnh8"]
+
+[resource]
+script = ExtResource("1_yu7u8")
+name = "Clot of Energy"
+description = "Gain additional turn"
+texture = ExtResource("3_vxnh8")
+start_effect = ExtResource("2_bd7fa")
+cost = 15
+item_type = 2
+item_rarity = 2
+metadata/_custom_type_script = "uid://dah435we4cfau"

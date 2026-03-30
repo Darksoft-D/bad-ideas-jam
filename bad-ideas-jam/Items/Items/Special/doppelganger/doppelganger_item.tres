@@ -1,13 +1,14 @@
 [gd_resource type="Resource" script_class="Doppelganger" format=3 uid="uid://bw1p8hjtgb10j"]
 
 [ext_resource type="Script" uid="uid://dcip75uedsnes" path="res://Items/Items/Special/doppelganger/doppelganger.gd" id="1_yv7kd"]
-[ext_resource type="Texture2D" uid="uid://cjg6fxhhsdb2q" path="res://icon.svg" id="2_xtlco"]
+[ext_resource type="Texture2D" uid="uid://0tk2cguvv2vq" path="res://assets/Textures/ItemTextures/fb10.png" id="2_yv7kd"]
 
 [resource]
 script = ExtResource("1_yv7kd")
-name = "Doppelganger"
-description = "Copies the ability of the last used item"
-texture = ExtResource("2_xtlco")
+name = "Save File"
+description = "Applies the ability of the last used item"
+texture = ExtResource("2_yv7kd")
+cost = 10
 item_type = 2
 item_rarity = 1
 metadata/_custom_type_script = "uid://dah435we4cfau"

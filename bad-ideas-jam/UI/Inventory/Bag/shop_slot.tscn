@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dtf8h637pofro"]
+
+[ext_resource type="PackedScene" uid="uid://dijoj8qysu0hg" path="res://UI/Inventory/Bag/inv_ui_slot.tscn" id="1_e4jim"]
+[ext_resource type="Texture2D" uid="uid://q5pm85o1ywjo" path="res://assets/UI/shopkeeper1_.png" id="2_5du42"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_glx3d"]
+texture = ExtResource("2_5du42")
+region_rect = Rect2(111, 18, 9, 9)
+
+[node name="ShopSlot" unique_id=1023083226 instance=ExtResource("1_e4jim")]
+custom_minimum_size = Vector2(60, 60)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_glx3d")
+
+[node name="CenterContainer" parent="." index="0" unique_id=1807234616]
+custom_minimum_size = Vector2(40, 40)
+
+[node name="SpritePos" parent="." index="2" unique_id=1925016092]
+position = Vector2(30, 30)

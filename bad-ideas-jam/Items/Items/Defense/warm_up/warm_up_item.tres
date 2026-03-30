@@ -10,5 +10,6 @@ name = "Warm Up"
 description = "Apply {strength} to 3 random {attack} items"
 texture = ExtResource("3_h55le")
 effect = ExtResource("1_a10k3")
+cost = 12
 item_rarity = 1
 metadata/_custom_type_script = "uid://dah435we4cfau"

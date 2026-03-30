@@ -1,4 +1,4 @@
 extends InvItem
 
 func _use():
-	sender.reflect = true
+	scene.player.reflect = true

@@ -2,14 +2,15 @@
 
 [ext_resource type="Resource" uid="uid://pa01ljhy5el5" path="res://Items/Effects/Free/free_effect.tres" id="1_kxmsd"]
 [ext_resource type="Script" uid="uid://cnq140g050gn3" path="res://Items/Items/Special/energy_drink/energy_drink.gd" id="2_c3don"]
-[ext_resource type="Texture2D" uid="uid://cjgtgurt7msbi" path="res://assets/Textures/ItemTextures/fb286.png" id="3_y61dd"]
+[ext_resource type="Texture2D" uid="uid://ngh1ov5ch5r0" path="res://assets/Textures/ItemTextures/fb529.png" id="3_kxmsd"]
 
 [resource]
 script = ExtResource("2_c3don")
-name = "Energy Drink"
+name = "Hot Coffee"
 description = "Apply {free} to 2 random items"
-texture = ExtResource("3_y61dd")
+texture = ExtResource("3_kxmsd")
 effect = ExtResource("1_kxmsd")
+cost = 10
 item_type = 2
 item_rarity = 1
 metadata/_custom_type_script = "uid://dah435we4cfau"

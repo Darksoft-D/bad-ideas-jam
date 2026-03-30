@@ -8,4 +8,5 @@ script = ExtResource("1_brvo8")
 name = "Medal of Power"
 description = "If Attack item is created during combat, apply strength to it"
 texture = ExtResource("2_025hj")
+cost = 25
 metadata/_custom_type_script = "uid://jhey672pi0cc"

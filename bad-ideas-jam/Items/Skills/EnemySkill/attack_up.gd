@@ -1,4 +1,5 @@
 extends Skill
+class_name AttackUp
 
 @export var texture: Texture2D
 

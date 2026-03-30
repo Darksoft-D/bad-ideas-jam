@@ -8,6 +8,7 @@ script = ExtResource("1_tx6y1")
 name = "Mirror"
 description = "Reflect next enemy attack"
 texture = ExtResource("2_1j1ns")
+cost = 15
 item_type = 2
 item_rarity = 2
 metadata/_custom_type_script = "uid://dah435we4cfau"

@@ -8,6 +8,7 @@ script = ExtResource("1_17w6d")
 name = "Rage Hammer"
 description = "Deal {damage} if every other item in the bag except {health_bag} is {attack}"
 texture = ExtResource("2_d2cfa")
+cost = 8
 damage = 10
 item_type = 1
 item_rarity = 1

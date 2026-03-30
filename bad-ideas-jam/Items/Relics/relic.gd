@@ -4,6 +4,7 @@ class_name Relic
 @export var name: String
 @export var description: String
 @export var texture: Texture2D
+@export var cost: int
 
 var scene: Stage
 
@@ -13,6 +14,12 @@ func assign(get_scene: Stage):
 
 func apply():
 	_apply()
+
+func combat_start():
+	_combat_start()
+
+func _combat_start():
+	pass
 
 func _apply():
 	pass
