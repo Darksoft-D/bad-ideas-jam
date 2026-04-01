@@ -18,6 +18,7 @@ signal pressed(item_ui: ItemUI, slot: InvSlot)
 signal released(item_ui: ItemUI, slot: InvSlot)
 signal gain_health(item_ui: ItemUI)
 signal relic_buy(relic: Relic, slot: InvSlot)
+signal upgrade_buy(slot: InvSlot)
 
 var item_ui: ItemUI
 var relic: Relic
@@ -29,6 +30,8 @@ var is_selected = false
 var is_dragging = false
 var on_sell = false
 var loot_slot = false
+var show_descriptions = false
+var is_upgrade = false
 var generated = true
 var current_state = state.DEFAULT
 var last_state
@@ -55,6 +58,8 @@ func _input(event: InputEvent) -> void:
 		print("Relic buy")
 		relic_buy.emit(relic, self)
 		relic_bought = true
+	elif is_selected and event.is_action_pressed("Drag") and is_upgrade:
+		upgrade_buy.emit(self)
 	elif is_selected and event.is_action_pressed("RightClick"):
 		if !on_sell:
 			if Global.shown_sell_container:

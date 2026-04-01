@@ -1,13 +1,13 @@
 [gd_resource type="Resource" format=3 uid="uid://cru21ttiunma0"]
 
 [ext_resource type="Script" uid="uid://lupq8owqy6uf" path="res://Items/Items/Special/golden_bag/golden_bag.gd" id="1_chkt7"]
-[ext_resource type="Texture2D" uid="uid://dpnyxjqpml62g" path="res://assets/Textures/ItemTextures/fb158.png" id="2_47fq4"]
+[ext_resource type="Texture2D" uid="uid://de6b6uudkrbjo" path="res://assets/Textures/ItemTextures/fb151.png" id="2_chkt7"]
 
 [resource]
 script = ExtResource("1_chkt7")
-name = "Golden Bag"
+name = "Golden Pile"
 description = "Gain 1-20 {gold}"
-texture = ExtResource("2_47fq4")
+texture = ExtResource("2_chkt7")
 cost = 10
 item_type = 2
 metadata/_custom_type_script = "uid://dah435we4cfau"

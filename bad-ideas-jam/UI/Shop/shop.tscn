@@ -33,8 +33,12 @@
 [ext_resource type="Shader" uid="uid://uub6php4bhp4" path="res://assets/Shaders/fog.gdshader" id="21_kqm3c"]
 [ext_resource type="Resource" uid="uid://bbiu46tn8rxgu" path="res://Items/Items/Attack/bag_slam/bag_slam.tres" id="22_77mjg"]
 [ext_resource type="Texture2D" uid="uid://c8w2v5cigr4o2" path="res://assets/UI/Sprite sheets/UI Big Play Button.png" id="27_v2jej"]
+[ext_resource type="PackedScene" uid="uid://dtf8h637pofro" path="res://UI/Inventory/Bag/shop_slot.tscn" id="28_m0puj"]
 [ext_resource type="Theme" uid="uid://cqjw7hl6mi5ks" path="res://UI/theme1.tres" id="28_uxp67"]
 [ext_resource type="Texture2D" uid="uid://k6qhckeaycwf" path="res://assets/Textures/UITextures/fc131.png" id="28_v2jej"]
+[ext_resource type="Texture2D" uid="uid://drdet1elqc67l" path="res://assets/Textures/fb611.png" id="29_0dhvp"]
+[ext_resource type="Texture2D" uid="uid://bsas2fky7fvcc" path="res://assets/Textures/fb158.png" id="30_vwiti"]
+[ext_resource type="Texture2D" uid="uid://d3q78r7ievxco" path="res://assets/Textures/fb612.png" id="31_b8xfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pagdw"]
 texture = ExtResource("3_sar1i")
@@ -305,6 +309,34 @@ Button/styles/pressed = SubResource("StyleBoxTexture_77mjg")
 [sub_resource type="LabelSettings" id="LabelSettings_pagdw"]
 font_size = 48
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_db7xr"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="Gradient" id="Gradient_jrv33"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vggli"]
+gradient = SubResource("Gradient_jrv33")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_77mjg"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(140, 100, 100)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+angular_velocity_min = 0.0999839
+angular_velocity_max = 0.4999839
+gravity = Vector3(0, 0, 0)
+damping_min = 0.1
+damping_max = 0.3
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_vggli")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rmf61"]
 shader = ExtResource("21_kqm3c")
 shader_parameter/density = 0.050000002375
@@ -336,7 +368,7 @@ shader_parameter/vignette_opacity = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jiwcq"]
 shader = ExtResource("10_eo7k6")
-shader_parameter/vignette_intensity = 0.5
+shader_parameter/vignette_intensity = 0.3
 shader_parameter/vignette_opacity = 1.0
 shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 
@@ -483,6 +515,132 @@ theme_override_constants/h_separation = 36
 theme_override_constants/v_separation = 20
 columns = 3
 
+[node name="UpgradesGridContainer" type="GridContainer" parent="ItemContainer/PanelContainer" unique_id=82777285]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 24
+columns = 3
+
+[node name="HealthUpgrade" parent="ItemContainer/PanelContainer/UpgradesGridContainer" unique_id=1052553080 instance=ExtResource("28_m0puj")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ItemContainer/PanelContainer/UpgradesGridContainer/HealthUpgrade" unique_id=1539224543]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_0dhvp")
+
+[node name="HealthUpDescription" type="PanelContainer" parent="ItemContainer/PanelContainer/UpgradesGridContainer/HealthUpgrade/TextureRect" unique_id=1958182688]
+visible = false
+layout_mode = 0
+offset_left = 49.0
+offset_right = 121.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ItemContainer/PanelContainer/UpgradesGridContainer/HealthUpgrade/TextureRect/HealthUpDescription" unique_id=1674618302]
+z_index = 1
+layout_mode = 2
+text = "Increase Your start health
+bags value by 10"
+
+[node name="Label" type="Label" parent="ItemContainer/PanelContainer/UpgradesGridContainer/HealthUpgrade/TextureRect" unique_id=85319553]
+layout_mode = 0
+offset_top = 52.0
+offset_right = 40.0
+offset_bottom = 68.0
+text = "50"
+horizontal_alignment = 1
+
+[node name="BagSizeUpgrade" parent="ItemContainer/PanelContainer/UpgradesGridContainer" unique_id=877278922 instance=ExtResource("28_m0puj")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ItemContainer/PanelContainer/UpgradesGridContainer/BagSizeUpgrade" unique_id=1358898732]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("30_vwiti")
+
+[node name="BagUpDescription" type="PanelContainer" parent="ItemContainer/PanelContainer/UpgradesGridContainer/BagSizeUpgrade/TextureRect" unique_id=176530760]
+visible = false
+layout_mode = 0
+offset_left = 49.0
+offset_right = 121.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ItemContainer/PanelContainer/UpgradesGridContainer/BagSizeUpgrade/TextureRect/BagUpDescription" unique_id=1339082307]
+z_index = 1
+layout_mode = 2
+text = "Increase Bag size by 3"
+
+[node name="Label2" type="Label" parent="ItemContainer/PanelContainer/UpgradesGridContainer/BagSizeUpgrade/TextureRect" unique_id=1056647087]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 52.0
+offset_right = 41.0
+offset_bottom = 68.0
+text = "50"
+horizontal_alignment = 1
+
+[node name="RelicsSizeUpgrade" parent="ItemContainer/PanelContainer/UpgradesGridContainer" unique_id=1497975492 instance=ExtResource("28_m0puj")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ItemContainer/PanelContainer/UpgradesGridContainer/RelicsSizeUpgrade" unique_id=72427508]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("31_b8xfn")
+
+[node name="RelicUpDescription" type="PanelContainer" parent="ItemContainer/PanelContainer/UpgradesGridContainer/RelicsSizeUpgrade/TextureRect" unique_id=1048811389]
+visible = false
+layout_mode = 0
+offset_left = 49.0
+offset_right = 121.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ItemContainer/PanelContainer/UpgradesGridContainer/RelicsSizeUpgrade/TextureRect/RelicUpDescription" unique_id=1069129454]
+z_index = 1
+layout_mode = 2
+text = "Increase the amount of relics
+you can choose by 1"
+
+[node name="Label3" type="Label" parent="ItemContainer/PanelContainer/UpgradesGridContainer/RelicsSizeUpgrade/TextureRect" unique_id=1128240077]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 52.0
+offset_right = 43.0
+offset_bottom = 68.0
+text = "50"
+horizontal_alignment = 1
+
 [node name="Bag" parent="." unique_id=12638333 node_paths=PackedStringArray("loot_manager") instance=ExtResource("8_sar1i")]
 layout_mode = 1
 anchors_preset = 7
@@ -554,6 +712,60 @@ layout_mode = 2
 theme = ExtResource("28_uxp67")
 text = "Relics"
 
+[node name="UpgradesButton" type="Button" parent="ButtonContainer" unique_id=758985419]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("28_uxp67")
+text = "Upgrades"
+
+[node name="BlockRect" type="ColorRect" parent="." unique_id=719580472]
+visible = false
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.3)
+
+[node name="TutorialContainer" type="PanelContainer" parent="." unique_id=621564657]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialContainer" unique_id=283496535]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TutorialContainer/VBoxContainer" unique_id=273441535]
+layout_mode = 2
+text = "Welcome to the Shop!
+Here You can buy items for your next run
+Relics that you'll be able to choose 
+at the start of every run
+And permanent upgrades"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="TutorialContainer/VBoxContainer" unique_id=1539999867]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_db7xr")
+text = "OK!"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2071238234]
+position = Vector2(587, 345)
+scale = Vector2(4, 4)
+amount = 500
+lifetime = 8.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_77mjg")
+
 [node name="ShaderLayer" type="CanvasLayer" parent="." unique_id=333964108]
 
 [node name="Fog" type="ColorRect" parent="ShaderLayer" unique_id=1917130483]
@@ -580,9 +792,20 @@ offset_bottom = 648.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
+[connection signal="mouse_entered" from="ItemContainer/PanelContainer/UpgradesGridContainer/HealthUpgrade" to="." method="_on_health_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="ItemContainer/PanelContainer/UpgradesGridContainer/HealthUpgrade" to="." method="_on_health_upgrade_mouse_exited"]
+[connection signal="upgrade_buy" from="ItemContainer/PanelContainer/UpgradesGridContainer/HealthUpgrade" to="." method="_on_health_upgrade_upgrade_buy"]
+[connection signal="mouse_entered" from="ItemContainer/PanelContainer/UpgradesGridContainer/BagSizeUpgrade" to="." method="_on_bag_size_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="ItemContainer/PanelContainer/UpgradesGridContainer/BagSizeUpgrade" to="." method="_on_bag_size_upgrade_mouse_exited"]
+[connection signal="upgrade_buy" from="ItemContainer/PanelContainer/UpgradesGridContainer/BagSizeUpgrade" to="." method="_on_bag_size_upgrade_upgrade_buy"]
+[connection signal="mouse_entered" from="ItemContainer/PanelContainer/UpgradesGridContainer/RelicsSizeUpgrade" to="." method="_on_relics_size_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="ItemContainer/PanelContainer/UpgradesGridContainer/RelicsSizeUpgrade" to="." method="_on_relics_size_upgrade_mouse_exited"]
+[connection signal="upgrade_buy" from="ItemContainer/PanelContainer/UpgradesGridContainer/RelicsSizeUpgrade" to="." method="_on_relics_size_upgrade_upgrade_buy"]
 [connection signal="pressed" from="ProceedButton" to="." method="_on_proceed_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/ItemsButton" to="." method="_on_items_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/RelicsButton" to="." method="_on_relics_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/UpgradesButton" to="." method="_on_upgrades_button_pressed"]
+[connection signal="pressed" from="TutorialContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 
 [editable path="ItemContainer/PanelContainer/GridContainer/InvUISlot"]
 [editable path="ItemContainer/PanelContainer/GridContainer/InvUISlot2"]

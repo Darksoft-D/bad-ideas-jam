@@ -26,6 +26,13 @@ class_name Stage
 @onready var choose_relic_label: RichTextLabel = $CanvasLayer/VBoxContainer/ChooseRelicLabel
 @onready var relics_choice: HBoxContainer = $CanvasLayer/VBoxContainer/RelicsContainerChoice
 @onready var win_screen: CanvasLayer = $WinScreen
+@onready var drag_tutorial: PanelContainer = $TutorialLayer/DragTutorial
+@onready var use_tutorial: PanelContainer = $TutorialLayer/UseTutorial
+@onready var mouse_sprite: Sprite2D = $Visuals/MouseSprite
+@onready var turns_tutorial: PanelContainer = $TutorialLayer/TurnsTutorial
+@onready var give_up_tutorial: PanelContainer = $TutorialLayer/GiveUpTutorial
+@onready var block_rect: ColorRect = $TutorialLayer/BlockRect
+@onready var settings: Control = $Settings/Settings
 
 const RELIC_BASE = preload("uid://d3g2oexu73d2s")
 const STRENGTH_EFFECT = preload("uid://ctx3y68dk30rd")
@@ -40,8 +47,14 @@ var is_enemy_moving = false
 var medal_of_power = false
 var gold_amount: int = 0
 var relics: Array[Relic] = []
+var drag_tutorial_shown = false
+var give_up_tutorial_shown = false
+var settings_shown = false
+var relic_num = 0
+var relic_bases = []
 
 func _ready() -> void:
+	fade_from_black()
 	SoundManager.play_calm()
 	for slot in bag.slots:
 		slot.gain_health.connect(Callable(self, "gain_health"))
@@ -68,15 +81,34 @@ func _ready() -> void:
 	player.took_damage.connect(Callable(self, "update_health"))
 	player.scene = self
 	chest_2.chest_opened.connect(func():
+		mouse_sprite.hide()
+		if Global.is_tutorial and !drag_tutorial_shown:
+			drag_tutorial.show()
+			drag_tutorial_shown = true
+			block_rect.show()
 		loot_manager.generate_loot())
-	loot()
-
+	combat_layer.hide()
+	settings.close.connect(func():
+		settings.hide()
+		block_rect.hide())
+	
 func _process(delta: float) -> void:
 	if is_enemy_moving:
 		var canvas_pos = enemy_pos.get_global_transform_with_canvas().origin
 		enemy_health_container.global_position = canvas_pos + Vector2(-30, -80)
+	if Input.is_action_just_pressed("Menu"):
+		if !settings_shown:
+			settings.show()
+			block_rect.show()
+			settings_shown = true
+		else:
+			settings.hide()
+			block_rect.hide()
+			settings_shown = false
 
 func assign_relics():
+	if Global.relics_size == 2:
+		choose_relic_label.text = "Choose 2 Relics"
 	for relic in Global.owned_relics:
 		export_relics.append(relic)
 	chest_2.control.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -85,17 +117,24 @@ func assign_relics():
 		relics_choice.add_child(relic_base)
 		relic_base.assign_relic(relic_scene)
 		relic_base.chosen.connect(Callable(self, "assign_relic"))
+		relic_scene.relic_base = relic_base
 
 func assign_relic(relic: Relic):
 	print("Relic Chosen")
+	SoundManager.item_equip.play()
 	chest_2.control.mouse_filter = Control.MOUSE_FILTER_STOP
-	relics_choice.queue_free()
-	choose_relic_label.queue_free()
 	var relic_base = RELIC_BASE.instantiate()
 	relics_container.add_child(relic_base)
 	relic_base.assign_relic(relic)
 	relics.append(relic)
-	await relic.assign(self)
+	relic_num += 1
+	if relic_num == Global.relics_size:
+		relics_choice.queue_free()
+		choose_relic_label.queue_free()
+		await relic.assign(self)
+		loot()
+	else:
+		relic.relic_base.queue_free()
 
 func gain_health(health_ui: ItemUI):
 	player.health_bags.append(health_ui.item)
@@ -113,6 +152,7 @@ func loot():
 	combat_layer.hide()
 	ray.show()
 	chest_2.show()
+	mouse_sprite.show()
 	chest_2.disabled = false
 	chest_2.animated_sprite_2d.play("default")
 
@@ -140,6 +180,10 @@ func enemy_turn():
 	await attack_anim()
 	enemy.attack()
 	await return_anim()
+	if Global.is_tutorial and !give_up_tutorial_shown:
+		give_up_tutorial.show()
+		give_up_tutorial_shown = true
+		block_rect.show()
 
 func insert_item(item_resource: InvItem):
 	var empty_slot = loot_manager.bag.get_empty_slot()
@@ -166,6 +210,13 @@ func spawn_enemy():
 	for relic in relics:
 		relic.combat_start()
 	player_turn()
+	if enemies_defeated == 0 and Global.is_tutorial:
+		use_tutorial.show()
+		block_rect.show()
+	if enemies_defeated == 3:
+		SoundManager.battle_theme_2_calm.stop()
+		SoundManager.battle_theme_2_full.stop()
+		SoundManager.play_boss_full()
 
 func on_enemy_died():
 	enemy_died.emit()
@@ -178,11 +229,12 @@ func on_enemy_died():
 		win_screen.show()
 		chest_2.queue_free()
 		ray.queue_free()
+		SoundManager.play_boss_calm()
 		return
 	loot_manager.generate_loot()
 	for slot in loot_manager.bag.slots:
 		if slot.item_ui and slot.item_ui.item.temporary:
-			slot.unassign_item()
+			bag.remove_item(slot.item_ui)
 
 func on_player_died():
 	combat_layer.hide()
@@ -194,6 +246,8 @@ func on_player_died():
 	SoundManager.game_over.play()
 
 func attack_anim():
+	if !enemy:
+		return
 	var tween = get_tree().create_tween()
 	tween.tween_property(enemy, "global_position", enemy_attack_pos.global_position, 0.2).set_ease(Tween.EASE_OUT)
 	tween.parallel().tween_property(enemy_health_container, "global_position", 
@@ -202,6 +256,8 @@ func attack_anim():
 	tween.kill()
 
 func return_anim():
+	if !enemy:
+		return
 	var tween = get_tree().create_tween()
 	tween.tween_property(enemy, "global_position", enemy_pos.global_position, 0.2).set_ease(Tween.EASE_IN)
 	tween.parallel().tween_property(enemy_health_container, "global_position", 
@@ -229,7 +285,7 @@ func fade_to_black():
 
 func fade_from_black():
 	var tween = get_tree().create_tween()
-	tween.tween_property($ShaderLayer/Vignette, "material:shader_parameter/vignette_intensity", 0.5, 0.5).set_ease(Tween.EASE_IN)
+	tween.tween_property($ShaderLayer/Vignette, "material:shader_parameter/vignette_intensity", 0.3, 0.5).set_ease(Tween.EASE_IN)
 
 func _on_end_turn_button_pressed() -> void:
 	if !is_player_turn:
@@ -241,4 +297,25 @@ func _on_end_turn_button_pressed() -> void:
 		enemy_turn()
 
 func _on_proceed_button_pressed() -> void:
+	await fade_to_black()
 	get_tree().change_scene_to_file("res://UI/Shop/shop.tscn")
+
+func _on_drag_tutorial_close_pressed() -> void:
+	SoundManager.pressed.play()
+	drag_tutorial.hide()
+	block_rect.hide()
+
+func _on_use_tutorial_close_pressed() -> void:
+	SoundManager.pressed.play()
+	use_tutorial.hide()
+	block_rect.hide()
+
+func _on_turns_tutorial_close_pressed() -> void:
+	SoundManager.pressed.play()
+	turns_tutorial.hide()
+	block_rect.hide()
+
+func _on_give_up_tutorial_close_pressed() -> void:
+	SoundManager.pressed.play()
+	give_up_tutorial.hide()
+	block_rect.hide()

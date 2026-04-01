@@ -50,14 +50,17 @@
 [ext_resource type="Texture2D" uid="uid://dj713yd0e5stp" path="res://assets/Tiles/48x48 trees.png" id="36_rlvbq"]
 [ext_resource type="Shader" uid="uid://uub6php4bhp4" path="res://assets/Shaders/fog.gdshader" id="44_2v2b7"]
 [ext_resource type="Resource" uid="uid://bbiu46tn8rxgu" path="res://Items/Items/Attack/bag_slam/bag_slam.tres" id="45_tscpr"]
+[ext_resource type="Texture2D" uid="uid://mm65uamdf05i" path="res://assets/UI/Sprite sheets/Mouse sprites/Triangle Mouse icon 1.png" id="46_0c7y5"]
 [ext_resource type="Script" uid="uid://cqv4cj104npbn" path="res://Scenes/choose_relic_label.gd" id="46_gfj8f"]
 [ext_resource type="Resource" uid="uid://dgixsxxychiu0" path="res://Items/Items/Attack/clot_of_power/clot_of_power.tres" id="46_n1krg"]
+[ext_resource type="Script" uid="uid://cfq5eyaq4k42n" path="res://Scenes/mouse_sprite.gd" id="47_4d4va"]
 [ext_resource type="Resource" uid="uid://bbko68jbl6dn4" path="res://Items/Items/Defense/sandwich/sandwich.tres" id="47_8qtx6"]
 [ext_resource type="Theme" uid="uid://k8guhunfqs27" path="res://UI/theme2.tres" id="47_yu1ej"]
 [ext_resource type="Resource" uid="uid://dp283ip1bdc4b" path="res://Items/Items/Special/clot_of_energy/clot_of_energy.tres" id="48_0c7y5"]
 [ext_resource type="Texture2D" uid="uid://cmr0bqhtyctuf" path="res://assets/UI/Sprite sheets/Setting menu.png" id="49_5w0f0"]
 [ext_resource type="Texture2D" uid="uid://u6r21iktl162" path="res://assets/Textures/UITextures/exitLeft.png" id="49_v1fg3"]
 [ext_resource type="Script" uid="uid://bc3ed55asfpyk" path="res://Scenes/give_up_button.gd" id="50_wrtin"]
+[ext_resource type="PackedScene" uid="uid://cgkw6vyhdegq0" path="res://UI/settings.tscn" id="58_0c7y5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b48ew"]
 texture = ExtResource("9_jvnna")
@@ -389,7 +392,7 @@ fill_to = Vector2(0.5, 1.5)
 [sub_resource type="Gradient" id="Gradient_mplvr"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_vggli"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tscpr"]
 gradient = SubResource("Gradient_mplvr")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r0xgx"]
@@ -406,7 +409,7 @@ damping_min = 0.1
 damping_max = 0.3
 scale_min = 0.29999998
 scale_max = 0.7
-color_ramp = SubResource("GradientTexture1D_vggli")
+color_ramp = SubResource("GradientTexture1D_tscpr")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r0xgx"]
 shader = ExtResource("27_vggli")
@@ -497,6 +500,19 @@ region = Rect2(139, 12, 106, 121)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wrtin"]
 texture = SubResource("AtlasTexture_v1fg3")
 
+[sub_resource type="LabelSettings" id="LabelSettings_0c7y5"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_tscpr"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1krg"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p35vf"]
 shader = ExtResource("44_2v2b7")
 shader_parameter/density = 0.050000002375
@@ -528,7 +544,7 @@ shader_parameter/vignette_opacity = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oyb3p"]
 shader = ExtResource("15_lhp3t")
-shader_parameter/vignette_intensity = 0.5
+shader_parameter/vignette_intensity = 0.3
 shader_parameter/vignette_opacity = 1.0
 shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 
@@ -629,6 +645,13 @@ scale = Vector2(2, 2)
 texture = ExtResource("36_rlvbq")
 region_enabled = true
 region_rect = Rect2(144, 0, 48, 16)
+
+[node name="MouseSprite" type="Sprite2D" parent="Visuals" unique_id=2059413252]
+visible = false
+position = Vector2(97, 66)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("46_0c7y5")
+script = ExtResource("47_4d4va")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2053579534]
 position = Vector2(0, 7)
@@ -962,6 +985,176 @@ layout_mode = 2
 text = "Thank You For Playing!"
 horizontal_alignment = 1
 
+[node name="TutorialLayer" type="CanvasLayer" parent="." unique_id=2117360184]
+
+[node name="BlockRect" type="ColorRect" parent="TutorialLayer" unique_id=1463523563]
+visible = false
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.3)
+
+[node name="DragTutorial" type="PanelContainer" parent="TutorialLayer" unique_id=111729337]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialLayer/DragTutorial" unique_id=2075938826]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="TutorialLayer/DragTutorial/VBoxContainer" unique_id=1205493346]
+layout_mode = 2
+text = "Looting"
+label_settings = SubResource("LabelSettings_0c7y5")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="TutorialLayer/DragTutorial/VBoxContainer" unique_id=1967566695]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Equip items by dragging
+them from the loot slot below to the bag slot above
+Drag items to the sell area to sell them and receive gold
+Press \"Continue\" to finish looting
+Press \"Close\" below to close this tab"
+label_settings = SubResource("LabelSettings_tscpr")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="DragTutorialClose" type="Button" parent="TutorialLayer/DragTutorial/VBoxContainer" unique_id=1500019124]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_n1krg")
+text = "Close"
+
+[node name="UseTutorial" type="PanelContainer" parent="TutorialLayer" unique_id=589361257]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialLayer/UseTutorial" unique_id=1276265920]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="TutorialLayer/UseTutorial/VBoxContainer" unique_id=2139736827]
+layout_mode = 2
+text = "Using Items"
+label_settings = SubResource("LabelSettings_0c7y5")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="TutorialLayer/UseTutorial/VBoxContainer" unique_id=680062340]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Drag items outside the bag 
+to play them"
+label_settings = SubResource("LabelSettings_tscpr")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="UseTutorialClose" type="Button" parent="TutorialLayer/UseTutorial/VBoxContainer" unique_id=547245523]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_n1krg")
+text = "Close"
+
+[node name="TurnsTutorial" type="PanelContainer" parent="TutorialLayer" unique_id=159086115]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialLayer/TurnsTutorial" unique_id=1547142583]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="TutorialLayer/TurnsTutorial/VBoxContainer" unique_id=2108668434]
+layout_mode = 2
+text = "Turns"
+label_settings = SubResource("LabelSettings_0c7y5")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="TutorialLayer/TurnsTutorial/VBoxContainer" unique_id=145455136]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Remember that you have 
+limited amount of turns
+They're shown in the
+bottom left corner
+Press \"End turn\" in the
+bottom right corner to end
+your turn"
+label_settings = SubResource("LabelSettings_tscpr")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TurnsTutorialClose" type="Button" parent="TutorialLayer/TurnsTutorial/VBoxContainer" unique_id=1719304742]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_n1krg")
+text = "Close"
+
+[node name="GiveUpTutorial" type="PanelContainer" parent="TutorialLayer" unique_id=1925754526]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialLayer/GiveUpTutorial" unique_id=899021267]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="TutorialLayer/GiveUpTutorial/VBoxContainer" unique_id=916258225]
+layout_mode = 2
+text = "Giving Up"
+label_settings = SubResource("LabelSettings_0c7y5")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="TutorialLayer/GiveUpTutorial/VBoxContainer" unique_id=1107395873]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "If you can't beat the enemy, you can press give up button in the top left corner
+Don't worry, you'll keep gold, that you can then use to become stronger!"
+label_settings = SubResource("LabelSettings_tscpr")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="GiveUpTutorialClose" type="Button" parent="TutorialLayer/GiveUpTutorial/VBoxContainer" unique_id=1155652585]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_n1krg")
+text = "Close"
+
+[node name="Settings" type="CanvasLayer" parent="." unique_id=1904115199]
+
+[node name="Settings" parent="Settings" unique_id=1363030953 instance=ExtResource("58_0c7y5")]
+visible = false
+
 [node name="ShaderLayer" type="CanvasLayer" parent="." unique_id=1150912959]
 
 [node name="Fog" type="ColorRect" parent="ShaderLayer" unique_id=926152969]
@@ -996,3 +1189,7 @@ color = Color(0, 0, 0, 0)
 [connection signal="mouse_exited" from="CombatLayer/GiveUpButton" to="CombatLayer/GiveUpButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="CombatLayer/GiveUpButton" to="CombatLayer/GiveUpButton" method="_on_pressed"]
 [connection signal="pressed" from="GameOverScreen/PanelContainer/VBoxContainer/ProceedButton" to="." method="_on_proceed_button_pressed"]
+[connection signal="pressed" from="TutorialLayer/DragTutorial/VBoxContainer/DragTutorialClose" to="." method="_on_drag_tutorial_close_pressed"]
+[connection signal="pressed" from="TutorialLayer/UseTutorial/VBoxContainer/UseTutorialClose" to="." method="_on_use_tutorial_close_pressed"]
+[connection signal="pressed" from="TutorialLayer/TurnsTutorial/VBoxContainer/TurnsTutorialClose" to="." method="_on_turns_tutorial_close_pressed"]
+[connection signal="pressed" from="TutorialLayer/GiveUpTutorial/VBoxContainer/GiveUpTutorialClose" to="." method="_on_give_up_tutorial_close_pressed"]

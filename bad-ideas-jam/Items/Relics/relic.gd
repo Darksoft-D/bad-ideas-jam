@@ -7,6 +7,7 @@ class_name Relic
 @export var cost: int
 
 var scene: Stage
+var relic_base: RelicUI
 
 func assign(get_scene: Stage):
 	scene = get_scene

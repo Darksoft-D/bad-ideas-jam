@@ -11,6 +11,10 @@ extends Node
 @onready var hover: AudioStreamPlayer = $Hover
 @onready var deny: AudioStreamPlayer = $Deny
 @onready var game_over: AudioStreamPlayer = $GameOver
+@onready var pressed: AudioStreamPlayer = $Pressed
+@onready var boss_theme_full: AudioStreamPlayer = $BossThemeFull
+@onready var boss_theme_calm: AudioStreamPlayer = $BossThemeCalm
+@onready var coin: AudioStreamPlayer = $Coin
 
 func play_full():
 	if !battle_theme_2_calm.playing:
@@ -27,3 +31,19 @@ func play_calm():
 		battle_theme_2_full.play()
 	battle_theme_2_calm.volume_db = -20
 	battle_theme_2_full.volume_db = -80
+
+func play_boss_full():
+	if !boss_theme_calm.playing:
+		boss_theme_calm.play()
+	if !boss_theme_full.playing:
+		boss_theme_full.play()
+	boss_theme_calm.volume_db = -80
+	boss_theme_full.volume_db = -20
+
+func play_boss_calm():
+	if !boss_theme_calm.playing:
+		boss_theme_calm.play()
+	if !boss_theme_full.playing:
+		boss_theme_full.play()
+	boss_theme_calm.volume_db = -20
+	boss_theme_full.volume_db = -80

@@ -15,12 +15,15 @@ const ITEM_DELETE_ANIM = preload("uid://wjxuvesugdrd")
 @export var slots: Array[InvSlot] = []
 var selected_slot: InvSlot = null
 
+func _ready() -> void:
+	slots_num = Global.slots_num
+
 func generate_grid():
 	for i in slots_num:
 		var slot = INV_UI_SLOT.instantiate()
 		grid_container.add_child(slot)
 		slots.append(slot)
-	if slots_num == 9:
+	if slots_num > 6:
 		bag_size_1.hide()
 		bag_size_2.show()
 	connect_slots()
@@ -36,12 +39,11 @@ func increase():
 		slot.selected.connect(Callable(loot_manager, "on_slot_selected"))
 		slot.unselected.connect(Callable(loot_manager, "on_slot_unselected"))
 		slot.released.connect(Callable(loot_manager, "on_slot_item_released"))
-	if slots_num == 9:
+	if slots_num > 6:
 		bag_size_1.hide()
 		bag_size_2.show()
 
 func connect_slots():
-	print("Connect slots: ", slots)
 	if slots.is_empty():
 		return
 	for slot in slots:
@@ -95,11 +97,13 @@ func remove_item(item_ui: ItemUI):
 			add_child(remove_anim)
 			remove_anim.global_position = item_ui.global_position
 			slot.item_ui = null
+			for description in slot.descriptions:
+				slot.descriptions.erase(description)
+				description.queue_free()
 			item_ui.queue_free()
 			return
 
 func update_slots():
-	print("Updating slots")
 	for slot in slots:
 		if slot.item_ui:
 			slot.item_ui.queue_free()

@@ -33,6 +33,7 @@ var selected_slot: InvSlot
 var turns: int = 1
 var max_turns: int = 1
 var loot_bag: Bag
+var turns_tutorial_shown = false
 
 var helmet_of_hatred = false
 
@@ -69,7 +70,6 @@ func generate_loot():
 			loot.append(item)
 	loot_container.show()
 	button_container.show()
-	print("Loot: ", loot)
 	loot_bag = LOOT_BAG.instantiate()
 	loot_bag.items_resource.resize(9)
 	loot_bag.items_resource.fill(null)
@@ -97,7 +97,6 @@ func finish_looting():
 	get_parent().update_health()
 
 func on_slot_clicked(item_ui: ItemUI, slot: InvSlot):
-	print("On slot clicked")
 	SoundManager.item_pick_up.play()
 	if !player_turn:
 		return
@@ -105,7 +104,6 @@ func on_slot_clicked(item_ui: ItemUI, slot: InvSlot):
 		if !description:
 			slot.descriptions.erase(description)
 		else:
-			print(slot.descriptions)
 			slot.descriptions_container.remove_child(description)
 			item_ui.add_child(description)
 			item_ui.descriptions.append(description)
@@ -123,44 +121,51 @@ func on_slot_item_released(item_ui: ItemUI, slot: InvSlot):
 	if !player_turn:
 		return
 	is_looting = false
-	if selected_slot and !selected_slot.item_ui:
-		print("Selected Slot")
+	if selected_slot == slot:
+		item_ui.is_dragging = false
+		canvas_layer.remove_child(item_ui)
+		slot.sprite_pos.add_child(item_ui)
+		await slot.assign_item(item_ui)
+		slot.tooltip.show()
+	elif selected_slot and !selected_slot.item_ui:
 		SoundManager.item_equip.play()
 		item_ui.is_dragging = false
 		canvas_layer.remove_child(item_ui)
 		selected_slot.sprite_pos.add_child(item_ui)
 		slot.item_ui = null
 		selected_slot.assign_item(item_ui)
+		selected_slot.tooltip.show()
 	elif on_sell:
-		print("Sell")
+		SoundManager.coin.play()
 		Global.gold_amount += item_ui.item.cost/1.5
-		print(Global.gold_amount)
 		item_ui.queue_free()
 		Global.gold_changed.emit()
 	elif is_loot_opened or !item_ui.item.condition(get_parent()):
-		print("return")
 		item_ui.is_dragging = false
 		canvas_layer.remove_child(item_ui)
 		slot.sprite_pos.add_child(item_ui)
 		slot.assign_item(item_ui)
 	elif item_used and !item_ui.item.free:
-		print("return")
 		item_ui.is_dragging = false
 		canvas_layer.remove_child(item_ui)
 		slot.sprite_pos.add_child(item_ui)
 		slot.assign_item(item_ui)
 	else:
-		print("Use")
 		item_ui.used.connect(Callable(self, "on_used"))
 		if item_ui.item:
 			slot.item_ui = null
 			for description in slot.descriptions:
 				slot.descriptions.erase(description)
-				description.queue_free()
+				if description:
+					description.queue_free()
 			item_ui.item.use(get_parent().enemy, get_parent(), get_parent().player)
 	sell_container.hide()
 
 func on_used(item_ui: ItemUI):
+	if Global.is_tutorial and !turns_tutorial_shown and get_parent().enemy:
+		get_parent().turns_tutorial.show()
+		turns_tutorial_shown = true
+		get_parent().block_rect.show()
 	SoundManager.item_used.play()
 	if !item_ui.item.free:
 		turns -= 1
@@ -172,7 +177,6 @@ func on_used(item_ui: ItemUI):
 	var used_anim = ITEM_DELETE_ANIM.instantiate()
 	item_ui.get_parent().add_child(used_anim)
 	used_anim.global_position = item_ui.global_position
-	print(used_anim)
 	if item_ui.item.item_type == InvItem.type.ATTACK:
 		var damage_label = DAMAGE_LABEL.instantiate()
 		canvas_layer.add_child(damage_label)

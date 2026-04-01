@@ -34,7 +34,6 @@ func _process(delta: float) -> void:
 func assign_item(get_item: InvItem):
 	if !get_item:
 		return
-	print("assign")
 	item = get_item.duplicate()
 	texture = item.texture
 	var target_size = Vector2(32, 32)

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_nwhob")
 name = "Creation Necklace"
-description = "Add random item to the bag on every 3rd turn"
+description = "Add random item to the bag on every 5th turn"
 texture = ExtResource("2_nwhob")
 cost = 30
 metadata/_custom_type_script = "uid://jhey672pi0cc"

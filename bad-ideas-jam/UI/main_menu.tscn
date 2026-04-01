@@ -4,9 +4,31 @@
 [ext_resource type="Texture2D" uid="uid://bbixfxe5hfup6" path="res://assets/Tiles/orig_big.png" id="1_d8nwk"]
 [ext_resource type="Theme" uid="uid://k8guhunfqs27" path="res://UI/theme2.tres" id="2_4cwpn"]
 [ext_resource type="FontFile" uid="uid://bs84fu6fpsg42" path="res://assets/Fonts/KiwiSoda.ttf" id="3_f40uw"]
+[ext_resource type="PackedScene" uid="uid://cgkw6vyhdegq0" path="res://UI/settings.tscn" id="5_f40uw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8ctay"]
 font_size = 64
+
+[sub_resource type="Gradient" id="Gradient_f40uw"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vggli"]
+gradient = SubResource("Gradient_f40uw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8ctay"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(140, 100, 100)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+angular_velocity_min = 0.0999839
+angular_velocity_max = 0.4999839
+gravity = Vector3(0, 0, 0)
+damping_min = 0.1
+damping_max = 0.3
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_vggli")
 
 [node name="MainMenu" type="Control" unique_id=1374213355]
 layout_mode = 3
@@ -28,7 +50,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 0.5)
 
-[node name="Label" type="Label" parent="." unique_id=1962143246]
+[node name="NameLabel" type="Label" parent="." unique_id=1962143246]
 layout_mode = 0
 offset_left = 356.0
 offset_top = 189.0
@@ -65,6 +87,25 @@ layout_mode = 2
 theme = ExtResource("2_4cwpn")
 theme_override_font_sizes/font_size = 48
 text = "Settings"
+
+[node name="Settings" parent="." unique_id=1363030953 instance=ExtResource("5_f40uw")]
+visible = false
+layout_mode = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1219474936]
+position = Vector2(587, 345)
+scale = Vector2(4, 4)
+amount = 500
+lifetime = 8.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_8ctay")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1756296747]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
 
 [connection signal="mouse_entered" from="VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/StartButton" to="." method="_on_start_button_mouse_exited"]

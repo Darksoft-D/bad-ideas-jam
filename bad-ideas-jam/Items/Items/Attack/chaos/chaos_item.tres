@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://dca2kg26qhrt4"]
+[gd_resource type="Resource" script_class="Chaos" format=3 uid="uid://dca2kg26qhrt4"]
 
 [ext_resource type="Script" uid="uid://cur2wp1ff7ajq" path="res://Items/Items/Attack/chaos/chaos.gd" id="1_xlt0o"]
 [ext_resource type="Texture2D" uid="uid://ba4oyra8f3uob" path="res://assets/Textures/ItemTextures/fb1743.png" id="2_xlt0o"]
@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_xlt0o")
 name = "Blood Dagger"
-description = "Destroy random item every turn, deal [color=red]8 damage[/color] for every destroyed item"
+description = "Destroy random item every turn, deal {damage} for every destroyed item"
 texture = ExtResource("2_xlt0o")
 cost = 15
 damage = 8

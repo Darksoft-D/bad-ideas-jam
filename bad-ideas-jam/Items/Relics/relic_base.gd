@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	panel_container.global_position = get_global_mouse_position() + Vector2(5, 5)
 
 func assign_relic(get_relic: Relic):
-	relic = get_relic.duplicate()
+	relic = get_relic
 	texture = relic.texture
 	name_label.text = relic.name
 	description_label.text = relic.description
